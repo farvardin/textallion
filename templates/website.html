@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+<head> 
+  <title>%%DOCUMENT TITLE%%</title> 
+  <meta name="generator" content="http://textallion.googlecode.com" /> 
+  <meta content="minimum-scale=0.5, width=device-width, maximum-scale=2.0, user-scalable=yes" name="viewport" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="copyright" content="Copyright (c) %%DOCUMENT AUTHOR%%" /> 
+  
+   
+  <style type="text/css"> 
+    @font-face {
+	/* optionnal */
+	/* see http://code.google.com/webfonts */
+	/* example with http://www.google.com/webfonts/family?family=Goudy+Bookletter+1911&subset=latin#code 
+	 * Just add "CustomFont" (and rename it if you prefer), before serif in the body {}, or remove it if you don't want this */
+	font-family: "CustomFont";
+	font-style: normal;
+	font-weight: normal;
+	src: url("http://themes.googleusercontent.com/font?kit=l5lwlGTN3pEY5Bf-rQEuILmKcuvUA98TddnVPjOJl_w");	
+}
+
+
+body { 
+	margin:2em;
+	padding:1.2em;
+	/*font-size:1.2em;*/
+	font:1.500em/1.625em CustomFont, serif;
+	background-color:#FFFEF0;
+	font-size-adjust:0.4;
+    /*font-style:normal;
+    font-variant:normal;
+    font-weight:normal;*/
+    color:#333;
+}
+
+
+
+p { 
+  background-color:#FFFEF0; 
+  text-indent:1.625em;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  text-align: justify;
+}
+
+a {
+	color:#09c;
+	text-decoration:none;
+	}
+	
+a:link {color:#057;}
+a:visited {color:#046;}
+a:hover {background-color:#eee; text-decoration: none; border-bottom: 1px solid #ccc }
+
+.left-element {
+   position: absolute;
+   left: 4em;
+   width: 50%;
+   }
+
+.right-element {
+   position: absolute;
+   right: 4em;
+   width: 50%;
+   text-align: right; /* depends on element width */
+   } 
+
+  </style> 
+</head>
+<body>
+
+
+
+<h1>%%DOCUMENT TITLE%%</h1>
+<h2>%%DOCUMENT AUTHOR%%</h2>
+
+
+<div class="right-element">
+	<!-- Uncomment and eventually edit the part below if you wish to add a picture on the right of your web page -->
+	<!--<img src="%%DOCUMENT COVER%%" src="cover" />-->
+</div>
+
+
+<div class="left-element">
+    
+<ul>
+
+<li><a href="%%DOCUMENT%%.html">HTML document</a> </li>
+
+<li><a href="%%DOCUMENT%%.pdf">PDF document</a> </li>
+
+<li><a href="%%DOCUMENT%%.epub">EPUB document</a></li>
+
+</ul>
+
+
+
+<script type="text/javascript" charset="utf-8">
+s = 120; // QR Code dimensions
+url = encodeURIComponent(window.location.href);
+qrcode = "http://chart.apis.google.com/chart?cht=qr&chs="+s+"x"+s+"&chl="+url;
+document.write('<img src="'+qrcode+'" alt="Qr Code of this page" title="Qr Code of this page" />');
+</script>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,71 @@
+%% TEXTALLION
+%% http://textallion.googlecode.com
+%% LaTeX template 
+
+\documentclass[openany]{book} %% openany to remove the blank pages
+%%\documentclass[oneside]{book}
+%%\documentclass{article}
+%%\documentclass[twoside]{article}
+%%\noitemsep ?
+%% book = margins are shifted
+%% article = no shift for margins
+
+\usepackage[pdftex]{graphicx}
+\usepackage{paralist} %% needed for compact lists
+\usepackage[normalem]{ulem} %% needed by strike
+%%\usepackage[urlcolor=blue,colorlinks=true]{hyperref}  %%hyperref defined elsewhere
+\usepackage[%(ENCODING)s]{inputenc}  %% char encoding
+\usepackage{%(STYLE)s}  %% user defined
+
+
+
+%%---------------- Author & Metatags ------------------------------------
+
+\def\DOCUMENTxTITLE{xx DOCUMENT TITLE xx} %% Titre of the document
+\def\PDFAUTHOR{xx DOCUMENT AUTHOR xx}      %% Authors
+\def\PDFTITLE{\DOCUMENTxTITLE}      %% copy of Titre of the document
+\def\PDFSUBJECT{xx DOCUMENT TAGS xx} %% Subjet
+\def\PDFKEYWORDS{xx DOCUMENT TAGS xx}   %% keywords, tags
+\def\PDFCREATOR{Textallion, txt2tags, PdfTeX}   %% Sofware which made this document
+\def\PDFPRODUCER{Textallion}         %% Compagny which made the software
+
+%% 
+
+\usepackage[english,frenchb,francais]{babel}  
+\usepackage[T1]{tipa}                       %% additionnal fonts
+\usepackage[\DEFAULTxFONTxSIZE pt]{extsizes} 
+\usepackage[cm]{aeguill}                    %% French guillemets
+\usepackage[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm},\GEOMETRYxADDITIONALxOPTION]{geometry}       %% paper and text size
+\usepackage{TEXTALLIONPATH/core/textallion}  %% basic LaTeX definitions for textallion
+
+\def\MYxFONT{\rm}   %% For correcting footers
+\def\MYxFONTxMONO{}   %% For correcting code area
+
+%%
+%% ------------ FONTS ---------------------------------------------------
+\renewcommand{\rmdefault}{\DEFAULTxFONT} 
+%%
+
+
+
+\title{%(HEADER1)s}
+\author{%(HEADER2)s}
+\begin{document}
+
+\raggedbottom %% avoid vertical jutification
+
+\date{%(HEADER3)s}
+\maketitle
+%% remove first page numbering on the cover
+\thispagestyle{empty}
+%%\setcounter{page}{0}
+
+\clearpage
+
+%%\pagestyle{headings} %% page numbers_
+%%\pagenumbering{roman} %% Roman numerals
+%%\setcounter{page}{2}
+
+%(BODY)s
+
+\end{document}

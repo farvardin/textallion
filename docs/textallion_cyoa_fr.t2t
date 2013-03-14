@@ -1,0 +1,234 @@
+Textallion, un système de livres-jeux
+Eric Forgeot
+%%date(%Y-%m-%d)
+
+
+% Tiny, almost-KISS word processor
+% http://textallion.googlecode.com
+
+%% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
+%!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Eric Forgeot'
+%!postproc(tex): 'xx DOCUMENT TAGS xx' 'documentation, manual, manuel'
+
+
+%% DEF PERSONAL STYLE (usually called something like sample.sty and/or sample.css) 
+%!style(tex): ../includes/sample
+%!style(xhtml): ../includes/sample.css 
+
+%% DEF PERSONAL CLASS
+%%!postproc(tex): '\\documentclass{article}' '\\documentclass{myclass}'
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+%% Alternative definitions path for TEXTALLION (not enabled)
+%--!includeconf: /usr/share/textallion/textallion.t2t
+%--!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'
+
+
+%% DEF additional macros (can be removed)
+
+%!includeconf: documentation_symbols_inc.t2t 
+
+%!--preproc(tex): "$" '{//..}'
+%(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
+
+%!--preproc(tex): "==" '++'
+
+%for adding IPA fonts (fontenc is included within tipa)
+%!postproc(tex): '\{fontenc\}' '{tipa}' 
+
+%!postproc(tex): 'IPATEXTALLION' '\\textipa{tEkstalj\~O}'
+%!postproc(xhtml): 'IPATEXTALLION' 'tɛkstaljɔ̃'
+
+
+%% adding an "alt" attribute to images with the syntax [image.jpg]{alt:your alternative text}
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\"\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\3" title="\3"/>'
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\" ([^ ].*?)\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\4" title="\4" \2/>'
+
+% ( *) = zero or more whitespace
+
+
+%% Ellipsis (points de suspension) : ... (not activated by default)
+%!postproc(xhtml): '\.\.\.' &hellip;
+%!postproc(tex):  '\.\.\.' \dots
+
+%% 
+%!preproc: ';' '¯;'
+%-!preproc: '¯¯;' '¯;'
+
+
+%% for numbering titles
+
+%-!preproc: '==== ([^ ].*?) ====' '@@@@ \1 @@@@'
+%-!preproc: '=== ([^ ].*?) ===' '+++ \1 +++'
+%-!preproc: '== ([^ ].*?) ==' '++ \1 ++'
+%-!preproc: '= ([^ ].*?) =' '+ \1 +'
+%-!preproc: '@@@@ ([^ ].*?) @@@@' '==== \1 ===='
+
+
+
+@@renewcommand@@sfdefault((phv))**
+
+%%%% Début de VOTRE document %%%%
+
+== Présentation ==
+
+Avec textallion, vous pouvez créer des « livres dont vous êtes le héros » (ou « aventures dont vous êtes le héros », en anglais « choose your own adventure », abrégés en ldvelh, avh ou cyoa), à l'aide du module //txt2CYOA// inclus. Ces histoires se lisent comme un livre classique, si ce n'est qu'elles offrent plusieurs choix à certains moments-clés de l'aventure, et c'est au lecteur de prendre des décisions pour le déroulement des événements.
+
+La conception de vos livres-jeux avec textallion se fait avec un éditeur de texte, à l'aide d'une syntaxe très simple. 
+
+Une fois l'aventure réalisée, il faut pouvoir la diffuser. C'est pourquoi textallion propose différentes possibilités d'export : PDF pour imprimer, ePUB pour publier sur livre électronique, tablette ou smartphone, HTML pour publier sur site internet. L'export HTML est d'ailleurs riche de plusieurs moteurs de rendu (Ramus, Twee, Undum, ChoiceScript...). Enfin, quelques autres formats utilisés par des systèmes de fictions interactives (Inform, Ren'PY) permettront d'étendre encore plus les possibilités d'expérimentation.
+
+
+
+Nous allons maintenant voir la syntaxe de ce système, qui est calquée sur celle de [txt2tags http://www.txt2tags.org].
+
+
+=== Chapitres ===
+
+Chaque chapitre délimite un espace de rédaction, et se termine par une action à choisir entre une ou plusieurs options. Avec une seule option, ce n'est bien entendu pas encore tout à fait un choix, mais ça permet de conduire l'action vers un nouveau chapitre et pourquoi pas de relancer l'action ou de créer une tension, une attente. Avec deux, trois ou quatre options (voire plus), le lecteur se voit offrir plusieurs opportunités pour personnaliser son aventure.
+
+Vos paragraphes (chapitres, sections...) seront créés en utilisant la balise standard de txt2tags pour les titres niveau 2 :
+
+
+```
+== z ==
+```
+
+
+Important : Vous devez laisser un espace de chaque côté du nombre pour créer l'ancre du paragraphe, qui servira lors de l'appel d'un lien depuis un autre paragraphe.
+
+
+=== Choix ===
+
+Pour créer un choix on peut utiliser ces 2 formules :
+
+
+```
+- Description du choix : z
+- Description du choix : [z #z]. Et quelques mots ensuite.
+```
+
+
+avec z symbolisant le numéro de votre paragraphe. Textallion sera capable de détecter qu'il s'agit d'un choix, et le reliera automatiquement au paragraphe de destination.
+
+Il est obligatoire d'utiliser la syntaxe ``[z #z]`` si le nombre est suivi de quelque chose et n'est pas tout seul à la fin de la ligne. Pour pouvoir bénéficier de toutes les possibilités d'export dans tous les formats proposés, il est conseillé de s'en tenir à la première possibilité d'écriture.
+
+
+=== Réflexions sur le systèmes utilisé ===
+
+
+Maintenant que la syntaxe a été dévoilée, nous souhaiterions revenir sur le concept de livre-jeu : diverses solutions existent pour créer de telles oeuvres, par exemple une interface avancée de programmation qui s'occupe de lister les embranchements existants, ceux disponibles, ou bien qui mélange aléatoirement les chapitres. De telles interfaces ont leurs raisons d'être, mais nous préférons utiliser pour notre part la simplicité du texte brut.
+
+Nous ne sommes pas en mesure de fournir une telle interface, mais une solution approchante existe, partiellement, avec le logiciel [Twine  http://gimcrackd.com/etc/src/]. De plus, nous avons réalisé un petit script (core/twee_to_textallion.sh) permettant de convertir du format de twee vers celui de textallion.
+
+
+D'autre part, pour la présentation des paragraphes, nous encourageons à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer le support complet pour les mots-clés.
+
+
+
+=== Syntaxe alternative pour les choix ===
+
+//Il n'est pas recommandé d'utiliser cette syntaxe car elle peut entrer en conflit avec d'autres options (comme les graphiques)//
+
+Il est possible d'avoir des liens plus imagés avec :
+
+```
+==17==[nom_du_lien]
+``` 
+
+et l'appel à ce paragraphe sera ainsi :
+
+```
+- Aller à ce paragraphe : [17 #nom_du_lien]
+```
+
+Important : Il ne faut pas d'espace autour du nombre
+
+
+Vous pouvez également créer un lien nommé, et rediriger vers un chapitre standard :
+
+```
+- Entrer [dans la maison 17]
+```
+
+Cela retirera le nombre dans le texte affiché, mais le lien HTML contiendra toujours la référence de ce nombre, aussi vos joueurs pourront quand même le lire. Dans la version PDF, le lien ne fonctionne pas (pour le moment). Cette option est sans doute uniquement utile dans le cas d'une version {^}ePUB{^} seule.
+
+
+=== Images ===
+
+Vous pouvez ajouter des images avec ``[votreimage.jpg]`` (ou .png)
+Pour utiliser des images incluses dans le texte, on peut utiliser la syntaxe 
+
+```
+[votreimage.jpg](~~~~)
+```
+
+//(comme dans textallion)//
+
+
+=== Organigramme ===
+
+Il est possible d'obtenir un organigramme avec tous les chapitres reliés entre eux. Il faut le programme graphviz pour cela et veuillez à bien débuter les options possibles avec un tiret et de terminer chaque ligne par le chapitre choisi.
+
+Le plus simple est d'utiliser un environnement Unix et de taper « make all » pour obtenir directement les versions html et pdf ainsi que l'organigramme en png et svg.
+
+*-*-
+
+=== Exports vers d'autres formats ===
+
+
+- Création des documents finaux : 
+Un menu pour cela existe dans le script « textallion.sh », ou sinon vous pouvez utiliser le makefile, sur le modèle de celui de textallion, avec le préfixe cyoa- devant :
+
+ - **``make cyoa-html``** : génère le fichier HTML destiné à être publié sur internet  
+ - **``make cyoa-pdf``** : génère le fichier PDF destiné à l'impression  
+ - **``make cyoa-epub``** : génère le fichier {^}ePUB{^} destiné à être joué sur liseuse ou téléphone (android, iphone, ipad)
+ - ``make cyoa-ramus``: Utilise [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] comme format d'affichage alternative en HTML (le fichier final sera renommé _ramus.html à la fin)
+ - ``make cyoa-graph`` : génère l'organigramme
+ - ``make cyoa-play`` : lance le fichier HTML de base avec le navigateur défini dans le makefile (par défaut firefox)
+ - ``make cyoa-cs`` (ou ``make cyoa-choicescript``): converti votre jeu vers le format [ChoiceScript http://www.choiceofgames.com/], sous le dossier votre_jeu_choicescript. Attention, à chaque appel de ``make cyoa-cs``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
+ - ``make cyoa-hyena`` : converti votre jeu vers le format [Hyena http://www.projectaon.org/staff/jens/], sous le nom votre_jeu_export.gamebook
+ - ``make cyoa-renpy`` : converti votre jeu vers le format [Renpy http://renpy.org/], dans le dossier votre_jeu_renpy. Attention, à chaque appel de ``make cyoa-renpy``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
+ - ``make cyoa-undum`` : converti votre jeu vers le format [Undum http://undum.com], sous le dossier votre_jeu_undum. Attention, à chaque appel de ``make cyoa-undum``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).           
+ - ``make cyoa-inform7`` : converti votre jeu vers un code source utilisable dans [Inform 7 http://inform7.com], avec une extension .i7.
+ 
+
+Si vous choisissez de créer vos jeux avec textallion, en plus des exports PDF, HTML et {^}ePUB{^}, vous pourrez également exporter dans ces formats :
+
+- [Renpy http://www.renpy.org] est un format populaire pour la création de romans visuels. L'export depuis textallion va recréer vos paragraphes et vos choix dans le format utilisé par Renpy, en générant un dossier de travail contenant tout ce qu'il faut pour le relire depuis le logiciel Renpy. Vous veillerez à déplacer ensuite ce dossier dans l'espace de travail par défaut de Renpy, pour retravailler ce projet (rajout de documents multimedia notamment, images, sons...). Attention, la commande ``make cyoa-renpy`` détruit le dossier précédemment généré, pour complètement le remplacer par un nouveau. Si vous souhaitez rajouter des éléments dans le code Renpy, soit vous modifier le makefile en conséquence, soit vous le déplacer comme indiqué précédemment. 
+
+Pour signifier l'arrêt du jeu, toute occurence de "THE END" conduira vers la fin du fichier, terminant la partie.
+L'inclusion d'images sera convertie dans le format de Renpy, et à chaque nouvelle page, l'image de fond recouvrira les images déjà affichées. Pour cacher proprement les images, bien que cela ne soit pas une obligation, il est conseillé de rajouter ``$ hidemypic("mon_image.jpg")`` à la fin du paragraphe après l'utilisation d'une image donnée.
+
+- [Hyena http://www.projectaon.org/staff/jens/] est le format utilisé par le Projet Aon (version gratuite de Loup Solitaire). Il existe également une implémentation permettant de rejouer ces jeux, avec [gamebook-engine http://www.freegameengines.org/gamebook-engine/]
+
+- [Inform 7 http://inform7.com] est un système de création de fictions interactives. Il peut créer des jeux type LDVELH avec l'extension [Adventure Book by Edward Griffiths http://inform7.com/extensions/Edward%20Griffiths/Adventure%20Book/index.html]. Vous devez bien entendu l'avoir installé avant de l'utiliser dans Inform7. 
+
+Le fichier résultant du passage dans textallion sera votre_jeu.i7. Vous le convertirez en zcode (.z5) au moyen d'Inform7.
+
+De plus, vous devrez sans doute éditer un peu la source avant d'être capable de la compiler dans Inform7, par exemple supprimer les lignes faisant référence à "Page0". Et un texte dans le genre de "Ce qui vous conduit au 14" sera converti en "Ce qui vous conduit au ''****''" (4 étoiles), aussi vous voudrez sans doute éditer cela également (par exemple par ''...'' ou un texte plus adapté).
+
+
+- [twee(code) / Twine http://gimcrackd.com/etc/src/] est un format de livre-jeu utilisable sur internet, basé sur tiddlywiki. La commande ``make cyoa-twee`` exporte dans ce format. (La version de twee sur le site officiel est buggée, donc nous utilisons une [version patchée https://github.com/mcdemarco/twee]).
+Le script core/twee_to_textallion.sh permet d'exporter vers textallion un travail réalisé dans Twine.
+
+
+
+=== Note sur la création des chapitres ===
+
+Il faut d'abord estimer la taille approximative de l'aventure. Va-t-elle faire 50, 200 ou 400 paragraphes ? 
+
+Commencer au chapitre 1, puis broder les chapitres en en rajoutant entre 1 et 50 par exemple, ensuite revenir sur cet intervale pour compléter l'histoire. S'il y a des trous, redécouper les chapitres existants.
+
+
+
+== Quelques liens ==
+
+- http://www.geste-maldoror.com/xhoromag/Xhoromag/Advelh.htm
+- http://cyoa.hostzi.com/
+- http://rdv1.dnsalias.net/forum/
+- http://www.la-taverne-des-aventuriers.com/

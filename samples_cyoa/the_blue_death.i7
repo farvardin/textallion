@@ -1,0 +1,277 @@
+"xx DOCUMENT TITLE xx" by xx DOCUMENT AUTHOR xx
+
+Include Adventure Book by Edward Griffiths.
+
+
+The first Page is a page. "Starting the game..." It is followed by Page1.
+
+The Page0 is a page. "The Blue Deathby Otto Grimwald  ".
+
+
+A choice called Page0ChoiceA is for Page0. "Start the game". It triggers Page1.
+The Page0 is a page. " ".
+
+
+A choice called Page1ChoiceA is for Page1. "Stand up". It triggers Page19.
+The Page1 is a page. " I'm falling down. Not very far from the “ground”, fortunately for me. Some thick, heavy ropes are softening my falling. I've probably missed my step, because I'm absent-minded most of the time now. ".
+
+
+A choice called Page2ChoiceA is for Page2. "Despite my protests, I am sent to jail". It triggers Page48.
+The Page2 is a page. " As soon as I enter the big building, some officiers catch me, for the reason of escaping a residence I was supposed to stay in, having been legally bought by Mr and Mrs Caesar. ".
+
+
+A choice called Page3ChoiceA is for Page3. "But I can give them a fair correction". It triggers Page23.
+A choice called Page3ChoiceB is for Page3. "Or I can crawl back to the safety of the upper deck". It triggers Page5.
+The Page3 is a page. " They are a bunch of six mariners. They're just having fun after all. ".
+
+
+A choice called Page4ChoiceA is for Page4. "Be rude, but direct". It triggers Page35.
+A choice called Page4ChoiceB is for Page4. "Be soft, but verbose". It triggers Page28.
+The Page4 is a page. " I ring the bell at the door. Beatrix doesn't seem very happy to see me. She was a good friend of mine before, so I don't understand her new reluctance. She wears a pretty, light, white and gray dress, and I sense such poetry in the air that I want to tell her about what I have in my mind. ".
+
+
+A choice called Page5ChoiceA is for Page5. "After some time, we arrive to New Londrin Haven, and I enter the city triumphally". It triggers Page25.
+A choice called Page5ChoiceB is for Page5. "But before that, I could explore the haven a bit, adding less prestige to my arrival". It triggers Page27.
+The Page5 is a page. " This deck is usually reserved to the first-class passengers. I hope some officers won't notice me or I'll be in great trouble. I've got this job on a ship to pay my travel to the Great Continent, which had been rediscovered only a few centuries ago. Meanwhile, I've always been curious about the life there, to discover if people were like us or if their culture was far too exotic to be able to live far over there. I've also tried to learn bits of their difficult language, and forced myself to use it on a daily basis. So I moved to Iricimia, which has a similar language, and even if I still don't master it, I lived there for a while, then decided to embark on this ship. ".
+
+
+A choice called Page6ChoiceA is for Page6. "Propose her appartment". It triggers Page42.
+A choice called Page6ChoiceB is for Page6. "Propose my appartment". It triggers Page38.
+A choice called Page6ChoiceC is for Page6. "Propose to get an ale in the nearby tavern". It triggers Page7.
+The Page6 is a page. " We enter a snobbish tea-house, in a touristic area. We quickly get bored in this place, so I propose we search a more pleasant place to entertain ourselves. ".
+
+
+The Page7 is a page. " Entering the tavern, I see some of my former comrades from the ship. Surprisingly, they are not that much hostile to my presence. We take a beer together, then an other, and I end the night dancing on the tables, to the great joys of the maids here who are clapping their graceful hands in rhythm. I appreciate this simple life, and no longer fear the blue terror I used to feel in the past. ". 
+It is followed by GameEnd.
+
+
+A choice called Page8ChoiceA is for Page8. "If I'm lucky". It triggers Page18.
+A choice called Page8ChoiceB is for Page8. "If I'm not lucky". It triggers Page51.
+The Page8 is a page. " Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+
+
+A choice called Page9ChoiceA is for Page9. "If I'm lucky". It triggers Page32.
+A choice called Page9ChoiceB is for Page9. "If I'm not lucky". It triggers Page49.
+The Page9 is a page. " The opposition is full of nice persons, however, I can't garantee the leaders are politically clean. Some people claims they're even infiltrated by the Indigo Love Syndicate. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+
+A choice called Page10ChoiceA is for Page10. "Approach the lady". It triggers Page37.
+A choice called Page10ChoiceB is for Page10. "Follow my previous comrades into the tavern". It triggers Page7.
+A choice called Page10ChoiceC is for Page10. "Come back home". It triggers Page31.
+The Page10 is a page. " The docks are not a pleasant place for a delicate person like me. I get the feeling that I may become an easy prey for most of the vultures here. I notice a handsome woman waiting on the pier. Some sailors I met on the ship are calling me, while entering a tavern. ".
+
+
+A choice called Page11ChoiceA is for Page11. "Read the poster". It triggers Page27.
+A choice called Page11ChoiceB is for Page11. "Exit". It triggers Page25.
+The Page11 is a page. " Impassive to the human's emotions, the ship is reaching the morning mists of the other continent. Setting my foot on the pier for the first time after three weeks of spiritual torture, I feel dizzy and completely at loss. There is a big poster on the grey wall, and an exit to the rest of the town. ".
+
+
+A choice called Page12ChoiceA is for Page12. "She tells me she regrets her overreaction, and propose we take a drink in a teahouse in the surroundings". It triggers Page6.
+The Page12 is a page. " Before doing a frightful jump, I notice the shadow of Beatrix arriving behind me, upset and worried about myself. ".
+
+
+A choice called Page13ChoiceA is for Page13. "North, to our original the destination, the New Continent". It triggers Page11.
+A choice called Page13ChoiceB is for Page13. "South, to reach a little island he's just discovered with his telescope". It triggers Page30.
+A choice called Page13ChoiceC is for Page13. "West, to explore more the vast blue Ocean". It triggers Page43.
+A choice called Page13ChoiceD is for Page13. "East, back to our land of departure". It triggers Page24.
+The Page13 is a page. " The captain, arriving a moment later, feels sorry for his men's rude behavior. Bowing deeply, he requests my opinion on the route to take. Am I dreaming? Is he insane? Or maybe it's just a sick pity. Should we head: ".
+
+
+The Page14 is a page. " Death can be sweet, when it's so blue! ". 
+It is followed by GameEnd.
+
+
+A choice called Page15ChoiceA is for Page15. "Explore more". It triggers Page21.
+A choice called Page15ChoiceB is for Page15. "Go back to the boat". It triggers Page11.
+The Page15 is a page. " The sun is high in the sky, yet I feel a chill devoring my neck and my ribs. I remember my childhood in Francimia, my games in the trees and between the rare green hills of the family's domain. Later, still in the trees, reading fantasy books lying on the red and purple carpet in my hut 8 meters above the ground. I remember my mother calling me, with her high pitched voice, to eat the "Gargouaillotte à la Pisaille", a local dish. I suddenly feel I'm turning around. ".
+
+
+A choice called Page16ChoiceA is for Page16. "A few days later, I was sold to a rich family". It triggers Page45.
+The Page16 is a page. " I couldn't imagine being sold as a slave would be like this. It was certainly not the marketplace we could think of, I was just conducted to a dark, moisty, cellar, where I bored to death. ".
+
+
+A choice called Page17ChoiceA is for Page17. "Drown deeper to the ****". It triggers Page14.
+The Page17 is a page. " I dive into the dark water. Soon I feel so alone that I stop breathing. ".
+
+
+A choice called Page18ChoiceA is for Page18. "I can continue my walk to the ****". It triggers Page25.
+The Page18 is a page. " The walls are now cleaner without this sick poster. ".
+
+
+A choice called Page19ChoiceA is for Page19. "Rebel". It triggers Page3.
+A choice called Page19ChoiceB is for Page19. "Wait". It triggers Page13.
+A choice called Page19ChoiceC is for Page19. "Jump into the sea ****". It triggers Page17.
+A choice called Page19ChoiceD is for Page19. "or look around on the ship, fleeing cowardly to the ****". It triggers Page5.
+The Page19 is a page. " I've felt depressed so many years that I can't stand it any longer. Besides, my current residence and occupation is endangering my sanity and health more and more... The blue ocean, spreading endlessly toward the north, the east, the south and the west, is reflecting the sun like a glittering chainmail. “Hey Francimi bastard! Come here!”, they shout. Surrounded by those Scottani and Iricimi strangers, I don't feel at ease in this place. Their green and dark-orange helmets make me nervous. I don't really need to obey, they're just basic sailors like me. But could I bear the insults? ".
+
+
+A choice called Page20ChoiceA is for Page20. "They give me another office number, on the fifth floor, leading me to ****". It triggers Page53.
+The Page20 is a page. " They tell me with an irritated tone, that I made a mistake. It's not there any longer. ".
+
+
+A choice called Page21ChoiceA is for Page21. "Explore more". It triggers Page15.
+A choice called Page21ChoiceB is for Page21. "Go back to the boat". It triggers Page11.
+The Page21 is a page. " At the age of 19, I went to the town nearby, for learning how to become a librarian. My father was somehow disappointed, because he wanted me to be an artist. I kept nevertheless my accordion with me, to please him. Damned mosquitoes! With all those flying pests, it's difficult to concentrate. ".
+
+
+A choice called Page22ChoiceA is for Page22. "Meet the local authorities, to announce myself and be registered". It triggers Page44.
+A choice called Page22ChoiceB is for Page22. "Learn more about the customs and traditions". It triggers Page33.
+The Page22 is a page. " This city is bigger than the standard we can expect on the Old Continent. Huge, pompous, airships are crossing the airs, but also a few aeroplanes, more than in Euralinia. The houses there are wealthier, with influences from the far eastern cities of Asinalia, denoting a strong taste for delicate yet powerful ornaments. I don't really like this at all. What can I do now? ".
+
+
+A choice called Page23ChoiceA is for Page23. "They throw me off-board to the ****". It triggers Page17.
+The Page23 is a page. " Some trained, numerous sailors are certainly stronger than a poor wanderer who has always lived on the ground, between the local library and the university. ".
+
+
+A choice called Page24ChoiceA is for Page24. "Restart the journey". It triggers Page1.
+A choice called Page24ChoiceB is for Page24. "Visit the docks". It triggers Page10.
+A choice called Page24ChoiceC is for Page24. "Travel back home". It triggers Page31.
+The Page24 is a page. " The ship was probably not having enough goods and supply, and it was not a surprise it would need to travel back to our country of origin. Disappointed and tired, the sailors are leaving the boat in a disciplined row. Used to small local travels, they won't see this new Continent everybody is talking about. I'm nonetheless happy to be here, and to get rid of them all. ".
+
+
+A choice called Page25ChoiceA is for Page25. "Meet the local authorities, to announce myself and be registered". It triggers Page44.
+A choice called Page25ChoiceB is for Page25. "Learn more about the customs and traditions". It triggers Page33.
+A choice called Page25ChoiceC is for Page25. "Steal some goods, nobody knows me here after all". It triggers Page40.
+The Page25 is a page. " This city is bigger than the standard we can expect on the Old Continent. Huge airships are crossing the airs, but also a few aeroplanes, more than in Euralinia. The houses there are wealthier, with influences from the far eastern cities of Asinalia, denoting a strong taste for delicate yet powerful ornaments. Such dedications for inspirating motives makes me cheerful, helping me to forget my spiritual loneliness.The sun is beginning to annihilate the moisty effects of the mist, casting some orange lights on the walls. What can I do now? ".
+
+
+A choice called Page26ChoiceA is for Page26. "With some peace of mind and forgetting the luring greenness of the mountain, I row back to the boat". It triggers Page11.
+The Page26 is a page. "  ".
+
+
+A choice called Page27ChoiceA is for Page27. "Tear the poster apart". It triggers Page8.
+A choice called Page27ChoiceB is for Page27. "Pray in front of this colorful and appeasing poster". It triggers Page36.
+A choice called Page27ChoiceC is for Page27. "Exit immediately". It triggers Page25.
+The Page27 is a page. " The most notable thing in this place is a poster printed on an indigo background. Some big, pink letters are saying:  There is no clear way to contact them. Probably they became so powerful recently that it's easy to find them. We'll see! ".
+
+
+A choice called Page28ChoiceA is for Page28. "Invite her to a teahouse, for talking more about important matters". It triggers Page6.
+A choice called Page28ChoiceB is for Page28. "Leave her now, in order to increase her effervescency, and don't arrive too late at my home". It triggers Page38.
+The Page28 is a page. " I tell her about my philosophy of life, and the great goals everyone would like to achieve in the universe. I tell her about beauty, about the will, about ascetism and humility. Crying, the woman embrasses me, embarrassingly hanging to my neck, disowning her previous lovers. ".
+
+
+The Page29 is a page. " As soon as I enter the cyclopean building, I know this is the perfect place for me, a whole lifetime of commitment for serving literature, even with my approximative grammar and my Francimi accent. ". 
+It is followed by GameEnd.
+
+
+A choice called Page30ChoiceA is for Page30. "Examine the bottle and its content". It triggers Page26.
+A choice called Page30ChoiceB is for Page30. "Explore the island". It triggers Page15.
+A choice called Page30ChoiceC is for Page30. "Go back to the boat". It triggers Page11.
+The Page30 is a page. " We head toward a strange island, a lone trail of yellow, backgrounded by green cliffs high above the beach. Once I arrive on the sand, I find a closed bottle on the ground. There is an old parchment inside. ".
+
+
+A choice called Page31ChoiceA is for Page31. "Should I really go strait home now". It triggers Page38.
+A choice called Page31ChoiceB is for Page31. "or visit a friend of mine before that. I haven't seen her for a while, and we probably deserve to spend some good time together". It triggers Page4.
+The Page31 is a page. " Entering a brown cab carried by a Friesian horse, I quickly reach the small town where I live, in the suburb of the capital, and I stop at the cab station in the center. ".
+
+
+A choice called Page32ChoiceA is for Page32. "Go to jail". It triggers Page48.
+The Page32 is a page. " Someone sold me, while doing an important mission: I was supposed to meet an Indigo Love Syndicate leader, and capture him, but it was probably a trap, and **I** was captured instead. ".
+
+
+A choice called Page33ChoiceA is for Page33. "I can join the opposition, to discover if they are better than what they pretend to fight". It triggers Page9.
+A choice called Page33ChoiceB is for Page33. "I can forget about all those conspiracy stuffs, and lead a normal life, searching for a normal job". It triggers Page52.
+The Page33 is a page. " After a few researchs in the libraries and museum, I discover this society was founded one thousand years ago, after its physical separation from the Old Continent. It grew at a normal pace, without any noticeable events. More worrying is the fact that 10 years ago, a new sect, called the Indigo Love Syndicate, spread quickly across the continent, both among the populace and the elite. Discrete at the beginning, the sect is now one of the major political power in place. ".
+
+
+A choice called Page34ChoiceA is for Page34. "Meet the local authorities, to be registered and begin a fair, remunerated, job". It triggers Page47.
+A choice called Page34ChoiceB is for Page34. "Learn more about the customs and traditions". It triggers Page33.
+A choice called Page34ChoiceC is for Page34. "Steal some foods and first necessity stuffs". It triggers Page40.
+The Page34 is a page. " During a sunny day, when most of the staff is with the family in holiday by the sea-side, I disable the electrical fences and climb the high walls, to reach liberty and self-realisation. I forgot to get some goods with me, so I'm quite at loss in the streets, with my free will and my empty pockets. ".
+
+
+A choice called Page35ChoiceA is for Page35. "Strong as she is, I only get a well-deserved slap, and with the chin and cheek as red as an horny devil who ate pimento, and certainly ashamed, I go out in town". It triggers Page41.
+The Page35 is a page. " I compare her to a gorgeous and hot mare, to the goddess of fertility, war and lust, to the primeval nursemaid and such. ".
+
+
+A choice called Page36ChoiceA is for Page36. "I continue nevertheless into the town". It triggers Page22.
+The Page36 is a page. " //Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.// I pray in collusion with all the followers of the Indigo Love Syndicate. I fell that my soul is somehow tainted now. ".
+
+
+A choice called Page37ChoiceA is for Page37. "Insist more". It triggers Page28.
+A choice called Page37ChoiceB is for Page37. "Insult her ". It triggers Page46.
+A choice called Page37ChoiceC is for Page37. "Come back home". It triggers Page31.
+The Page37 is a page. " Thinking probably I misunderstood her idle activity, the woman seems upset to be disturbed by my approach. She tells me frankly she's waiting for someone else and don't care about my disgraceful existance. ".
+
+
+A choice called Page38ChoiceA is for Page38. "Wake up to ****". It triggers Page55.
+The Page38 is a page. " My appartment is in an almost deserted house with three floors. I live in the last floor, so I can see the woods from my bathroom. There is a huge forest in the eastern part of the town, where people can go hunting, hiking and ressourcing themselves from the modern way of life. I feel so tired, that I go to bed immediately. ".
+
+
+A choice called Page39ChoiceA is for Page39. "I hear the pirates are planning to sell me as a slave". It triggers Page16.
+The Page39 is a page. " After being knocked down by a pirate with putrid teeth, I'm led to their lair, which is hidden in a big city I've never been before. Could it be I'm on the new Continent after all ? I was separated from the other sailors to avoid rebellion, and met people with langage and culture I couldn't understand at all. ".
+
+
+A choice called Page40ChoiceA is for Page40. "Go to jail". It triggers Page48.
+The Page40 is a page. " Stealing is easy here: it seems nobody is on guard so I can lure many people. In fact I didn't know the citizen weren't aware of misdeeds just because the police was so effective that criminals were caught within 48 hours. ".
+
+
+A choice called Page41ChoiceA is for Page41. "If I'm lucky". It triggers Page12.
+A choice called Page41ChoiceB is for Page41. "If I'm not lucky". It triggers Page17.
+The Page41 is a page. " My sinful mood entangling my mind into so a well-known depression, I'm wandering in town without purpose. I'm crossing an ornamented iron bridge. A lamplighter is bringing light to the streets, without a smile. The dusk is leaving, replaced soon by the full night. The indigo sky is matching the indigo river and I'm longing for such an harmony. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+
+
+A choice called Page42ChoiceA is for Page42. "Go out again, to find a tavern". It triggers Page7.
+The Page42 is a page. " Beatrix' appartment is cozy and modern: lots of wooden furniture, ornamented with copper. She begins to remove her clothes, then think again and tells me she prefer we have a drink in a tavern. ".
+
+
+A choice called Page43ChoiceA is for Page43. "If I'm lucky". It triggers Page39.
+A choice called Page43ChoiceB is for Page43. "If I'm not lucky". It triggers Page54.
+The Page43 is a page. " The western side of the sea is famous for its tricky tornados and whirlpools.The destiny of our boat is yet challenged by some humanly disaster, when a pirate ship is attacking us. The ruffians arrive on board, full of hate and violence, and even if we try to rebel, we're not strong enough to contain their assault for very long. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+
+
+A choice called Page44ChoiceA is for Page44. "If I'm lucky". It triggers Page52.
+A choice called Page44ChoiceB is for Page44. "If I'm not lucky". It triggers Page20.
+The Page44 is a page. " They welcome me with great attention, and take my name. They note my request, and give me the number of an office on the second floor. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+
+
+A choice called Page45ChoiceA is for Page45. "will I try to escape when they are less watchful". It triggers Page34.
+A choice called Page45ChoiceB is for Page45. "or continue to live here as a cheap laborer". It triggers Page48.
+The Page45 is a page. " Mr and Mrs Caesar own a house which is bigger than anything I had already seen: a private aircraft landing place, a tower in the garden, electricity everywhere, for growing plants and vegetables... They take me to their workshop, where I'm supposed to assembly stuffs and repair all the gadgets they have in the house: mecanical birds, electrical machines, phonographs... After one year here, they begin to trust me. ".
+
+
+A choice called Page46ChoiceA is for Page46. "I can see a blue veil covering my eyes". It triggers Page14.
+The Page46 is a page. " Coming from a dark corner, a man dressed in black hits me on the back. ".
+
+
+A choice called Page47ChoiceA is for Page47. "Go there right now, in case somebody takes the place before me". It triggers Page2.
+A choice called Page47ChoiceB is for Page47. "Learn more about the customs and traditions". It triggers Page33.
+The Page47 is a page. " They welcome me with great attention, and while taking my name, they show me a list of jobs in the surroundings.I'm probably lucky, because there was recently a vacant place as a librarian in the main library. After making me sign a few papers, they show me the road on a map. ".
+
+
+The Page48 is a page. " After a few years as a prisoner, I am more reasonnable, and seek redemption when I'm free again. Probably the best for me is to travel back home, and begin a new life there. Will I be librarian, or adventurer there? I still can't decide. ". 
+It is followed by GameEnd.
+
+
+A choice called Page49ChoiceA is for Page49. "Enter the trap". It triggers Page51.
+The Page49 is a page. " During a mission, I don't feel I get the support I usually deserve, and I feel like I'm entering a trap, without any way out. ".
+
+
+A choice called Page50ChoiceA is for Page50. "The woman have mercy, and with a perplexed smile, she leads me back to ****". It triggers Page44.
+The Page50 is a page. " I tell her about my philosophy of life, and the great goals everyone would like to achieve in the universe. I tell her about beauty, about the will, about ascetism and humility. ".
+
+
+A choice called Page51ChoiceA is for Page51. "I can see a blue veil covering my eyes". It triggers Page14.
+The Page51 is a page. " An Indigo Love Cultist, jumping from a dark corner, is showing me some attention and dedication by stabbing my back. ".
+
+
+A choice called Page52ChoiceA is for Page52. "Go there right now, in case somebody takes the place before me". It triggers Page29.
+A choice called Page52ChoiceB is for Page52. "Learn more about the customs and traditions". It triggers Page33.
+The Page52 is a page. " In the office, they show me a list of jobs in the surroundings.I'm probably lucky, because there was recently a vacant place as a librarian in the main library. After making me sign a few papers, they show me the road on a map. ".
+
+
+A choice called Page53ChoiceA is for Page53. "Which is leading to ****". It triggers Page44.
+A choice called Page53ChoiceB is for Page53. "Before that, I can try to seduce her by chance". It triggers Page50.
+The Page53 is a page. " A kind woman explains me with a soft voice the office I'm looking for is now on the first floor. ".
+
+
+A choice called Page54ChoiceA is for Page54. "Go to ****". It triggers Page14.
+The Page54 is a page. " During the attack, I see the flashing blue of a pirate's sword, approaching my head so dangerously that I eventually die. ".
+
+
+The Page55 is a page. " Yawning and stretching, I awake with a good mood. I haven't discovered a new Continent, I haven't experienced great adventures, but I met some people who weren't bad at all. Day after day, I meet my friend Beatrix more and more often, and she tries to cope with my grim humor. She always tells me our story is really like an happy END after all! ". 
+It is followed by GameEnd.
+
+
+
+GameEnd is a page. "** THE END **".
+

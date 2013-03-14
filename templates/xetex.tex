@@ -1,0 +1,114 @@
+%% TEXTALLION
+%% http://textallion.googlecode.com
+%% XeTeX template 
+
+
+\documentclass[openany]{book}
+\usepackage{ifpdf,ifxetex,graphicx}
+\usepackage{fontspec,xltxtra,xunicode}
+
+%%\usepackage{xepersian}
+
+%%\newfontfamily\farsifont[Script=Arabic,Scale=1.1,WordSpace=2]{IranNastaliq}
+%%\usepackage[quiet,nolocalmarks]{polyglossia}
+
+
+
+\usepackage{url} %% for XeTeX to break long URLs at line ending
+
+\usepackage{paralist} %% needed for compact lists
+\usepackage[normalem]{ulem} %% needed by strike
+%%\usepackage[%(ENCODING)s]{inputenc}  %% char encoding
+\usepackage{%(STYLE)s}  %% user defined
+
+\defaultfontfeatures{
+Mapping=tex-text,
+Scale=MatchLowercase,
+Numbers=OldStyle,
+Ligatures={Common, Rare, Historical},
+}
+\setmainfont[]{\DEFAULTxXETEXxFONT}
+
+%%\setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+%%\setromanfont[Mapping=tex-text]{DejaVu Serif}
+%%\setsansfont[Mapping=tex-text]{DejaVu Sans}
+
+%%\setromanfont[Mapping=tex-text]{Linux Libertine}
+%%\setsansfont[Mapping=tex-text]{Myriad Pro}
+%%\setmonofont[Mapping=tex-text]{Courier New}
+%%\setromanfont[Mapping=tex-text, Numbers=OldStyle]{Linux Libertine O}
+
+
+%%\DEFAULTxFONTfeatures{Mapping=tex-text}
+%%\setmainfont{Fontin Regular}
+%%\setromanfont[Ligatures={Common}, BoldFont={Fontin Bold}, ItalicFont={Fontin    Italic}, SmallCapsFont = {Fontin SmallCaps}]{Fontin Regular}
+%%\setsansfont[Ligatures={Common}, BoldFont={Fontin Sans Bold},  ItalicFont={Fontin Sans Italic}]{Fontin Sans}
+
+
+%%---------------- Author & Metatags ------------------------------------
+
+\def\DOCUMENTxTITLE{xx DOCUMENT TITLE xx} %% Titre of the document
+\def\PDFAUTHOR{xx DOCUMENT AUTHOR xx}      %% Authors
+\def\PDFTITLE{\DOCUMENTxTITLE}      %% copy of Titre of the document
+\def\PDFSUBJECT{xx DOCUMENT TAGS xx} %% Subjet
+\def\PDFKEYWORDS{xx DOCUMENT TAGS xx}   %% keywords, tags
+\def\PDFCREATOR{Textallion, txt2tags, PdfTeX}   %% Sofware which made this document
+\def\PDFPRODUCER{Textallion}         %% Compagny which made the software
+
+%% 
+
+\usepackage[english,frenchb,francais]{babel}  
+\usepackage[T1]{fontenc}                       %% additionnal fonts
+\usepackage[\DEFAULTxFONTxSIZE pt]{extsizes} 
+\usepackage[cm]{aeguill}                    %% French guillemets
+\usepackage[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm},\GEOMETRYxADDITIONALxOPTION]{geometry}       %% paper and text size
+\usepackage{TEXTALLIONPATH/core/textallion}  %% basic LaTeX definitions for textallion
+
+\def\MYxFONT{\fontspec{\DEFAULTxXETEXxFONT}}   %% For correcting footers
+\def\MYxFONTxMONO{\fontspec[Mapping=tex-text]{DejaVu Sans Mono}}   %% For correcting code area
+
+
+
+
+
+\def\title{%(HEADER1)s}
+\def\author{%(HEADER2)s}
+\def\date{%(HEADER3)s}
+\begin{document}
+%%\maketitle
+%%\clearpage
+
+\fontspec[Ligatures={Common, Rare,Historical}]{\DEFAULTxXETEXxFONT}
+\fontsize{\DEFAULTxXETEXxFONTxSIZE pt}{\DEFAULTxXETEXxFONTxSIZE pt}\selectfont %% The second value should be for line space skip
+
+\thispagestyle{empty}
+%%\thispagestyle{fancy}
+
+
+
+\begin{center}
+	
+	\vspace*{5mm}
+	
+		\LARGE{\author}
+		
+	
+	\vspace*{35mm}	
+	
+		\Huge{\title}
+		
+	\vspace*{65mm}
+	
+	\huge{\ding{167}} 
+		
+\end{center}
+
+
+\clearpage
+
+
+
+%(BODY)s
+
+\end{document}
+

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>STORY TITLE</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Tangerine'
+          rel='stylesheet' type='text/css'>
+
+    <link media="screen"
+          rel="stylesheet" href="media/css/undum.css">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="apple-touch-icon" href="media/img/iphone/icon.png">
+    <link rel="apple-touch-startup-image" href="media/img/iphone/splash.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--[if !IE]>-->
+    <link media="only screen and (max-width: 640px)"
+          rel="stylesheet" type="text/css" href="media/css/undum-mobile.css">
+    <!--<![endif]-->
+
+  </head>
+  <body>
+    <div id="toolbar">
+      <!-- Set this to be a small version of the title, for the
+           toolbar on mobile devices. -->
+      <h1>STORY TITLE</h1>
+      <div class="nav">
+        <a href="#" class="button" id="menu-button">Menu</a>
+      </div>
+    </div>
+    <ul id="menu">
+      <li><a href="#title, #content_wrapper">Story</a></li>
+      <li><a href="#character_panel">Character</a></li>
+      <li><a href="#info_panel">Info</a></li>
+    </ul>
+
+    <div id="page">
+
+      <div id="tools_wrapper">
+        <div id="info_panel" class="tools left">
+
+          <!-- Game Background: edit this -->
+          
+          <!-- note: you can also remove #info_panel if you don't want the game background text -->
+          <h1>STORY TITLE</h1>
+          <p>
+			STORY BACKGROUND
+          </p>
+          <!-- End of Game Background -->
+
+          <div class='buttons'>
+            <button id="save">Save</button><button id="erase">Erase</button>
+          </div>
+        </div>
+
+
+		<!-- you probably won't need this
+			
+        <div id="character_panel" class="tools right">
+          <h1>Character</h1>
+          <div id="character">
+            <div id="character_text">
+              <div id="character_text_content"></div>
+            </div>
+            <div id="qualities"></div>
+          </div>
+        </div>
+        
+       -->
+       
+      </div> <!-- End of div.tools_wrapper -->
+
+      <div id="mid_panel">
+        <div id="title">
+          <div class="label">
+
+            <!-- Game Title: edit this -->
+            <h1>STORY TITLE</h1>
+            <h2>by STORY AUTHOR</h2>
+            <!-- End of Game Title -->
+            
+            <!-- You can also put the cover art here (<img src="...">) -->
+
+            <noscript><p class="noscript_message">This game requires 
+              Javascript.</p></noscript>
+            <p class="click_message">click to begin</p>
+          </div>
+        </div>
+
+        <div id="content_wrapper">
+          <div id="content">
+          </div>
+          <a name="end_of_content"></a>
+        </div>
+
+        <div id="legal">
+          <!-- Your Copyright: edit this (or remove)-->
+          <p>COPYRIGHT</p>
+          <!-- End of Your Copyright -->
+
+          <!-- This Copyright line must remain in your final file. -->
+          <p>
+            Parts of the software and design &copy; 2010 IDM. Undum is
+            available
+            <a href="http://github.com/idmillington/undum">here</a>.
+            Derivative works must include this copyright line and link.
+          </p>
+        </div>
+      </div>
+    </div> <!-- End of div.page -->
+
+    <!-- Holds UI elements that will be cloned and placed in the main
+         page. This block itself is always hidden. -->
+    <div id="ui_library">
+      <div id="quality" class="quality">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+      </div>
+
+      <div id="quality_group" class="quality_group">
+        <h2 data-attr="title"></h2>
+        <div class="qualities_in_group">
+        </div>
+      </div>
+
+      <div id="progress_bar" class="progress_bar">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+        <div class="progress_bar_track">
+          <div class="progress_bar_color" data-attr="width">
+          </div>
+        </div>
+        <span class="left_label" data-attr="left_label"></span>
+        <span class="right_label" data-attr="right_label"></span>
+      </div>
+
+      <hr id="turn_separator">
+    </div>
+
+
+    <script type="text/javascript" src="media/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="media/js/undum.js"></script>
+
+	<script type="text/javascript">
+		undum.game.id = "IFID HERE";	// remove these if not needed
+		undum.game.version = "1.0";		// 
+
+		// name of the first situation
+		undum.game.start = "node0";
+
+		undum.game.situations.node0 = new undum.SimpleSituation(
+			'<ul class="options"><li><a href="node1">Start the game</a></li></ul>'
+		);

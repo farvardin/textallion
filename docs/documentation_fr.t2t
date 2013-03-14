@@ -1,0 +1,1107 @@
+Le textallion, un simple traitement de texte
+Eric Forgeot
+%%date(%Y-%m-%d)
+
+
+
+% Tiny almost-Kiss Word Processor
+% http://textallion.googlecode.com
+
+%% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
+%!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Eric Forgeot'
+%!postproc(tex): 'xx DOCUMENT TAGS xx' 'documentation, manual, manuel'
+
+
+%% DEF PERSONAL STYLE (usually called something like sample.sty and/or sample.css) 
+%!style(tex): ../includes/sample.sty
+%-!style(xhtml): ../includes/sample.css
+%!style(xhtml): ../includes/sample_sans.css 
+
+%% DEF PERSONAL CLASS
+%%!postproc(tex): '\\documentclass{article}' '\\documentclass{myclass}'
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+%% Alternative definitions path for TEXTALLION (not enabled)
+%--!includeconf: /usr/share/textallion/textallion.t2t
+%--!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'
+
+
+%% DEF additional macros (can be removed)
+
+%!includeconf: documentation_symbols_inc.t2t 
+
+%!--preproc(tex): "$" '{//..}'
+%(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
+
+%!--preproc(tex): "==" '++'
+
+%for adding IPA fonts (fontenc is included within tipa)
+%!postproc(tex): '\{fontenc\}' '{tipa}' 
+
+%!postproc(tex): 'IPATEXTALLION' '\\textipa{tEkstalj\~O}'
+%!postproc(xhtml): 'IPATEXTALLION' 'tɛkstaljɔ̃'
+
+
+%% adding an "alt" attribute to images with the syntax [image.jpg]{alt:your alternative text}
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\"\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\3" title="\3"/>'
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\" ([^ ].*?)\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\4" title="\4" \2/>'
+
+% ( *) = zero or more whitespace
+
+
+%% Ellipsis (points de suspension) : ... (not activated by default)
+%!postproc(xhtml): '\.\.\.' &hellip;
+%!postproc(tex):  '\.\.\.' \dots
+
+%% 
+%!preproc: ';' '¯;'
+%-!preproc: '¯¯;' '¯;'
+
+
+%% for numbering titles
+
+%!preproc: '==== ([^ ].*?) ====' '@@@@ \1 @@@@'
+%!preproc: '=== ([^ ].*?) ===' '+++ \1 +++'
+%!preproc: '== ([^ ].*?) ==' '++ \1 ++'
+%!preproc: '= ([^ ].*?) =' '+ \1 +'
+%!preproc: '@@@@ ([^ ].*?) @@@@' '==== \1 ===='
+
+
+
+@@renewcommand@@sfdefault((phv))**
+
+%%%% Début de VOTRE document %%%%
+
+= Manuel =
+
+%{ -- }
+%@@begin((textsf)) @@small ((**                     
+[../media/logo_textallion.png][30]{~~~~}
+**TEXTALLION** ''[''IPATEXTALLION'']'' 
+n.m. --- (2009 ; de //texte//, et suffixe inconnu //-llion//, probabl. d’o. animale ou indiquant l'idée de la prem. pers. du pluriel. On l'écrit indiff. textallion ou TeXtallion.)   {//..}{//..}
+Système de traitement de texte utilisant une syntaxe wiki, générant une présentation finale attrayante, que cela soit au format PDF, HTML ou {^}ePUB{^}, et permettant une mise en forme simplifiée au clavier au lieu d'avoir à cliquer dans des menus. Accessoirement, la source d'un document peut être lue sans logiciel particulier. V.**[txt2tags http://www.txt2tags.org]**.  {//..} {//..} 
+__Citation__ : 
+ {  ~~}
+{" }//Je t'envoie un fichier .t2t en pièce jointe, ne me dis plus que tu n'as pas le bon logiciel pour l'ouvrir !//{ "}
+{/ ~~}Guillaume Grumbold, bibliothéquaire{//..}
+%@@hspace((0mm)) )) @@end((textsf))**
+%{/-- }
+
+
+== Présentation ==
+
+Le projet **textallion** permet à ses utilisateurs d'éditer et de publier simplement leurs textes, tout en leur donnant un aspect agréable.
+
+Il est né de l'admiration pour l'apparence et la qualité du placement des lettres dans le système [LaTeX http://www.latex-project.org/], ainsi que pour la facilité d'utilisation de [txt2tags http://txt2tags.org/].
+
+Mais il est né également de la frustration de ne pas pouvoir utiliser simplement LaTeX pour écrire de la prose, sans avoir à subir sa syntaxe particulièrement intrusive et sa complexité d'apprentissage°°Remarque qui peut également concerner dans une moindre mesure la syntaxe html°°.
+
+Le but est donc de pouvoir sortir un roman ou un texte littéraire, en utilisant {^}txt2tags{^} comme pré-processeur, et ainsi garder des marques de formatage non distrayantes, tout en pouvant exporter en {^}LaTeX{^} et {^}html{^} selon le type du document final envisagé : publication papier ([pdf documentation_fr.pdf]), page internet ([html documentation_fr.html], ainsi qu'en [version de présentation avec slidy documentation_fr_slide.html]), ou encore livre électronique ([epub documentation_fr.epub]), et cela à partir d'une __[source unique pour tous ces documents documentation_fr.t2t]__.
+
+Ainsi, cet outil s'adresse surtout à ceux qui souhaitent écrire facilement et rapidement des textes de type poésie ou prose, sans entrer dans les méandres des commandes {^}LaTeX{^}.
+
+Il présente par défaut : mise en gras, italique, soulignage, barré, texte coloré, organisation hiérarchique (titres et sous-titres), listes à puce ou numérotées, inclusion d'images et de liens hypertextes, numérotation des pages, haut de page avec titre et ligne de séparation, support des notes de bas de page, exergues (épigraphes), table des matières, colonnes, modification de taille de polices (très basique), ornementations type lettrine ou petites feuilles aldines.
+
+Il inclut également un système pour la création de "livres-jeux" (livres dont vous êtes le héros).
+
+Cet outil est relativement simple à utiliser, mais pas simpliste : il est nécessaire pour en tirer partie d'avoir quelques bases en informatique, du fait de l'obligation de l'installation et de l'utilisation des ressources de plusieurs autres projets en même temps (python, latex). Dit autrement, c'est un peu un outil pour geeks, mais malgré tout il sera possible d'avoir un confort d'écriture nullement atteint avec les traitements de texte habituels, et l'installation de ces autres logiciels ne nous semble pas insurmontable avec un peu de bonne volonté. 
+
+On peut imaginer 3 manières d'aborder textallion :
+
+- En se contentant du style fourni de base, et sans même se préoccuper d'une quelconque syntaxe wiki spécifique, en écrivant comme dans un bloc-note, on peut déjà produire un document {^}PDF{^} au format A4, réductible en A5, très présentable°°Pour comparer avec la version de base de txt2tags, dans l'export LaTeX les accentuations françaises ne sont pas supportées, et le rendu est très basique.°°. Rappelez-vous que la plupart des romans n'ont pas de mise en page très audacieuse et ne font pas appel non plus à tout l'arsenal que l'on peut trouver par exemple dans un texte scientifique ou une documentation (colonnes, index, changement de polices...)
+
+- En se laissant guider dans l'édition du fichier de style utilisateur (sample.sty), on modifiera les options permettant de personnaliser son document PDF°°Malheureusement, toutes ces options sont indiquées en anglais pour le moment°°. Par exemple ``\def\WIDTHxOFxTEXT{150}`` est pour modifier la largeur du texte affiché. En réécrivant 140 à la place de 150, on réduira les marges.
+
+- De la même manière, on pourra éditer le fichier CSS pour la version HTML (sample.css)
+
+- Si on souhaite accéder à des fonctionnalités avancées, comme l'utilisation de colonnes, de sauts de page, de mise en gras, de notes, centrage de texte, symboles d'ornementation, on pourra utiliser la syntaxe de {^}txt2tags{^} à laquelle s'ajoute celle de textallion.
+
+
+Ce n'est donc pas un logiciel clé en main qui permettra de réaliser tout et n'importe quoi, mais c'est la réorganisation d'outils existants qui, mis ensemble avec quelques règles de styles, permettent de réaliser une tâche précise.
+
+Ce présent manuel se focalise surtout sur la création de documents pdf, destinés en particulier à l'impression, mais tout est normalement adaptable pour la publication en {^}html{^} pour internet, et le format {^}ePUB{^} pour les liseuses numériques (lecteurs d'ebooks, livres électroniques, téléphones portables, smartphones).
+
+//Note : Ce projet avait pour nom "txt2tex" à l'origine.//
+
+
+%De tout ceci il ressort quelques barrières pour l'utilisation de textallion, mais également quelques points positifs : 
+
+
+%== Inconvénients ==
+%- Complexité 
+% - alternatives : openoffice et http://luke.simplicissimus.it/writer2epub/#english
+%- repose sur des techno libres, mais hébergées sur des services internet (polices). Css incluses, mais heureusement il est facile de modifier ces comportements par défaut.
+% 
+% https://fedorahosted.org/publican/
+% http://www.jutoh.com/ (payant et non-libre)
+% 
+
+
+%== Avantages ==
+
+%- Génération de 3 formats en une seule passe. Peu, voire pas, de retouches ultérieures nécessaires.
+%- utilisation de svn ou autre gestionnaire de version pour travail collaboratif, corrections ou révisions
+
+
+== Obtenir le TeXtallion ==
+
+La dernière version se trouve à cette adresse : http://code.google.com/p/textallion/downloads/list
+
+Il y a également une copie ici : http://anamnese.online.fr/site2/textallion/textallion.zip
+
+Il est possible de retrouver les anciennes versions dans http://anamnese.online.fr/site2/textallion/archives/
+
+=== Paquets optionnels ===
+
+Il est recommendé d'automatiser vos créations de documents en utilisant  'GNU make', à partir du makefile d'exemple. Vous pouvez également ajouter des modifications postcripts (édition pdf au niveau vectoriel) avec des outils tels que pstopdf, psutils (pdfnup, psbook) et pdfjam.
+
+
+== Pré-requis (installation) ==
+
+Le TeXtallion a été testé avec succès sur ces plateformes :
+
+=== Linux ===
+
+[LaTeX http://www.latex-project.org/] et [python 2 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
+
+(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-extra  texlive-lang-french latexml latex-xcolor tipa texlive-fonts-recommended texlive-xetex)
+éventuellement texlive-fonts-extra
+
+Vous pouvez utiliser le petit script d'installation ``textallion_install.sh`` (à lancer en root), pour copier l'ensemble des fichiers nécessaires dans /usr/share/textallion/, ou le dossier de votre choix.
+
+Pour désinstaller ce qui a été précédemment installé par ce script, il suffit d'effacer le dossier /usr/share/textallion/ et le fichier /usr/bin/textallion
+
+Si vous utilisez la distribution Archlinux, vous pouvez installer textallion avec la commande ``yaourt -S textallion``, qui utilisera le [paquet AUR adéquat http://aur.archlinux.org/packages.php?ID=42705].
+
+
+
+
+=== Windows ===
+
+==== 1ème méthode ====
+
+Utiliser l'installateur ``textallion_setup.exe`` téléchargeable ici : http://code.google.com/p/textallion/downloads/list
+Ce qui installera conjointement :
+- [MiKTeX http://miktex.org/] (de préférence la version 2.8)
+- et [Calibre http://calibre-ebook.com/download_windows]
+- ainsi que geany (éditeur de texte) et sumatra pdf (lecteur pdf libre)
+
+
+==== 2ème méthode ====
+
+
+- Installer [cygwin http://cygwin.com/], un logiciel permettant d'accéder à des outils Unix. Installer notamment en plus des paquets de base python, make, tidy, psutils
+
+Ouvrir le fichier c:\cygwin\etc\profile et modifiez la ligne commençant par PATH= (vers la ligne 23), comme suit : 
+{####}
+PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Program Files (x86)/MiKTeX 2.9/miktex/bin:/cygdrive/c/Program Files/MiKTeX 2.9/miktex/bin:/cygdrive/c/Program Files (x86)/MiKTeX 2.8/miktex/bin:/cygdrive/c/Program Files/MiKTeX 2.8/miktex/bin:/cygdrive/c/Program Files (x86)/:/cygdrive/c/Program Files/:/cygdrive/c/Program Files (x86)/Mozilla Firefox:/cygdrive/c/Program Files/Mozilla Firefox:/cygdrive/c/Program Files (x86)/Geany/bin:/cygdrive/c/Program Files/Geany/bin:/cygdrive/c/Program Files (x86)/Calibre2:/cygdrive/c/Program Files/Calibre2:/cygdrive/c/Program Files (x86)/SumatraPDF:/cygdrive/c/Program Files/SumatraPDF:${PATH}"
+{/###}
+
+
+- Utilisation de LaTeX avec [MiKTeX http://miktex.org/]°°Cela ne semble **pas** fonctionner avec teTeX fourni avec cygwin sous windows, il est sans doute trop vieux, mais peut-être qu'en installant toutes les dépendances cela fonctionnera. MiKTeX est quand même recommandé.°° pour la création des fichiers pdf : Choisissez la version "basic" de MiKTeX, et si lors de la première utilisation il manque des paquets lors de la création de vos documents, le logiciel ira les chercher directement sur internet ("install missing packages on the fly"). Il peut y avoir une douzaine de ces paquets manquant lors de la première utilisation de textallion.
+
+Si vous utilisez MiKTeX 2.9, il faudra installer manuellement le paquet ``symbol``, avec le Package Manager. 
+
+Pour créer des {^}ePUB{^}s, vous aurez besoin d'installer [Calibre http://calibre-ebook.com/download_windows]
+
+
+==== 3ème méthode ====
+
+[Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 2 de python (par exemple python 2.7) car la version 3 n'est pas compatible. 
+
+- décompressez l'archive contenant textallion dans par exemple C:\temp\textallion (pour le reste des exemples, on a considéré que cela se trouvait dans ce dossier)
+
+- Utilisation de LaTeX avec [MiKTeX http://miktex.org/]°°Cela ne semble **pas** fonctionner avec teTeX fourni avec cygwin sous windows, il est sans doute trop vieux, mais peut-être qu'en installant toutes les dépendances cela fonctionnera. MiKTeX est quand même recommandé.°° pour la création des fichiers pdf : Choisissez la version "basic" de MiKTeX, et si lors de la première utilisation il manque des paquets lors de la création de vos documents, le logiciel ira les chercher directement sur internet ("install missing packages on the fly"). Il peut y avoir une douzaine de ces paquets manquant lors de la première utilisation de textallion.
+
+- [Sed http://gnuwin32.sourceforge.net/packages/sed.htm] est nécessaire, pour le moment, pour certains remplacement dans les fichiers {^}ePUB{^}s. 
+
+L'outil [make http://gnuwin32.sourceforge.net/packages/make.htm] peut être un plus (utilisation d'un makefile optionnel), ainsi que divers outils pour la manipulation de fichiers postscript (pstopdf, psutils (pdfnup, psbook), pdfjam etc). Veuillez récupérer le "Setup program" indiqué et l'installer. Vous pouvez ensuite indiquer le dossier C:\Program Files\GnuWin32\bin comme variable de PATH dans windows (propriété système > variables d'environnement). De façon moins "propre", vous pouvez copier le contenu de ce dossier (make.exe et quelques dll) dans votre projet courant.
+
+Pour créer des {^}ePUB{^}s, vous aurez besoin d'installer [Calibre http://calibre-ebook.com/download_windows]
+
+
+=== *BSD ===
+
+Même procédure que sous Linux, à la différence de taper ``gmake`` à la place de ``make`` car le makefile utilise GNU make.
+Comme texlive n'est pas officiellement supporté par FreeBSD, veuillez utiliser teTeX à la place.
+
+
+=== Mac OS X ===
+
+Non testé. Vous devriez pouvoir utiliser les instructions pour BSD plus haut, conjointement avec [macports http://www.macports.org/] pour rajouter les logiciels spécifiques.
+
+
+== Utilisation ==
+
+Vous pouvez vous inspirer du document examples.t2t comme base pour votre propre document.
+
+Le fichier textallion.t2t est le moteur du système. Pour l'export PDF, il y a également le style ``textallion.sty``, qui est indispensable pour son fonctionnement. Il n'y a normalement pas à modifier ces 2 fichiers. Vous pouvez les placer à l'endroit que vous voulez sur votre système, et juste faire référence à textallion.t2t depuis votre document de travail. De plus, selon l'export utilisé, il est nécessaire de rajouter des modèles, que l'on trouve dans le dossier ``"templates"`` : pour le moment ``xhtml.html`` pour les exports HTML et {^}ePUB{^}, et ``latex.tex`` pour l'export PDF. 
+
+
+Note: si vous avez utilisé auparavant une ligne dans ce genre : ``SYMBpercent!style(tex): /usr/share/textallion/core/textallion``, elle devient maintenant ``SYMBpercent!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'``
+
+
+- Première méthode :
+
+Pour commencer à créer un document, recopiez l'entête de examples.t2t dans un nouveau fichier.
+
+Sous Linux°°ou sous Windows avec les outils cygwin°°, le script « textallion.sh », se charge de faire cela pour vous, à partir des informations entrées en ligne de commande, en créant en plus un fichier .sty pour modifier le style du PDF final, et un fichier .css pour modifier le style du fichier HTML final (ces 2 modifications étant optionnelles, vous pouvez vous laisser guider par les commentaires dans le fichier de style. Vous pourrez changer simplement la taille de page, la taille du texte affiché (définissant ainsi implicitement les marges, la polices, les espacements...).
+
+
+- Seconde méthode :
+
+Pour commencer un nouveau document, vous pouvez juste créer un fichier texte vide, passer 4 lignes pour l'entête de fichier (en écrivant optionnellement le titre sur la première, votre nom sur la deuxième et la date sur la troisième), et inclure le « moteur » de cette façon, dans la version en ligne :
+
+{ -- }
+```
+SYMBpercent!postproc(tex): 'xx DOCUMENT TITLE xx' 'titre de votre document'
+SYMBpercent!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'votre nom'
+SYMBpercent!postproc(tex): 'xx DOCUMENT TAGS xx' 'mots clés de votre document'
+
+SYMBpercent!style(tex): sample.sty
+SYMBpercent!style(xhtml): http://textallion.googlecode.com/hg/includes/sample.css
+
+SYMBpercent!includeconf: http://textallion.googlecode.com/hg/core/textallion.t2t
+SYMBpercent!postproc(tex): 'TEXTALLIONPATH' '../'
+```
+{/-- }
+
+Hélas l'inclusion de fichiers de style en ligne ne semble pas fonctionner avec LaTeX. Veuillez donc téléchargez auparavant http://textallion.googlecode.com/hg/includes/sample.sty et http://textallion.googlecode.com/hg/core/textallion.sty dans votre dossier courant, ou dans un dossier de votre choix. En revanche sous Windows la référence du nom doit être écrit avec des slashs à la place des anti-slash, par exemple c:/temp/textallion/core/textallion.t2t
+
+Par la suite, vous aurez sans doute le désir de modifier votre style personnel, pour cela vous pouvez vous référer à la première méthode de préférence.
+
+
+- Écriture : ensuite, à vous de rédiger votre texte. La syntaxe à utiliser, très simple, se trouve décrite dans le paragraphe suivant.
+
+
+- Création des documents finaux :
+
+Pour compiler le document final, en html, pdf ou {^}ePUB{^}, veuillez ouvrir un terminal dans le répertoire de votre document, modifiez dans le makefile la ligne avec DOCUMENT = sample_fr vers votre propre titre de document et tapez au choix :
+
+ - **``make html``** pour générer une page html
+ - ``make slidy`` pour générer une présentation html
+ - **``make pdf``** pour générer un document LaTeX puis un fichier pdf. Si la compilation se passe correctement, il n'y aura pas d'erreur affichée, et cela devrait finir par "entering extended mode". La commande de génération du pdf se lance 2 fois pour obtenir la table des matières.
+ - ``make xetex`` est une variante de la précédente, pour utiliser xetex à la place de latex, ce qui apporte l'utilisation complète de l'unicode, des ligatures et autres fonctionnalités avancées. Toutes les options de formatage disponibles pour le rendu avec LaTeX (make pdf) ne sont pas encore supportées.
+ - ``make pdfsmall`` pour faire tenir le document avec 2 pages sur une seule (nécessite pdfjam, et les liens ne seront plus actifs)
+ - ``make booklet`` pour créer une brochure gérant le recto-verso (nécessite psutils, et les liens ne seront plus actifs). Les colonnes ne semblent pas bien alignées pour le moment.
+ - **``make epub``** pour créer un fichier {^}ePUB{^} (livre électronique), nécessite le logiciel libre [calibre http://calibre.kovidgoyal.net/] pour réaliser la conversion à partir du fichier html. 
+ - ``make clean`` pour nettoyer le dossier
+ - ``make cleanall`` pour nettoyer et effacer les fichiers pdf et html générés, avec confirmation (attention si vous avez d'autres documents sous ces formats dans le même dossier)
+ - ``make configuration-update``, pour comparer avec un outil graphique (par défaut meld), les fichiers de configuration par défaut pour makefile, css et sty de la dernière version installée de textallion, avec votre projet en cours. Vous pourrez ainsi éventuellement mettre à jour plus facilement les dernières modifications rapportées, tout en gardant vos paramètres personnels.
+ - ``make website`` pour créer une page d'index destinée à mettre en ligne vos fichiers html, pdf et {^}ePUB{^}, ainsi qu'un qr-code permettant d'importer l'adresse de cette page internet dans un téléphone ou une tablette (en vue d'y envoyer le fichier {^}ePUB{^} par exemple).
+ - ``make all`` pour générer html, {^}ePUB{^}, pdf et l'index de site internet et nettoyer les fichiers temporaires
+
+Vous pouvez également taper ``export TEXTALLIONDOC=your_document_name && make pdf`` (sans l'extension .t2t à la fin de your_document_name) et cela utilisera une variable d'environnement ce qui vous évitera de modifier votre makefile et permettra de scripter vos travaux.
+
+Le fichier sample.css est un exemple de mise en forme pour la version html de vos documents. Il est utilisé également dans une forme dérivée pour la création du livre électronique au format {^}ePUB{^}, si nécessaire.
+
+Sous windows, vous pouvez utiliser le fichier ``textallion.bat`` qui vous demandera le nom de votre document, et sous quel format l'exporter (html ou pdf). Cela vous permet de vous passez du makefile et de l'installation de make si vous ne l'avez pas déjà, au prix de fonctionnalités réduites (mais la qualité du fichier html ou pdf exporté sera la même). Vous devrez peut-être modifier ou adapter les chemins indiqués. Par défaut on a considéré que le dossier racine de textallion était C:\temp\textallion\
+Vérifiez également que ces chemins sont corrects :
+
+ - C:\Python26\python.exe
+ - C:\Program Files\MiKTeX 2.9\
+ - C:\Program Files\Calibre2
+
+Le cas échéant, modifiez le fichier textallion.bat pour qu'il soit conforme à l'installation de ces logiciels.
+
+
+Voici ensuite un rappel des avantages des divers formats de publications proposés :
+
+
+=== HTML ===
+
+Format du {" }web{ "} par excellence, le {^}HTML{^} permet de s'afficher partout, quasi-universellement, dans les navigateurs internets°°Textallion ne supporte que les navigateurs utilisant les standards actuels, comme Firefox, Opera, Chrome etc), aussi l'affichage pourra être dégradés sur certaines versions d'Internet Explorer, a priori surtout les plus anciennes°°.
+
+Le style par défaut, à modifier à votre convenance si nécessaire est sample.css (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+
+Nous avons également inclu par défaut l'affichage d'une police spécifique, [récupérée sur les serveurs de google http://code.google.com/webfonts]. Dans le cas où l'ordinateur visualisant le document HTML ne serait pas connecté à internet, la police sera automatiquement remplacée par une police serif de base disponible sur tous les navigateur. Et si vous souhaitez modifier ce comportement, soit pour éviter de se connecter sur un service externe, soit pour utiliser votre propre police, soit pour préférer des polices plus classiques (serif, arial etc), il suffit de retirer la partie "CustomFont" dans la ligne ``font:1.2em/1.625em CustomFont, serif;`` et le bloc ``@font-face``.
+
+
+
+
+=== PDF ===
+
+Format pour l'impression et l'affichage à l'écran, le {^}PDF{^} est nécessaire lorsqu'il s'agit d'avoir partout la même mise en page, quelque soit l'ordinateur qui l'affiche, ainsi que pour la création d'un livre destiné à l'imprimeur.
+
+Le style par défaut, à modifier à votre convenance si nécessaire est sample.sty (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+
+
+=== {^}ePUB{^} ===
+
+Format pour la lecture numérique, l'{^}ePUB{^} est adapté pour l'utilisation dans une liseuse ou sur un téléphone portable : il n'a pas de mise en page fixe, tout comme le HTML et contrairement au PDF, par contre il a l'avantage d'être optimisé pour l'affichage sur de tels écrans, tout en ne présentant qu'un unique fichier contenant les images et les différents chapitres, ce qui est plus commode pour l'utilisateur final.
+
+Le style par défaut, à modifier à votre convenance si nécessaire est epub.css (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+
+Notre exportation {^}ePUB{^} est très loin d'être parfaite, on utilise simplement un export xhtml et quelques simplifications, pour la conversion avec le logiciel Calibre. Vous pouvez si nécessaire utiliser un outil comme [Sigil http://code.google.com/p/sigil/] pour reformater ensuite manuellement votre document ou optimiser son apparence.
+
+
+== Syntaxe ==
+
+La syntaxe générale est celle de {^}txt2tags{^}, à laquelle on a rajouté quelques symboles pour permettre des fonctionalités avancées.
+
+
+=== Rappel et mémo sur txt2tags ===
+
+Nous rappelons brièvement ici cette syntaxe :
+
+- ""**gras**""       :  **gras**
+- ""//italique//""   :  //italique//
+- ""__soulignage__"" :  __soulignage__
+- SYMBtiretSYMBtiretbarréSYMBtiretSYMBtiret      :  --barré--
+- ""== titre =="" (à différents niveaux) : ""= Partie ="", ""== Chapitre =="", ""=== Section ==="" etc.
+- ""- liste""
+- ""+ liste numérotée""
+- ""``code``""
+- ``[image.jpg]``
+- ``[lien vers un site http://www.site.com]`` : [lien vers un site http://www.site.com]
+- ""| table |""
+
+
+=== Symboles supplémentaires pour la typographie ===
+
+Les nouveaux symboles sont généralement définis par 4 signes entre accolades. Ainsi on a ces conventions :
+
+- Une lettrine se fait avec le symbole ``SYMBlettrine`` avant la première lettre.
+- Un espace moyen entre 2 sections se fait avec ``SYMBbigskip`` ou ``SYMB2bigskip``
+- Un paragraphe plus conséquent avec ``SYMBaldinea``, rajoute une petite feuille aldine, aussi nommée cœur floral @@ding((166))**
+- Autre version avec ``SYMBaldineb`` : @@ding((167))**
+- Une fin de section avec trois étoiles en triangle (cul-de-lampe ou astérisme) se fait avec ``SYMBtroisetoiles``
+- Vous pouvez également avoir ces symboles (centrés et sur une nouvelle ligne) :
+
+
+|| Description | symbole | code |
+| lune premier quartier | @@rightmoon** | ``SYMBlunep`` | 
+| pleine lune  | @@fullmoon**  | ``SYMBlunef`` |
+| lune dernier quartier | @@leftmoon**  | ``SYMBluned`` |
+| soleil  | @@sun** | ``SYMBsoleil`` |
+
+
+Il est possible d'entrer ces symboles directement dans votre source si vous le souhaitez, mais ils seront peut-être plus difficiles à lire dans un éditeur de texte. Vous ne pourrez entrer de nouveaux symboles en unicode si vous voulez publier en pdf (à moins de modifier les directives de préprocesseur dans votre document, sur le modèle de ce qui a été fait dans le fichier textallion.t2t), car cette version de latex ne supporte pas unicode. Mais la sortie html pourrait le faire.
+
+Certains lecteurs {^}ePUB{^} ne supportent pas ces symboles, aussi ils ont été remplacés par des étoiles * dans l'export {^}ePUB{^}.
+
+Pour signifier des passages importants vous avez également ces symboles :
+
+{+} pour un passage positif
+{-} pour un passage négatif
+
+{!} pour un passage à faire attention
+{?} pour une question
+{i} pour une information générale
+
+{x} (pour une erreur ?)
+
+
+
+
+*-*-
+
+
+==== Notes de bas de page ====
+
+Les notes de bas de pages sont possibles en entourant ces notes avec ``°°`` des deux côtés (voir exemple plus bas, et le code source du document pour des exemples plus précis). 
+
+Pour plus de logique avec la syntaxe ajoutée à txt2tags, il est possible de créer des notes de bas de page avec le symbole ``SYMBfootnote2`` (celui-ci doit rester accolé à la portion de texte).
+
+La version LaTeX renumérotera automatiquement les notes, tandis que la version html utilisera une étoile pour faire référence à la note.
+
+Pour apporter plus de souplesse dans l'exportation html, qui ne peut générer cette renumérotation, on peut ajouter manuellement à la fin de la note, entre parenthèses, un numéro pour remplacer l'étoile, par exemple :
+
+```
+Ceci est un texte avec une annotationSYMBfootnoteCeci est la note.(1)SYMBfootnote.
+```
+
+donnera :
+
+Ceci est un texte avec une annotation°°Ceci est la note.(1)°°.
+
+Le symbole ° peuvent être tapé sur les claviers qwerty avec ``alt+248`` sous Windows, et ``alt gr + 0`` sous Linux.
+
+==== Table des matières et Index ====
+
+La table des matières est automatiquement générée par txt2tags. C'est la commande ``%%toc`` qui indique l'endroit de cette table des matières dans votre document, sinon, par défaut c'est au début du document.
+
+L'index est optionnel. Pour l'activer, il suffit de vérifier que les options ``\usepackage{makeidx}`` et ``\makeindex`` soient bien présentes dans le fichier de style .sty, et que la commande ``SYMBpercentSYMBpercentindex`` soit appelée à l'endroit où vous souhaitez placer cet index.
+Les entrées d'index se font avec les mots à indexer entre le symbole ``SYMBindex``. Pour indexer sous un autre nom, il suffit d'écrire par exemple ``SYMBindexpomme{SYMBcaretfruit}``.
+
+
+
+
+
+
+==== Dialogues, guillemets, espaces insécables et autres règles typographiques ====
+
+Pour débuter des dialogues, veuillez écrire un triple tiret (-), qui générera un tiret cadratin (---) dans le document final.
+
+Il est nécessaire de laisser une ligne entre chaque réplique.
+
+Les guillemets à la française peuvent être ajoutés tels quels, mais il est également faisable d'écrire à la place ``SYMBguillemetBegin`` et ``SYMBguillemetEnd`` (sans espace avec les mots concernés).
+
+Si vous voulez ajouter un espace insécable dans votre texte, vous pouvez utiliser le symbole ``SYMBnbsp``.
+
+Txt2tags offre une réelle souplesse quand aux remplacements de portions de texte, aussi si votre source ne contient pas les espaces nécessaires à la ponctuation française (par exemple avec les points d'interrogation collés aux mots les précédant), vous pouvez utiliser dans l'entête de votre document ces remplacements :
+
+{####} 
+SYMBpreproc '\?' '¯?'  {//..}
+SYMBpreproc '\!' '¯!'  {//..}
+SYMBpreproc ';' '¯;'   {//..}
+SYMBpreproc '«' '«¯'   {//..}
+SYMBpreproc '»' '¯»'   {//..}
+{/###} 
+
+
+Textallion corrige automatiquement l'espace avant ; par un espace insécable. Mais si le point virgule est collé; rien ne sera corrigé (vous pouvez le faire manuellement avec une règle preproc).
+
+Textallion ne corrige pas automatiquement les trois points de suspension...
+
+
+
+
+*-*-
+
+
+==== Retours à la ligne ====
+
+{^}Txt2tags{^txt2tags} est conçu pour ne pas prendre en compte un simple retour à la ligne dans l'affichage final.
+
+Pour faire un véritable saut de ligne, il faut donc passer 2 lignes, mais il est également envisageable de faire débuter chaque ligne où vous voulez un retour, d'un espace simple (syntaxe rajoutée et spécifique à textallion). Cela peut être ainsi plus pratique et élégant pour afficher de la poésie, qui utilise de nombreux sauts de ligne. En cas de deux espaces ou plus avant le premier mot, cela fera un retour à la ligne suivi d'une indentation de paragraphe (dans la version PDF uniquement), ceci n'est __pas__ un alinéa, c'est juste un effet visuel lié à LaTeX. Pour réaliser un véritable alinéa, il faut passer 2 lignes.
+
+
+Vous pouvez forcer un retour à la ligne avec ``SYMBlinebreak``, ou la version simplifiée ``SYMBlinebreak2``. Si possible, vous devriez essayer malgré tout de garder la syntaxe complète avec les accolades pour garder une unité, mais c'est aussi selon votre goût.
+
+Si vous souhaitez copier et coller rapidement du texte d'internet ou d'une autre source, vous trouverez sans doute ennuyeux de devoir inclure à chaque fois les marques spéciales de retour à la ligne (``SYMBbigskip``), aussi vous pouvez activer cette option dans l'entête de votre document pour pallier cela :
+
+``` SYMBpostproc "SYMBdollar" 'SYMBlinebreak'
+
+Mais cela peut conduire à d'autres contraintes, aussi c'est à utiliser avec parcimonie.
+
+
+
+
+*-*-
+
+==== Saut de page ====
+
+Un saut de page se fait avec le symbole ``SYMBpagebreak``.
+
+*-*-
+
+==== Exposants ====
+
+On peut utiliser ``SYMBexponent`` ou ``SYMBexponent2`` pour entourer la partie à utiliser en tant qu'exposant. Par exemple 2^^ème^^ ou 24^^5^^.
+
+
+
+*-*-
+
+==== Taille d'image et alignement ====
+
+Pour inclure des graphismes, il suffit d'utiliser la syntaxe générale de txt2tags, et de rajouter optionnellement accolé à votre image, entre crochets, la taille souhaitée (valeur en mm) :
+
+par exemple : ""[chemin_vers/mon_image.png][24]""
+
+[../media/logo_textallion.png][10] (10) [../media/logo_textallion.png][20] (20) [../media/logo_textallion.png][30] (30)
+
+
+Dans la version html, cela affichera cette valeur en pourcentage de la page. 
+
+
+Il est possible de centrer l'image en utilisant une tabulation avant celle-ci
+
+%	[../media/logo_textallion.png]
+
+
+Pour entourer ou envelopper l'image avec du texte (wrapping), on peut utiliser la forme ""[image.png]""``SYMBwrapping`` (image à gauche) ou ``SYMBwrapping``""[image.png]"" (image à droite)
+
+Cette dernière notation vient après l'éventuelle notation de taille.
+
+
+[../media/logo_textallion.png][25]{~~~~}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+Il est toujours possible d'indiquer l'information de taille d'image, ce qui sera d'ailleurs souhaitable pour maîtriser pleinement l'effet de la vignette.
+
+{~~~~}[../media/logo_textallion.png][30]
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+
+
+*-*-
+
+=== Liens ===
+
+Si vous trouvez plus logique d'utiliser la syntaxe ''[[description | URL]]'' pour vos liens, vous pouvez l'écrire ainsi, cela sera converti en interne par textallion, vers ''[description URL]''.
+
+[[Site internet de txt2tags | www.txt2tags.org]]
+
+{ // }
+Note : Même si vous écrivez ''[[description SYMBpipe http://www.monsite-internet.com/URL avec des espaces.html]]'', cela ne sera pas correctement retraduit en lien avec espaces, puisque cela sera transformé en ''[description http://www.monsite-internet.com/URL avec des espaces.html]'' et que seul ''espaces.html'' sera considéré comme le lien. Ici le ''|'' est juste un repère visuel pour séparer l'URL. Pour ajouter des espaces dans une URL, veuillez indiquer ''%20'' à la place de ces espaces.
+{/// }
+
+*-*-
+
+
+=== Rajout de sons, de musiques ou de vidéos ===
+
+Plus spécialement utile pour le module de jeux textuels (voir plus bas), il est possible de rajouter de la musique avec la syntaxe :
+[musique.SYMBoggSYMB], ce qui s'affichera dans le navigateur sous forme de lecteur de musique compatible balise HTML5 dans les exports HTML. Seul le format ouvert et libre [ogg/vorbis http://fr.wikipedia.org/wiki/Vorbis] est supporté, car contrairement au [mp3 http://fr.wikipedia.org/wiki/MPEG-1/2_Audio_Layer_3#Licence], il est directement compatible avec la plupart des navigateurs : [Firefox, Chrome, Opera http://en.wikipedia.org/wiki/Use_of_Ogg_formats_in_HTML5].
+
+Exemple de musique :
+
+[../media/tbd_musique01.ogg]
+
+De la même manière vous pouvez inclure des vidéos au format ogg/theora, avec l'extension .ogv ou .webm à la place de l'extension .ogg : [video.SYMBogvSYMB]
+
+Exemple de vidéo (téléchargée depuis un site internet extérieur) :
+
+[http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv]
+
+
+*-*-
+
+=== Taille du texte ===
+
+
+- Vous pouvez { ++ } augmenter {/++ } la taille du texte en débutant le passage à modifier avec ``SYMBsizeincBegin`` et en le terminant avec ``SYMBsizeincEnd``.
+
+- Vous pouvez { -- } diminuer {/-- } la taille du texte en débutant le passage à modifier avec ``SYMBsizedecBegin`` et en le terminant avec ``SYMBsizedecEnd``.
+ 
+
+*-*-
+
+
+=== Zones en italique ou en gras, zone de code ===
+
+Txt2tags ne permet de formater en italique ou en gras que dans des passages sans retour à la ligne. Si vous souhaitez mettre en italique un passage contenant plusieurs paragraphes, il vous suffit de le débuter avec ``SYMBitalicBegin`` et de le terminer avec ``SYMBitalicEnd``. 
+
+De même pour des passages en gras, qu'il vous suffit de débuter avec ``SYMBboldBegin`` et de clore avec ``SYMBboldEnd``.
+
+Du code (écriture non-proportionnelle), s'écrit avec ``SYMBcodeBegin`` et ``SYMBcodeEnd``.
+Le Verbatim de txt2tags (trois fois `) fonctionne bien avec HTML, mais peut poser problème en LaTeX (sort du cadre de la page si la ligne est trop longue)
+
+*-*-
+
+=== Exergue (épigraphe) ===
+
+En exergue on place traditionnellement une citation avec son auteur sous un titre de chapitre. Nous avons fait en sorte de décaler le texte à droite, avec une margue assez importante à gauche, c'est pour cela que nous avons indiqué comme symboles pour débuter ``SYMBexergueBegin`` et pour terminer ``SYMBexergueEnd``. Il est possible de modifier l'apparence finale en modifiant le style LaTeX ou le style CSS.
+Vous pouvez indiquer un auteur à cette citation en l'accolant juste après ``SYMBexergueBegin`` ou après ``SYMBexergueEnd``, soit entre accolades, soit directement.
+
+Ainsi :
+
+{####}SYMBexergueBegin
+ Ce qu'il y a d'admirable dans le fantastique, c'est qu'il n'y a plus de fantastique : il n'y a que le réel.
+ SYMBexergueEndAndré Breton
+{/###}
+
+deviendra :
+
+{  ~~}
+Ce qu'il y a d'admirable dans le fantastique, c'est qu'il n'y a plus de fantastique : il n'y a que le réel.
+{/ ~~}André Breton
+
+*-*-
+
+
+=== Couleurs ===
+
+Pour illustrer ponctuellement des documents avec du texte en {^}couleur{^Traitement des couleurs}, il est possible d'utiliser la syntaxe ``SYMBColornom de la couleurSYMBDoubleArobaseTexte à coloriserSYMBSlashColor``. On commence à observer une syntaxe un peu intrusive, mais c'est le prix à payer pour obtenir un peu de couleur, ce type d'indication ne pouvant se symboliser autrement. Cela reste plus simple que leurs équivalents respectifs en LaTeX ou html. 
+
+Les couleurs de base sont :
+
+@@COLOR@@black@@black@@/COLOR@@
+@@COLOR@@blue@@blue@@/COLOR@@
+@@COLOR@@brown@@brown@@/COLOR@@
+@@COLOR@@cyan@@cyan@@/COLOR@@
+@@COLOR@@darkgray@@darkgray@@/COLOR@@
+@@COLOR@@gray@@gray@@/COLOR@@
+@@COLOR@@green@@green@@/COLOR@@
+@@COLOR@@lightgray@@lightgray@@/COLOR@@
+@@COLOR@@lime@@lime@@/COLOR@@
+@@COLOR@@magenta@@magenta@@/COLOR@@
+@@COLOR@@olive@@olive@@/COLOR@@
+@@COLOR@@orange@@orange@@/COLOR@@
+@@COLOR@@pink@@pink@@/COLOR@@
+@@COLOR@@purple@@purple@@/COLOR@@
+@@COLOR@@red@@red@@/COLOR@@
+@@COLOR@@teal@@teal@@/COLOR@@
+@@COLOR@@violet@@violet@@/COLOR@@
+@@COLOR@@white@@white@@/COLOR@@
+@@COLOR@@yellow@@yellow@@/COLOR@@
+
+Et vous pouvez également utiliser les codes couleurs suivants, qui sont compatibles à la fois dans LaTeX et en HTML (couleurs svg, mais la plupart sont sans doute inutiles) :
+
+
+@@COLOR@@AliceBlue@@AliceBlue@@/COLOR@@
+@@COLOR@@AntiqueWhite@@AntiqueWhite@@/COLOR@@
+@@COLOR@@Aqua@@Aqua@@/COLOR@@
+@@COLOR@@Aquamarine@@Aquamarine@@/COLOR@@
+@@COLOR@@Azure@@Azure@@/COLOR@@
+@@COLOR@@Beige@@Beige@@/COLOR@@
+@@COLOR@@Bisque@@Bisque@@/COLOR@@
+@@COLOR@@Black@@Black@@/COLOR@@
+@@COLOR@@BlanchedAlmond@@BlanchedAlmond@@/COLOR@@
+@@COLOR@@Blue@@Blue@@/COLOR@@
+@@COLOR@@BlueViolet@@BlueViolet@@/COLOR@@
+@@COLOR@@Brown@@Brown@@/COLOR@@
+@@COLOR@@BurlyWood@@BurlyWood@@/COLOR@@
+@@COLOR@@CadetBlue@@CadetBlue@@/COLOR@@
+@@COLOR@@Chartreuse@@Chartreuse@@/COLOR@@
+@@COLOR@@Chocolate@@Chocolate@@/COLOR@@
+@@COLOR@@Coral@@Coral@@/COLOR@@
+@@COLOR@@CornflowerBlue@@CornflowerBlue@@/COLOR@@
+@@COLOR@@Cornsilk@@Cornsilk@@/COLOR@@
+@@COLOR@@Crimson@@Crimson@@/COLOR@@
+@@COLOR@@Cyan@@Cyan@@/COLOR@@
+@@COLOR@@DarkBlue@@DarkBlue@@/COLOR@@
+@@COLOR@@DarkCyan@@DarkCyan@@/COLOR@@
+@@COLOR@@DarkGoldenrod@@DarkGoldenrod@@/COLOR@@
+@@COLOR@@DarkGray@@DarkGray@@/COLOR@@
+@@COLOR@@DarkGreen@@DarkGreen@@/COLOR@@
+@@COLOR@@DarkGrey@@DarkGrey@@/COLOR@@
+@@COLOR@@DarkKhaki@@DarkKhaki@@/COLOR@@
+@@COLOR@@DarkMagenta@@DarkMagenta@@/COLOR@@
+@@COLOR@@DarkOliveGreen@@DarkOliveGreen@@/COLOR@@
+@@COLOR@@DarkOrange@@DarkOrange@@/COLOR@@
+@@COLOR@@DarkOrchid@@DarkOrchid@@/COLOR@@
+@@COLOR@@DarkRed@@DarkRed@@/COLOR@@
+@@COLOR@@DarkSalmon@@DarkSalmon@@/COLOR@@
+@@COLOR@@DarkSeaGreen@@DarkSeaGreen@@/COLOR@@
+@@COLOR@@DarkSlateBlue@@DarkSlateBlue@@/COLOR@@
+@@COLOR@@DarkSlateGray@@DarkSlateGray@@/COLOR@@
+@@COLOR@@DarkSlateGrey@@DarkSlateGrey@@/COLOR@@
+@@COLOR@@DarkTurquoise@@DarkTurquoise@@/COLOR@@
+@@COLOR@@DarkViolet@@DarkViolet@@/COLOR@@
+@@COLOR@@DeepPink@@DeepPink@@/COLOR@@
+@@COLOR@@DeepSkyBlue@@DeepSkyBlue@@/COLOR@@
+@@COLOR@@DimGray@@DimGray@@/COLOR@@
+@@COLOR@@DimGrey@@DimGrey@@/COLOR@@
+@@COLOR@@DodgerBlue@@DodgerBlue@@/COLOR@@
+@@COLOR@@FireBrick@@FireBrick@@/COLOR@@
+@@COLOR@@FloralWhite@@FloralWhite@@/COLOR@@
+@@COLOR@@ForestGreen@@ForestGreen@@/COLOR@@
+@@COLOR@@Fuchsia@@Fuchsia@@/COLOR@@
+@@COLOR@@Gainsboro@@Gainsboro@@/COLOR@@
+@@COLOR@@GhostWhite@@GhostWhite@@/COLOR@@
+@@COLOR@@Gold@@Gold@@/COLOR@@
+@@COLOR@@Goldenrod@@Goldenrod@@/COLOR@@
+@@COLOR@@Gray@@Gray@@/COLOR@@
+@@COLOR@@Green@@Green@@/COLOR@@
+@@COLOR@@GreenYellow@@GreenYellow@@/COLOR@@
+@@COLOR@@Grey@@Grey@@/COLOR@@
+@@COLOR@@Honeydew@@Honeydew@@/COLOR@@
+@@COLOR@@HotPink@@HotPink@@/COLOR@@
+@@COLOR@@IndianRed@@IndianRed@@/COLOR@@
+@@COLOR@@Indigo@@Indigo@@/COLOR@@
+@@COLOR@@Ivory@@Ivory@@/COLOR@@
+@@COLOR@@Khaki@@Khaki@@/COLOR@@
+@@COLOR@@Lavender@@Lavender@@/COLOR@@
+@@COLOR@@LavenderBlush@@LavenderBlush@@/COLOR@@
+@@COLOR@@LawnGreen@@LawnGreen@@/COLOR@@
+@@COLOR@@LemonChiffon@@LemonChiffon@@/COLOR@@
+@@COLOR@@LightBlue@@LightBlue@@/COLOR@@
+@@COLOR@@LightCoral@@LightCoral@@/COLOR@@
+@@COLOR@@LightCyan@@LightCyan@@/COLOR@@
+@@COLOR@@LightGoldenrod@@LightGoldenrod@@/COLOR@@
+@@COLOR@@LightGoldenrodYellow@@LightGoldenrodYellow@@/COLOR@@
+@@COLOR@@LightGray@@LightGray@@/COLOR@@
+@@COLOR@@LightGreen@@LightGreen@@/COLOR@@
+@@COLOR@@LightGrey@@LightGrey@@/COLOR@@
+@@COLOR@@LightPink@@LightPink@@/COLOR@@
+@@COLOR@@LightSalmon@@LightSalmon@@/COLOR@@
+@@COLOR@@LightSeaGreen@@LightSeaGreen@@/COLOR@@
+@@COLOR@@LightSkyBlue@@LightSkyBlue@@/COLOR@@
+@@COLOR@@LightSlateBlue@@LightSlateBlue@@/COLOR@@
+@@COLOR@@LightSlateGray@@LightSlateGray@@/COLOR@@
+@@COLOR@@LightSlateGrey@@LightSlateGrey@@/COLOR@@
+@@COLOR@@LightSteelBlue@@LightSteelBlue@@/COLOR@@
+@@COLOR@@LightYellow@@LightYellow@@/COLOR@@
+@@COLOR@@Lime@@Lime@@/COLOR@@
+@@COLOR@@LimeGreen@@LimeGreen@@/COLOR@@
+@@COLOR@@Linen@@Linen@@/COLOR@@
+@@COLOR@@Magenta@@Magenta@@/COLOR@@
+@@COLOR@@Maroon@@Maroon@@/COLOR@@
+@@COLOR@@MediumAquamarine@@MediumAquamarine@@/COLOR@@
+@@COLOR@@MediumBlue@@MediumBlue@@/COLOR@@
+@@COLOR@@MediumOrchid@@MediumOrchid@@/COLOR@@
+@@COLOR@@MediumPurple@@MediumPurple@@/COLOR@@
+@@COLOR@@MediumSeaGreen@@MediumSeaGreen@@/COLOR@@
+@@COLOR@@MediumSlateBlue@@MediumSlateBlue@@/COLOR@@
+@@COLOR@@MediumSpringGreen@@MediumSpringGreen@@/COLOR@@
+@@COLOR@@MediumTurquoise@@MediumTurquoise@@/COLOR@@
+@@COLOR@@MediumVioletRed@@MediumVioletRed@@/COLOR@@
+@@COLOR@@MidnightBlue@@MidnightBlue@@/COLOR@@
+@@COLOR@@MintCream@@MintCream@@/COLOR@@
+@@COLOR@@MistyRose@@MistyRose@@/COLOR@@
+@@COLOR@@Moccasin@@Moccasin@@/COLOR@@
+@@COLOR@@NavajoWhite@@NavajoWhite@@/COLOR@@
+@@COLOR@@Navy@@Navy@@/COLOR@@
+@@COLOR@@NavyBlue@@NavyBlue@@/COLOR@@
+@@COLOR@@OldLace@@OldLace@@/COLOR@@
+@@COLOR@@Olive@@Olive@@/COLOR@@
+@@COLOR@@OliveDrab@@OliveDrab@@/COLOR@@
+@@COLOR@@Orange@@Orange@@/COLOR@@
+@@COLOR@@OrangeRed@@OrangeRed@@/COLOR@@
+@@COLOR@@Orchid@@Orchid@@/COLOR@@
+@@COLOR@@PaleGoldenrod@@PaleGoldenrod@@/COLOR@@
+@@COLOR@@PaleGreen@@PaleGreen@@/COLOR@@
+@@COLOR@@PaleTurquoise@@PaleTurquoise@@/COLOR@@
+@@COLOR@@PaleVioletRed@@PaleVioletRed@@/COLOR@@
+@@COLOR@@PapayaWhip@@PapayaWhip@@/COLOR@@
+@@COLOR@@PeachPuff@@PeachPuff@@/COLOR@@
+@@COLOR@@Peru@@Peru@@/COLOR@@
+@@COLOR@@Pink@@Pink@@/COLOR@@
+@@COLOR@@Plum@@Plum@@/COLOR@@
+@@COLOR@@PowderBlue@@PowderBlue@@/COLOR@@
+@@COLOR@@Purple@@Purple@@/COLOR@@
+@@COLOR@@Red@@Red@@/COLOR@@
+@@COLOR@@RosyBrown@@RosyBrown@@/COLOR@@
+@@COLOR@@RoyalBlue@@RoyalBlue@@/COLOR@@
+@@COLOR@@SaddleBrown@@SaddleBrown@@/COLOR@@
+@@COLOR@@Salmon@@Salmon@@/COLOR@@
+@@COLOR@@SandyBrown@@SandyBrown@@/COLOR@@
+@@COLOR@@SeaGreen@@SeaGreen@@/COLOR@@
+@@COLOR@@Seashell@@Seashell@@/COLOR@@
+@@COLOR@@Sienna@@Sienna@@/COLOR@@
+@@COLOR@@Silver@@Silver@@/COLOR@@
+@@COLOR@@SkyBlue@@SkyBlue@@/COLOR@@
+@@COLOR@@SlateBlue@@SlateBlue@@/COLOR@@
+@@COLOR@@SlateGray@@SlateGray@@/COLOR@@
+@@COLOR@@SlateGrey@@SlateGrey@@/COLOR@@
+@@COLOR@@Snow@@Snow@@/COLOR@@
+@@COLOR@@SpringGreen@@SpringGreen@@/COLOR@@
+@@COLOR@@SteelBlue@@SteelBlue@@/COLOR@@
+@@COLOR@@Tan@@Tan@@/COLOR@@
+@@COLOR@@Teal@@Teal@@/COLOR@@
+@@COLOR@@Thistle@@Thistle@@/COLOR@@
+@@COLOR@@Tomato@@Tomato@@/COLOR@@
+@@COLOR@@Turquoise@@Turquoise@@/COLOR@@
+@@COLOR@@Violet@@Violet@@/COLOR@@
+@@COLOR@@VioletRed@@VioletRed@@/COLOR@@
+@@COLOR@@Wheat@@Wheat@@/COLOR@@
+@@COLOR@@White@@White@@/COLOR@@
+@@COLOR@@WhiteSmoke@@WhiteSmoke@@/COLOR@@
+@@COLOR@@Yellow@@Yellow@@/COLOR@@
+@@COLOR@@YellowGreen@@YellowGreen@@/COLOR@@
+
+
+On peut indiquer une couleur avec son code html à la place de son nom, par exemple #6D7D2E, ce qui donne : @@COLOR@@#6D7D2E@@Ma belle couleur verte@@/COLOR@@. Par contre {^}LaTeX{^} n'affichera pas cette couleur, cela sera remplacé par du gris.
+
+*-*-
+
+=== Centrage de texte ===
+
+Vous pouvez centrer du texte en commençant une ligne par un | (avec LaTex uniquement) :
+
+| texte centré (mais pas en html)
+
+ou encore en entourant un paragraphe avec ``SYMBcenterBegin`` et ``SYMBcenterEnd`` :
+
+{->--}
+ Un bel haiku
+ Texte poétique bien centré
+ Voilà ce qu'on recherche ici 
+{-<--}
+
+N'oubliez pas de rajouter une espace avant chaque ligne pour préserver les retours à la ligne.
+
+ou encore avec SYMBcenterBegin2 et SYMBcenterEnd2
+
+@@begin((center))**
+ Un bel haiku
+ Autre méthode bien compliquée
+ Pour les amoureux du TeX
+@@end((center))**
+
+Troisième possibilité, pour aller avec le symbole de l'exergue, vous pouvez utiliser SYMBcenterBegin3 et SYMBcenterEnd3
+
+*-*-
+
+
+
+
+=== Colonnes ===
+
+
+{|2|}
+
+Vous pouvez utiliser le symbole ``{|n|}`` pour signifier que vous voulez avoir votre texte sur ``n`` colonnes, ``n`` étant une valeur comprise entre 0 et 4. On considère que 4 colonnes c'est déjà un maximum pour une présentation de texte. À la fin de la zone à mettre en colonnes, on termine par cette même commande avec n=0 ou n=1 pour signifier le retour à la normale.
+
+{|0|}
+
+
+=== Tables ===
+
+Les tables sont natives dans txt2tags. Mais dans l'export LaTeX (pdf) par défaut, si une table est trop longue, elle sortira en bas de la page et la fin ne sera pas affichée, aussi nous utilisons le paquet ``longtable`` au lieu de ``tabular``. Si vous préférez revenir à tabular, veuillez rajouter ceci dans votre en-tête :
+
+``` %!postproc(tex): 'longtable' 'tabular'``.
+
+In the case your tables has so many columns that it will print outside the width of the page, use this trick to wrap long texts, for example if your table has 4 columns:
+
+``` %!postproc(tex): '\{\|l\|l\|l\|l\|\}' {|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
+
+//(we must escape the ``{`` and ``|`` symbols when using *proc in txt2tags)//
+
+If your document has only one table, it will be ok. You can also customise the width of each column. If it has more tables and you wish to use different widths, you can use a second trick:
+
+add extra spaces at the beginning of one of the colum, like this:
+
+``` | left | left | left |   right |
+
+so this table will be unique to the document and you can use this now:
+
+``` %!postproc(tex): '\{\|l\|l\|l\|r\|\}' {|p{2cm}|p{3cm}|p{5cm}|p{3cm}|}
+
+
+Reminder: tables are aligned like this:
+
+- only one single space around the pipes:
+
+``` | left align | left align | left align |
+
+- right align is done with one or more extra space before the text:
+
+``` | left align |    right align | left align |
+
+- center align is done with more than one space around the text, with the same quantity of space for both side:
+
+
+``` 
+| Lorem ipsum dolor | sit amet, consectetur | adipiscing elit. Donec a diam lectus. |
+| left align |    right align |  center align  |
+```
+
+| Lorem ipsum dolor | sit amet, consectetur | adipiscing elit. Donec a diam lectus. |
+| left align |    right align |  center align  |
+
+
+- Pour centrer vos tables, débutez la ligne par un espace :
+
+
+``` 
+ | Lorem ipsum dolor | sit amet, consectetur | adipiscing elit. Donec a diam lectus. |
+ | left align |    right align |  center align  |
+```
+
+
+ | Lorem ipsum dolor | sit amet, consectetur | adipiscing elit. Donec a diam lectus. |
+ | left align |    right align |  center align  |
+
+
+
+
+=== Code LaTeX complet ===
+
+Même si ce n'est pas prévu pour, vous pouvez également rajouter du code spécifique à LaTeX, en remplaçant les \ par des SYMBarobaseSYMBarobase et les { et } par respectivement SYMBdoubleparenthopen et SYMBdoubleparenthclose. Si vous voulez que la commande disparaîsse totalement du document html, vous aurez besoin de finir la commande par deux étoiles ** pour indiquer la fin du code.
+
+Il est également possible, de façon plus simple, d'encadrer votre code latex avec la syntaxe txt2tags pour le verbatim (trois ```) ou le nouveau format tagged (trois '''). Mais contrairement à la syntaxe décrite précédemment, cela inclura le code LaTeX dans le document html, ce qui n'est pas forcément souhaitable, sauf si vous avez uniquement besoin de l'exportation LaTeX.
+
+
+*-*-
+Le code source du présent document vous donnera plus d'exemples sur comment rajouter directement des options latex dans votre texte. Par exemple une formule mathématique (qui n'apparaîtra pas dans la version html) :
+
+@@begin((displaymath))**
+@@frac((a))((b)) + @@sqrt[n]((abcd))**
+@@end((displaymath))**
+
+En version verbatim :
+
+```
+\begin{displaymath}
+\frac{a}{b} + \sqrt[n]{abcd}
+\end{displaymath}
+```
+
+Ou une boîte :
+
+@@Ovalbox((Test de mise en boîte))
+
+*-*-
+Ce dernier exemple apparaîtra bizarrement dans la version html car il n'y a pas les ** de fin de commande spéciale.
+
+
+{-@- } 
+Exemple des notes :
+
+On pourra ainsi include des notes@@footnote((Essai note de pied de page.))** (version avec le code de remplacement)
+
+Mais attention, de cette manière, celles-ci n'apparaîtront pas lors de l'export html@@footnote((Cette note sera perdue en html.))**
+
+Il vaut mieux utiliser cette forme pour avoir des notes sauvegardées°°Cette note sera gardée dans la version html du document.°°
+
+Enfin, il y a également cette forme alternative{ °° }Uniquement pour garder l'idée des symboles entourés d'accolades...{ °° }
+
+*-*-
+
+==== Équations LaTeX ====
+
+Elles se créent en entourant les équations avec le symbole ``{ $$ }`` (des deux côtés).
+
+Elles seront affichées telles quelles en html. Vous pouvez les visualiser en ligne avec http://www.codecogs.com/latex/eqneditor.php
+
+En version en ligne : { $$ }\delta = 3 \times \sum X_i^2{ $$ }, ainsi que { $$ } 4 - \sqrt X{ $$ }
+
+
+En version hors ligne : 
+{ $$ }\delta = 3 \times \sum X_i^2{ $$ }
+
+*-*-
+
+=== Exemple code unix ===
+
+Si vous avez besoin d'include des caratères que l'on trouve dans le code 
+txt2tags, vous pouvez protéger leur exécution en les entourant de double quote ("""""")
+
+| find . -print ""|"" cpio -o -H newc ""|"" gzip -9 > ../initrd.gz |
+
+
+
+
+== Unicode, Ligatures... (rendu XeTeX) ==
+
+L'utilisation de XeTeX à la place de LaTeX se fait avec la commande ``make xetex`` au lieu de ``make pdf``.
+Cela permet d'utiliser des caractères unicodes dans la source :
+ 
+- japonais : オオカミ
+- persan : گرگ 
+%- persan : @@begin((farsi))** گرگ @@end((farsi))**
+- russe : волк
+- grec : λύκος
+
+mais cela ne fonctionne pas avec toutes les langues (à l'étude...). Dans les exemples présentés ici, seuls le russe et le grec seront affichés dans la version pdf générée par XeTeX.
+
+
+Les ligatures :
+- roman : fi fl ffl fj sp st ct sl ss fs ff
+- italique : //fi fl ffl fj sp st ct sl ss fs ff//
+
+(toutes ne sont pas supportées par les polices par défauts, pour le moment [Linux Libertine http://www.linuxlibertine.org/])
+
+
+Cela permet également de modifier l'apparence des chiffres ([chiffres elzéviriens http://fr.wikipedia.org/wiki/Chiffres_elz%C3%A9viriens]) : 1234567890
+
+{!} Le modèle de document xetex ne contient pas de page de garde.
+
+*-*-
+
+
+== Installation de nouvelles polices pour LaTeX ==
+
+Vous pouvez trouvez des exemples de belles polices pour LaTeX et des moyens pour les installer depuis [The LaTeX Font Catalogue http://www.tug.dk/FontCatalogue/about.html]. Notamment en utilisant [getnonfreefonts http://www.tug.org/fonts/getnonfreefonts/] vous pouvez installer la belle police [dayroman http://www.tug.dk/FontCatalogue/dayrom/].
+
+
+*-*-
+
+
+== Module de courrier ==
+
+La commande ``make lettre`` utilisée sur un modèle tel que celui fourni dans le fichier samples/exemple_lettre.t2t permet de créer un courrier (pdf) en utilisant le style Lettre de LaTeX :
+
+- http://fr.wikibooks.org/wiki/LaTeX/Lettre
+
+
+*-*-
+
+
+== Module de création de livres-jeux ==[cyoa]
+
+//Cette partie de la documentation a été déplacée dans le fichier textallion_cyoa_fr//
+
+
+*-*-
+
+= Exemples de prose =
+
+
+== La tour de Nesle ==
+
+{  ~~}
+Il y avait à la tour de Nesle un corps-de-garde auquel se logeait le guet pendant la nuit.
+{/ ~~}Brantome.
+
+
+« Valet de trèfle ! — Dame de pique ! de gagne ! » Et le soudard qui perdait envoya d’un coup de poing sur la table son enjeu au plancher.
+
+Mais alors messire Hugues, le prévôt, cracha dans un brasier de fer avec la grimace d’un cagou qui a avalé une araignée en mangeant sa soupe.
+
+--- « Pouah ! les chaircuitiers échaudent-ils leurs cochons à minuit ? Ventre dieu ! c’est un bateau de feurre qui brûle en Seine ! »
+
+
+{-/@-}
+
+
+L’incendie qui n’était d’abord qu’un innocent follet égaré dans les brouillards de la rivière, fut bientôt un diable à quatre tirant le canon et force arquebusades au fil de l’eau.
+
+Une foule innombrable de turlupins, de béquillards, de gueux de nuit accourus sur la grève, dansaient des gigues devant la spirale de flamme et de fumée.
+
+Et rougeoyaient face à face la tour de Nesle, d’où le guet sortit l’escopette sur l’épaule, et la tour du Louvre, d’où, par une fenêtre, le roi et la reine voyaient tout sans être vus.
+
+par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
+
+---------------------------
+
+//Voir [examples.html examples.html] pour plus d'exemples de textes.//
+
+
+*-*-
+
+
+= Ressources diverses =
+
+- [Guide de référence quickref.pdf] en une page pdf (ou en [html quickref.html]).
+- http://lab.arc90.com/experiments/readability/ : permet d'habiller encore différemment une page html (optimisé pour la lecture à l'écran).
+- http://www.framasoft.net/article2225.html : Règles typographiques 
+- http://www.interpc.fr/mapage/billaud/typopao.htm : autres règles
+
+- Quelques éditeurs de texte supportant la syntaxe txt2tags :
+ - http://kate-editor.org/ 
+ - http://www.geany.org/ 
+ - http://www.scintilla.org/SciTE.html 
+ - http://projects.gnome.org/gedit/
+ 
+- Lecteurs {^}ePUB{^} :
+ - http://www.fbreader.org/ (pour divers OS, dont Android)
+ - http://calibre-ebook.com/ (également pour la gestion des livrels)
+ - http://coolreader.org/e-index.htm (Android)
+
+ - http://www.epubread.com/ (extension firefox)
+ - http://readium.org/ (extension chrome)
+ - http://ibisreader.com    (lecture en ligne)
+ 
+ - http://www.2epub.com/ (conversion)
+
+
+== Outils concurrents, similaires ou associés ==
+
+- Ulysses : http://www.the-soulmen.com/ulysses/
+- Scrivener : http://www.literatureandlatte.com/scrivener.php
+- Storyist : http://storyist.com/
+- http://www.texts.io/
+- La poule ou l'oeuf (logiciel libre) : http://pouleouoeuf.org/
+- Celtx (logiciel libre) : http://www.celtx.com
+- Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 
+- http://nestededitor.sourceforge.net/(libre)
+
+ - création d'{^}ePUB{^} : [sigil https://code.google.com/p/sigil/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
+ - html : 
+ - pdf : openoffice, LaTeX, [Lout http://fr.wikipedia.org/wiki/Lout], [writer2latex http://writer2latex.sourceforge.net/]]
+
+ - cyoa : renpy, Undum, ChoiceScript, Inform, http://www.freegameengines.org/gamebook-engine/, http://homepage.mac.com/siyanlis/Xhoromag/Advelh.htm, http://felix.plesoianu.ro/pub/ramus3.html
+ 
+- typo : http://typeplate.com/
+
+
+%!include: license.t2t
+
+
+%!include: changelog.t2t
+
+
+%!include: todo.t2t
+
+
+%%index
+

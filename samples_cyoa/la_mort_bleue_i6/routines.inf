@@ -1,0 +1,174 @@
+! Encodage UTF-8
+! version Beta 0.96 Parchment
+! ------------------------------------------------------------------------------
+
+[ Initialise;
+	keyBuffer-> 0 = INPUT_NB_CAR_MAX;
+	keyParse->  0 = INPUT_NB_MOT_MAX;
+	pageN =     PAGE0;
+	nbrChoixPage = 0;
+	choix1a9 = 0;
+	flagFin =  0;
+	folio =    0;
+	flagDe =   1;
+];
+
+! ------------------------------------------------------------------------------
+
+[ Choix txt adrPage;
+	nbrChoixPage++;
+	if( nbrChoixPage > 9 ) nbrChoixPage = 9; ! Error SI > 9
+	pileAdrPage--> nbrChoixPage = adrPage;
+	if( nbrChoixPage == 1 ) new_line;
+	new_line;
+	spaces ESPACE_RETRAIT;
+	#Ifdef MOTIF_LISTE_PARENTHESE;
+		font off;
+		print "(", (sBleu) nbrChoixPage, ") ";
+		font on;
+	#Ifnot;
+		font off;
+		print " ", (sBleu) nbrChoixPage, (sBleu) ".";
+		font on;
+		print " ";
+	#Endif;
+	print (string) txt;
+];
+
+[ Foliotage   i;
+	i = folioPage--> 0;
+	while( i ) {
+		if ( folioPage--> i == pageN )
+			break;
+		i--;
+	}
+	return i;
+];
+
+[ Fin   width;
+	new_line;
+	new_line;
+	font off;
+	width = ScreenWidth();
+	spaces((width - 7)/2);
+	print (sBleu) "- FIN -";
+	font on;
+	print " "; ! Frotz Cursor
+	flagFin = 1;
+];
+
+! ------------------------------------------------------------------------------
+
+[ Keyboard   w;
+	new_line;
+	new_line;
+	spaces ESPACE_RETRAIT + 1;
+	.FreshInput;
+	font off;
+	print (string) MOTIF_PROMPT;
+	font on;
+	read keyBuffer keyParse;
+	! ----------------------------------
+	if ( keyBuffer-> 1 == 0 && nbrChoixPage == 1 ) {  
+		choix1a9 = 1;
+		return 'key1a9';
+	}
+	w = keyBuffer-> 2;
+	if( keyBuffer-> 1 == 1 && w >= '1' && w <= '9' ) {
+		choix1a9 = w - '1' + 1;
+		if ( choix1a9 <= nbrChoixPage ) return 'key1a9';
+	}
+	w = keyParse-->1;
+	if( pageN == p19 && ( w == 'nord' or 'sud' or 'est' or 'ouest' ) ) return w;
+	! ----------------------------------
+	spaces ESPACE_RETRAIT + 3;
+	font off;
+	print 1;
+	if ( nbrChoixPage > 1 ) print "-", nbrChoixPage;		
+	jump FreshInput;
+];
+
+! ------------------------------------------------------------------------------
+
+[ Banner   i;
+	if ( Story ~= 0 ) print "^", (sBleu) Story, "^";
+	if ( Headline ~= 0 ) print (string) Headline, "^";
+	print "Release ", (HDR_GAMERELEASE--> 0) & $03ff, " / Serial number ";
+	for ( i = 0 : i < 6 : i++ ) print (char) HDR_GAMESERIAL-> i;
+	print " / Inform v";
+	inversion;
+	print " Library ", (string) LIB_RELEASE, " ";
+	#Ifdef STRICT_MODE;
+	print "S";
+	#Endif; ! STRICT_MODE
+	#Ifdef INFIX;
+	print "X";
+	#Ifnot;
+	#Ifdef DEBUG;
+	print "D";
+	#Endif; ! DEBUG
+	#Endif; ! INFIX
+	new_line;
+	new_line;
+];
+
+[ DrawStatusLine   width column;
+	@split_window 1;
+	@set_window 1;
+	MoveCursor(1, 1);
+	style reverse;
+	font off;
+	width = ScreenWidth();
+	spaces width;
+	MoveCursor(1, 2);
+	print (string) Story;
+	column = width - 7;
+	MoveCursor(1, column);
+	if ( folio ) print "page ", folio;
+	MoveCursor(1, 1);
+	style roman;
+	@set_window 0;
+	font on;
+];
+
+! ------------------------------------------------------------------------------
+
+[ titrePage;
+	new_line;
+	if( folio ) print " ", (sBold) folio, "^^";
+	spaces ESPACE_RETRAIT;
+];
+
+[ MoveCursor line column;  ! 1-based postion on text grid
+	@set_cursor line column;
+];
+
+[ ScreenWidth;
+	return (HDR_SCREENWCHARS->0);
+];
+
+[ sBold txt;
+	style bold;
+	print txt;
+	style roman;
+];
+
+[ sBleu txt;
+	@set_colour CLR_BLUE CLR_DEFAULT;
+	if( txt ofclass String)
+		print (string) txt;
+	else print txt;
+	@set_colour CLR_DEFAULT CLR_DEFAULT;
+];
+
+[ ClsPage;
+	#Ifdef TARGET_PAS_DE_CLS; ! TARGET_GARGOYLE
+		if( pageN == START_PAGE )
+			@erase_window 0;
+	#Ifnot; ! CLS TARGET_FROTZ TARGET_PARCHMENT
+		@erase_window 0;
+	#Endif; ! TARGET_
+];
+
+! ------------------------------------------------------------------------------
+

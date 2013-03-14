@@ -1,0 +1,684 @@
+TeXtallion, some examples
+
+
+
+% Tiny almost-Kiss Word Processor
+% http://textallion.googlecode.com
+
+%% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
+%!postproc(tex): 'xx DOCUMENT TITLE xx'  'Textallion - Samples'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Various Authors'
+%!postproc(tex): 'xx DOCUMENT TAGS xx'   'Novel, poetry, prosa'
+
+
+%% DEF PERSONAL STYLE (usually called something like sample.sty and/or sample.css) 
+%!style(tex): ../includes/sample.sty
+%-!style(xhtml): ../includes/sample.css 
+%!style(xhtml): ../includes/sample_sans.css
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+%% Alternative definitions path for TEXTALLION (enable them instead of the previous ones if needed, by removing the -- between the % and the !)
+
+%% Local installation (Unix)
+%--!style(tex): /usr/share/textallion/includes/sample.sty
+%--!style(xhtml): /usr/share/textallion/includes/sample.css 
+
+%--!includeconf: /usr/share/textallion/core/textallion.t2t
+%--!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'
+
+%% Local installation (Windows)
+
+%!--style(tex): c:/temp/textallion/includes/sample.sty
+%!--style(xhtml): c:/temp/textallion/includes/sample.css
+
+%!--includeconf: c:/temp/textallion/core/textallion.t2t
+%!--postproc(tex): 'TEXTALLIONPATH' 'c:/temp/textallion/'
+
+%% Another alternative path (online)
+
+% get first http://textallion.googlecode.com/hg/includes/sample.sty and http://textallion.googlecode.com/hg/core/textallion.sty  
+%--!style(tex): sample.sty
+%--!style(xhtml): http://textallion.googlecode.com/hg/includes/sample.css
+
+%--!includeconf: http://textallion.googlecode.com/hg/core/textallion.t2t
+%--!postproc(tex): 'TEXTALLIONPATH' './'
+
+% /.../
+
+%% DEF additionnal macros (can be removed)
+%!--preproc(tex): "$" '{//..}'
+%(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
+
+%% Remove the ordered lists from the LaTeX output
+%!preproc(tex): "^\+ " '- '
+
+%% enable the line below if you don't intend to use lists, but wish to use single dash dialogue style (in French)
+%--!preproc: "^- " 'QUADRATINDASH '
+
+%% replace level 2 unordered headers by ordered headers.
+%--!preproc(tex): "==" '++'
+
+
+
+%%%% Beginning of YOUR document %%%%
+
+
+
+= Sample texts in English =
+
+[../images/logo_textallion.png]
+
+Here are some document examples for TeXtallion...
+
++ There are some poetry
++ Some prose as well
++ And some random stuffs
+
+
+//See [documentation_en.html ../docs/documentation_en.html] for the English manual.//
+
+== Poetry ==
+
+ 
+=== Gil-galad ===
+//by JRR Tolkien//
+ 
+{->--}
+            { )) }
+ Gil-galad was an Elven-king.
+ Of him the harpers sadly sing:
+ The last whose realm was fair and free
+ Between the mountains and the sea.
+            { () }
+ His sword was long, his lance was keen.
+ His shining helm afar was seen.
+ The countless stars of heaven's field
+ Were mirrored in his silver shield.
+            {(  )}
+ But long ago he rode away,
+ And where he dwelleth none can say.
+ For into darkness fell his star;
+ In Mordor, where the shadows are.
+            { (( }
+{-<--}
+ 
+*-*-
+
+%-----------------
+
+
+
+=== De Profundis ===
+
+//by Christina Rossetti (1830-1894)//
+ 
+{->--}
+ 
+ Oh why is heaven built so far,
+ Oh why is earth set so remote?
+ I cannot reach the nearest star
+ That hangs afloat.
+//..
+ I would not care to reach the moon,
+ One round monotonous of change;
+ Yet even she repeats her tune
+ Beyond my range.
+             {//..}
+ I never watch the scatter'd fire
+ Of stars, or sun's far-trailing train,
+ But all my heart is one desire,
+ And all in vain:
+             {//..}
+ For I am bound with fleshly bands,
+ Joy, beauty, lie beyond my scope;
+ I strain my heart, I stretch my hands,
+ And catch at hope.
+ 
+{** *}
+ 
+{-<--}
+
+
+
+
+
+== Prose ==
+
+=== The Great God Pan ===
+ 
+//Arthur Machen//
+ 
+❦
+
+*-*-
+
+"Herbert! Good God! Is it possible?"
+ 
+*-*-
+"Yes, my name's Herbert. I think I know your face, too, but I don't remember your name. My memory is very queer."
+ 
+*-*-
+"Don't you recollect Villiers of Wadham?"
+ 
+*-*-
+"So it is, so it is. I beg your pardon, Villiers, I didn't think I was begging of an old college friend. Good-night."
+ 
+*-*-
+"My dear fellow, this haste is unnecessary. My rooms are close by, but we won't go there just yet. Suppose we walk up Shaftesbury Avenue a little way? But how in heaven's name have you come to this pass, Herbert?"
+ 
+*-*-
+"It's a long story, Villiers, and a strange one too, but you can hear it if you like."
+ 
+*-*-
+"Come on, then. Take my arm, you don't seem very strong."
+ 
+*-*-
+The ill-assorted pair moved slowly up Rupert Street; the one in dirty, evil-looking rags, and the other attired in the regulation uniform of a man about town, trim, glossy, and eminently well-to-do. Villiers had emerged from his restaurant after an excellent dinner of many courses, assisted by an ingratiating little flask of Chianti, and, in that frame of mind which was with him almost chronic, had delayed a moment by the door, peering round in the dimly-lighted street in search of those mysterious incidents and persons with which the streets of London teem in every quarter and every hour. Villiers prided himself as a practised explorer of such obscure mazes and byways of London life, and in this unprofitable pursuit he displayed an assiduity which was worthy of more serious employment. Thus he stood by the lamp-post surveying the passers-by with undisguised curiosity, and with that gravity known only to the systematic diner, had just enunciated in his mind the formula: "London has been called the city of encounters; it is more than that, it is the city of Resurrections," when these reflections were suddenly interrupted by a piteous whine at his elbow, and a deplorable appeal for alms. He looked around in some irritation, and with a sudden shock found himself confronted with the embodied proof of his somewhat stilted fancies. There, close beside him, his face altered and disfigured by poverty and disgrace, his body barely covered by greasy ill-fitting rags, stood his old friend Charles Herbert, who had matriculated on the same day as himself, with whom he had been merry and wise for twelve revolving terms. Different occupations and varying interests had interrupted the friendship, and it was six years since Villiers had seen Herbert; and now he looked upon this wreck of a man with grief and dismay, mingled with a certain inquisitiveness as to what dreary chain of circumstances had dragged him down to such a doleful pass. Villiers felt together with compassion all the relish of the amateur in mysteries, and congratulated himself on his leisurely speculations outside the restaurant.
+ 
+*-*-
+They walked on in silence for some time, and more than one passer-by stared in astonishment at the unaccustomed spectacle of a well-dressed man with an unmistakable beggar hanging on to his arm, and, observing this, Villiers led the way to an obscure street in Soho. Here he repeated his question. 
+ 
+{-@- } 
+
+=== The Raven ===
+//Poe//
+//1845//
+
+*-*-
+
+ {*~~~}Once upon a midnight dreary, while I pondered, weak and weary,
+ Over many a quaint and curious volume of forgotten lore,
+ While I nodded, nearly napping, suddenly there came a tapping,
+ As of some one gently rapping, rapping at my chamber door.
+ “ T’ is some visitor”, I muttered, “tapping at my chamber door¯—
+    Only this, and nothing more.”
+
+*-*-
+ And the silken sad uncertain rustling of each purple curtain
+ Thrilled me — filled me with fantastic terrors never felt before;
+ So that now, to still the beating of my heart, I stood repeating,
+ “ T’ is some visitor entreating entrance at my chamber door¯—
+ Some late visitor entreating entrance at my chamber door;¯—
+     This it is, and nothing more.”
+
+*-*-
+ Presently my soul grew stronger; hesitating then no longer,
+ “Sir,” said I, “or Madam, truly your forgiveness I implore;
+ But the fact is I was napping, and so gently you came rapping,
+ And so faintly you came tapping, tapping at my chamber door,
+ That I scarce was sure I heard you” —¯here I opened wide the door;¯—
+     Darkness there, and nothing more.
+
+*-*-
+ Deep into that darkness peering, long I stood there wondering, fearing,
+ Doubting, dreaming dreams no mortal ever dared to dream before;
+ But the silence was unbroken, and the stillness gave no token,
+ And the only word there spoken was the whispered word, “Lenore?”
+ This I whispered, and an echo murmured back the word, “Lenore!”¯—
+     Merely this, and nothing more.
+
+*-*-
+ Back into the chamber turning, all my soul within me burning,
+ Soon again I heard a tapping somewhat louder than before.
+ “Surely,” said I, “surely that is something at my window lattice:
+ Let me see, then, what thereat is, and this mystery explore¯—
+ Let my heart be still a moment and this mystery explore;¯—
+     ’Tis the wind and nothing more.”
+ 
+*-*-
+ Open here I flung the shutter, when, with many a flirt and flutter,
+ In there stepped a stately raven of the saintly days of yore;
+ Not the least obeisance made he; not a minute stopped or stayed he;
+ But, with mien of lord or lady, perched above my chamber door¯—
+ Perched upon a bust of Pallas just above my chamber door¯—
+     Perched, and sat, and nothing more.
+ 
+*-*-
+ Then this ebony bird beguiling my sad fancy into smiling,
+ By the grave and stern decorum of the countenance it wore.
+ “Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,
+ Ghastly grim and ancient raven wandering from the Nightly shore¯—
+ Tell me what thy lordly name is on the Night’s Plutonian shore!”
+     Quoth the Raven, “Nevermore.”
+ 
+*-*-
+ Much I marveled this ungainly fowl to hear discourse so plainly,
+ Though its answer little meaning — little relevancy bore;
+ For we cannot help agreeing that no living human being
+ Ever yet was blest with seeing bird above his chamber door¯—
+ Bird or beast upon the sculptured bust above his chamber door,
+     With such name as “Nevermore.”
+ 
+*-*-
+ But the raven, sitting lonely on the placid bust, spoke only
+ That one word, as if his soul in that one word he did outpour.
+ Nothing further then he uttered — not a feather then he fluttered¯—
+ Till I scarcely more than muttered, “other friends have flown before¯—
+ On the morrow he will leave me, as my hopes have flown before.”
+     Then the bird said, “Nevermore.”
+ 
+*-*-
+ Startled at the stillness broken by reply so aptly spoken,
+ “Doubtless,” said I, “what it utters is its only stock and store,
+ Caught from some unhappy master whom unmerciful Disaster
+ Followed fast and followed faster till his songs one burden bore¯—
+ Till the dirges of his Hope that melancholy burden bore
+     Of ’Never — nevermore’.”
+ 
+*-*-
+ But the Raven still beguiling all my sad soul into smiling,
+ Straight I wheeled a cushioned seat in front of bird, and bust and door;
+ Then upon the velvet sinking, I betook myself to linking
+ Fancy unto fancy, thinking what this ominous bird of yore¯—
+ What this grim, ungainly, ghastly, gaunt and ominous bird of yore
+     Meant in croaking “Nevermore.”
+ 
+*-*-
+ This I sat engaged in guessing, but no syllable expressing
+ To the fowl whose fiery eyes now burned into my bosom’s core;
+ This and more I sat divining, with my head at ease reclining
+ On the cushion’s velvet lining that the lamplight gloated o’er,
+ But whose velvet violet lining with the lamplight gloating o’er,
+     She shall press, ah, nevermore!
+ 
+*-*-
+ Then methought the air grew denser, perfumed from an unseen censer
+ Swung by Seraphim whose footfalls tinkled on the tufted floor.
+ “Wretch,” I cried, “thy God hath lent thee — by these angels he hath sent thee
+ Respite — respite and nepenthe, from thy memories of Lenore
+ Quaff, oh quaff this kind nepenthe and forget this lost Lenore!”
+     Quoth the Raven, “Nevermore.”
+ 
+*-*-
+ “Prophet!” said I, “thing of evil! — prophet still, if bird or devil!¯—
+ Whether Tempter sent, or whether tempest tossed thee here ashore,
+ Desolate yet all undaunted, on this desert land enchanted —
+ On this home by horror haunted — tell me truly, I implore —
+ Is there — is there balm in Gilead? — tell me — tell me, I implore!”
+     Quoth the Raven, “Nevermore.”
+ 
+*-*-
+ “Prophet!” said I, “thing of evil — prophet still, if bird or devil!
+ By that Heaven that bends above us — by that God we both adore¯—
+ Tell this soul with sorrow laden if, within the distant Aidenn,
+ It shall clasp a sainted maiden whom the angels name Lenore —
+ Clasp a rare and radiant maiden whom the angels name Lenore.”
+     Quoth the Raven, “Nevermore.”
+ 
+*-*-
+ “Be that word our sign in parting, bird or fiend,” I shrieked, upstarting¯—
+ “Get thee back into the tempest and the Night’s Plutonian shore!
+ Leave no black plume as a token of that lie thy soul hath spoken!
+ Leave my loneliness unbroken! — quit the bust above my door!
+ Take thy beak from out my heart, and take thy form from off my door!”
+     Quoth the Raven, “Nevermore.”
+ 
+*-*-
+ And the Raven, never flitting, still is sitting, still is sitting
+ On the pallid bust of Pallas just above my chamber door;
+ And his eyes have all the seeming of a demon’s that is dreaming,
+ And the lamplight o’er him streaming throws his shadow on the floor;
+ And my soul from out that shadow that lies floating on the floor
+     Shall be lifted — nevermore!
+ 
+{-@- } 
+
+
+= Examples de textes en français =
+
+[../images/logo_textallion.png]
+
+Voici quelques exemples de documents utilisant le TeXtallion...
+
++ Il y a de la poésie
++ un peu de prose
++ et divers styles de textes
+
+
+//Voir [documentation_fr.html docs/documentation_fr.html] pour le manuel en français.//
+
+
+== Exemple de poésie ==
+
+
+
+
+=== Tristesses de la lune ===
+ 
+//Baudelaire//
+ 
+{->--}
+              { )) }
+ Ce soir, la lune rêve avec plus de paresse;
+ Ainsi qu'une beauté, sur de nombreux coussins,
+ Qui d'une main distraite et légère caresse
+ Avant de s'endormir le contour de ses seins,
+              { () }        
+ Sur le dos satiné des molles avalanches,
+ Mourante, elle se livre aux longues pâmoisons,
+ Et promène ses yeux sur les visions blanches
+ Qui montent dans l'azur comme des floraisons.
+              { (( }
+ Quand parfois sur ce globe, en sa langueur oisive,
+ Elle laisse filer une larme furtive,
+ Un poëte pieux, ennemi du sommeil,
+              {(  )}
+ Dans le creux de sa main prend cette larme pâle,
+ Aux reflets irisés comme un fragment d'opale,
+ Et la met dans son cœur loin des yeux du soleil.
+              { (( }
+{-<--}
+
+
+
+%-----------------
+
+
+
+=== Aux modernes ===
+
+//Leconte de Lisle//
+ 
+{->--}
+ Vous vivez lâchement, sans rêve, sans dessein,
+ Plus vieux, plus décrépits que la terre inféconde,
+ Châtrés dès le berceau par le siècle assassin
+ De toute passion vigoureuse et profonde.
+ 
+ Votre cervelle est vide autant que votre sein,
+ Et vous avez souillé ce misérable monde
+ D’un sang si corrompu, d’un souffle si malsain,
+ Que la mort germe seule en cette boue immonde.
+ 
+ Hommes, tueurs de Dieux, les temps ne sont pas loin
+ Où, sur un grand tas d’or vautrés dans quelque coin,
+ Ayant rongé le sol nourricier jusqu’aux roches
+ 
+ Ne sachant faire rien ni des jours ni des nuits,
+ Noyés dans le néant des suprêmes ennuis,
+ Vous mourrez bêtement en emplissant vos poches.
+{-<--}
+ 
+{** *}
+
+== Prose ==
+
+=== Le Chat ===
+
+//Théodore de Banville//
+//(1882)//
+ 
+*-*-
+{*~~~}Tout animal est supérieur à l'homme par ce qu'il y a en lui de divin, c'est-à-dire par l'instinct. Or, de tous les animaux, le Chat est celui chez lequel l'instinct est le plus persistant, le plus impossible à tuer. Sauvage ou domestique, il reste lui-même, obstinément, avec une sérénité absolue, et aussi rien ne peut lui faire perdre sa beauté et sa grâce suprême. Il n'y a pas de condition si humble et si vile qui arrive à le dégrader, parce qu'il n'y consent pas, et qu'il garde toujours la seule liberté qui puisse être accordée aux créatures, c'est-à-dire la volonté et la résolution arrêtée d'être libre. Il l'est en effet, parce qu'il ne se donne que dans la mesure où il le veut, accordant ou refusant à son gré son affection et ses caresses, et c'est pourquoi il reste beau, c'est-à-dire semblable à son type éternel. Prenez deux Chats, l'un vivant dans quelque logis de grande dame ou de poète, sur les moelleux tapis, sur les divans de soie et les coussins armoriés, l'autre étendu sur le carreau rougi, dans un logis de vieille fille pauvre, ou pelotonné dans une loge de portière, eh bien ! tous deux auront au même degré la noblesse, le respect de soi-même, l'élégance à laquelle le Chat ne peut renoncer sans mourir.
+
+*-*-
+En lisant le morceau si épouvantablement injuste que Buffon a consacré au Chat, on reconstruirait, si la mémoire en était perdue, tout ce règne de Louis XIV où l'homme se crut devenu soleil et centre du monde, et ne put se figurer que des milliers d'astres et d'étoiles avaient été jetés dans l'éther pour autre chose que pour son usage personnel. Ainsi le savant à manchettes, reprochant au gracieux animal de voler ce qu'il lui faut pour sa nourriture, semble supposer chez les Chats une notion exacte de la propriété et une connaissance approfondie des codes, qui par bonheur n'ont pas été accordées aux animaux. « Ils n'ont, ajoute-t-il que l'apparence de l'attachement ; on le voit à leurs mouvements obliques, à leurs yeux équivoques ; ils ne regardent jamais en face la personne aimée ; soit défiance ou fausseté, ils prennent des détours pour en approcher, pour chercher des caresses auxquelles ils ne sont sensibles que pour le plaisir qu'elles leur font. » O injuste grand savant que vous êtes ! Est-ce que nous cherchons, nous, les caresses pour le plaisir qu'elles ne nous font pas ? Vous dites que les yeux des Chats sont équivoques ! Relativement à quoi ? Si tout d'abord nous n'en pénétrons pas la subtile et profonde pensée, cela ne tient-il pas à notre manque d'intelligence et d'intuition ? Quant aux détours, eh ! mais le spirituel Alphonse Karr a adopté cette devise charmante : « Je ne crains que ceux que j'aime, » et, comme on le voit, le Chat, plein de prudence, l'avait adoptée avant lui.
+
+*-*- 
+Sans doute, il se laisse toucher, caresser, tirer les poils, porter la tête en bas par les enfants, instinctifs comme lui ; mais il se défie toujours de l'homme, et c'est en quoi il prouve son profond bon sens. N'a-t-il pas sous les yeux l'exemple de ce Chien que le même Buffon met si haut, et ne voit-il pas par là ce que l'homme fait des animaux qui consentent à être ses serviteurs et se donnent à lui sans restriction, une fois pour toutes ? L'homme fait du Chien un esclave attaché, mis à la chaîne ; il lui fait traîner des carrioles et des voitures, il l'envoie chez le boucher chercher de la viande à laquelle il ne devra pas toucher. Il le réduit même à la condition dérisoire de porter les journaux dans le quartier ; il avait fait du Chien Munito un joueur de dominos, et pour peu il l'aurait réduit à exercer le métier littéraire, à faire de la copie, ce qui, pour un animal né libre sous les cieux, ma paraîtrait le dernier degré de l'abaissement. L'homme oblige le Chien à chasser pour lui, à ses gages et même sans gages ; le Chat préfère chasser pour son propre compte, et à ce sujet on l'appelle voleur, sous prétexte que les lapins et les oiseaux appartiennent à l'homme ; mais c'est ce qu'il faudrait démontrer. On veut lui imputer à crime ce qui fit la gloire de Nemrod et d'Hippolyte, et c'est ainsi que nous avons toujours deux poids inégaux, et deux mesures.
+ 
+{-@- } 
+
+
+=== Une ville flottante ===
+//Jules Verne (1871)//
+
+
+« Quel est cet homme ?
+
+— Je ne sais, répondis-je.
+
+--- Il me déplaît ! » ajouta Fabian. Mettez deux navires en pleine mer, sans vent, sans courant, et ils finiront par s’accoster : Jetez deux planètes immobiles dans l’espace, et elles tomberont l’une sur l’autre. Placez deux ennemis au milieu d’une foule, et ils se rencontreront inévitablement. C’est fatal. Une question de temps, voilà tout. 
+
+Le soir arrivé, le concert eut lieu selon le programme. Le grand salon rempli d’auditeurs, était brillamment éclairé. /.../
+
+//(extrait du chapitre 16)//
+
+
+=== Le Corbeau ===
+//(Poe / Baudelaire)// °°Ce texte a été publié en 1845, et a été traduit ensuite en français par Baudelaire, ainsi que par Mallarmé. C'est la version de Baudelaire que nous vous livrons ici.(1)°°
+
+*-*-
+{*~~~}Une fois, sur le minuit lugubre, pendant que je méditais, faible et fatigué, sur maint précieux et curieux volume d’une doctrine oubliée, pendant que je donnais de la tête, presque assoupi, soudain il se fit un tapotement, comme de quelqu’un frappant doucement, frappant à la porte de ma chambre. « C’est quelque visiteur, – murmurai-je, – qui frappe à la porte de ma chambre ; ce n’est que cela et rien de plus. »
+
+*-*-
+Ah ! distinctement je me souviens que c’était dans le glacial décembre, et chaque tison brodait à son tour le plancher du reflet de son agonie. Ardemment je désirais le matin ; en vain m’étais-je efforcé de tirer de mes livres un sursis à ma tristesse, ma tristesse pour ma Lénore perdue, pour la précieuse et rayonnante fille que les anges nomment Lénore, – et qu’ici on ne nommera jamais plus.
+
+*-*-
+Et le soyeux, triste et vague bruissement des rideaux pourprés me pénétrait, me remplissait de terreurs fantastiques, inconnues pour moi jusqu’à ce jour ; si bien qu’enfin pour apaiser le battement de mon cœur, je me dressai, répétant : « C’est quelque visiteur attardé sollicitant l’entrée à la porte de ma chambre ; – c’est cela même, et rien de plus. »
+
+*-*-
+Mon âme en ce moment se sentit plus forte. N’hésitant donc pas plus longtemps : « Monsieur, dis-je, ou madame, en vérité, j’implore votre pardon ; mais le fait est que je sommeillais et vous êtes venu frapper si doucement, si faiblement vous êtes venu frapper à la porte de ma chambre, qu’à peine étais-je certain de vous avoir entendu. » Et alors j’ouvris la porte toute grande ; – les ténèbres, et rien de plus.
+
+*-*-
+Scrutant profondément ces ténèbres, je me tins longtemps plein d’étonnement, de crainte, de doute, rêvant des rêves qu’aucun mortel n’a jamais osé rêver ; mais le silence ne fut pas troublé, et l’immobilité ne donna aucun signe, et le seul mot proféré fut un nom chuchoté : « Lénore ! » – C’était moi qui le chuchotais, et un écho à son tour murmura ce mot : « Lénore ! » Purement cela, et rien de plus.
+ 
+*-*-
+Rentrant dans ma chambre, et sentant en moi toute mon âme incendiée, j’entendis bientôt un coup un peu plus fort que le premier. « Sûrement, – dis-je, – sûrement, il y a quelque chose aux jalousies de ma fenêtre ; voyons donc ce que c’est, et explorons ce mystère. Laissons mon cœur se calmer un instant, et explorons ce mystère ; – c’est le vent, et rien de plus. »
+ 
+*-*-
+Je poussai alors le volet, et, avec un tumultueux battement d’ailes, entra un majestueux corbeau digne des anciens jours. Il ne fit pas la moindre révérence, il ne s’arrêta pas, il n’hésita pas une minute ; mais avec la mine d’un lord ou d’une lady, il se percha au-dessus de la porte de ma chambre ; il se percha sur un buste de Pallas juste au-dessus de la porte de ma chambre ; – il se percha, s’installa, et rien de plus.
+ 
+*-*-
+Alors, cet oiseau d’ébène, par la gravité de son maintien et la sévérité de sa physionomie, induisant ma triste imagination à sourire : « Bien que ta tête, – lui dis-je, – soit sans huppe et sans cimier, tu n’es certes pas un poltron, lugubre et ancien corbeau, voyageur parti des rivages de la nuit. Dis-moi quel est ton nom seigneurial aux rivages de la nuit plutonienne ! » Le corbeau dit : « Jamais plus ! »
+ 
+*-*-
+Je fus émerveillé que ce disgracieux volatile entendît si facilement la parole, bien que sa réponse n’eût pas un bien grand sens et ne me fût pas d’un grand secours ; car nous devons convenir que jamais il ne fut donné à un homme vivant de voir un oiseau au-dessus de la porte de sa chambre, un oiseau ou une bête sur un buste sculpté au-dessus de la porte de sa chambre, se nommant d’un nom tel que – Jamais plus !
+
+
+Mais le corbeau, perché solitairement sur le buste placide, ne proféra que ce mot unique, comme si dans ce mot unique il répandait toute son âme. Il ne prononça rien de plus ; il ne remua pas une plume, – jusqu’à ce que je me prisse à murmurer faiblement : « D’autres amis se sont déjà envolés loin de moi ; vers le matin, lui aussi, il me quittera comme mes anciennes espérances déjà envolées. » L’oiseau dit alors : « Jamais plus ! »
+ 
+*-*-
+Tressaillant au bruit de cette réponse jetée avec tant d’à-propos : Sans doute, – dis-je, – ce qu’il prononce est tout son bagage de savoir, qu’il a pris chez quelque maître infortuné que le Malheur impitoyable a poursuivi ardemment, sans répit, jusqu’à ce que ses chansons n’eussent plus qu’un seul refrain, jusqu’à ce que le De profundis de son Espérance eût pris ce mélancolique refrain : « Jamais – jamais plus ! »
+ 
+{*-*-}
+Mais le corbeau induisant encore toute ma triste âme à sourire, je roulai tout de suite un siège à coussins en face de l’oiseau et du buste et de la porte ; alors, m’enfonçant dans le velours, je m’appliquai à enchaîner les idées aux idées, cherchant ce que cet augural oiseau des anciens jours, ce que ce triste, disgracieux, sinistre, maigre et augural oiseau des anciens jours voulait faire entendre en croassant son – Jamais plus !
+ 
+*-*-
+Je me tenais ainsi, rêvant, conjecturant, mais n’adressant plus une syllabe à l’oiseau, dont les yeux ardents me brûlaient maintenant jusqu’au fond du cœur : je cherchai à deviner cela, et plus encore, ma tête reposant à l’aise sur le velours du coussin que caressait la lumière de la lampe, ce velours violet caressé par la lumière de la lampe que sa tête, à Elle, ne pressera plus, – ah ! jamais plus !
+ 
+*-*-
+Alors, il me sembla que l’air s’épaississait, parfumé par un encensoir invisible que balançaient les séraphins dont les pas frôlaient le tapis de ma chambre. « Infortuné ! – m’écriai-je, – ton Dieu t’a donné par ses anges, il t’a envoyé du répit, du répit et du népenthès dans tes ressouvenirs de Lénore ! Bois, oh ! bois ce bon népenthès, et oublie cette Lénore perdue ! » Le corbeau dit : «Jamais plus ! »
+ 
+*-*-
+« Prophète ! – dis-je, – être de malheur ! oiseau ou démon ! mais toujours prophète ! que tu sois un envoyé du Tentateur, ou que la tempête t’ait simplement échoué, naufragé, mais encore intrépide, sur cette terre déserte, ensorcelée, dans ce logis par l’Horreur hanté, – dis-moi sincèrement, je t’en supplie, existe-t-il, existe-t-il ici un baume de Judée ? Dis, dis, je t’en supplie ! » Le corbeau dit : « Jamais plus ! »
+ 
+*-*-
+« Prophète ! – dis-je, – être de malheur ! oiseau ou démon ! toujours prophète ! par ce ciel tendu sur nos têtes, par ce Dieu que tous deux nous adorons, dis à cette âme chargée de douleur si, dans le Paradis lointain, elle pourra embrasser une fille sainte que les anges nomment Lénore, embrasser une précieuse et rayonnante fille que les anges nomment Lénore. » Le corbeau dit : « Jamais plus ! »
+ 
+*-*-
+« Que cette parole soit le signal de notre séparation, oiseau ou démon ! – hurlai-je en me redressant. – Rentre dans la tempête, retourne au rivage de la nuit plutonienne ; ne laisse pas ici une seule plume noire comme souvenir du mensonge que ton âme a proféré ; laisse ma solitude inviolée ; quitte ce buste au-dessus de ma porte ; arrache ton bec de mon cœur et précipite ton spectre loin de ma porte ! » Le corbeau dit : « Jamais plus ! »
+ 
+*-*-
+Et le corbeau, immuable, est toujours installé sur le buste pâle de Pallas, juste au-dessus de la porte de ma chambre ; et ses yeux ont toute la semblance des yeux d’un démon qui rêve ; et la lumière de la lampe, en ruisselant sur lui, projette son ombre sur le plancher ; et mon âme, hors du cercle de cette ombre qui gît flottante sur le plancher, ne pourra plus s’élever, – jamais plus !
+{-@- } 
+
+
+= Diverses =
+
+//Some texts in other languages°°Persian or chinese poetry won't be displayed in pdf : unicode is a work in progress and should require xetex which is not supported yet, but it's working in the html output.(2)°°.//
+
+{*~~~}Fjölnir sonur Yngvifreys réð þá fyrir Svíum og Uppsalaauð. Hann var ríkur og ársæll og friðsæll. Þá var Frið-Fróði að Hleiðru. Þeirra í millum var heimboð og vingan. Þá er Fjölnir fór til Fróða á Selund þá var þar fyrir búin mikil veisla og boðið til víða um lönd. 
+ 
+*-*-
+
+{|2|}
+
+Fróði átti mikinn húsabæ. Þar var gert ker mikið margra alna hátt og okað með stórum timburstokkum. Það stóð í undirskemmu en loft var yfir uppi og opið gólfþilið svo að þar var niður hellt leginum en kerið blandið fullt mjaðar. Þar var drykkur furðu sterkur. 
+Um kveldið var Fjölni fylgt til herbergis í hið næsta loft og hans sveit með honum. 
+
+{|0|}
+
+ 
+*-*-
+ 
+Um nóttina gekk hann út í svalar að leita sér staðar. Var hann svefnær og dauðadrukkinn. En er hann snerist aftur til herbergis þá gekk hann fram eftir svölunum og til annarra loftdura og þar inn, missti þá fótum og féll í mjaðarkerið og týndist þar.  
+ {-/@-} 
+ 
+{*~~~}Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ 
+*-*-
+
+{|3|}
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+
+*-*-
+ 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+ 
+{|0|}
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+« Être moderne ne consiste pas à chercher quelque chose en dehors de tout ce qui a été fait. Il ne s'agit au contraire que de coordonner tout ce que les âges précédents nous ont apporté pour faire voir comment notre siècle a accepté cet héritage et comment il en use ». -- Gustave Moreau°°Peintre symboliste du 19ème siècle°°
+
+ {-@- } 
+ 
+ 
+{** *}
+
+
+
+
+= More tests =
+
+
+== My Subtitle 1 ==
+
+{  ~~}{Platon}
+Si tu veux contrôler le peuple commence par contrôler sa musique.
+{/ ~~}
+
+{  ~~}
+Quand l'achat et la vente sont contrôlés par la législation, les premières choses qui s'achètent et se vendent sont les législateurs.
+{/ ~~}{Patrick Jake O'Rourke}
+
+
+Some examples:
+
+A paragraph with **bold**, //italic// and --strike--.
+You can even __underline your docs__!
+
+And use **//bold and italic//** 
+or //**italic and bold**// 
+
+Here is a nice pic: [http://txt2tags.sourceforge.net/img/t2tgems.png]
+
+And a [link to a cool website http://txt2tags.sf.net]!
+
+A table : 
+
+|| Name | Age  |  Gender |
+| John |  33  |    Male |
+| Mary |  19  |  Female |
+  
+
+``` A verbatim line
+
+""" A raw line 
+
+
+And it's working for ``special code`` like this.
+
+```
+Unfortunately I can't color this verbatim content yet.
+```
+
+{####}
+Test code source.
+
+And a new line to test again.
+And again...
+
+And a new line to test again.
+And a new line to test again.
+{/###}
+ 
+"""
+Raw area test
+"""
+
+
+% a comment will be in gray and italic
+
+[test xmpp:username@example.com?message]
+
+
+== My Subtitle 2 ==
+
+
+Lorem ipsum etc
+Lorem ipsum etc Lorem ipsum etc
+
+- Test d'écriture avec des accents à la française. Ça marche ou pas ?
+ - Éventuellement tester encore d'autres accents, comme le à, ü etc..., pour les formats à 2 € genre rtf...
+ - A língua portuguesa é uma língua românica.
+ - ¿Viene mañana?
+ - Bodø: også på norsk.
+ 
+
+- Test with lists :
+ - A paragraph with **bold**, //italic// and --strike--.
+ - You can even __underline your docs__!
+
+
+== My Subtitle_3 ==
+
+
+Lorem { ++ } ipsum etc
+Lorem ipsum etc {/++ }
+
+Here is a **direct link: http://kde.org**
+(it's not colored yet, but maybe in a next release... ?)
+
+- Another { -- } boring part... (it will be smaller) {/-- }
+
+
+
+=== My Subsubtitle 1 ===
+
+//It's a level 3 header// 
+
+- list 1
+- list 2
+ - sublist 2b
+  - subsublist 2.1
+  - subsublist 2.2
+   - subsubsublist 3
+- list 3
+
+
+=== My Subsubtitle 2 ===
+
+//It's another level 3 header// 
+
++ ordered list 1
++ list 2
+ + sublist 2B
+ + sublist 2C
++ list 3
+
+
+== My Subtitle 4 ==
+
+nothing to say here...
+
+: deflist test
+
+	quote test
+
+
+
+---------------------
+
+
+=====================
+
+
+
+
+

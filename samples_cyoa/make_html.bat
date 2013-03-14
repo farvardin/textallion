@@ -1,0 +1,1 @@
+python ../txt2tags -t xhtml --css-inside --outfile template.html template.t2t

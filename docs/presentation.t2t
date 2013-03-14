@@ -1,0 +1,66 @@
+Le TeXtallion
+
+
+
+%!target: xhtml
+%!options: --outfile presentation.html
+%!encoding: utf-8
+%!style(xhtml): ../includes/sample.css
+
+%!postproc: 'TEXTALLIONURL' 'http://anamnese.online.fr/site2/textallion/docs/presentation.html'
+
+%!postproc: 'BASEURL' 'http://anamnese.online.fr/site2/textallion'
+
+%!postproc: 'QRCODEURL' <script type="text/javascript" charset="utf-8">s = 120; url = encodeURIComponent(window.location.href);qrcode = "http://chart.apis.google.com/chart?cht=qr&chs="+s+"x"+s+"&chl="+url;document.write('<img src="'+qrcode+'" alt="Qr Code of this page" title="Qr Code of this page" />');</script>
+
+%!postproc: '</head>'  '<link rel="icon" type="image/png" href="favicon.png">\n</head>'
+      
+
+  [../images/logo_textallion.png]
+
+%  [../images/logo_textallion_txt.png]
+
+//''<span style="font-size: 200%; vertical-align: baseline">U</span>n'' outils pour publier de la littérature en prose, de la poésie, vers les formats html, pdf ou epub, et utilisant [txt2tags http://txt2tags.org] comme moteur principal.//
+
+''</p><p class="center">&#x2766;</p><p>''
+
+- Voir [le manuel BASEURL/docs/documentation_fr.html] en français ou sa version en mode [présentation BASEURL/docs/documentation_fr_slide.html].
+- Voir [quelques exemples BASEURL/samples/examples.html] de textes en html ainsi qu'en version "[slide de présentation BASEURL/samples/examples_slide.html]", mais vous pouvez également télécharger la version [pdf BASEURL/samples/examples.pdf] ou [epub BASEURL/samples/examples.epub]. //Ainsi que [la source txt2tags BASEURL/samples/examples.t2t], bien entendu.//
+- [Télécharger le guide de référence BASEURL/docs/quickref.pdf] en une page pdf (ou en [html BASEURL/docs/quickref.html]).
+- **__[Télécharger textallion http://code.google.com/p/textallion/downloads/list]__**. //([version alternative BASEURL/textallion.zip])//
+- Examiner la [version en développement http://code.google.com/p/textallion/].
+- [Exemples de textes et copies d'écran BASEURL/showcase].
+
+
+%bordure décorée
+''</p><br/><p class="center">&#x2767; &nbsp; &#x2767; &nbsp; &#x2767; &nbsp; &#x2767;</p><br/><p>''
+
+
+
+
+//''<span style="font-size: 200%; vertical-align: baseline">A</span>n easy-to-use tool'' for publishing prose, literature, poetry in html, pdf or epub, and using [txt2tags http://txt2tags.org] as a back end.//
+
+% **//''<span style="font-size: 120%; vertical-align: baseline">''New URL: [TEXTALLIONURL TEXTALLIONURL]''</span>''//**
+
+
+''</p><p class="center">&#x2766;</p><p>''
+
+
+
+- See the [English manual BASEURL/docs/documentation_en.html] or the [presentation version BASEURL/docs/documentation_en_slide.html] of this manual.
+- See some [texts examples BASEURL/samples/examples.html] in html or the [presentation BASEURL/samples/examples_slide.html], but you can also download the [pdf BASEURL/samples/examples.pdf] or [epub BASEURL/samples/examples.epub] version. //And [the txt2tags source BASEURL/samples/examples.t2t], of course.//
+- [Download the quick reference guide BASEURL/docs/quickref.pdf] in one pdf page (or in [html BASEURL/docs/quickref.html]).
+- **__[Download textallion http://code.google.com/p/textallion/downloads/list]__** //([alternative download BASEURL/textallion.zip])//
+- Browse [development version http://code.google.com/p/textallion/].
+
+
+
+--------------------------------
+
+
+URL: //[TEXTALLIONURL TEXTALLIONURL]//
+
+QRCODEURL
+================================
+
+//MOTS-CLÉS : LaTeX, python, créer gratuitement des ebooks en epub, comment créer un fichier ePub... / KEYWORDS: Free epub creation tool, create and publish ebooks with free software (freeware)...//

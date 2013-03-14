@@ -1,0 +1,40 @@
+//style.css start
+  //insert local css directives here
+body{background-color:#e0e0c0;color:#220000;font-family:Georgia,Times,"Times New Roman",serif;background-image:none!important;}
+#sidebar, #sidebar ul, #sidebar ul li{text-align:right;list-style:none;}
+#title h2{margin:0;padding:0;}
+#title p{margin:-20px;padding:0;text-align:center;font-size:smaller;}
+#title p a{display:inline;color:#553;text-align:center;margin:0;padding:0;padding-left:.5em;padding-right:.5em;text-transform:lowercase;text-decoration:none;}
+#sidebar li:hover,#title a:hover{color:#200;cursor:pointer;}
+#sidebar li a,#title p a{color:#553;}
+#sidebar li a:hover,#title p a:hover{color:#200;text-decoration:none;}
+#title a{display:inline;color:#553;text-align:center;}
+#title a{color:#442;}
+#title a:hover{color:#200;}
+#title #storyAuthor{font-size:50%;}
+#sidebar #storyMenu{display:none;margin:0;padding:0;}
+#storyMenu a, #storyMenu li a{text-decoration:none;}
+#title:hover{color:#331;}
+#sidebar #credits{font-size:smaller;cursor:auto;}
+#sidebar #credits:hover{color:#553;}
+#sidebar #credits a{text-decoration:none;}
+.menu{position:absolute;display:none;background-color:#884;color:#200;opacity:.9;border:1px solid #200;text-align:left;font-family:Georgia,Times,serif;}
+.menu div{padding:0 .4em;}
+.menu div:hover{cursor:pointer;background-color:#200;color:#884;}
+#passages{padding:2em;margin-top:1em;padding-top:1em;}
+.passage{margin-bottom:2em;text-align:left;}
+.passage ul{padding-top:.3em;text-align:center;}
+.passage li{list-style-type:square;text-align:left;padding-top:0.5em;}
+a.internalLink,a.externalLink,a.back,a.return{color:#2F2F0E;font-weight:bold;text-decoration:none;}
+a.internalLink:hover,a.externalLink:hover,a.back:hover,a.return:hover{color:#2F2F0E;text-decoration:underline;}
+a.brokenLink{background-color:red;text-decoration:none;color:#000;}
+.marked{background-color:red;color:#000;margin-right:12px;padding:3px;}
+.passage ul{margin-left:.5em;padding-left:3em;}
+.passage ol{margin-left:.5em;padding-left:3em;}
+.passage table{border-collapse:collapse;font-size:100%;margin:.8em 1.0em;}
+.passage th,.passage td,.passage tr,.passage caption{padding:3px;}
+.passage hr{height:1px;}
+#storeArea{display:none;}
+
+//style.css end
+

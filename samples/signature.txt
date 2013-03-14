@@ -1,0 +1,10 @@
+%!postproc(tex): 'xx DOCUMENT AUTHOR CURRENT LOCATION xx'   'Rameville'
+%!postproc(tex): 'xx DOCUMENT AUTHOR GENDER xx'             'M.'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx'                    'Guillaume \\textsc{Grumbold}'
+%!postproc(tex): 'xx DOCUMENT AUTHOR STREET xx'             '42, rue du Cerf'
+%!postproc(tex): 'xx DOCUMENT AUTHOR POSTAL CODE xx'        '77444'
+%!postproc(tex): 'xx DOCUMENT AUTHOR TOWN xx'               'Trifouilly en Brie'
+%!postproc(tex): 'xx DOCUMENT AUTHOR PHONE xx'              '42 58 24 87 28'
+%!postproc(tex): 'xx DOCUMENT AUTHOR FAX xx'                '42 58 24 87 29'
+%!postproc(tex): 'xx DOCUMENT AUTHOR EMAIL xx'              'g.grumbold@biblio-rameville.net'
+

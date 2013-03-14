@@ -1,0 +1,162 @@
+<?xml version="1.0"
+      encoding="%(ENCODING)s"
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>%(HEADER1)s</title>
+<meta name="generator" content="http://textallion.googlecode.com - http://txt2tags.org" />
+<meta content="minimum-scale=1.0, width=device-width, maximum-scale=2.0, user-scalable=yes" name="viewport" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="%(STYLE)s" />
+
+<!--
+show is for normal link
+visibility is for notes
+toggle is for footer
+-->
+
+<script language='javascript'> 
+ el = 0; function show(obj) { 
+	old_el=el; 
+	el = document.getElementById(obj);
+	if ( el.style.display != 'none' ) { 
+	 
+	} 
+	else { 
+		el.style.display = '';
+		old_el.style.display = 'none'; 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el = 0; function showAndFade(obj) { 
+	old_el=el; 
+	el = document.getElementById(obj);
+	if ( el.style.display != 'none' ) { 
+	 
+	} 
+	else { 
+		// Make the text transparent so when we unhide it it won't show up.
+		// We'll fade it in later with the animateFade function
+		var element = document.getElementById(obj);
+		element.style.opacity = element.FadeState == 0 ? '0' : '0';
+		element.style.filter = 'alpha(opacity = '
+        + (element.FadeState == 1 ? '0' : '0') + ')';
+        // Unhide the block
+        el.style.display = '';
+		old_el.style.display = 'none'; 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el2 = 0; function toggle(obj) { 
+	
+	el2 = document.getElementById(obj);
+	if ( el2.style.display != 'none' ) { 
+	el2.style.display = 'none'; 
+	} 
+	else { 
+		el2.style.display = 'block';
+ 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el3 = 0; function visibility(obj) { 
+	
+	el3 = document.getElementById(obj);
+	if ( el3.style.visibility != 'hidden' ) { 
+	el3.style.visibility = 'hidden'; 
+	} 
+	else { 
+		el3.style.visibility = 'visible';
+ 
+	} } 
+</script>
+
+<script language='javascript'> 
+// from http://mathiasbynens.be/demo/javascript-unicode-dice 
+function unicodeDice() {     return String.fromCharCode(0x2680 + Math.floor(Math.random() * 6));    }
+</script>
+
+<script language='javascript'> 
+// 
+function SimpleDice() {     return Math.round(Math.random() * 6) %% 6 + 1;    }
+</script>
+
+<script language='javascript'> 
+// 
+function Dice(die, dice) { var die = 6; var dice = 1;    for (loop=0; loop < dice; loop++) {// random number fix by George Johnston (cali_scripter@yahoo.com), script from http://javascript.internet.com/games/dice-roller.html 
+ roll = roll + Math.round(Math.random() * die) %% die + 1; }
+ document.form.text.value = roll;  }
+</script>
+
+
+
+<script language='javascript'>
+/* from http://www.switchonthecode.com/tutorials/javascript-tutorial-simple-fade-animation
+We just disable the fade out switch. 
+*/
+var TimeToFade = 450.0;
+
+function fade(eid)
+{
+  var element = document.getElementById(eid);
+  element.FadeState = 0 ;
+  if(element == null)
+    return;
+   
+  else
+  {
+    element.FadeState = element.FadeState == 2 ? -1 : 1;
+    element.FadeTimeLeft = TimeToFade;
+    setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  }  
+}
+
+function animateFade(lastTick, eid)
+{  
+  var curTick = new Date().getTime();
+  var elapsedTicks = curTick - lastTick;
+ 
+  var element = document.getElementById(eid);
+ 
+ 
+  if(element.FadeTimeLeft <= elapsedTicks)
+  {
+    element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    element.style.filter = 'alpha(opacity = '
+        + (element.FadeState == 1 ? '100' : '0') + ')';
+    //element.FadeState = element.FadeState == 1 ? 2 : -2;
+    return;
+  }
+ 
+  element.FadeTimeLeft -= elapsedTicks;
+  var newOpVal = element.FadeTimeLeft/TimeToFade;
+  //if(element.FadeState == 1)
+    newOpVal = 1 - newOpVal;
+
+  element.style.opacity = newOpVal;
+  element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+ 
+  setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+}
+
+</script>
+
+</head>
+
+<body>
+<div align="center">
+<h1>%(HEADER1)s</h1> <br/> 
+<span class="title2">%(HEADER2)s</span> <br/> <br/>
+<span class="title3">%(HEADER3)s</span> <br/> <br/>
+</div>
+
+%(BODY)s
+
+
+
+<div id="footer" style="display:block"><hr size=1 width=50%%/><i><a href="cyoaexplications" onclick="toggle('footer2');">:: made using textallion and txt2cyoa ::</a></i></div> <br/><div id="footer2" style="display:none"><a name="cyoaexplications"></a><i>txt2cyoa is a system for creating and displaying "Choose your own adventure" gamebooks<br/><a href="http://textallion.googlecode.com" target="_blank">: Homepage</a><br/></i></div>
+</body></html>

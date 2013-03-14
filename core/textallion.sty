@@ -1,0 +1,331 @@
+%%%%%%%%%%%% TEXTALLION %%%%%%%%%%%%
+% Tiny almost-Kiss Word Processor
+
+% YOU SHOULDN'T NEED TO MODIFY THIS FILE
+% UNLESS YOU REALLY WANT TO CUSTOMISE IT 
+% use a custom .sty file instead
+% (look at the sample_##.sty for a model)
+
+% http://anamnese.online.fr/site2/textallion/docs/presentation.html
+% Complete source code: http://textallion.googlecode.com
+% License: http://creativecommons.org/licenses/by-sa/3.0/
+
+\NoAutoSpaceBeforeFDP 
+%\FrenchItemizeSpacingtrue %pose pb compilation 
+%\FrenchListSpacingtrue   %pose pb compilation
+\usepackage{lettrine} 
+\usepackage{textcomp}  % symboles genre euro etc
+\usepackage{setspace}  % line spacing
+\usepackage{multicol}  % columns
+%\usepackage{underscore} % DON'T USE!
+
+%\usepackage{footmisc}   %% for customizing footnotes, then see footnotelayout
+
+%\renewcommand*{\footnotelayout}{\it\sffamily} %%  doesn't work...
+
+\usepackage{longtable} % allows to write tables that continue to the next page.  
+
+% for customizing titles
+%\titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before }[ after ]
+\usepackage{titlesec}
+
+\titleformat{\part}[hang]
+{\TITLExPARTxOPTIONS}{\thepart}{\TITLExSEPxSIZE pt}{\TITLExPARTxOPTIONS}
+%%TODO part
+
+\titleformat{\chapter}[hang]
+{\TITLExCHAPTERxOPTIONS}{\thechapter}{\TITLExSEPxSIZE pt}{\TITLExCHAPTERxOPTIONS}
+
+\titleformat{\section}[display]
+{\TITLExSECTIONxOPTIONS}{\sectiontitlename\ \thesection}{\TITLExSEPxSIZE pt}{\TITLExSECTIONxOPTIONS}
+
+\titleformat{\subsection}[display]
+{\TITLExSUBSECTIONxOPTIONS}{\subsectiontitlename\ \thesubsection}{\TITLExSEPxSIZE pt}{\TITLExSUBSECTIONxOPTIONS}
+
+\titleformat{\subsubsection}[display]
+{\TITLExSUBxSUBxSECTIONxOPTIONS}{\subsubsectiontitlename\ \thesubsubsection}{\TITLExSEPxSIZE pt}{\TITLExSUBxSUBxSECTIONxOPTIONS}
+
+
+
+%----- MISE EN PAGE --------------------
+
+\pretolerance=800
+\tolerance=400 
+\emergencystretch=1em
+\sloppy
+\hbadness=5000
+
+%Marges
+%\hoffset= -0,34cm % marge gche = 2.54cm + X cm
+%\oddsidemargin= 0pt % espace entre marge gche et corps
+%\marginparsep= 0cm % espace entre marge  a dte et corps 
+%\marginparwidth= 0cm % marge a droite
+%\voffset= -0,54cm % marge haut = 2.54 + X cm
+
+%\setlength{\parskip}{0\baselineskip} %paragraphes standards sans espace entre
+
+%\usepackage[top=3cm, bottom=1cm, left=2cm, right=2cm]{geometry} 
+
+%Corps
+%\textheight= \HEIGHTxOFxTEXT cm % longueur du corps
+%\textwidth= \WIDTHxOFxTEXT cm % largeur du corps
+
+%entete et pied de pages
+%\headheight= 0cm % taille entete
+%\headsep= 0.5cm % espace entre entete et corps
+%\topmargin= 0cm % espace entre marge haut et entete
+
+\footskip= \FOOTERxSPACE mm     % taille pied de page
+\parskip= \PARAGRAPHxSPACE pt   % space between 2 paragraphs
+%\setlength{\parskip}{\PARAGRAPHxSPACE pt}   % same as above
+
+\setlength{\skip\footins}{\FOOTNOTExSPACE mm} % space before a footnote
+%\setlength{\footnotesep}{0.5cm}
+
+\linespread{\LINExSPACE}    % space between two lines (ratio)
+
+
+%\renewcommand{\labelitemi}{\textbullet}  % met des points à la place des tirets dans les listes niveau 1 en français
+%(ne semble pas fonctionner lorsque la déclaration est dans un style externe en préambule)
+
+%\renewcommand{\labelitemii}{\textbullet}  % met des points à la place des tirets dans les listes niveau 2 en français
+
+\renewcommand{\FrenchLabelItem}{\STYLExOFxBULLET} % met des points à la place des tirets dans les listes en français (fonctionne lorsque la déclaration est dans un style externe)
+
+
+% For columns
+\setlength{\columnsep}{\WIDTHxOFxCOLUMNS mm}
+\setlength{\columnseprule}{\LINEWIDTHxOFxCOLUMNS pt}
+
+%------- MACROS & SYMBOLS ----------------------------------------------
+
+%\newcommand*{\PAR}{\par\vspace{\baselineskip}}  % par alinea / PAR paragraphe
+
+
+\usepackage{wasysym}  %symboles spéciaux plus bas, type dingbat
+
+
+\newcommand*{\soleil}{
+\bigskip
+\begin{center}
+\sun 
+\end{center} 
+\bigskip}
+
+\newcommand*{\lunep}{
+\bigskip
+\begin{center}
+\rightmoon
+\end{center} 
+\bigskip}
+
+\newcommand*{\luned}{
+\bigskip
+\begin{center}
+\leftmoon
+%\kreuz
+\end{center} 
+\bigskip}
+
+\newcommand*{\lunefull}{
+\bigskip
+\begin{center}
+\fullmoon
+\end{center} 
+\bigskip}
+
+\usepackage{pifont} % caracteres symboles et dingbats
+
+\newcommand*{\parag}{%
+\bigskip
+\begin{center}%
+\ding{166}%
+\end{center}%
+\bigskip}
+
+\newcommand*{\aldineb}{%
+\bigskip
+\begin{center}
+\ding{167}
+\end{center}
+\bigskip}
+
+
+\newcommand*{\troisetoiles}{%
+\bigskip
+\begin{center}
+\raisebox{-.5ex}{%
+\setlength{\tabcolsep}{-.5pt}%
+\begin{tabular}{@{}cc@{}}%
+\multicolumn2c*\hspace{0.3ex}*\\[-1ex]&*%
+\end{tabular}}
+\end{center}
+\bigskip}
+
+
+\newcommand*{\vartroisetoiles}{%
+\bigskip
+\begin{center}
+\raisebox{-.5ex}{%
+\setlength{\tabcolsep}{-.5pt}%
+\begin{tabular}{@{}cc@{}}%
+\multicolumn2c*\\[-2ex]*&*%
+\end{tabular}}
+\end{center}
+\bigskip}
+
+
+
+
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+
+
+\let\slantedshape\slshape
+\let\italicshape\itshape
+
+
+\newsavebox{\auteurbm}
+\newenvironment{exergue}[1]%
+{\EXERGUExSIZE\EXERGUExSHAPE%
+\savebox{\auteurbm}{\upshape\EXERGUExAUTHORxSHAPE#1}%
+\begin{changemargin}{\EXERGUExLEFTxMARGIN pt}{\EXERGUExRIGHTxMARGIN pt}%
+\begin{flushright}}%
+{\\[\EXERGUExAUTHORxSPACE pt]\usebox{\auteurbm}
+\end{flushright}\end{changemargin}\normalsize\upshape}
+
+%\begin{exergue}{Auteur}
+% Citation\\
+% citation suite\\
+%\end{exergue}
+
+% (not used here)
+% \newenvironment{exergueonly}%
+% {\small\slshape%
+% \begin{flushright}}%
+% \end{flushright}\normalsize\upshape}
+
+
+
+
+
+\newenvironment{sourcecode}
+{
+\begin{\CODExSHAPE}
+\MYxFONTxMONO 
+\begin{changemargin}{\CODExLEFTxMARGIN pt}{\CODExRIGHTxMARGIN pt}
+%\colorbox{lightgray}
+}
+{
+\end{changemargin}
+\end{\CODExSHAPE}
+}
+
+
+
+% -- BULLETS for LISTS ---
+% doesn't WORK if it's not included after \begin{document}, see textallion.t2t
+%\renewcommand*{\labelitemi}{$\bullet$}
+%\renewcommand*{\labelitemii}{$\circ$}
+%\renewcommand*{\labelitemiii}{$\diamond$}
+%\renewcommand*{\labelitemiv}{$\cdot$}
+
+
+% ---------- PACKAGES --------------------------------------------------
+
+%\usepackage{amsmath,amssymb,amsfonts,textcomp}
+\usepackage{amsmath}
+
+%\usepackage{initial} %lettrine
+
+
+\usepackage{fp}
+\usepackage{wrapfig}
+
+\DeclareGraphicsExtensions{.jpg,.mps,.pdf,.png}
+
+
+
+
+\usepackage[%pdftex,                 % Parametrage de la navigation
+    bookmarks         = true,     % Signets
+    bookmarksnumbered = true,     % Signets numerotes
+    %pdfpagemode       = None,      % Full Screen ou None
+    pdfstartview      = Fit,      % La page prend toute la largeur
+    pdfpagelayout     = SinglePage,% Vue par page
+    colorlinks        = true,      % Liens en couleur
+    urlcolor          = blue,   % Couleur des liens externes
+    pdfborder         = {0 0 0}    % Style de bordure : ici, pas de bordure
+    ]{hyperref}%                    % Utilisation de HyperTeX
+
+
+
+%\usepackage{color}
+%\usepackage{xcolor}
+%\usepackage[usenames,dvipsnames]{color}
+%\usepackage[normalem]{ulem}  % needed by strike but already loaded by txt2tags
+\usepackage{calc}  % 
+
+
+% Outline numbering
+\setcounter{secnumdepth}{\HEADERxNUMBERING} % affiche ou pas les numérotations de sections et chapitres
+% Pages styles (master pages)
+
+\setcounter{tocdepth}{3}   % depth of the table of content. When using 4, the title doesn't display in the TOC.
+
+
+
+
+% ------------ HEADERS & FOOTERS ---------------------------------------
+
+\usepackage{fancyhdr} % entete et pied de pages (new, replaces fancyheadings)
+\pagestyle{\PAGExSTYLE}
+\fancyhf{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+
+\renewcommand{\footrulewidth}{0pt}
+
+
+%\plainheadrulewidth    0pt % ??
+
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
+%it's like this: \head[even]{odd}
+
+\lhead[\LEFTxHEAD]{\LEFTxHEADxODD}
+\chead[\CENTERxHEAD]{\CENTERxHEADxODD}
+\rhead[\RIGHTxHEAD]{\RIGHTxHEADxODD}
+\lfoot[\LEFTxFOOT]{\LEFTxFOOTxODD}
+\cfoot[\CENTERxFOOT]{\CENTERxFOOTxODD}
+\rfoot[\RIGHTxFOOT]{\RIGHTxFOOTxODD}
+
+%\fancyhead{} % clear all header fields
+%\chead[\leftmark]{\bfseries MUCHE \DOCUMENTxTITLE}
+%\fancyhead[RE]{\bfseries TRUC \leftmark}
+
+
+
+
+
+
+%---------------- Author -----------------------------------------------
+
+\hypersetup{ %  Information sur le document
+    pdfauthor   = {\PDFAUTHOR},% Authors
+    pdftitle    = {\PDFTITLE},% Titre of the document
+    pdfsubject  = {\PDFSUBJECT},% Subjet
+    pdfkeywords = {\PDFKEYWORDS},% keywords, tags
+    pdfcreator  = {\PDFCREATOR},% Sofware which made this document
+    pdfproducer = {\PDFPRODUCER}} % Societe which made the software
+    
+
+\hypersetup{colorlinks=true, linkcolor=\LINKxCOLOR, filecolor=\LINKxCOLOR, urlcolor=\LINKxCOLOR}

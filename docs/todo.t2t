@@ -1,0 +1,96 @@
+
+
+
+
+
+
+
+= Todo and known bugs =[todo]
+
+
+== Syntax, backend and docs ==
+
+- --use of ''[[description | www.link.com]]''--
+- --Syntax for creating references, to be inserted into an index at the end--
+- --pb indents--
+- a graphical GUI for conversion (a simple tk interface?), and a graphical GUI for edition (based on [RedNotebook http://rednotebook.sourceforge.net/] or [SciTE http://www.scintilla.org/SciTE.html] for example?). Or a Qt Gui with some kparts using the kate syntax. Something based on http://qapote.tuxfamily.org/ or http://latexila.sourceforge.net/
+- When using UTF-8, ensure it's not using UTF-8 with BOM, otherwise the first bytes of the document may get extra characters and it will modify the title, adding something not interpretable with LaTeX, with this kind of error for example: "Unicode char \u8: not set up for use with LaTeX.". 
+- --English doc is lagging behind the French one.--
+- Lettrine + French apostrophe
+- Lettrine + capital accented letters (À)
+- script textallion.sh: update config (makefile)
+- create an updater for the windows version
+- --create desktop icon (start a term if it's launched from the menu)--
+- rename the "images" folder to "media" (now there is music in it)
+- add syntax:  turn to, go to, (turn to ###) etc
+- special syntax for warning {<!>} and information {<i>}
+
+
+
+
+== HTML ==
+
+- --Use templates for html--
+- --Using an embeded free font, like Gentium Basic?--
+- hidden menu adding link to read the text in 
+ - https://www.readability.com/bookmarklets 
+%  ''<a href="javascript:(%28function%28%29%7Bwindow.baseUrl%3D%27https%3A//www.readability.com%27%3Bwindow.readabilityToken%3D%27%27%3Bvar%20s%3Ddocument.createElement%28%27script%27%29%3Bs.setAttribute%28%27type%27%2C%27text/javascript%27%29%3Bs.setAttribute%28%27charset%27%2C%27UTF-8%27%29%3Bs.setAttribute%28%27src%27%2CbaseUrl%2B%27/bookmarklet/read.js%27%29%3Bdocument.documentElement.appendChild%28s%29%3B%7D%29%28%29)">Use this link</a>''
+ - or http://www.tidyread.com/widget.html ?
+
+- Find more ideas from 
+ - http://epubzengarden.com/ 
+ - http://librairie.immateriel.fr/ ([example http://librairie.immateriel.fr/fr/read_book/9782212128611/chap02])
+ - and from http://typekit.com/ ?
+ 
+- support for http://labs.cavorite.com/presentacular
+
+- In midori and android browser the webfont is not displaying aldine leaves and such. (ok in other webkit engines such as chromium)
+
+- footnotes not yet in the slidy version
+- In webkit, when clicking a footnote it will scroll down a bit.
+
+- --Wrapping + text modification (for ex. reduce size) are not working--
+- --Wrapping is not working on the Android browser (looks like fixed width)--
+- Slidy menu are too big
+
+
+== PDF (LaTeX and XeTeX) ==
+
+- --Use templates for LaTeX--
+- More templates, for different languages
+- Improving templates for LaTeX, especially the xetex version
+- Monospaced content in xetex
+- It's not possible to include a .sty file from internet (latex limitation?)
+- When using a depth of 4 in the TOC, the title doesn't display (textallion.sty).
+- --Use book style by default in the future.--
+- --differentiate odd and even pages.--
+- beamer is broken (doesn't work as expected, needs rework)
+- long links don't reflow to a new line
+- can't use both lettrine & wrap image 
+
+
+== EPUB ==
+
+- --Extra unwanted entries in TOC, such as footnotes and linked documents--
+- Epub files looks bad with FBReader desktop edition (but ok in Calibre)
+- --decorations are not centered as expected--
+
+
+
+== Windows ==
+
+%http://compgroups.net/comp.text.tex/MikTeX-Broken or advise to use miktex 2.8
+
+== txt2cyoa ==
+
+- Clean and simplify the js code for fading
+- --Renpy output--
+- renpy: check use of " === , - and big space
+- undum output?
+- Add sound support
+- Ramus: works for numbered chapter, but not for named ones
+- Ramus: Dice will scroll up 
+
+
+
+

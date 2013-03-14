@@ -1,0 +1,164 @@
+
+
+
+
+
+
+
+= Changelog =[changelog]
+
+//The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip//
+
+- 22 nov 2012:
+ - [Pierre Puvis de Chavannes http://en.wikipedia.org/wiki/Pierre_Puvis_de_Chavannes] release:
+                - CYOA: fixed twee, added undum and choicescript. Separated doc for CYOA.
+                - SHELL (textallion.sh): submenu for new cyoa systems
+                - improved exponent. Added subscript.
+                
+
+- 27 june 2012:
+ - [Félicien Rops http://en.wikipedia.org/wiki/F%C3%A9licien_Rops] release:
+                - EPUB: updated CSS, and various adjustement to visually match the pdf version
+                - HTML/EPUB: added htsplit (not used yet)
+                - HTML: nicer output with smaller toc and colored h2 and h3
+                - PDF: fixed table break by page (using tabular), added instructions to use text wrap in columns. 
+                - SHELL (textallion.sh): submenu for new document: general doc, letter or cyoa 
+                - fixed centered tables with blank space before pipe.
+
+
+- 20 apr 2012:
+% - [Aloysius Bertrand http://en.wikipedia.org/wiki/Aloysius_Bertrand] release: (we keep it for pmwiki-efo instead)
+ - [Odilon Redon http://en.wikipedia.org/wiki/Odilon_Redon] release:
+                - EPUB: added variable for epub info
+                - PDF: fixed various TeX errors
+                - PDF: added "lettre" template for writing letters in French
+                - PDF: improved general heading appearance (centered, bigger fonts)
+                - CYOA: updated Ramus output.
+                - English docs were improved, and various other corrections.
+                
+- 24 july 2011:
+ - [Cléo de Mérode http://en.wikipedia.org/wiki/Cl%C3%A9o_de_M%C3%A9rode] release:
+                - CYOA: Added inform 7 support
+                - Added sound and video using HTML5 (ogg vorbis/theora)
+                - Corrected quickref document
+
+- 11 june 2011:
+ - [Georges Seurat http://fr.wikipedia.org/wiki/Georges_Seurat] release:
+                - CYOA: improved the renpy output (images, end of game)
+                - CYOA: added Ramus HTML rendering (http://felix.plesoianu.ro//index.php/page:Software:Ramus)
+                - .desktop file (for unix desktops)
+
+- 27 mai 2011:
+ - [Paul Signac http://fr.wikipedia.org/wiki/Paul_Signac] release:
+                - CYOA: Now textallion can use txt2cyoa for generating HTML, PDF and EPUB gamebooks.
+                - CYOA: fade in js effect when displaying new chapter.
+                - CYOA : tweecode, hyena and renpy export
+                - New logo
+
+- 31 mar 2011:
+ - [Édouard Vuillard http://fr.wikipedia.org/wiki/%C3%89douard_Vuillard] release:
+                - Now use templates.
+                - Added a SVG sample cover (can generate a personalised png cover with imagemagick)
+                - PDF: Fixed wrapping images within paragraphs, using the fp latex package.
+                - PDF: now the metadata are defined into the t2t document, not the style.sty file.
+                - PDF: adding xetex backend (``make xetex``).
+                - PDF: Now the "book" document class is default, with Part, Chapter, Section.
+                - Created a windows installer using Inno Setup.
+                - Updated most LaTeX variables, because underscore was not recognised by LaTeX.
+                - Updated textallion.sh, now can handle updates, installation etc.
+
+
+- 27 feb 2011:
+ - [Charles-François Daubigny http://fr.wikipedia.org/wiki/Charles-Fran%C3%A7ois_Daubigny] release:
+                - Double brackets option for links.
+                - LaTeX equations.
+                - Index symbol.
+                - Corrected the line break markup.
+                - Corrected CSS for a better rendering.
+                - Corrected table of content for EPUB output.
+                - Updated doc.
+                - Moved txt2tags to a contrib section
+                - Use of [webfonts http://www.google.com/webfonts].
+                - Auto generation of a homepage with links to the html, pdf, epub and qr-code.
+                - make configuration-update to diff between the latest textallion install and your makefile, css and sty project files.
+                - Improved initialisation script (textallion.sh).
+
+
+- 30 dec 2010:
+ - [Alexandre-Hyacinthe Dunouy http://en.wikipedia.org/wiki/Alexandre-Hyacinthe_Dunouy] release:
+                - New symbols for adding italic and bold area
+                - New symbol for adding page break
+                - Real footnotes effect for html (css3)
+                - Epigraph style
+                - French guillemets symbols
+                - French doc improved
+                - Code markup
+                - Line break
+                - A script for creating a new skeleton project.
+                
+- 30 nov 2010:
+ - [Jean-Auguste-Dominique Ingres http://en.wikipedia.org/wiki/Jean_Auguste_Dominique_Ingres] release:
+                - Updated to latest txt2tags 2.6 (and "2.7" devel) 
+                - New target: slidy, from txt2tags upstream, for making html presentations (using js)
+                - New reorganisation of the folders
+                - Now the CSS file are included by default, to be more easily portable (this behavior can be changed in the makefile if needed)
+                - New symbols for changing the size of the text (only 3 alternatives, normal, bigger, smaller)
+
+- 13 oct 2010:
+ - [Gustave Moreau http://en.wikipedia.org/wiki/Gustave_Moreau] release:
+                - Added columns options
+                - Added a quick reference cheatsheet
+                - Fixed some bugs (sub-lists)
+
+- 21 aug 2010: 
+ - [Théodore Chassériau http://en.wikipedia.org/wiki/Th%C3%A9odore_Chass%C3%A9riau] release: 
+                - Corrected line break (added noindent) for LaTeX, when using a space at the beginning of a line.
+                - Added non-breaking space symbol
+                - Added page break for new section (heading 1) in LaTeX
+                - Reorganised samples documents (a new document with all examples was separated from the manual) 
+                - User may use some unicode symbols directly into the source code (instead of the symbolised version)
+                - Non supported symbols in the epub version are replaced by stars
+                - Can use the environment variable TEXTALLIONDOC in the makefile
+                - Corrected the initial letters for the CSS
+                - Separated changelog and license info into external documents.
+
+- 08 jul 2010: 
+ - [Marcellin Desboutin http://fr.wikipedia.org/wiki/Marcellin_Desboutin] release: 
+                - Changed the symbol representations to a more consistent one (4 signs between braces), with less possibility for a clash with existing texts.
+                - Fixed page numbering in pdf so it won't be displayed on the first page cover.
+
+- 25 apr 2010:
+ - [Théodore Géricault http://en.wikipedia.org/wiki/Th%C3%A9odore_G%C3%A9ricault] release:
+                - Better display for the epub version (fixed alignment and margins)
+
+- 20 mar 2010:
+ - [Douanier Rousseau http://en.wikipedia.org/wiki/Henri_Rousseau] release:
+                - Support for colors in html and LaTeX
+
+- 23 feb 2010: 
+ - [Daumier http://en.wikipedia.org/wiki/Honor%C3%A9_Daumier] release:
+                - Update of the makefile for use with the latest Calibre
+                - Support for image size information
+                - Simplification and improvement of the style for the html css               
+                - Use of a code name for the releases ([French/European painters or artists from the 19ème century http://fr.wikipedia.org/wiki/Liste_de_peintres_fran%C3%A7ais#XIXe_si.C3.A8cle])
+
+- 24 dec 2009: 
+                - Beginning of a support for packaged version in a system-wide installation
+                  (/usr/share/textallion)
+                - A few bugfixes and additions.
+
+- 20 nov 2009: 
+                - Project renamed from "txt2tex" to "Le TeXTallion", 
+                - Thanks to nycosweb, ffx and the linuxfr readers for the inspirations.
+
+- 15 nov 2009: 
+                - Better support for centered text for writing poetry. 
+                - Fix for allowing to create a table of content in the pdf output.
+
+- 28 jun 2009: 
+                - now the core engine and the samples are separated so it looks more like a real project.
+                - Added epub output in the makefile.
+
+- 06 jan 2009: a few bugfixes
+
+- 24 dec 2008: initial release

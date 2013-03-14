@@ -1,0 +1,175 @@
+
+
+
+% to display symbols in full text using shortcuts (only needed for documentation of textallion)
+% LaTeX version
+%!postproc(tex): 'SYMBlettrine'         '\{*$\sim$$\sim$$\sim$\}' 
+%!postproc(tex): 'SYMBbigskip'          '*-*-' 
+%!postproc(tex): 'SYMB2bigskip'         '\{*-*-\}' 
+%!postproc(tex): 'SYMBaldinea'          '\{-@-~\}' 
+%!postproc(tex): 'SYMBaldineb'          '\{-/@-\}' 
+%!postproc(tex): 'SYMBtroisetoiles'     '\{**~*\}' 
+%!postproc(tex): 'SYMBsoleil'           '\{(\hspace{1em})\}'
+%!postproc(tex): 'SYMBlunep'            '\{~))~\}' 
+%!postproc(tex): 'SYMBluned'            '\{~((~\}' 
+%!postproc(tex): 'SYMBlunef'            '\{~()~\}' 
+%!postproc(tex): 'SYMBcenterBegin3'     '\{~\~{}\~{}~\}' 
+%!postproc(tex): 'SYMBcenterEnd3'       '\{/\~{}\~{}~\}' 
+%!postproc(tex): 'SYMBcenterBegin2'     '@@begin((center))**' 
+%!postproc(tex): 'SYMBcenterEnd2'       '@@end((center))**' 
+%!postproc(tex): 'SYMBcenterBegin'      '\{->-{}-\}' 
+%!postproc(tex): 'SYMBcenterEnd'        '\{-<-{}-\}' 
+
+%!postproc(tex): 'SYMBexergueBegin'     '\{~~\~{}\~{}\}' 
+%!postproc(tex): 'SYMBexergueEnd'       '\{/~\~{}\~{}\}' 
+
+%!postproc(tex): 'SYMBcodeBegin'        '\{\#\#\#\#\}' 
+%!postproc(tex): 'SYMBcodeEnd'          '\{/\#\#\#\}' 
+
+%!postproc(tex): 'SYMBguillemetBegin'        '\{"~{}\}' 
+%!postproc(tex): 'SYMBguillemetEnd'          '\{~{}"\}' 
+
+%{ "  }   or   {"   }   or  {" }
+
+%!postproc(tex): 'SYMBsizeincBegin'     '\{~++~\}'
+%!postproc(tex): 'SYMBsizeincEnd'       '\{/++~\}'
+%!postproc(tex): 'SYMBsizedecBegin'     '\{~-{}-~\}'
+%!postproc(tex): 'SYMBsizedecEnd'       '\{/-{}-~\}'
+
+%!postproc(tex): 'SYMBitalicBegin'      '\{~//~\}'
+%!postproc(tex): 'SYMBitalicEnd'        '\{///~\}'
+%!postproc(tex): 'SYMBboldBegin'        '\{~**~\}'
+%!postproc(tex): 'SYMBboldEnd'          '\{/**~\}'
+
+%!postproc(tex): 'SYMBarobase'          '@'
+%!postproc(tex): 'SYMBColor'            '@@COLOR@@' 
+%!postproc(tex): 'SYMBSlashColor'       '@@/COLOR@@' 
+%!postproc(tex): 'SYMBDoubleArobase'    '@@' 
+%!postproc(tex): 'SYMBnbsp' 	        '¯'
+
+%!postproc(tex): 'SYMBfootnote2' 	    '\{~°°~\}'
+%!postproc(tex): 'SYMBfootnote' 	    '°°'
+
+%!postproc(tex): 'SYMBexponent2' 	    '\{~\^{}\^{}~\}' 
+%!postproc(tex): 'SYMBexponent' 	    '\^{}\^' 
+
+%--deprecated %!postproc(tex): 'SYMBindex2' 	    '\{~\^{}\^{}~\}' 
+%!postproc(tex): 'SYMBindex' 	    '\{\^{}\}' 
+%!postproc(tex): 'SYMBcaret' 	    '\^{}' 
+
+%!postproc(tex): 'SYMBcol0' '\{|0|\}'
+%!postproc(tex): 'SYMBcol1' '\{|1|\}'
+%!postproc(tex): 'SYMBcol2' '\{|2|\}'
+%!postproc(tex): 'SYMBcol3' '\{|3|\}'
+%!postproc(tex): 'SYMBcol4' '\{|4|\}'
+
+%!postproc(tex): 'SYMBdoubleparenthopen'  '(('
+%!postproc(tex): 'SYMBdoubleparenthclose' '))'
+%!postproc(tex): 'SYMBdoublearobase'      '@@'
+%!postproc(tex): 'SYMBtiret'              '{-}'
+%!postproc(tex): 'SYMBpercent'            '\%'
+%!postproc(tex): 'SYMBdollar'            '\$'
+%!postproc(tex): 'SYMBpipe'               '|'
+
+%--!postproc(tex): 'SYMBpagebreak2'       '/...'  
+% (don't use this it will break /.../)
+%!postproc(tex): 'SYMBpagebreak'        '\{/...\}'   
+
+%!postproc(tex): 'SYMBlinebreak2'       '//..' 
+%!postproc(tex): 'SYMBlinebreak'        '\{//..\}' 
+
+
+
+%!postproc(tex): 'SYMBwrapping'			'\{\~{}\~{}\~{}\~{}\}' 
+ 
+%!postproc(tex): 'SYMBquadratindash'			'-{}-{}-{}'  
+
+%!postproc(tex): 'SYMBpreproc'  '\%!preproc:'
+%!postproc(tex): 'SYMBpostproc'  '\%!postproc:'
+
+% to display symbols in full text using shortcuts (for documentation)
+% html version
+%!postproc(xhtml): 'SYMBlettrine'       '{*~~~}' 
+%!postproc(xhtml): 'SYMBbigskip'        '*-*-' 
+%!postproc(xhtml): 'SYMB2bigskip'       '{*-*-}' 
+%!postproc(xhtml): 'SYMBaldinea'        '{-@-&nbsp;}' 
+%!postproc(xhtml): 'SYMBaldineb'        '{-/@-}' 
+%!postproc(xhtml): 'SYMBtroisetoiles'   '{** *}' 
+%!postproc(xhtml): 'SYMBsoleil'         '{(&nbsp;&nbsp;)}'
+%!postproc(xhtml): 'SYMBlunep'          '{&nbsp;))&nbsp;}' 
+%!postproc(xhtml): 'SYMBluned'          '{&nbsp;((&nbsp;}' 
+%!postproc(xhtml): 'SYMBlunef'          '{&nbsp;()&nbsp;}' 
+%!postproc(xhtml): 'SYMBcenterBegin3'   '{&nbsp;&nbsp;~~&nbsp;&nbsp;}' 
+%!postproc(xhtml): 'SYMBcenterEnd3'     '{/&nbsp;~~&nbsp;&nbsp;}' 
+%!postproc(xhtml): 'SYMBcenterBegin2'   '@@begin((center))**' 
+%!postproc(xhtml): 'SYMBcenterEnd2'     '@@end((center))**' 
+%!postproc(xhtml): 'SYMBcenterBegin'    '{->--}' 
+%!postproc(xhtml): 'SYMBcenterEnd'      '{-<--}' 
+
+
+%!postproc(xhtml): 'SYMBexergueBegin'   '{&nbsp;&nbsp;~~}' 
+%!postproc(xhtml): 'SYMBexergueEnd'     '{/&nbsp;~~}' 
+
+%!postproc(xhtml): 'SYMBcodeBegin'      '{####}' 
+%!postproc(xhtml): 'SYMBcodeEnd'        '{/###}' 
+
+%!postproc(xhtml): 'SYMBguillemetBegin' '{"&nbsp;}' 
+%!postproc(xhtml): 'SYMBguillemetEnd'   '{&nbsp;"}' 
+
+%!postproc(xhtml): 'SYMBsizeincBegin'   '{&nbsp;++&nbsp;}'
+%!postproc(xhtml): 'SYMBsizeincEnd'     '{/++&nbsp;}'
+%!postproc(xhtml): 'SYMBsizedecBegin'   '{&nbsp;--&nbsp;}'
+%!postproc(xhtml): 'SYMBsizedecEnd'     '{/--&nbsp;}'
+
+%!postproc(xhtml): 'SYMBitalicBegin'    '{&nbsp;//&nbsp;}'
+%!postproc(xhtml): 'SYMBitalicEnd'      '{///&nbsp;}'
+%!postproc(xhtml): 'SYMBboldBegin'      '{&nbsp;**&nbsp;}'
+%!postproc(xhtml): 'SYMBboldEnd'        '{/**&nbsp;}'
+
+%!postproc(xhtml): 'SYMBarobase'        '@'
+%!postproc(xhtml): 'SYMBColor'          '@@COLOR@@' 
+%!postproc(xhtml): 'SYMBSlashColor'     '@@/COLOR@@' 
+%!postproc(xhtml): 'SYMBDoubleArobase'  '@@' 
+%!postproc(xhtml): 'SYMBnbsp' 	        '&macr;'
+
+%!postproc(xhtml): 'SYMBfootnote2' 	    '{&nbsp;°°&nbsp;}'
+%!postproc(xhtml): 'SYMBfootnote' 	    '°°'
+
+%!postproc(xhtml): 'SYMBexponent2' 	    '{&nbsp;^^&nbsp;}' 
+%!postproc(xhtml): 'SYMBexponent' 	    '^^' 
+
+%!postproc(xhtml): 'SYMBindex2' 	    '{&nbsp;^^&nbsp;}' 
+%!postproc(xhtml): 'SYMBindex' 	        '{^}' 
+%!postproc(xhtml): 'SYMBcaret' 	         '^' 
+
+%!postproc(xhtml): 'SYMBcol0' '{|0|}'
+%!postproc(xhtml): 'SYMBcol1' '{|1|}'
+%!postproc(xhtml): 'SYMBcol2' '{|2|}'
+%!postproc(xhtml): 'SYMBcol3' '{|3|}'
+%!postproc(xhtml): 'SYMBcol4' '{|4|}'
+
+%!postproc(xhtml): 'SYMBdoubleparenthopen'  '(('
+%!postproc(xhtml): 'SYMBdoubleparenthclose' '))'
+%!postproc(xhtml): 'SYMBdoublearobase'      '@@'
+%!postproc(xhtml): 'SYMBtiret'              '-'
+%!postproc(xhtml): 'SYMBpercent'            '%'
+%!postproc(xhtml): 'SYMBdollar'            '$'
+%!postproc(xhtml): 'SYMBpipe'               '|'
+
+%!postproc(xhtml): 'SYMBpagebreak2'     '/...'  
+%!postproc(xhtml): 'SYMBpagebreak'      '{/...}'   
+
+%!postproc(xhtml): 'SYMBlinebreak2'     '//..'  
+%!postproc(xhtml): 'SYMBlinebreak'      '{//..}'  
+
+
+%!postproc(xhtml): 'SYMBwrapping'		'{~~~~}'
+%!postproc(xhtml): 'SYMBquadratindash'			'---'  
+
+%!postproc(xhtml): 'SYMBpreproc'  '%!preproc:'
+%!postproc(xhtml): 'SYMBpostproc'  '%!postproc:'
+
+% common to xhtml and tex:
+
+%!postproc: 'SYMBoggSYMB'        'ogg' 
+%!postproc: 'SYMBogvSYMB'        'ogv' 

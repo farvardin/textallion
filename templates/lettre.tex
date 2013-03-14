@@ -1,0 +1,84 @@
+%% TEXTALLION
+%% http://textallion.googlecode.com
+%% LaTeX template 
+
+\documentclass[12pt]{lettre} %% French courrier
+
+%%\usepackage[pdftex]{graphicx}
+
+\usepackage[normalem]{ulem} %% needed by strike
+
+\usepackage[utf8]{inputenc}  %% char encoding
+\usepackage{%(STYLE)s}  %% user defined
+
+
+
+%%---------------- Author & Metatags ------------------------------------
+
+\def\DOCUMENTxTITLE{xx DOCUMENT TITLE xx} %% Titre of the document
+\def\PDFAUTHOR{xx DOCUMENT AUTHOR xx}      %% Authors
+\def\PDFTITLE{\DOCUMENTxTITLE}      %% copy of Titre of the document
+\def\PDFSUBJECT{xx DOCUMENT TAGS xx} %% Subjet
+\def\PDFKEYWORDS{xx DOCUMENT TAGS xx}   %% keywords, tags
+\def\PDFCREATOR{Textallion, txt2tags, PdfTeX}   %% Sofware which made this document
+\def\PDFPRODUCER{Textallion}         %% Compagny which made the software
+
+%% 
+
+%%\usepackage[english,frenchb,francais]{babel}  
+%%\usepackage[T1]{tipa}                       %% additionnal fonts
+%%\usepackage[\DEFAULTxFONTxSIZE pt]{extsizes} 
+%%\usepackage[cm]{aeguill}                    %% French guillemets
+%%\usepackage[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm},\GEOMETRYxADDITIONALxOPTION]{geometry}       %% paper and text size
+\usepackage{TEXTALLIONPATH/core/textallion}  %% basic LaTeX definitions for textallion
+
+%%\def\MYxFONT{\rm}   %% For correcting footers
+%%\def\MYxFONTxMONO{}   %% For correcting code area
+
+%%
+%% ------------ FONTS ---------------------------------------------------
+\renewcommand{\rmdefault}{\DEFAULTxFONT} 
+%%
+
+
+
+
+
+\begin{document}
+
+\begin{letter}{%%
+    xx DOCUMENT RECIPIENT GENDER xx xx DOCUMENT RECIPIENT xx \\
+    xx DOCUMENT RECIPIENT STREET xx\\
+    xx DOCUMENT RECIPIENT POSTAL CODE xx xx DOCUMENT RECIPIENT TOWN xx\\
+    xx DOCUMENT RECIPIENT PHONE xx\\
+    xx DOCUMENT RECIPIENT FAX xx
+                                                                               
+}
+\address{%%
+  xx DOCUMENT AUTHOR GENDER xx xx DOCUMENT AUTHOR xx\\
+  xx DOCUMENT AUTHOR STREET xx\\            
+  xx DOCUMENT AUTHOR POSTAL CODE xx xx DOCUMENT AUTHOR TOWN xx}
+                                     
+                                      
+\lieu{xx DOCUMENT AUTHOR CURRENT LOCATION xx}
+\telephone{xx DOCUMENT AUTHOR PHONE xx}                 
+\fax{xx DOCUMENT AUTHOR FAX xx}
+\email{xx DOCUMENT AUTHOR EMAIL xx}
+\signature{xx DOCUMENT AUTHOR xx}
+%%\date{}  %% uncomment and use your own date if needed for example "le 9 mars 2012"
+%%\secondsignature{}
+%%\Nref{xx DOCUMENT AUTHOR REFERENCE xx} %%not used because doesn't really fit the letters
+
+\pagestyle{empty}
+                                                                                          
+\conc{xx DOCUMENT TITLE xx}
+                               
+\opening{}
+%(BODY)s
+
+\closing{}
+%%\encl{}     %% for attachments
+\end{letter}
+\end{document}
+
+

@@ -1,0 +1,202 @@
+Textallion, a gamebook system
+Eric Forgeot
+%%date(%Y-%m-%d)
+
+
+% Tiny, almost-KISS word processor
+% http://textallion.googlecode.com
+
+%% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
+%!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Eric Forgeot'
+%!postproc(tex): 'xx DOCUMENT TAGS xx' 'documentation, manual, manuel'
+
+
+%% DEF PERSONAL STYLE (usually called something like sample.sty and/or sample.css) 
+%!style(tex): ../includes/sample
+%!style(xhtml): ../includes/sample.css 
+
+%% DEF PERSONAL CLASS
+%%!postproc(tex): '\\documentclass{article}' '\\documentclass{myclass}'
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+%% Alternative definitions path for TEXTALLION (not enabled)
+%--!includeconf: /usr/share/textallion/textallion.t2t
+%--!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'
+
+
+%% DEF additional macros (can be removed)
+
+%!includeconf: documentation_symbols_inc.t2t 
+
+%!--preproc(tex): "$" '{//..}'
+%(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
+
+%!--preproc(tex): "==" '++'
+
+%for adding IPA fonts (fontenc is included within tipa)
+%!postproc(tex): '\{fontenc\}' '{tipa}' 
+
+%!postproc(tex): 'IPATEXTALLION' '\\textipa{tEkstalj\~O}'
+%!postproc(xhtml): 'IPATEXTALLION' 'tɛkstaljɔ̃'
+
+
+%% adding an "alt" attribute to images with the syntax [image.jpg]{alt:your alternative text}
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\"\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\3" title="\3"/>'
+%!postproc(xhtml): '<img ([^ ].*?) alt=\"\" ([^ ].*?)\/>( *)\{alt:([^ ].*?)\}' '<img \1 alt="\4" title="\4" \2/>'
+
+% ( *) = zero or more whitespace
+
+
+%% Ellipsis (points de suspension) : ... (not activated by default)
+%!postproc(xhtml): '\.\.\.' &hellip;
+%!postproc(tex):  '\.\.\.' \dots
+
+%% 
+%!preproc: ';' '¯;'
+%-!preproc: '¯¯;' '¯;'
+
+
+%% for numbering titles
+
+%-!preproc: '==== ([^ ].*?) ====' '@@@@ \1 @@@@'
+%-!preproc: '=== ([^ ].*?) ===' '+++ \1 +++'
+%-!preproc: '== ([^ ].*?) ==' '++ \1 ++'
+%-!preproc: '= ([^ ].*?) =' '+ \1 +'
+%-!preproc: '@@@@ ([^ ].*?) @@@@' '==== \1 ===='
+
+
+
+@@renewcommand@@sfdefault((phv))**
+
+%%%% Début de VOTRE document %%%%
+
+== Introduction ==
+
+With textallion, you can also create traditional "Choose Your Own Adventure" books, with the help of a "txt2CYOA" module.
+Those stories are like normal books, except they offer choices to the reader at some points in the narration.
+
+
+
+=== Chapters ===
+
+Your sections (chapters) will be created using the default txt2tags heading (level 2):
+
+```
+== z ==
+```
+
+Important: You must add spaces around the number to create the anchor.
+
+
+=== Choices ===
+
+To create a choice, use either :
+
+```
+- Description of the choice : z
+- Description of the choice : [z #z]. More words afterwards.
+```
+
+
+with z being replaced by the number of your section. Textallion will be able to detect that it's a choice, and link to the related heading.
+
+You must use the syntax ``[z #z]`` if the number is followed by something and not alone at the end of the line. This syntax might not be supported in advances export features (other CYOA systems)
+
+
+
+=== Alternative for choices ===
+
+//It's not really advices to use this because it may clash with some other options (graphs, ramus for example).//
+
+You can add more descriptive links with :
+
+```
+==17==[name_of_link]
+```
+
+and the call to this chapter would be :
+
+```
+- Go to this chapter : [17 #name_of_link]
+```
+
+Important: There musn't be space around the number in the heading!
+
+You can also name your link, and redirect to a chapter:
+
+```
+- Enter [into the house 17]
+```
+
+it will remove the number from the displayed text, but the HTML link will still get the number so your player will be aware of it. The PDF version hyperlink will be broken (at the moment). Probably only useful for the {^}ePUB{^} version.
+
+
+=== Pictures ===
+
+You can add pictures with ``[yourpicture.jpg]`` (or .png)
+
+To use wrapped pictures, type:
+
+```
+[yourpicture.jpg](~~~~)
+```
+
+//(default textallion behavior)//
+
+
+=== Graph ===
+
+
+It's possible to get a graph with all the chapters connected together.
+
+You need to have graphviz installed to do that, and make sure each choice starts on one individual line, with a - and ends with the number of the choice.
+
+You can invoque ``make cyoa-graph`` to produce the svg and png version.
+
+
+*-*-
+
+=== Export to other game formats ===
+
+
+ - **``make cyoa-html``** : create HTML file to publish the game on internet 
+ - **``make cyoa-pdf``** : create the PDF file for printing the gamebook
+ - **``make cyoa-epub``** : create the {^}ePUB{^} file to be displayed in a ebook reader or on a phone (android, iphone, ipad)
+ - ``make cyoa-ramus``: Use [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] as an alternative HTML rendering. The output game will get _ramus.html at the end.
+ - ``make cyoa-graph`` : create organigram
+ - ``make cyoa-play`` : start the default browser and play the HTML file
+ - ``make cyoa-cs`` (or ``make cyoa-choicescript``): convert your  game to the [ChoiceScript http://www.choiceofgames.com/] format, into the new folder your_game_choicescript. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+ - ``make cyoa-hyena`` : convert your game to the [Hyena http://www.projectaon.org/staff/jens/], format, under the name your_game_export.gamebook
+ - ``make cyoa-renpy`` : convert your game to the popular [Renpy http://renpy.org/] format, into a new folder your_game_renpy. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+  - ``make cyoa-inform7`` : convert your game into [Inform 7 http://inform7.com] source code, with an  .i7 extension.
+
+ - ``make cyoa-undum`` : convert your game into [Undum http://undum.com] format, into a new folder your_game_undum. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+ 
+
+note: in the case cyoa-graph is not working on windows, you can render the generated cyoa-game_graph.txt with online tools such as http://ashitani.jp/gv/
+
+By choosing to create games with textallion, in addition to the PDF, HTML and {^}ePUB{^} exports, you can also create games in those formats:
+
+- [Renpy http://www.renpy.org] is a popular format for creating visual novels. 
+The export from textallion will recreate your paragraphs and your choices in the format used by renpy, generating a working folder containing everything you need to read later from renpy. You should then move that folder into renpy's workspace default to work further on this project (including addition of multimedia documents, images, sounds ...). Please note that the command ``make cyoa-renpy`` will completely destroy the original folder and replace it with a new one. So if you intend to add new elements in the code, you can either change the makefile accordingly, or move the folder elsewhere as indicated above.
+
+To mean the end of a game, any occurrence of "THE END" will move the player to the end of the file, stopping the game.
+The inclusion of images will be converted to the renpy format, and on each page, the background image will overlap the images already posted. To hide the images properly, although this is not an obligation, it is advisable to add ``$ hidemypic ("my_image.jpg")`` at the end of the paragraph after the use of a given image.
+
+- [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] CYOA system, with a look similar to Undum, yet simpler to use.
+
+- [Hyena http://www.projectaon.org/staff/jens/] is the format used by the Project Aon (Lone Wolf free version). There is also an implementation to replay those games, with [gamebook-engine http://www.freegameengines.org/gamebook-engine/]
+
+- [Inform 7 http://inform7.com] is an interactive fiction system. It can create CYOA using the extension [Adventure Book by Edward Griffiths http://inform7.com/extensions/Edward%20Griffiths/Adventure%20Book/index.html]. You must have installed it prior to use it. 
+
+The output file will be yourgame.i7. Then convert it to zcode (.z5) using Inform7. 
+
+You may have to tweak a bit the source before being able to compile it in Inform, for example remove the "Page0" lines. Texts such as "So it will lead you to the 14" will be converted to "So it will lead you to the ''****''" (four stars), you'll probably want to edit this as well (you can just replace it to ''...'').
+
+
+- [Twee(code) / Twine http://gimcrackd.com/etc/src/] is a format gamebook usable on the Internet, based on TiddlyWiki. `` make cyoa-twee`` will export to this format. (The version on the official site is buggy so we use a [patched version https://github.com/mcdemarco/twee]).
+You can also import from twee into textallion in the case you want to design your game using Twine.

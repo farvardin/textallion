@@ -1,0 +1,58 @@
+Le TeXtallion, a simple word processor
+
+
+
+%!target: aat
+%!options: --width=86 --chars=@-/-_=-^"-=$ --outfile ../README.txt 
+%!encoding: utf-8
+
+
+= Basics =
+
+Textallion is a document generator, designed to output HTML, PDF and EPUB formats.
+
+Please read the documentations in the ./docs folder; these are normal txt files and should be self-explanatory:
+
+- documentation_en.t2t is for the English version (it's a normal txt file)
+- documentation_fr.t2t is for the French version
+
+- textallion_cyoa_en.t2t is for the Gamebook (CYOA) module
+- textallion_cyoa_fr.t2t is for the Gamebook module (French version)
+
+You need python 2 to use this program and LaTeX to be able to generate
+pdf files.
+
+You can run textallion_install.sh to install everything into /usr/share/textallion
+or just run the makefile from the sample folder to get started.
+
+Type:
+
+	- "make html" to generate the html manual for English
+	- "make pdf" to generate the pdf version (requires LaTeX)
+	- "make xetex" to generate an alternative pdf version (requires XeTeX)
+	- "make epub" to generate an epub document (requires Calibre)
+
+Edit the makefile and change "DOCUMENT = sample_en" to 
+"DOCUMENT = sample_fr" in order to generate the French version of those 
+documents.
+
+You can also run core/textallion.sh (or just 'textallion' if you've already
+used the installation script) for a little front-end.
+
+
+= Source Code and bug report ==
+
+http://code.google.com/p/textallion/
+ 
+
+
+%!include: license.t2t
+
+
+%!include: changelog.t2t
+
+
+%!include: todo.t2t
+
+
+

@@ -1,0 +1,285 @@
+
+
+
+%%%%%%%%%%%%  txt2CYOA  %%%%%%%%%%%%
+%% "choose your own adventure" easily made with txt2tags
+%% (module for textallion)
+%
+% by Eric Forgeot (c) 2007-2011
+%
+% Complete source code: http://textallion.googlecode.com
+% License: http://en.wikipedia.org/wiki/BSD_licenses
+
+
+
+% TXT2CYOA CODE STARTS HERE 
+%
+
+% OPTIONS  
+
+%!encoding(tex): utf-8
+%!encoding(xhtml): utf-8
+
+
+%% for GRAPHVIZ procession (display nodes in a graph):
+%% We use the txt output as a temporary file
+%% and we'll process it later in the makefile
+
+%  #4 ?? TODO %!preproc(txt): '\#(\d+)'  ' \1/' 
+%!preproc(txt): '\[([^ ].*?) (\d+)\]'  ' \2' 
+%!preproc(txt): '^==(\d+)=='  '<=\1=>'    
+%!preproc(txt): '^== (\d+) =='  '<=\1=>'    
+   
+%!postproc(txt):  '(\d+) \(#(\d+)\)' '\1;'
+%!--postproc(txt):  '(\w)' ''
+%!postproc(txt):  "c'" "c"
+%!postproc(txt):  "d'" "d"
+%!postproc(txt):  "j'" "j"
+%!postproc(txt):  "l'" "l"
+%!postproc(txt):  "m'" "m"
+%!postproc(txt):  "n'" "n"
+%!postproc(txt):  "s'" "s"
+%!postproc(txt):  "t'" "t"
+%!postproc(txt):  "u'" "u"
+%!--DOESNT-WORK--postproc(txt): '(\d+)'  '@@@\1@@@' 
+%!postproc(txt): 'au (\d+)'  '@@@\1@@@' 
+%pour eviter les chiffres au milieu des lignes, avant le rdv :
+%!postproc(txt): '(\d+),'  '' 
+%% remove numbers alone (in the middle of a text, it won't be a link):
+%!postproc(txt): ' (\d+) '  '' 
+%% remove letters and accented letters:
+%!postproc(txt):  '([a-z A-Z])' ''
+%!postproc(txt):  '([À Â Ä Ã Á È É Ê Ë Î Ï Ì Í Ô Ò Ó Ö Õ Œ Ù Û Ü Ú Ÿ à â ä ã á è é ê ë î ï ì í ô ò ó ö õ œ ù û ü ú ÿ  Ç ç « » € ß Æ æ Å å Ø ø Ñ ñ ¿ ¡ º ª])' ''
+%% Remove other symbols
+%% We can't add ' in this list, so we'll process the ' in the makefile:
+%!postproc(txt):  '([" ´ \( \) , . ! ? \-:])' ''
+%!postproc(txt):  '(=\[\]=)' ''
+%!postproc(txt):   '(\+\(\))' ''
+%!postproc(txt):   '(====)' ''
+%!postproc(txt):   '(\/\/)' ''
+%!postproc(txt):   '(\d+\(\d+\))' ''
+%!postproc(txt):   '(\(\d+\))' ''
+%!postproc(txt):   '(\(\))' ''
+%!postproc(txt):   '\[\#\]' ''
+%!postproc(txt):   '\[\d+\]' ''
+%!postproc(txt):   '^' ''
+%!postproc(txt): '^<=(\d+)=>' '\1->'
+%!postproc(txt): '@@@(\d+)@@@' ' \1'
+
+
+%%  TODO : for title image  : <a onclick="show('page0');location.assign( '#0' );" href="#0">
+
+
+%% %%% GBL 
+%% voir http://redohome.hd.free.fr/gameBooks
+%
+%!preproc: '@titre ([^ ].*?)$' ' '
+%!preproc: '@auteur ([^ ].*?)$' ' '
+%!preproc: '@licence ([^ ].*?)$' ' '
+
+% remplace les titres des paragraphes
+%!--NOTWORKING--preproc: '^#(\d+)# ([^ ].*?)$' '#\1#\n\n###\2###'  
+%!--NOTWORKING--preproc: '#(\d+)#' '== \1 ==' 
+%!--NOTWORKING--preproc: '###([^ ].*?)###' '=== \1 ===' 
+ 
+%!--NOTWORKING--preproc: '^#(\d+)# ([^ ].*?)$' '== \1 =='  
+
+%% les choix de texte 
+%!preproc: '^>([^ ].*?)=(\d+)' '- \1 rdv au \2'
+
+%!preproc: '\&ecirc\;' ê
+%!preproc: '\&agrave\;' à
+%!preproc: '\&eacute\;' é
+%!preproc: '\&egrave\;' è
+%!preproc: '\&ugrave\;' ù
+%!preproc: '\&auml\;'	ä
+%!preproc: '\&euml\;'	ë
+%!preproc: '\&iuml\;'	ï
+%!preproc: '\&uuml\;'	ü
+
+%% %%% fin de GBL
+
+% PREPROC options 
+
+%!preproc: '^==(\d+)==$'	'WARNING : \1 is not named !!!!'
+
+% add anchor to headings
+%!-NOT-USED-preproc: '^==(\d+)=='  '==\1==[\1]'     % desactive pour un autre usage (nommage des paragraphes)
+% Si vous voulez utiliser des liens nommés, il faut pas d'espace!!
+
+% generate anchor to headings with space (created a <a name... with txt2tags26, now it's id=)
+%!preproc: '^== Page (\d+) =='  '==\1==[\1]'  
+%!preproc: '^== (\d+) =='  '==\1==[\1]'   
+
+% handle named paragraphs as well
+%!preproc: '^== ([^ ].*?) =='  '==\1==[\1]'
+
+%% bold all numerical links  
+%!preproc: '\[(\d+) #(\d+)\]'  '**[\1 #\1]**'   
+
+%% understand "turn to #4 if you want" as "turn to [4 #4] if you want"
+%!preproc: '\#(\d+)'  '**[\1 #\1]**'  
+
+%% number at end of the line = link
+%% bold for named links and normal links too      
+%!--NOT-WORKING--preproc: '(\d+) #([^ ].*?)$'  '**[\1 #\2]**' 
+%!preproc: '(\d+)\.$'  '**[\1 #\1].**'  
+%!preproc: '(\d+)$'  '**[\1 #\1]**'  
+
+
+%% French shortcut: (rendez-vous au ##)
+
+%!preproc: '\(rdv au (\d+)\)'  '(rendez-vous au **[\1 #\1]**)'  
+%!preproc: '\(rendez-vous au (\d+)\)'  '(rendez-vous au **[\1 #\1]**)'  
+
+% Transforme l'abréviation 'rdv au' en 'rendez-vous au' (french only)
+%!postproc: 'rv au' 'rendez-vous au'
+%!postproc: 'rdv au' 'rendez-vous au'
+%!postproc: 'Rv au' 'Rendez-vous au'
+%!postproc: 'Rdv au' 'Rendez-vous au'
+
+
+
+
+% POSTPROC options
+
+%!--postproc(tex): 'wrap=\\includegraphics{([^ ].*?)}=wrap' '\\begin{wrapfigure}{l}{0\\textwidth} \\vspace{-00mm}  \\includegraphics[height=4cm]{\1} \\vspace{-00mm} \\end{wrapfigure} '
+
+% center section + bold 
+%!--postproc(tex): '\\subsection\*{([^ ].*?)}' '\\textbf{\\begin{center}\\subsection*{\Huge{\1}}\\end{center}}'
+
+
+
+
+
+
+
+
+% BIG FONTS
+
+%!postproc(tex): '\\begin{document}' '\\begin{document}\n\\begin{LARGE}'
+%!postproc(tex): '\\end{document}' '\\end{LARGE}\n\\end{document}'
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%
+% div id for javascript inside html
+%
+%!--postproc(xhtml): '<h2>([^ ].*?)</h2>([^ ].*?)<a id' '<div id="\1"> <h2>\1</h2>\2</div><a id'
+
+%!postproc(xhtml): '<h2 id="([^ ].*?)">([^ ].*?)</h2>' '<div id="page\2" style="display:none"> \n<br/>\n<br/><h2>\2</h2>'
+%!--old-txt2tags26-postproc(xhtml): '<h2>([^ ].*?)</h2>' '<div id="page\1" style="display:none"> \n\n<h2>\1</h2>'
+%!postproc(xhtml): '<div id' '<p><br/><br/><br/></p></div>\n\n<div id'
+%!--old-txt2tags26-postproc(xhtml): '<a id' '<p><br/><br/><br/></p></div>\n\n<a id'
+
+%% Correct the height space for footer
+%!postproc(xhtml): ':: made using textallion and txt2cyoa ::</a></i></div> <br/><p><br/><br/><br/></p></div>' ':: made using textallion and txt2cyoa ::</a></i></div>'
+
+%!postproc(xhtml): '</body>' '<p></p>\n</body>'
+
+%!postproc(xhtml): '</h1>$<div id="([^ ].*?)" style="display:none">' '</h1><div id="([^ ].*?)" style="display:block">' 
+
+% use this (uncomment) for textual links (TODO)
+%!--postproc(xhtml): '<a href="#([^ ].*?)">' <a href="#\1" onclick="show('page\1')">
+
+% display label for a link (with button)
+% [full description link]
+
+%!--parenthese--postproc(xhtml): '<a href="(\d+)">([^ ].*?)</a>' <button onclick="show('page\1');location.assign( '#\1' );">\2</button> <a class="hiddenlink" href="#\1" onmouseover="self.status='';return true;">(\1)</a> 
+
+
+%%
+%!postproc(xhtml): '<a href="(\d+)">([^ ].*?)</a>' <button onclick="show('page\1');location.assign( '#page\1' );" href="#page\1">\2</button>  
+
+% <a href="14">into the sea</a>
+
+%% reverse order of named links for latex, and set the name as hyperlink, otherwise it will mess up the output and won't be clickable
+%!postproc(tex): '\\htmladdnormallink\{(\d+)\}\{\\#([^ ].*?)\}' '\htmladdnormallink{\2}{\#\2}'
+
+%% use this for button links
+%% Change showAndFade to show to remove the fade in effect
+
+%!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a>' <button onclick="fade('page\2');showAndFade('page\2');location.assign( '#page\1' );" href="#page\1">\1</button>
+
+%% no longer needed
+%--!postproc(xhtml): "showAndFade\(\'page1\'\)" show('page1')
+
+%!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a> ([^ ].*?)$' <button onclick="show('page\2');location.assign( '#\1' );" href="#\1">\1</button> \3 
+
+%% remove buttons we've just set before
+
+%!postproc(xhtml): '<button' '<a'
+%!postproc(xhtml): '</button' '</a'
+
+
+%% We add the # here, otherwise the lines before would mess up the footer
+%!postproc(xhtml): 'a href=\"cyoaexplications\"' 'a href="#cyoaexplications"'
+
+%% The first chapter, if called 0, will always be displayed
+%!postproc(xhtml): '<div id="page0" style="display:none">'  '<div id="page0" style="display:block">'
+
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%
+
+%% Footnote
+%% already in textallion
+%
+%!postproc(tex): '°°(.*?)°°(.*?)°°' '\\footnote{\2}'
+%!--postproc(xhtml): '°°(.*?)°°(.*?)°°' <a onclick="visibility('\1');">*</a> <span id="\1" style="visibility:hidden">\2</span>
+
+
+
+
+
+
+
+%!--postproc(xhtml): '<meta name="generator" content="http://txt2tags.org" />' '<meta name="generator" content="http://txt2tags.org" /><meta http-equiv="content-type" content="text/html; charset=UTF-8" />'
+
+%%%% Retirer les cochonneries de txt2tags
+
+%!postproc(tex): '\\usepackage\[urlcolor=blue,colorlinks=true\]{hyperref}' ''
+
+
+
+%%%% French and general configuration
+%!--encoding(tex): utf8
+%!--style(tex): babel
+%!--postproc(tex): {babel} [english,frenchb,francais]{babel}
+
+% For accented letters in PDF 
+%!--style(tex): fontenc   
+%!--postproc(tex): {fontenc} [T1]{fontenc}
+
+% for pdf
+%--!--postproc(tex): {graphicx}	[pdftex]{graphicx}
+
+
+
+% Use personnal A4 style
+%% TODO : à changer vers textallion
+%%!style(tex): ../includes/cyoa_A4 
+%%!style(tex): ../samples_cyoa/blue_death_temp.sty 
+%%!style(tex): ../includes/sample_cyoa.sty
+
+% size of paper and margins
+%!--style(tex): geometry 
+%!--postproc(tex): {geometry} 	[a4paper, portrait, total={170 mm,237 mm}]{geometry} 
+
+%!--postproc(tex): '\\usepackage{graphicx}' '\\usepackage{cyoa_A4} % general style'
+%!--postproc(tex): '\\documentclass{article}' '\\documentclass[6pt, a4paper]{article}'
+
+%!--postproc(tex): '\\subsubsection\*\{([^ ].*?)\}' '\\textbf{\\subsection*{\\LARGE\\underline{{\1}}}}'
+
+
+
+%% quickfix before using template with textallion, otherwise titles won't looks nice and with chapter, it always breaks. We also reduce the space after the chapter number (vskip -2)
+%!postproc(tex): '\\chapter\{(\d+)\}' '\\textbf{\\begin{center}\\subsection*{\\Huge{\1}}\\end{center}\\vskip-2em}'
+
+% TXT2CYOA CODE ENDS HERE 
+
+
+
+
+%% TODO : espace inséquable avant chiffres en fin de ligne

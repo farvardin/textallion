@@ -1,0 +1,702 @@
+
+
+
+%%%%%%%%%%%%  textallion  %%%%%%%%%%%%
+%% Tiny almost-Kiss Word Processor
+%% based on the txt2tags tool and wiki syntax
+%
+% by Eric Forgeot (c) 2008-2011
+%
+% http://anamnese.online.fr/site2/textallion/docs/presentation.html
+% Complete source code: http://textallion.googlecode.com
+% License: http://en.wikipedia.org/wiki/BSD_licenses
+%
+% <!> NOTE: YOU SHOULDN'T NEED TO MODIFY THIS FILE
+%           UNLESS YOU REALLY NEED TO HEAVILY CUSTOMISE IT 
+
+
+%% Symbols cheatsheet
+
+
+% lettrine      	  {*~~~} or *~~~    (was in a previous release : -**-)
+% bigskip       	  {*-*-} or *-*-
+% three stars   ✵ 	  {** *}  			(was in a previous release : *** )
+% aldine leaf   ❦ 	  {-@- } 			(was in a previous release : *--* )
+% aldine leaf2  ❧ 	  {-/@-}
+% sun		    ☼ 	  {(  )}  			(was in a previous release : +++ )
+% first ¼ moon  ☽ 	  { )) }    		(was in a previous release : +-- )
+% last ¼ moon   ☾ 	  { (( }    		(was in a previous release : --+ )
+% fullmoon      ○ 	  { () }    			
+% xx DEPRECATED xx center begin        {->--}      		(was in a previous release : ((-- )
+% xx DEPRECATED xx center end          {-<--}			(was in a previous release : --)) )
+% center text begin   { ~~ }             
+% center text end     {/~~ }
+% size ++ begin       { ++ }      		
+% size ++ end         {/++ }				
+% size -- begin       { -- }      		
+% size -- end         {/-- }				
+% italic area begin   { // }      		
+% italic area end     {/// }     
+% bold area begin     { ** }      		
+% bold area end       {/** }   
+% page break          {/...}   
+% line break          {//..}  
+
+% exergue (epigraph)  {  ~~}             
+% exergue end         {/ ~~}
+
+% code (monospace)    {####}  or {###;}             
+% code end            {/###}  or {/##;}
+
+% french guillemets begin «  { "  }   or   {"   }   or  {" }    
+% french guillemets end  »   {  " }   or   {   "}   or  { "}
+% french dialog       ---
+
+% latex equations     { $$ } 
+
+% index               { ^^ } or {^}      voici une {^}pomme{^}, une {^}poire{^}, une {^}red delicious{^pomme}
+
+% left wrapping       [image.png]{~~~~} 
+% right wrapping      {~~~~}[image.png] 
+
+%% TODO
+% attention/warning   {!}
+% information         {i}
+% question            {?}
+% positive            {+}
+% negative            {-}
+%% TODO : official correction/revision marks
+
+
+%%% PREPROC 
+
+%% double brackets links
+
+%!preproc: '\[\[(.*?)\|(.*?)\]\]' '[\1 \2]'
+
+
+%% Index
+
+%!preproc(tex):  '\{\ ^^ \}'       CONVERTindex 
+%!preproc(tex):  '\{\^\}'          CONVERTindex
+%!postproc(tex):  'CONVERTindex([^ ].*?)CONVERTindex' \1\\index{\1}
+
+%!preproc(tex):  '\{\^([^ ].*?)\}' CONVERTindxnommeSTART\1END
+%!postproc(tex):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)END' \1\\index{\2}
+
+
+%!preproc(tex):  '%%index'         CONVERTprintindex
+%!postproc(tex): 'CONVERTprintindex' '\\clearpage\\phantomsection\\addcontentsline{toc}{section}{Index}\\printindex'
+
+% remove for html
+
+%!preproc(xhtml):  '\{\ ^^ \}'       CONVERTindex 
+%!preproc(xhtml):  '\{\^\}'          CONVERTindex
+%!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindex' \1
+
+%!preproc(xhtml):  '\{\^([^ ].*?)\}' CONVERTindxnommeSTART\1END
+%!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)END' \1
+
+
+%!preproc(xhtml):  '%%index'         'CONVERTprintindex'
+%!postproc(xhtml): 'CONVERTprintindex' ''
+
+%!options: --toc-level=4
+
+%%!postproc(xhtml): "$" '<br/>'
+%!postproc(xhtml): "><br/>" '>'
+%%!postproc(xhtml): '<\?<br/>' ''
+%%!postproc(xhtml): '<\?' ''
+
+
+%!--postproc(xhtml): '<\?xml version="1.0"<br/>' '<?xml version="1.0"'
+%!--postproc(xhtml): 'encoding="utf-8"<br/>' 'encoding="utf-8"'
+%%!postproc(xhtml): "\?>" ''
+
+%%%% Retirer les trucs inutiles de txt2tags
+
+% (only with the beamer patch)
+%!postproc(tex): '\\usepackage{beamerarticle}' ''
+
+%!postproc(tex): '\\usepackage\[urlcolor=blue,colorlinks=true\]{hyperref}' ''
+
+
+
+%!encoding(tex): utf8
+%!encoding(xhtml): utf-8
+
+
+
+
+
+
+% ==============
+
+% page break for header 1
+% and replacement from the default txt2tags article 
+
+%!postproc(tex): '\\section\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part'
+%!postproc(tex): '\\subsection\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
+%% TODO: slow down the generation of the latex doc if this one is searched with \ 
+%!postproc(tex): '\\subsubsection\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section'
+%!postproc(tex): '\\paragraph\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+
+%--!postproc(tex): '\\section\*' '\\part'
+%--!postproc(tex): '\\subsection\*' '\\chapter'
+%--!postproc(tex): '\\subsubsection\*'   '\\section'
+
+% page break for header 1
+
+%-!postproc(tex): '\\chapter'	'\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
+
+%-!postproc(tex): '\\section'	'\pagebreak[\PAGExBREAKxPOLICY]\n\section'
+
+%-!postproc(tex): '\\subsection'	'\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+
+
+
+% you can add extra margin left with for ex \setlength{\hoffset}{28pt}	
+
+%%!postproc(tex): {geometry} 	[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={top=\TOP_MARGIN_OF_DOCUMENT mm, bottom=\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\LEFT_MARGIN_OF_DOCUMENT mm, right=\RIGHT_MARGIN_OF_DOCUMENT mm},\GEOMETRYxADDITIONALxOPTION]{geometry} 
+
+%%!postproc(tex): {geometry} 	[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm, top=\TOP_MARGIN_OF_DOCUMENT mm, bottom=\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\LEFT_MARGIN_OF_DOCUMENT mm, right=\RIGHT_MARGIN_OF_DOCUMENT mm},\GEOMETRYxADDITIONALxOPTION]{geometry} 
+
+%%!--DONTUSE--postproc(tex): '\\documentclass{article}' '\\documentclass[\\DEFAULTxFONTxSIZE]{extreport}'
+
+%%!--DONTUSE--postproc(tex): '\\documentclass{article}' '\\documentclass[\\NB_OF_COLUMNS]{article}'  %% Too early to define this
+
+%!postproc(tex): '@@@ADDITIONALOPTIONS@@@' '\\ADDITIONALxOPTIONS'
+%!postproc(tex): '@@@SPECIALFONT@@@' '\\SPECIALxFONT'
+
+%!postproc(xhtml): '@@@ADDITIONALOPTIONS@@@' ''
+%!postproc(xhtml): '@@@SPECIALFONT@@@' ''
+
+%%!postproc(tex): '\\begin\{itemize\}' '\\begin{itemize}{labelitemi}{$\\bullet$}'
+
+% must be done here 
+%!postproc(tex): '\\begin{document}' '\\begin{document} \\renewcommand*{\\labelitemi}{$\\bullet$} \\renewcommand*{\\labelitemii}{$\\circ$} \\renewcommand*{\\labelitemiii}{$\\cdot$} \\renewcommand*{\\labelitemiv}{$\\diamond$}'
+
+
+
+%!postproc(tex): 'compactitem' 'itemize'
+
+
+
+%% Symbols
+
+%%!preproc(xhtml):  '\{(.{4})\}' '\n\n\n{\1}\n\n\n'
+
+%% symbols 
+
+%!preproc: '\{\*~~~\}'    '-**-'
+%% TODO Lettrine: CONVERTlettrine
+%!preproc: '\*~~~'        '-**-'
+%!preproc: '\{\*-\*-\}'   '*-*-'
+%!preproc: '\{\*\* \*\}'  'CONVERTtroisetoiles'
+%!preproc: '\{\*\*\*\}'   'CONVERTtroisetoiles'
+%!preproc: '\{\* \*\*\}'  'CONVERTtroisetoiles'
+%!preproc: '\{\*--\*\}'   'CONVERTaldinea'
+%!preproc: '\{-@- \}'     'CONVERTaldinea'
+%!preproc: '\{-/@-\}'     'CONVERTaldineb'
+%!preproc: '\{\(  \)}'    'CONVERTsoleil'
+%!preproc: '\{ \)\) \}'   'CONVERTlunep'
+%!preproc: '\{ \(\( \}'   'CONVERTluned'
+%!preproc: '\{ \(\) \}'   'CONVERTlunef'
+
+%!preproc: '\{->--\}'     'CONVERTcenterBEGIN'
+%!preproc: '\{-<--\}'     'CONVERTcenterEND'
+
+% new way of writing center
+%!preproc: '\{ ~~ \}'     'CONVERTcenterBEGIN'
+%!preproc: '\{\/~~ \}'     'CONVERTcenterEND'
+
+%% size
+%!preproc: '\{ \+\+ \}'   'CONVERTsizeincBEGIN'
+%!preproc: '\{/\+\+ \}'   'CONVERTsizeincEND'
+%!preproc: '\{ \-\- \}'   'CONVERTsizedecBEGIN'
+%!preproc: '\{/\-\- \}'   'CONVERTsizedecEND'
+
+%% more tolerant versions (without space)
+%!preproc: '\{\+\+\}'     'CONVERTsizeincBEGIN'
+%!preproc: '\{/\+\+\}'    'CONVERTsizeincEND'
+%!preproc: '\{\-\-\}'     'CONVERTsizedecBEGIN'
+%!preproc: '\{/\-\-\}'    'CONVERTsizedecEND'
+
+% alt + 248
+%!preproc: '\{ \°\° \}'    '°°'
+% MASCULINE ORDINAL INDICATOR alternative (alt+0186 on windows)
+%!preproc: '\{ \º\º \}'    '°°'
+% ‡ †
+
+%% italic, bold etc
+%!preproc: '\{ \/\/ \}'   'CONVERTitalicBEGIN'
+%!preproc: '\{\/\/\/ \}'  'CONVERTitalicEND'
+%!preproc: '\{ \*\* \}'   'CONVERTboldBEGIN'
+%!preproc: '\{\/\*\* \}'  'CONVERTboldEND'
+
+%% more tolerant versions (without space)
+%!preproc: '\{\/\/\}'     'CONVERTitalicBEGIN'
+%!preproc: '\{\/\/\/\}'   'CONVERTitalicEND'
+%!preproc: '\{\*\*\}'     'CONVERTboldBEGIN'
+%!preproc: '\{\/\*\*\}'   'CONVERTboldEND'
+
+
+
+
+%!preproc: '✵'    'CONVERTtroisetoiles'
+%!preproc: '❦'    'CONVERTaldinea'
+%!preproc: '❧'    'CONVERTaldineb'
+%!preproc: '☼'    'CONVERTsoleil'
+%!preproc: '☽'    'CONVERTlunep'
+%!preproc: '☾'    'CONVERTluned'
+%!preproc: '○'    'CONVERTlunef'
+
+%!preproc: '\{"   \}'    'CONVERTguillemetBEGIN'
+%!preproc: '\{   "\}'    'CONVERTguillemetEND'
+%!preproc: '\{ "  \}'    'CONVERTguillemetBEGIN'
+%!preproc: '\{  " \}'    'CONVERTguillemetEND'
+%!preproc: '\{" \}'    'CONVERTguillemetBEGIN'
+%!preproc: '\{ "\}'    'CONVERTguillemetEND'
+
+
+%!preproc: '\{\#\#\#;\}'    'CONVERTcodeBEGIN'
+%!preproc: '\{\/\#\#;\}'    'CONVERTcodeEND'
+
+%!preproc: '\{\#\#\#\#\}'    'CONVERTcodeBEGIN'
+%!preproc: '\{\/\#\#\#\}'    'CONVERTcodeEND'
+
+%!preproc: '\{\+\}'          'CONVERTplus'
+%!preproc: '\{\-\}'          'CONVERTminus'
+
+%!preproc: '\{\!\}'        'CONVERTattention'
+%!preproc: '\{i\}'        'CONVERTinformation'
+%!preproc: '\{?\}'        'CONVERTquestion'
+
+
+
+%% à placer avant les lignes juste après
+% CENTERING  (voir \centering ?)
+
+%!postproc(xhtml): '@@begin\(\(center\)\)\*\*' '</p><div class="center">'
+%!postproc(xhtml): '@@end\(\(center\)\)\*\*' '</div><p>'
+
+%!postproc(tex): '@@begin\(\(center\)\)\*\*' '\\begin{center}'
+%!postproc(tex): '@@end\(\(center\)\)\*\*' '\\end{center}'
+
+%!postproc(xhtml): 'CONVERTcenterBEGIN' '</p><div class="center">'
+%!postproc(xhtml): 'CONVERTcenterEND' '</div><p>'
+
+%!postproc(tex): 'CONVERTcenterBEGIN' '\\begin{center}'
+%!postproc(tex): 'CONVERTcenterEND' '\\end{center}'
+
+% Latex equations
+%!preproc(xhtml): '\{ \$\$ \}(.*?)\{ \$\$ \}'  '\1'
+% inline
+%!preproc(tex): '^\{ \$\$ \}(.*?)\{ \$\$ \}$'  ''\[\1\]''
+% offline
+%!preproc(tex): '\{ \$\$ \}(.*?)\{ \$\$ \}'  ''$\1$''
+% !! still a bug with _ which are escaped with \_
+
+
+
+% making a tab before image working for latex too
+% TODO: make it work too with an image supporting a link
+%!preproc(tex): '\t\[([^ ].*?).png\]' '| [\1.png]'
+%!preproc(tex): '\t\[([^ ].*?).jpg\]' '| [\1.jpg]'
+
+
+% Text Size
+
+%!postproc(xhtml): 'CONVERTsizeincBEGIN' '<span class="big">'
+%!postproc(xhtml): 'CONVERTsizeincEND' '</span>'
+
+%!postproc(tex): 'CONVERTsizeincBEGIN' '\\begin{Large}'
+%!postproc(tex): 'CONVERTsizeincEND' '\\end{Large}'
+
+
+%!postproc(xhtml): 'CONVERTsizedecBEGIN' '<span class="small">'
+%!postproc(xhtml): 'CONVERTsizedecEND' '</span>'
+
+%!postproc(tex): 'CONVERTsizedecBEGIN' '\\begin{small}'
+%!postproc(tex): 'CONVERTsizedecEND' '\\end{small}'
+
+% italic / bold area
+
+%!postproc(tex): 'CONVERTitalicBEGIN'  '\\begin{itshape}'
+%!postproc(tex): 'CONVERTitalicEND'    '\\end{itshape}'
+%!postproc(tex): 'CONVERTboldBEGIN'    '\\begin{bfseries}'
+%!postproc(tex): 'CONVERTboldEND'      '\\end{bfseries}'
+
+% A mettre dans un style sinon pas valide
+%!postproc(xhtml): 'CONVERTitalicBEGIN'  '<div class="italic"><em>'
+%!postproc(xhtml): 'CONVERTitalicEND'    '</em></div>'
+%!postproc(xhtml): 'CONVERTboldBEGIN'    '<div class="bold"><b>'
+%!postproc(xhtml): 'CONVERTboldEND'      '</b></div>'
+
+
+%%% Colors for xhtml
+%!postproc(xhtml): '@@COLOR@@([^ ].*?)@@'  '<span style="color:\1">'
+%!postproc(xhtml): '@@/COLOR@@'  '</span>'
+
+
+%%% Colors for LaTeX
+%% in case it detects a color code, disable this color which can't be interpreted by LaTeX
+%!preproc(tex): '@@COLOR@@#([^ ].*?)@@'  '@@COLOR@@DimGray@@'
+%%!postproc(tex): '\\color\{\\#([^ ].*?)\}'  '{\\color{DarkGrey}'
+%% normal behavior
+%!postproc(tex): '@@COLOR@@([^ ].*?)@@'  '{\\color{\1}'
+%!postproc(tex): '@@/COLOR@@'  '}'
+
+
+
+
+%%% 
+%symbols for quickref
+%!postproc(xhtml): '@@leftmoon\*\*' '<div class="center">&#x263e; </div>'
+%!postproc(xhtml): '@@fullmoon\*\*' '<div class="center">&#x25cb; </div>'
+%!postproc(xhtml): '@@rightmoon\*\*' '<div class="center"> &#x263d; </div>'
+%!postproc(xhtml): '@@sun\*\*' '<div class="center"> &#x263c; </div>'
+%!postproc(xhtml): '@@ding\(\(166\)\)\*\*' '<div class="center"> &#x2766; </div>'
+%!postproc(xhtml): '@@ding\(\(167\)\)\*\*' '<div class="center"> &#x2767; </div>'
+
+
+%%%
+%% For using custom TeX commands
+%!postproc(tex): '@@(.*?)\*\*' '\\\1'
+%!postproc(tex): '@@' '\\'
+%!postproc(xhtml): '@@(.*?)\*\*' ''
+
+%!postproc(tex): '\(\(' '{'
+%!postproc(xhtml): '@@(.*?)\*\*' '' 
+%!postproc(tex): '\)\)' '}'
+
+
+
+%% Footnote
+% 
+%!postproc(tex): '°°(.*?)\((\d+)\)°°' '\\footnote{\MYxFONT \1}'
+%!postproc(tex): '°°(.*?)°°' '\\footnote{\MYxFONT \1}'
+
+%!--postproc(xhtml): '°°(.*?)\((\d+)\)°°' '<a href="#ftn\2"><sup>\2</sup></a> <span id="ftn\2">(\1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ftn"> x </a></span>'
+
+%!postproc(xhtml): '°°(.*?)\((\d+)\)°°' '<a href="#ftn\2"><sup>\2</sup></a> <span id="ftn\2"><a class="ftn" href="#ftn">(\1)</a></span>'
+
+%!--postproc(xhtml): '°°(.*?)°°' '<a href="#ftn_\1"><sup>*</sup></a> <span id="ftn_\1">(\1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ftn"> x </a></span>'
+
+%!postproc(xhtml): '°°(.*?)°°' '<a href="#ftn_\1"><sup>*</sup></a> <span id="ftn_\1"><a class="ftn" href="#ftn">(\1)</a></span>'
+
+
+%--!postproc(xhtml): '°°(.*?)°°' ' (\1)'
+
+
+
+
+% important: for correcting the line breaks. Before the first word of a line, add a single space.
+%%!postproc(tex): "^ " '\linebreak '
+
+
+%%!preproc(xhtml): "^ " 'LINEBREAK '
+%!preproc(xhtml): "^ $" ' \n'
+
+%!preproc: "^   -" 'SUBLIST   -'
+%!preproc: "^  -" 'SUBLIST  -'
+%!preproc: "^ -" 'SUBLIST -'
+
+%!preproc: "^   \+" 'NUMLIST  +'
+%!preproc: "^  \+" 'NUMLIST  +'
+%!preproc: "^ \+ " 'NUMLIST + '
+
+%!preproc: "^  ([^ ].*?)" 'LINEBREAK  \1'
+%!preproc: "^ ([^ ].*?)" 'LINEBREAK \1'
+
+%!preproc: "SUBLIST -" ' -'
+%!preproc: "SUBLIST  -" '  -'
+%!preproc: "SUBLIST   -" '   -'
+
+%!preproc: 'NUMLIST \+' ' +'
+%!preproc: 'NUMLIST  \+' '  +'
+%!preproc: 'NUMLIST   \+' '   +'
+
+%% ^^- to protect the sublists...
+
+%!postproc(xhtml): "LINEBREAK  " '<br/> '
+%!postproc(xhtml): "LINEBREAK " '<br/> '
+
+%--!postproc(html): "LINEBREAK  " '<BR> '
+%--!postproc(html): "LINEBREAK " '<BR> '
+
+%!postproc(tex): "LINEBREAK  " '\par '
+%!postproc(tex): "LINEBREAK " '\par\\noindent '
+
+
+%% Various replacements (TeX logo)
+%!postproc(tex): 'TeX'	'\TeX{}'
+%!postproc(tex): 'LaTeX'	'\LaTeX'
+%!postproc(tex): '\\TeX{}tallion'	'TeXtallion'
+
+
+%% adding non-breaking space symbol before French "?", "!", ";", "«" and "»" (in the case they have a normal space).
+%!preproc: ' \?' '¯?'
+%!preproc: ' \!' '¯!'
+%!preproc: ' ;' '¯;'
+%!preproc: '« ' '«¯'
+%!preproc: ' »' '¯»'
+
+%% Non-breaking_space (espace insécable), using &macr; symbol
+%!postproc(tex): '¯' 	'~'
+%!postproc(xhtml): '¯' 	'&nbsp;'
+
+%% Columns 
+
+%!postproc(xhtml): '\{\|0\|\}'  '</div>'
+%!postproc(xhtml): '\{\|1\|\}'  '</div>'
+%!postproc(xhtml): '\{\|2\|\}'  '<div class="column2">'
+%!postproc(xhtml): '\{\|3\|\}'  '<div class="column3">'
+%!postproc(xhtml): '\{\|4\|\}'  '<div class="column4">'
+
+%!preproc(tex): '\{\|0\|\}'     '@@end((multicols))**'
+%!preproc(tex): '\{\|1\|\}'     '@@end((multicols))**'
+%!preproc(tex): '\{\|2\|\}'     '@@begin((multicols))((2))**'
+%!preproc(tex): '\{\|3\|\}'     '@@begin((multicols))((3))**'
+%!preproc(tex): '\{\|4\|\}'     '@@begin((multicols))((4))**'
+
+
+%% Page break
+
+%!preproc: '\{\/\.\.\.\}'          'BREAKPAGEHERE'
+%--!preproc: '\/\.\.\.'              'BREAKPAGEHERE' (don't use this one, it may break /.../ notation
+
+%!postproc(tex):'BREAKPAGEHERE'    '\\newpage'
+%!postproc(xhtml):'BREAKPAGEHERE'  ' <div style="page-break-before:always;"></div>'
+
+%% Line break
+
+%!preproc: '\{\/\/\.\.\}'          'BREAKLINEHERE'
+%!preproc: "\/\/\.\. "              'BREAKLINEHERE'
+%!preproc: "\\\\"                  'BREAKLINEHERE'
+
+%!postproc(tex):'BREAKLINEHERE'    '\\newline'
+%!postproc(xhtml):'BREAKLINEHERE'  '<br/>'
+
+
+%% Exergue (épigraphe)
+
+%!preproc: '\{  ~~\}\{([^ ].*?)\}$'           'CONVERTexergueBEGIN¤¤\1¤¤'
+%!postproc(tex): 'CONVERTexergueBEGIN¤¤([^ ].*?)¤¤'     '\\begin{exergue}{\1}'
+%!postproc(xhtml): 'CONVERTexergueBEGIN¤¤([^ ].*?)¤¤'     '<div class="exergueauthor">\1 : </div> <div class="exergue">'
+
+% beware don't use one line such as {  ~~}Citation{/ ~~}author
+%!preproc: '\{  ~~\}([^ ].*?)$'           'CONVERTexergueBEGIN¤¤\1¤¤'
+%!postproc(tex): 'CONVERTexergueBEGIN¤¤([^ ].*?)¤¤'     '\\begin{exergue}{\1}'
+%!postproc(xhtml): 'CONVERTexergueBEGIN¤¤([^ ].*?)¤¤'     '<div class="exergueauthor">\1 : </div> <div class="exergue">'
+
+%!preproc: '\{  ~~\}'           'CONVERTexergueBEGIN'
+%!postproc(tex): 'CONVERTexergueBEGIN'     '\\begin{exergue}{}'
+%!postproc(xhtml): 'CONVERTexergueBEGIN'     '<div class="exergue">'
+
+%!preproc: '\{\/ ~~\}\{([^ ].*?)\}$'   'CONVERTexergueEND¤¤\1¤¤'
+%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\end{exergue}'
+%!postproc(xhtml): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'     '</div><div class="exergueauthor">\1</div>'
+
+%!preproc: '\{\/ ~~\}([^ ].*?)$'   'CONVERTexergueEND¤¤\1¤¤'
+%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\end{exergue}'
+%!postproc(xhtml): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'     '</div><div class="exergueauthor">\1</div>'
+
+%!preproc: '\{\/ ~~\}'   'CONVERTexergueEND'
+%!postproc(tex): 'CONVERTexergueEND'  '\end{exergue}'
+%!postproc(xhtml): 'CONVERTexergueEND'     '</div>'
+
+
+%!postproc(tex): 'CONVERTcodeBEGIN'  '\\begin{sourcecode}{'
+%!postproc(xhtml): 'CONVERTcodeBEGIN'     '<div class="code">'
+
+%!postproc(tex): 'CONVERTcodeEND'  '}\end{sourcecode}'
+%!postproc(xhtml): 'CONVERTcodeEND'     '</div>'
+
+
+
+%%% music and video
+
+%!preproc: '\[http://([^ ].*?).ogg\]' 'OGG@@HTTP_\1.ogg@@'
+%!preproc: '\[([^ ].*?).ogg\]' 'OGG@@\1.ogg@@'
+
+%!preproc: '\[http://([^ ].*?).ogv\]' 'OGV@@HTTP_\1.ogv@@'
+%!preproc: '\[([^ ].*?).ogv\]' 'OGV@@\1.ogv@@'
+
+
+%!postproc(xhtml): 'OGG@@HTTP_([^ ].*?).ogg@@' <audio preload="metadata" controls="controls"><source src="http://\1.ogg" type="audio/ogg"><a href="http://\1.ogg">Download the music file (your browser doesn't support html5)</a></audio>
+
+%!postproc(xhtml): 'OGG@@([^ ].*?).ogg@@' <audio preload="metadata" controls="controls"><source src="\1.ogg" type="audio/ogg"><a href="\1.ogg">Download the music file (your browser doesn't support html5)</a></audio>
+
+%!postproc(xhtml): 'OGV@@HTTP_([^ ].*?).ogv@@' <video src="http://\1.ogv" controls><a href="http://\1.ogv">Download the file (your browser doesn't support html5)</a></video>
+
+%!postproc(xhtml): 'OGV@@([^ ].*?).ogg@@' <video src="\1.ogv" controls><a href="\1.ogv">Download the file (your browser doesn't support html5)</a></video>
+
+
+%!postproc(tex): 'OGG@@([^ ].*?).ogg@@' ''
+%!postproc(tex): 'OGV@@([^ ].*?).ogv@@' ''
+
+%%% images size
+
+%!postproc(tex): 'includegraphics\{([^ ].*?)\}\[([^ ].*?)\]' 'includegraphics[width=\2mm]{\1}'
+% ex : \includegraphics{../media/logo_textallion.png}[5]
+
+%!postproc(xhtml): '<img align=\"([^ ].*?)\" src=\"([^ ].*?)\" border=\"0\" alt=\"\"/>\[([^ ].*?)\]' '<img align="middle" src="\2" border="0" alt="" width="\3%"/>'
+
+%% Wrapping images with text [image.png]{~~~~} or {~~~~}[image.png]
+% in case: [image.jpg][size in mm]{~~~~}
+%!preproc: '\[([^ ].*?).png\]\[(\d+)\]\{~~~~\}'  'WRAPLEFT[\1.png][\2]WRAPLEFT[\2]' 
+% in case: [image.jpg]{~~~~}
+%!preproc: '\[([^ ].*?).png\]\{~~~~\}'  'WRAPLEFT[\1.png]WRAPLEFT'
+
+%!preproc: '\{~~~~\}\[([^ ].*?).png\]\[(\d+)\]'  'WRAPRIGHT[\1.png][\2]WRAPRIGHT'
+%!preproc: '\{~~~~\}\[([^ ].*?).png\]'  'WRAPRIGHT[\1.png]WRAPRIGHT'
+
+%!preproc: '\[([^ ].*?).jpg\]\[(\d+)\]\{~~~~\}'  'WRAPLEFT[\1.jpg][\2]WRAPLEFT[\2]'
+%!preproc: '\[([^ ].*?).jpg\]\{~~~~\}'  'WRAPLEFT[\1.jpg]WRAPLEFT'
+
+%!preproc: '\{~~~~\}\[([^ ].*?).jpg\]\[(\d+)\]'  'WRAPRIGHT[\1.jpg][\2]WRAPRIGHT'
+%!preproc: '\{~~~~\}\[([^ ].*?).jpg\]'  'WRAPRIGHT[\1.jpg]WRAPRIGHT'
+
+% in case: [image.jpg][size in mm]{~~~~} 
+%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT\[(\d+)\]' \\setlength{\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{l}{\FPprint\\result mm} \1   \\end{wrapfigure}
+
+% in case: [image.jpg]{~~~~} 
+%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT' \\setlength{\intextsep}{3mm} \\begin{wrapfigure}{l}{0\\textwidth} \1   \\end{wrapfigure}
+
+% in case: [image.jpg][size in mm]{~~~~} 
+%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT\[(\d+)\]' \\setlength{\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{r}{\FPprint\\result mm} \1   \\end{wrapfigure}
+
+% in case: [image.jpg]{~~~~} 
+%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT' \\setlength{\intextsep}{3mm}  \\begin{wrapfigure}{r}{0\\textwidth} \1   \\end{wrapfigure}
+
+
+%!postproc(xhtml): 'WRAPLEFT([^ ].*?)WRAPLEFT\[(\d+)\]' 'LEFT \1 '
+%!postproc(xhtml): 'WRAPLEFT([^ ].*?)WRAPLEFT' 'LEFT \1 '
+
+%!postproc(xhtml): 'WRAPRIGHT([^ ].*?)WRAPRIGHT\[(\d+)\]' 'RIGHT \1 '
+%!postproc(xhtml): 'WRAPRIGHT([^ ].*?)WRAPRIGHT' 'RIGHT \1 '
+
+%!postproc(xhtml): 'RIGHT <img align="middle" ' '<img class="wrap_right" '
+%!postproc(xhtml): 'LEFT <img align="middle" ' '<img class="wrap_left" '
+
+%%% Hotlinks (remote, online links etc): 
+%!preproc(xhtml): '\[http:\/\/([^ ].*?).png\]' '@@HOTLINK@@\1.png@@'
+%!postproc(xhtml): '@@HOTLINK@@([^ ].*?).png@@' '<img align="middle" src="http://\1.png" border="0" alt=""/>'
+
+%!preproc(xhtml): '\[http:\/\/([^ ].*?).jpg\]' '@@HOTLINK@@\1.jpg@@'
+%!postproc(xhtml): '@@HOTLINK@@([^ ].*?).jpg@@' '<img align="middle" src="http://\1.jpg" border="0" alt=""/>'
+
+%%%TODO: hotlink for pdf if possible
+
+
+
+
+
+% to display them using symbols
+
+%%% Initials (Lettrines)
+
+% Lettrine LaTeX sur la première lettre, le reste en minuscule
+%--!--postproc(tex): "-\*\*-(.)" "\n\n\\lettrine[lines=\\INITIALxLETTERxSIZE, lhang=0.33, loversize=0.25]{\1}{}"
+% ou bien lettrine LaTeX sur la première lettre, le reste du mot en petite majuscule :
+
+%!postproc(tex): "-\*\*-(.)(.*?) " "\n\n\\lettrine[lines=\\INITIALxLETTERxSIZE, lhang=0.33, loversize=0.25]{\1}{\2} "
+
+%!postproc(tex): '\*-\*-'               '\\bigskip'
+%!postproc(tex): 'CONVERTaldinea'       '\\parag'
+%!postproc(tex): 'CONVERTaldineb'       '\\aldineb'
+%!postproc(tex): 'CONVERTtroisetoiles'  '\\troisetoiles'
+%!postproc(tex): 'CONVERTsoleil'        '\\soleil'
+%!postproc(tex): 'CONVERTlunep'         '\\lunep'
+%!postproc(tex): 'CONVERTluned'         '\\luned'
+%!postproc(tex): 'CONVERTlunef'         '\\lunefull'
+
+%!postproc(tex): 'CONVERTguillemetBEGIN' '\\og{}'
+%!postproc(tex): 'CONVERTguillemetEND'   '\\fg{}'
+
+
+%!postproc(tex): 'CONVERTplus'           '\oplus'
+%!postproc(tex): 'CONVERTminus'          '\ominus'
+
+%!postproc(tex): 'CONVERTattention'      '(!)'
+%!postproc(tex): 'CONVERTinformation'    '(i)'
+%!postproc(tex): 'CONVERTquestion'       '(?)'
+
+
+
+%%!postproc(xhtml): '-\*\*-(.)' '<span style="font-size: 200%; vertical-align: baseline">\1</span>'
+%!postproc(xhtml): '-\*\*-(.)' '</p><p class="initial">\1'
+
+%!preproc(xhtml): '\*-\*-'   '\n\n'
+
+
+
+% symbols (needed)
+
+%!postproc(xhtml): 'CONVERTaldinea' '<div class="center"> &#x2766; </div>'
+%!postproc(xhtml): 'CONVERTaldineb' '<div class="center"> &#x2767; </div>'
+%!postproc(xhtml): 'CONVERTtroisetoiles' '<div class="center"><br/>&#x2735;&#x2735;<br/>&#x2735;</div>'
+%!postproc(xhtml): 'CONVERTsoleil' '<div class="center"> &#x263c; </div>'
+%!postproc(xhtml): 'CONVERTlunep' '<div class="center"> &#x263d; </div>'
+%!postproc(xhtml): 'CONVERTluned' '<div class="center"> &#x263e; </div>'
+%!postproc(xhtml): 'CONVERTlunef' '<div class="center"> &#x25cb; </div>'
+
+
+%!postproc(xhtml): 'CONVERTguillemetBEGIN' '&laquo;&nbsp;'
+%!postproc(xhtml): 'CONVERTguillemetEND'   '&nbsp;&raquo;'
+
+
+%!postproc(xhtml): 'CONVERTplus'           '&#x2295;'
+%!postproc(xhtml): 'CONVERTminus'          '&#x2296;'
+
+%!postproc(xhtml): 'CONVERTattention'      '&#x26a0;'
+%!postproc(xhtml): 'CONVERTinformation'    '(i)'
+%!postproc(xhtml): 'CONVERTquestion'       '(?)'
+
+% version sans align center postée plus haut car sinon ne s'affiche pas
+
+
+
+%% Correct display.
+%--!postproc(tex): '*~~~' '\\verb+~+' 
+
+%% TODO : enable, or not?
+%--!postproc(tex): '\\begin\{verbatim\}'	''
+%--!postproc(tex): '\\end\{verbatim\}'	''
+% Use {####} instead? (pb with txt2tags syntax within this
+
+
+
+% for dialogues (TODO BETTER)
+%!preproc: '--------(-+)---------' 'SIMPLELINE'
+%!preproc(tex): ' --- ' ' QUADRATINDASH '
+%!preproc(xhtml): '---' 'QUADRATINDASH'
+
+%!postproc(xhtml): 'QUADRATINDASH' '&mdash;'
+
+%!preproc(tex): 'SIMPLELINE' '---------------------'
+%!postproc(xhtml): 'SIMPLELINE' '<hr/>'
+
+% correct comments
+%!postproc(xhtml): '<!—' '<!--'
+%!postproc(xhtml): '—>' '-->'
+%!postproc(tex): 'QUADRATINDASH' '---'
+
+
+%% TOC in LaTeX
+% remove the stars (*) in your txt2tags file:
+%	   'title1'              : '\n~A~\section*{\a}'     ,
+%	   'title2'              : '~A~\\subsection*{\a}'   ,
+%	   'title3'              : '~A~\\subsubsection*{\a}',
+	
+% or use    :
+%!postproc(tex): 'part\*'    'part'
+%!postproc(tex): 'chapter\*' 'chapter'
+%!postproc(tex): 'section\*' 'section'
+
+
+%% TODO :
+% ? faire pour poésies : 1 espace : retour à la ligne, 2 espaces ou tab : centré
+
+

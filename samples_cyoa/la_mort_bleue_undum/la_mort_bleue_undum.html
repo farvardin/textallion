@@ -1,0 +1,485 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>STORY TITLE</title>
+    
+    <link href='http://fonts.googleapis.com/css?family=Tangerine'
+          rel='stylesheet' type='text/css'>
+
+    <link media="screen"
+          rel="stylesheet" href="media/css/undum.css">
+
+    <meta name="viewport" content="user-scalable=no, width=device-width">
+    <link rel="apple-touch-icon" href="media/img/iphone/icon.png">
+    <link rel="apple-touch-startup-image" href="media/img/iphone/splash.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--[if !IE]>-->
+    <link media="only screen and (max-width: 640px)"
+          rel="stylesheet" type="text/css" href="media/css/undum-mobile.css">
+    <!--<![endif]-->
+
+  </head>
+  <body>
+    <div id="toolbar">
+      <!-- Set this to be a small version of the title, for the
+           toolbar on mobile devices. -->
+      <h1>STORY TITLE</h1>
+      <div class="nav">
+        <a href="#" class="button" id="menu-button">Menu</a>
+      </div>
+    </div>
+    <ul id="menu">
+      <li><a href="#title, #content_wrapper">Story</a></li>
+      <li><a href="#character_panel">Character</a></li>
+      <li><a href="#info_panel">Info</a></li>
+    </ul>
+
+    <div id="page">
+
+      <div id="tools_wrapper">
+        <div id="info_panel" class="tools left">
+
+          <!-- Game Background: edit this -->
+          
+          <!-- note: you can also remove #info_panel if you don't want the game background text -->
+          <h1>STORY TITLE</h1>
+          <p>
+			STORY BACKGROUND
+          </p>
+          <!-- End of Game Background -->
+
+          <div class='buttons'>
+            <button id="save">Save</button><button id="erase">Erase</button>
+          </div>
+        </div>
+
+
+		<!-- you probably won't need this
+			
+        <div id="character_panel" class="tools right">
+          <h1>Character</h1>
+          <div id="character">
+            <div id="character_text">
+              <div id="character_text_content"></div>
+            </div>
+            <div id="qualities"></div>
+          </div>
+        </div>
+        
+       -->
+       
+      </div> <!-- End of div.tools_wrapper -->
+
+      <div id="mid_panel">
+        <div id="title">
+          <div class="label">
+
+            <!-- Game Title: edit this -->
+            <h1>STORY TITLE</h1>
+            <h2>by STORY AUTHOR</h2>
+            <!-- End of Game Title -->
+            
+            <!-- You can also put the cover art here (<img src="...">) -->
+
+            <noscript><p class="noscript_message">This game requires 
+              Javascript.</p></noscript>
+            <p class="click_message">click to begin</p>
+          </div>
+        </div>
+
+        <div id="content_wrapper">
+          <div id="content">
+          </div>
+          <a name="end_of_content"></a>
+        </div>
+
+        <div id="legal">
+          <!-- Your Copyright: edit this (or remove)-->
+          <p>COPYRIGHT</p>
+          <!-- End of Your Copyright -->
+
+          <!-- This Copyright line must remain in your final file. -->
+          <p>
+            Parts of the software and design &copy; 2010 IDM. Undum is
+            available
+            <a href="http://github.com/idmillington/undum">here</a>.
+            Derivative works must include this copyright line and link.
+          </p>
+        </div>
+      </div>
+    </div> <!-- End of div.page -->
+
+    <!-- Holds UI elements that will be cloned and placed in the main
+         page. This block itself is always hidden. -->
+    <div id="ui_library">
+      <div id="quality" class="quality">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+      </div>
+
+      <div id="quality_group" class="quality_group">
+        <h2 data-attr="title"></h2>
+        <div class="qualities_in_group">
+        </div>
+      </div>
+
+      <div id="progress_bar" class="progress_bar">
+        <span class="name" data-attr="name"></span>
+        <span class="value" data-attr="value"></span>
+        <div class="progress_bar_track">
+          <div class="progress_bar_color" data-attr="width">
+          </div>
+        </div>
+        <span class="left_label" data-attr="left_label"></span>
+        <span class="right_label" data-attr="right_label"></span>
+      </div>
+
+      <hr id="turn_separator">
+    </div>
+
+
+    <script type="text/javascript" src="media/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="media/js/undum.js"></script>
+
+	<script type="text/javascript">
+		undum.game.id = "IFID HERE";	// remove these if not needed
+		undum.game.version = "1.0";		// 
+
+		// name of the first situation
+		undum.game.start = "node0";
+
+		undum.game.situations.node0 = new undum.SimpleSituation(
+			'<ul class="options"><li><a href="node1">Start the game</a></li></ul>'
+		);
+
+
+ undum.game.situations.node0 = new undum.SimpleSituation(
+'<p><br/><h2>0</h2></p>'
++ '<ul class="options"><li><a href="node1">Commencer le jeu :  1</a></li>' 
+ );
+
+ undum.game.situations.node1 = new undum.SimpleSituation(
+'<p><br/><h2>1</h2>Je me sens tomber. Pas très haut par rapport au sol, heureusement pour moi. Et quelques cordages épais amortissent ma chute. J\'ai probablement encore raté un échelon, car il faut dire que je suis dans la lune la plupart du temps en ce moment.</p>'
++ '<ul class="options"><li><a href="node19">Je me lève :  19</a></li>' 
+ );
+
+ undum.game.situations.node2 = new undum.SimpleSituation(
+'<p><br/><h2>2</h2>Dès que je pose le pied sur le seuil de ce grand bâtiment, des officiers de police m\'arrêtent, au motif que je me suis évadé de la maison où je devais rester, ayant été acquit légalement par M. et Mme Caesar.</p>'
++ '<ul class="options"><li><a href="node48">En dépit de mes protestations, je suis jeté en prison :  48</a></li>'
+ 
+ );
+
+ undum.game.situations.node3 = new undum.SimpleSituation(
+'<p><br/><h2>3</h2>Il y a là un groupe de six marins. Ils ne sont qu\'en train de s\'amuser après tout !</p>'
++ '<ul class="options"><li><a href="node23">mais je peux leur donner une correction méritée :  23</a></li>'
++ '<li><a href="node5">ou bien m\'enfuir lâchement sur le pont supérieur :  5</a></li>'
+ 
+ );
+
+ undum.game.situations.node4 = new undum.SimpleSituation(
+'<p><br/><h2>4</h2>Je sonne à la porte. Béatrix m\'ouvre, et me voyant, ne semble pas très heureuse de ma présence. Nous étions bons amis auparavant, aussi je ne comprends pas ses réserves.Elle porte une jolie petite robe légère, blanche et grise, et je ressens tant de poésie dans l\'atmosphère que je ne peux m\'empêcher de lui dire ce que j\'ai sur le cœur.</p>'
++ '<ul class="options"><li><a href="node35">Être grossier, mais direct :  35</a></li>'
++ '<li><a href="node28">Être modéré, mais verbeux :  28</a></li>'
+ 
+ );
+
+ undum.game.situations.node5 = new undum.SimpleSituation(
+'<p><br/><h2>5</h2>Ce pont est habituellement réservé aux passagers de première classe. J\'espère qu\'aucun officier du navire ne me remarquera, sinon j\'aurai de sérieux problèmes.J\'obtins ce travail sur un navire pour payer ma traversée vers le Grand Continent, qui a été redécouvert il y a seulement quelques siècles. En attendant, j\'ai toujours été curieux au sujet de la vie là-bas, de savoir si les gens étaient comme nous ou si leur culture était si étrangère qu\'il n\'était pas possible d\'y vivre. J\'ai également essayé d\'apprendre leur si difficile langue, et je me suis forcé à l\'utiliser quotidiennement. C\'est ainsi que j\'ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de complètement la maîtriser, j\'ai vécu là-bas un moment, puis j\'ai décidé d\'embarquer sur ce bateau.</p>'
++ '<ul class="options"><li><a href="node25">Après quelques jours, nous arrivons à New Londrin Haven, et j\'entre triomphalement dans la ville :  25</a></li>'
++ '<li><a href="node27">Mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée :  27</a></li>'
+ 
+ );
+
+ undum.game.situations.node6 = new undum.SimpleSituation(
+'<p><br/><h2>6</h2>Nous entrons dans un salon de thé à l\'ambiance snobinarde, dans une zone touristique. Nous nous ennuyons rapidement en un tel lieu, aussi je propose que nous cherchions un endroit plus agréable pour nous divertir.</p>'
++ '<ul class="options"><li><a href="node42">Proposer son appartement :  42</a></li>'
++ '<li><a href="node38">Proposer mon appartement :  38</a></li>'
++ '<li><a href="node7">Proposer de prendre un verre dans une taverne proche :  7</a></li>' 
+ );
+
+ undum.game.situations.node7 = new undum.SimpleSituation(
+'<p><br/><h2>7</h2>Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes ici qui frappent dans leurs délicieuses mains en rythme.J\'en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j\'avais l\'habitude de ressentir dans le passé.FIN '
+ );
+
+ undum.game.situations.node8 = new undum.SimpleSituation(
+'<p><br/><h2>8</h2>[i]Am I lucky today? (throwing a dice, 5 or 6 means luck)[/i]</p>'
++ '<ul class="options"><li><a href="node18">Si je suis chanceux :  18</a></li>'
++ '<li><a href="node51">Si je suis malchanceux :  51</a></li>'
+ 
+ );
+
+ undum.game.situations.node9 = new undum.SimpleSituation(
+'<p><br/><h2>9</h2>L\'opposition est remplie de personnes charmantes et engagées, néanmoins je ne peux garantir que leurs dirigeants soient aussi propres politiquement. Il y en a même qui racontent que la tête pensante de l\'opposition est infiltrée par le Indigo Love Syndicate. [i]Am I lucky today? (throwing a dice, 5 or 6 means luck)[/i]</p>'
++ '<ul class="options"><li><a href="node32">Si je suis chanceux :  32</a></li>'
++ '<li><a href="node49">Si je suis malchanceux :  49</a></li>'
+ 
+ );
+
+ undum.game.situations.node10 = new undum.SimpleSituation(
+'<p><br/><h2>10</h2> Les quais ne sont pas un endroit très agréable pour un être aussi délicat que moi. J\'ai immédiatement le sentiment que je pourrais devenir une proie facile pour la plupart des vautours qui sévissent ici. Je remarque une belle femme qui attend près d\'un ponton. Au même moment, des marins, rencontrés sur le bateau où j\'étais employé, m\'interpellent tandis qu\'ils entrent dans une taverne.</p>'
++ '<ul class="options"><li><a href="node37">M\'approcher de cette dame :  37</a></li>'
++ '<li><a href="node7">Suivre mes anciens camarades dans la taverne :  7</a></li>'
++ '<li><a href="node31">Retourner chez moi :  31</a></li>' 
+ );
+
+ undum.game.situations.node11 = new undum.SimpleSituation(
+'<p><br/><h2>11</h2>Impassible aux émotions humaines, le navire atteint les premières brumes matinales de l\'autre continent. Foulant la jetée et la terre ferme pour la première fois après trois semaines de torture spirituelle, je me sens étourdi et complètement perdu.Il y a un grand poster sur un mur, et la sortie vers le reste de la ville.</p>'
++ '<ul class="options"><li><a href="node27">Regarder le poster :  27</a></li>'
++ '<li><a href="node25">Sortir :  25</a></li>' 
+ );
+
+ undum.game.situations.node12 = new undum.SimpleSituation(
+'<p><br/><h2>12</h2>Avant de commettre l\'irréparable, je remarque l\'ombre de Béatrix arrivant derrière moi, bouleversée et angoissée à mon sujet.</p>'
++ '<ul class="options"><li><a href="node6">Elle me dit qu\'elle regrette sa réaction trop vive, et propose que l\'on prenne un verre ensemble dans un salon de thé dans les environs :  6</a></li>' 
+ );
+
+ undum.game.situations.node13 = new undum.SimpleSituation(
+'<p><br/><h2>13</h2>Le capitaine, arrivant peu après, s\'excuse pour la conduire grossière de ses hommes. S\'inclinant profondément, il me demande mon opinion sur la route à suivre. Est-ce que je rêve ? il est devenu fou, ou bien c\'est une sorte de pitié malsaine à mon encontre...Devrons-nous aller :</p>'
++ '<ul class="options"><li><a href="node11">Au Nord, toujours vers notre destination initialement prévue, le Nouveau Continent :  11</a></li>'
++ '<li><a href="node30">Au Sud, pour atteindre une petite île qu\'il a juste découverte avec sa longue-vue :  30</a></li>'
++ '<li><a href="node43">À l\'Ouest, pour explorer encore plus ce vaste océan bleu :  43</a></li>'
++ '<li><a href="node24">À l\'Est, pour retourner vers notre pays d\'origine :  24</a></li>' 
+ );
+
+ undum.game.situations.node14 = new undum.SimpleSituation(
+'<p><br/><h2>14</h2>Que la mort peut être douce, lorsqu\'elle est si bleue !FIN '
+ );
+
+ undum.game.situations.node15 = new undum.SimpleSituation(
+'<p><br/><h2>15</h2>Le soleil est haut dans le ciel, et pourtant je ressens une brise fraîche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet dans ma cabane à huit mètres du sol. Je me rappelle également de ma mère m\'appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local.J\'ai soudain l\'impression de tourner en rond...</p>'
++ '<ul class="options"><li><a href="node21">Continuer à explorer :  21</a></li>'
++ '<li><a href="node11">Retourner au bateau :  11</a></li>' 
+ );
+
+ undum.game.situations.node16 = new undum.SimpleSituation(
+'<p><br/><h2>16</h2>Je n\'aurais jamais imaginé qu\'être vendu comme esclave puisse se passer ainsi. Ce n\'était certes pas le marché aux esclaves sur la place publique comme on aurait pu l\'imaginer, j\'ai juste été conduit dans une cave sombre et humide, où je me suis ennuyé à mourir.</p>'
++ '<ul class="options"><li><a href="node45">Quelques jours plus tard, j\'ai été vendu à une famille aisée :  45</a></li>' 
+ );
+
+ undum.game.situations.node17 = new undum.SimpleSituation(
+'<p><br/><h2>17</h2>Je plonge dans l\'eau sombre. Je me sens si seul, que rapidement j\'arrête de respirer.</p>'
++ '<ul class="options"><li><a href="node14">Je coule plus profondément au  14</a></li>' 
+ );
+
+ undum.game.situations.node18 = new undum.SimpleSituation(
+'<p><br/><h2>18</h2>Les murs sont maintenant plus propres sans ce poster malsain. </p>'
++ '<ul class="options"><li><a href="node25">Je peux continuer mon chemin au  25</a></li>'
+ 
+ );
+
+ undum.game.situations.node19 = new undum.SimpleSituation(
+'<p><br/><h2>19</h2>Je me suis senti déprimé tant d\'années que je ne puis le supporter plus longtemps. De plus, mon lieu de résidence et mon emploi actuel menacent graduellement tant ma santé mentale que physique...*image tbd_ship.jpgL\'océan, immense et bleu, s\'étendant à l\'infini dans toutes les directions cardinales, reflète le soleil comme une cotte de maille scintillante.« Hé espèce de saloperie de Francimi ! Viens par ici ! », crient-ils.Entouré de ces étrangers Scottani et Iricimi, je ne me sens pas très bien dans cet environnement. Leur casques verts et orange foncés me rendent nerveux. Je n\'ai pas besoin de leur obéir, car ce sont de simples marins comme moi. Mais vais-je tolérer ces insultes ? </p>'
++ '<ul class="options"><li><a href="node3">Me rebeller, rendez-vous au  3</a></li>'
++ '<li><a href="node13">Attendre, rendez-vous au  13</a></li>'
++ '<li><a href="node17">Sauter dans la mer :  17</a></li>'
++ '<li><a href="node5">ou explorer un peu le bateau, ce qui est un prétexte pour fuir lâchement vers le  5</a></li>' 
+ );
+
+ undum.game.situations.node20 = new undum.SimpleSituation(
+'<p><br/><h2>20</h2>On me dit avec un ton irrité que je fais erreur. Ce n\'est plus là depuis un moment.</p>'
++ '<ul class="options"><li><a href="node53">On me donne un autre numéro de bureau, au cinquième étage, ce qui me conduit au  53</a></li>'
+ 
+ );
+
+ undum.game.situations.node21 = new undum.SimpleSituation(
+'<p><br/><h2>21</h2>À l\'âge de dix-neuf ans, je suis allé dans la ville la plus proche, pour apprendre à devenir bibliothécaire. Mon père en fut un peu déçu, lui qui souhaitait que je devienne artiste. J\'ai quand même emporté mon accordéon avec moi, pour lui faire plaisir.Satanés moustiques ! Avec toutes ces pestes volantes, il est bien difficile de se concentrer.</p>'
++ '<ul class="options"><li><a href="node15">Explorer un peu plus :  15</a></li>'
++ '<li><a href="node11">Retourner au bateau :  11</a></li>' 
+ );
+
+ undum.game.situations.node22 = new undum.SimpleSituation(
+'<p><br/><h2>22</h2>Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu\'en Euralinia.Les maisons ici sont plus opulentes, avec des influences marquées des villes d\'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et compliquées. Je n\'aime pas cela du tout.Que puis-je faire maintenant ?</p>'
++ '<ul class="options"><li><a href="node44">Rencontrer les autorités locales, pour m\'annoncer et m\'enregistrer dans leurs services :  44</a></li>'
++ '<li><a href="node33">En apprendre plus sur leurs coutumes et traditions :  33</a></li>' 
+ );
+
+ undum.game.situations.node23 = new undum.SimpleSituation(
+'<p><br/><h2>23</h2>Des marins entraînés et en nombre sont certainement plus costauds qu\'un pauvre vagabond comme moi qui a toujours vécu sur le plancher des vaches, entre la bibliothèque du coin et l\'université.</p>'
++ '<ul class="options"><li><a href="node17">Ils me jettent par dessus-bord au  17</a></li>' 
+ );
+
+ undum.game.situations.node24 = new undum.SimpleSituation(
+'<p><br/><h2>24</h2>Le navire n\'avait probablement pas assez de vivre pour effectuer la traversée, et cela n\'était pas une surprise de devoir faire demi-tour pour retourner dans notre pays d\'origine.Déçus et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce nouveau Continent dont tout le monde parle.Je suis malgré tout heureux de revenir ici, et d\'être débarrassé d\'eux.</p>'
++ '<ul class="options"><li><a href="node1">Recommencer le voyage depuis le début :  1</a></li>'
++ '<li><a href="node10">Visiter les docks :  10</a></li>'
++ '<li><a href="node31">Retourner chez moi :  31</a></li>' 
+ );
+
+ undum.game.situations.node25 = new undum.SimpleSituation(
+'<p><br/><h2>25</h2>Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu\'en Euralinia.*image tbd_city01.jpgLes maisons ici sont plus opulentes, avec des influences marquées des villes d\'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et ayant du caractère. Une telle sollicitude pour des motifs aussi inspirés m\'inspire un tel bonheur que j\'en oublie un moment ma solitude spirituelle.Le soleil commence à annihiler l\'humidité poisseuse de la brume, en envoyant des rayons oranges sur les murs.Que faire maintenant ?</p>'
++ '<ul class="options"><li><a href="node44">Rencontrer les autorités locales, pour m\'annoncer et m\'enregistrer dans leurs services :  44</a></li>'
++ '<li><a href="node33">En apprendre plus sur leurs coutumes et traditions :  33</a></li>'
++ '<li><a href="node40">Voler un peu de nourriture, personne ne me connaît ici après tout :  40</a></li>' 
+ );
+
+ undum.game.situations.node26 = new undum.SimpleSituation(
+'<p><br/><h2>26</h2>« Cher voyageur,merci de participer à ce jeu. J\'espère que vous ne vous sentirez pas trop limité ici, et que votre liberté de pensée n\'est pas trop mise à mal. Cette courte histoire risque par contre de réellement commencer quand vous retournerez à la civilisation. N\'espérez pas découvrir beaucoup de choses dans ces îles désertées. Au fait, si par hasard vous rencontrez Jacqueline, dites-lui bonjour de notre part ! »</p>'
++ '<ul class="options"><li><a href="node11">L\'esprit en paix et oubliant la tromperie verdoyante de la montagne, je manie frénétiquement les rames pour retourner au bateau :  11</a></li>' 
+ );
+
+ undum.game.situations.node27 = new undum.SimpleSituation(
+'<p><br/><h2>27</h2>Ce qui était le plus visible et étrange dans cet endroit, c\'était un poster imprimé sur un fond bleu-indigo, avec écrit par dessus, en lettres énormes et roses :« REJOIGNEZ L\'ARMÉE DE L\'AMOUR(TM)!L\'Indigo Love Syndicate(tm) a besoin de vous. Merci pour votre attention. »Il n\'y a pas de moyen clair pour les contacter. Peut-être qu\'ils sont devenus si puissants récemment qu\'il est aisé de tomber sur eux. On verra bien !</p>'
++ '<ul class="options"><li><a href="node8">Déchirer ce poster :  8</a></li>'
++ '<li><a href="node36">S\'agenouiller et prier devant ce poster coloré et apaisant :  36</a></li>'
++ '<li><a href="node25">Repartir immédiatement :  25</a></li>' 
+ );
+
+ undum.game.situations.node28 = new undum.SimpleSituation(
+'<p><br/><h2>28</h2>Je lui parle de ma philosophie de la vie, et des buts élevés auxquels chacun devrait se référer pour se réaliser dans ce vaste univers. Je lui parle de la beauté, je lui parle de la volonté, de l\'ascétisme et de l\'humilité.Les yeux pleins de larmes, la femme m\'embrasse, s\'accrochant de façon embarrassante à mon cou, et reniant ses anciens amants.</p>'
++ '<ul class="options"><li><a href="node6">L\'inviter dans un salon de thé, pour s\'entretenir plus longuement avec elle sur des sujets essentiels :  6</a></li>'
++ '<li><a href="node38">Lui donner congé maintenant, pour entretenir son excitation en vue d\'un rendez-vous ultérieur, et ne pas arriver trop tard chez moi :  38</a></li>' 
+ );
+
+ undum.game.situations.node29 = new undum.SimpleSituation(
+'<p><br/><h2>29</h2>*image tbd_city02.jpgDès que j\'entre dans la bâtisse cyclopéenne, je sais que cet endroit est parfait selon tous mes critères, une vie entière à passer au service de la littérature, même avec ma grammaire approximative et mon accent francimi.FIN '
+ );
+
+ undum.game.situations.node30 = new undum.SimpleSituation(
+'<p><br/><h2>30</h2>Nous naviguons vers une île étrange, une longue piste de jaune-ocre, avec en toile de fond des falaises vertes surplombant la plage. Une fois arrivé sur le sable, je trouve sur le sol une bouteille fermée. Il y a un vieux parchemin dedans.</p>'
++ '<ul class="options"><li><a href="node26">Examiner la bouteille et son contenu :  26</a></li>'
++ '<li><a href="node15">Explorer l\'île :  15</a></li>'
++ '<li><a href="node11">Retourner au bateau :  11</a></li>' 
+ );
+
+ undum.game.situations.node31 = new undum.SimpleSituation(
+'<p><br/><h2>31</h2>Après être entré dans une calèche tirée par des Frisons, j\'atteins rapidement la petite ville où je réside habituellement, dans la banlieue de cette métropole, et je fais arrêter le véhicule au centre-ville. </p>'
++ '<ul class="options"><li><a href="node38">Vais-je réellement rentrer directement chez moi maintenant :  38</a></li>'
++ '<li><a href="node4">ou rendre visite à une amie à moi auparavant ? Je ne l\'ai pas vue depuis un moment, et nous avons sans doute le droit de passer un peu de bon moment ensemble :  4</a></li>' 
+ );
+
+ undum.game.situations.node32 = new undum.SimpleSituation(
+'<p><br/><h2>32</h2>Quelqu\'un m\'a vendu, tandis que j\'effectuais une importante mission : je devais rencontrer un dirigeant de l\'Indigo Love Syndicate, pour le capturer, mais c\'était sans doute un piège, et c\'est **moi** qui ai été capturé à la place.</p>'
++ '<ul class="options"><li><a href="node48">Aller en prison :  48</a></li>' 
+ );
+
+ undum.game.situations.node33 = new undum.SimpleSituation(
+'<p><br/><h2>33</h2>Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d\'années, après sa séparation physique du vieux continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d\'années, une nouvelle secte, appelée le Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites. Discrète à ses débuts, la secte est maintenant un pouvoir politique sur lequel il faut compter.</p>'
++ '<ul class="options"><li><a href="node9">Je peux rejoindre l\'opposition, pour voir s\'ils sont meilleurs que ceux qu\'ils prétendent combattre :  9</a></li>'
++ '<li><a href="node52">Je peux oublier toutes ces théories conspirationnistes, et mener une vie normale, en recherchant un petit travail paisible :  52</a></li>' 
+ );
+
+ undum.game.situations.node34 = new undum.SimpleSituation(
+'<p><br/><h2>34</h2>Lors d\'une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d\'une promenade au bord de mer, j\'arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l\'auto-réalisation.Partant précipitamment, j\'ai oublié de prendre de la nourriture et quelques affaires avec moi, aussi je me sens rapidement bien perdu dans ces rues étrangères, avec mon libre-arbitre et mes poches vides.</p>'
++ '<ul class="options"><li><a href="node47">Aller rencontrer les autorités locale the local authorities, pour m\'enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré :  47</a></li>'
++ '<li><a href="node33">En apprendre plus sur leurs coutumes et traditions :  33</a></li>'
++ '<li><a href="node40">Voler un peu de nourriture et des choses de première nécessité :  40</a></li>'
+ 
+ );
+
+ undum.game.situations.node35 = new undum.SimpleSituation(
+'<p><br/><h2>35</h2>Je la compare à une pouliche sublime et splendide, à la déesse de la fertilité, de la guerre et du désir, à l\'infirmière primordiale et ainsi de suite.</p>'
++ '<ul class="options"><li><a href="node41">Forte comme elle l\'est, tout ce que je reçois c\'est une gifle bien méritée, et avec la mâchoire et la joue aussi rouges qu\'un diable excité ayant mangé du piment, honteux, je repars vers la ville:  41</a></li>' 
+ );
+
+ undum.game.situations.node36 = new undum.SimpleSituation(
+'<p><br/><h2>36</h2>[i]Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.[/i]Je prie avec la complicité de tous les adeptes de l\'Indigo Love Syndicate. J\'ai à ce moment le sentiment que mon âme vient d\'être souillée.</p>'
++ '<ul class="options"><li><a href="node22">Je continue néanmoins à déambuler dans les rues :  22</a></li>'
+ 
+ );
+
+ undum.game.situations.node37 = new undum.SimpleSituation(
+'<p><br/><h2>37</h2>Pensant probablement que j\'ai mal interprété son activité d\'attente, la femme semble énervée d\'avoir été dérangée par mon arrivée. Elle me dit carrément qu\'elle attend quelqu\'un d\'autre et se moque de ma vie disgracieuse.</p>'
++ '<ul class="options"><li><a href="node28">Insister un peu plus :  28</a></li>'
++ '<li><a href="node46">L\'insulter :  46</a></li>'
++ '<li><a href="node31">Retourner chez moi :  31</a></li>' 
+ );
+
+ undum.game.situations.node38 = new undum.SimpleSituation(
+'<p><br/><h2>38</h2>Mon appartement se situe dans une maison presque déserte, elle-même sur trois niveaux. J\'habite au dernier étage, et ainsi je peux admirer les bois environnants depuis ma salle de bain. Il y a une grande forêt dans la partie orientale de la ville, où les gens peuvent aller chasser, randonner et se ressourcer loin de la vie moderne et stressante.Je me sens si fatigué, que je vais au lit immédiatement.</p>'
++ '<ul class="options"><li><a href="node55">Me lever au  55</a></li>'
+ 
+ );
+
+ undum.game.situations.node39 = new undum.SimpleSituation(
+'<p><br/><h2>39</h2>Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d\'une grande ville que je n\'ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le nouveau Continent en fin de compte ?Tous les marins ont été séparés pour éviter la rébellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout.</p>'
++ '<ul class="options"><li><a href="node16">J\'entends un jour que les pirates ont prévu de nous vendre en tant qu\'esclaves :  16</a></li>' 
+ );
+
+ undum.game.situations.node40 = new undum.SimpleSituation(
+'<p><br/><h2>40</h2>Voler est facile ici : on dirait que personnes n\'est sur ses gardes et ainsi je peux arnaquer pas mal de monde. En fait, ce que je ne savais pas, c\'était que les citoyens ne se méfiaient jamais des actes délictueux, car ici la police est tellement efficace que les criminels sont attrapés sous quarante-huit heures.</p>'
++ '<ul class="options"><li><a href="node48">Aller en prison :  48</a></li>' 
+ );
+
+ undum.game.situations.node41 = new undum.SimpleSituation(
+'<p><br/><h2>41</h2>Accablée par la faute, cette humeur funeste embrouille mon esprit dans une dépression bien connue. Errant dans la ville sans but, je traverse un pont décoré de fer forgé. Un lampiste s\'affaire à illuminer les rues, sans sourire aucun. Le crépuscule s\'estompe, remplacé bientôt par la nuit noire. Le ciel indigo se mêle à la rivière indigo, et j\'aspire à une telle harmonie qui me fait cruellement défaut.[i]Am I lucky today? (throwing a dice, 5 or 6 means luck)[/i]</p>'
++ '<ul class="options"><li><a href="node12">Si je suis chanceux :  12</a></li>'
++ '<li><a href="node17">Si je suis malchanceux :  17</a></li>' 
+ );
+
+ undum.game.situations.node42 = new undum.SimpleSituation(
+'<p><br/><h2>42</h2>L\'appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois orné de motifs en cuivre, et des tapisseries en laine décorées de fibres optiques.Elle commence à retirer ses habits, mais se ravise et me dit qu\'elle préfère finalement prendre un verre à la taverne.</p>'
++ '<ul class="options"><li><a href="node7">Sortir de nouveau, pour trouver un bar :  7</a></li>' 
+ );
+
+ undum.game.situations.node43 = new undum.SimpleSituation(
+'<p><br/><h2>43</h2>La partie occidentale de cette mer est réputée pour ses tornades fourbes et ses tourbillons imprévus. Le destin de notre embarcation est pourtant mis à mal par des désastres bien plus humains, lorsqu\'un bateau pirate nous prend d\'assaut.Ces rustres passent à l\'abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pour très longtemps.[i]Am I lucky today? (throwing a dice, 5 or 6 means luck)[/i]</p>'
++ '<ul class="options"><li><a href="node39">Si je suis chanceux :  39</a></li>'
++ '<li><a href="node54">Si je suis malchanceux :  54</a></li>' 
+ );
+
+ undum.game.situations.node44 = new undum.SimpleSituation(
+'<p><br/><h2>44</h2>Ils m\'accueillent avec une certaine sympathie, et prennent mon nom. Ils notent ma demande, et me donne le numéro d\'un bureau au premier étage.[i]Am I lucky today? (throwing a dice, 5 or 6 means luck)[/i]</p>'
++ '<ul class="options"><li><a href="node52">Si je suis chanceux :  52</a></li>'
++ '<li><a href="node20">Si je suis malchanceux :  20</a></li>' 
+ );
+
+ undum.game.situations.node45 = new undum.SimpleSituation(
+'<p><br/><h2>45</h2>Monsieur et Madame Caesar possèdent une maison qui est plus grosse que tout ce que j\'ai pu voir auparavant : un terrain d\'atterrissage pour aéronef, une tour dans le jardin, et de l\'électricité partout pour aider à la pousse des plantes et des légumes...Ils m\'ont conduit à leur atelier, où je suis censé assembler des choses et réparer tous les gadgets qu\'ils ont dans leur maison : des oiseaux mécaniques, des machines électriques, des phonographes...Après un an passé ici, ils commencent à me faire confiance.</p>'
++ '<ul class="options"><li><a href="node34">Vais-je essayer de m\'échapper à un moment où ils me surveillent le moins :  34</a></li>'
++ '<li><a href="node48">ou continuer à vivre ici en tant que travailleur bon marché :  48</a></li>'
+ 
+ );
+
+ undum.game.situations.node46 = new undum.SimpleSituation(
+'<p><br/><h2>46</h2>Sortant d\'un coin sombre, un homme vêtu de noir me frappe dans le dos.</p>'
++ '<ul class="options"><li><a href="node14">Je vois un voile bleu qui recouvre ma vision :  14</a></li>'
+ 
+ );
+
+ undum.game.situations.node47 = new undum.SimpleSituation(
+'<p><br/><h2>47</h2>Ils m\'accueillent avec beaucoup d\'attention, et tandis qu\'ils enregistrent mon nom, on me montre une liste des emplois possibles dans le coin.J\'ai sans doute de la chance, parce qu\'il vient de se libérer une place de bibliothécaire dans la bibliothèque principale de la ville.Après m\'avoir fait signer quelques papiers, ils me montrent la route sur une carte.</p>'
++ '<ul class="options"><li><a href="node2">Aller directement là-bas, au cas où quelqu\'un d\'autre prendrait cette place avant moi :  2</a></li>'
++ '<li><a href="node33">En apprendre un peu plus sur les coutumes et traditions de la région :  33</a></li>' 
+ );
+
+ undum.game.situations.node48 = new undum.SimpleSituation(
+'<p><br/><h2>48</h2>Après quelques années en tant que prisonnier, je m\'assagis et deviens plus raisonnable une fois libéré.Sans doute que le mieux pour moi maintenant est de retourner chez moi, et recommencer ma vie là-bas. Serai-je bibliothécaire, ou aventurier ? Je ne peux encore me décider.FIN '
+ );
+
+ undum.game.situations.node49 = new undum.SimpleSituation(
+'<p><br/><h2>49</h2>Durant une mission difficile, je sens que je n\'obtiens pas l\'aide que je mérite habituellement, et j\'ai la nette impression de tomber dans un piège, sans moyen d\'en réchapper.</p>'
++ '<ul class="options"><li><a href="node51">Tomber dans le piège :  51</a></li>' 
+ );
+
+ undum.game.situations.node50 = new undum.SimpleSituation(
+'<p><br/><h2>50</h2>Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l\'univers. Je lui parle de la beauté, de volonté, d\'ascétisme et d\'humilité. </p>'
++ '<ul class="options"><li><a href="node44">La jeune femme, avec pitié et un sourire perplexe, me reconduit au  44</a></li>' 
+ );
+
+ undum.game.situations.node51 = new undum.SimpleSituation(
+'<p><br/><h2>51</h2>Un adepte Indigo Love, surgissant d\'un recoin sombre, me montre son amour et son attention en me poignardant dans le dos.</p>'
++ '<ul class="options"><li><a href="node14">Un voile bleu recouvre alors ma vision :  14</a></li>' 
+ );
+
+ undum.game.situations.node52 = new undum.SimpleSituation(
+'<p><br/><h2>52</h2>Dans ce bureau on me présente une liste des emplois possibles dans la région.J\'ai sans doute de la chance, parce qu\'il vient de se libérer une place de bibliothécaire dans la bibliothèque principale de la ville.Après m\'avoir fait signer quelques papiers, ils m\'indiquent la route sur une carte.</p>'
++ '<ul class="options"><li><a href="node29">Aller immédiatement là-bas, au cas où quelqu\'un d\'autre prendrait la place avant moi :  29</a></li>'
++ '<li><a href="node33">En apprendre plus sur leurs coutumes et traditions :  33</a></li>' 
+ );
+
+ undum.game.situations.node53 = new undum.SimpleSituation(
+'<p><br/><h2>53</h2>Une jeune femme polie et agréable m\'explique avec une voix douce que le bureau que je recherche se trouve maintenant au rez-de-chaussée.</p>'
++ '<ul class="options"><li><a href="node44">Ce qui me conduit au  44</a></li>'
++ '<li><a href="node50">Mais avant cela, je peux tenter de la séduire, on ne sait jamais :  50</a></li>' 
+ );
+
+ undum.game.situations.node54 = new undum.SimpleSituation(
+'<p><br/><h2>54</h2>Pendant l\'attaque, je vois le flash bleu acier de l\'épée d\'un pirate, approchant si dangereusement de ma tête que je finis par en mourir.</p>'
++ '<ul class="options"><li><a href="node14">Aller au  14</a></li>' 
+ );
+
+ undum.game.situations.node55 = new undum.SimpleSituation(
+'<p><br/><h2>55</h2>Baillant et m\'étirant, je me réveille de bonne humeur. Je n\'ai pas découvert de nouveau Continent, je n\'ai pas vécu de grandes aventures, mais j\'ai rencontré des gens qui n\'étaient pas si mal en fin de compte.Jour après jour, j\'ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une fin heureuse finalement !FIN '
+); </script></body></html>

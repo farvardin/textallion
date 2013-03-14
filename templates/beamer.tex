@@ -1,0 +1,66 @@
+%% TEXTALLION
+%% http://textallion.googlecode.com
+%% LaTeX template 
+
+\documentclass[table]{beamer}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{paralist} %% needed for compact lists
+\usepackage[normalem]{ulem} %% needed by strike
+%%\usepackage[urlcolor=blue,colorlinks=true]{hyperref}  %%hyperref defined elsewhere
+\usepackage[%(ENCODING)s]{inputenc}  %% char encoding
+\usepackage{%(STYLE)s}  %% user defined
+
+%% Beamer parameters
+\usetheme{Madrid}
+\setbeamertemplate{navigation symbols}{}
+
+%%---------------- Author & Metatags ------------------------------------
+
+\def\DOCUMENTxTITLE{xx DOCUMENT TITLE xx} %% Titre of the document
+\def\PDFAUTHOR{xx DOCUMENT AUTHOR xx}      %% Authors
+\def\PDFTITLE{\DOCUMENTxTITLE}      %% copy of Titre of the document
+\def\PDFSUBJECT{xx DOCUMENT TAGS xx} %% Subjet
+\def\PDFKEYWORDS{xx DOCUMENT TAGS xx}   %% keywords, tags
+\def\PDFCREATOR{Textallion, txt2tags, PdfTeX}   %% Sofware which made this document
+\def\PDFPRODUCER{Textallion}         %% Compagny which made the software
+
+%% 
+
+\usepackage[english,frenchb,francais]{babel}  
+\usepackage[T1]{tipa}                       %% additionnal fonts
+\usepackage[\DEFAULTxFONTxSIZE pt]{extsizes} 
+\usepackage[cm]{aeguill}                    %% French guillemets
+\usepackage[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm},\GEOMETRYxADDITIONALxOPTION]{geometry}       %% paper and text size
+\usepackage{TEXTALLIONPATH/core/textallion}  %% basic LaTeX definitions for textallion
+
+\def\MYxFONT{\rm}   %% For correcting footers
+\def\MYxFONTxMONO{}   %% For correcting code area
+
+%%
+%% ------------ FONTS ---------------------------------------------------
+\renewcommand{\rmdefault}{\DEFAULTxFONT} 
+%%
+
+\title{%(HEADER1)s}
+\author{%(HEADER2)s}
+\subtitle{%(HEADER3)s}
+\institute{INSTITUTE}
+\date{\today}
+\pgfdeclareimage{logo}{logo}
+\logo{\pgfuseimage{logo}}
+
+\begin{document}
+\rowcolors[]{1}{blue!20}{blue!10}
+\frame[plain]{\titlepage}
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents[hideallsubsections]  
+\end{frame}
+
+\addtocounter{framenumber}{-1}
+\begin{frame}<dummy>
+%(BODY)s
+
+\end{frame}
+\end{document}

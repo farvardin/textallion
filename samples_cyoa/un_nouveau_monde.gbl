@@ -1,0 +1,1201 @@
+%@version 1.0
+
+#1# Règles du jeu
+Les Chroniques de Rivencia 
+  
+ Tome 1 
+  
+ Un nouveau Monde 
+  
+  
+ Cette création est mise à disposition sous une licence Creative Commons 
+  
+ Licence "http://creativecommons.org/licenses/by-nc-sa/2.0/fr/"
+ 
+  
+ 
+ Vous aurez besoin de deux dés à 6 faces, ( ou un seul lancé deux fois ), d'une feuille et d'un crayon. Vous pouvez utiliser cette Feuille d'Aventure (au format PDF) si vous le désirez, afin de garder une trace des aventures de votre personnage. 
+ Vous pouvez aussi utiliser un éditeur de texte comme 'notepad', 'kwrite' ou 'vim' ). 
+  
+  
+  
+  
+ CARACTERISTIQUES DU PERSONNAGE 
+  
+  
+  
+ Votre personnage est défini  par deux caractéristiques essentielles : 
+  
+  
+  
+    - Son Habileté, qui représente sa capacité à combattre mais aussi son agilité et son aisance dans tout exercice physique ou intellectuel. L'Habileté varie peu : Elle peut diminuer suite à une blessure réduisant par exemple vos capacités de déplacement, ou à la suite d'absorption de drogues. Les armes augmentent votre Habileté durant les combats. 
+  
+  
+  
+    - Son Endurance, qui correspond à sa forme physique, sa résistance aux chocs et aux blessures lors des combats ou des accidents. Cette caractéristique varie beaucoup au cours de votre aventure. Gardez cependant une trace de votre Endurance initiale, car c'est une valeur que vous ne pouvez dépasser dans des conditions normales. Seules les armures et boucliers peuvent vous permettre de dépasser votre total maximal d'Endurance et ce, uniquement durant un combat. 
+  
+ Si, au cours de vos aventures, l'Endurance du personnage tombe à zéro ou en dessous, il meurt et vous devrez créer un nouveau personnage pour reprendre l'aventure à son début. 
+  
+  
+  
+ Pour calculer vos totaux de départ, procédez comme suit : 
+  
+  
+  
+ Habileté: Lancez un dé et ajoutez '6'. Notez le total dans la case 'Habilité' de votre Feuille d'Aventure. 
+  
+  
+  
+ Endurance: Lancez 2 dés et ajoutez '12'. Notez le résultat dans la case 'Endurance' de votre Feuille d'Aventure. 
+  
+  
+  
+  
+ COMBATS 
+  
+  
+  
+    = Combat à un contre un = 
+  
+  
+  
+ Force de Frappe(FF): 
+  
+ Lancez 2 dés et ajoutez l'Habileté de votre adversaire. 
+  
+ Faites de même pour vous ( sans oublier les bonus éventuels accordés par votre arme) . 
+  
+  
+  
+ dégâts: 
+  
+  
+  
+    - Si votre  F.F. est plus élevée que celle de votre adversaire, soustrayez 2 points son Endurance. 
+  
+  
+  
+    -Si votre F.F. est moins élevée que celle de votre adversaire, soustrayez 2 points de votre Endurance. 
+  
+  
+  
+   - Si les F.F. sont égales, personne ne perd de points d'Endurance. 
+  
+  
+  
+  
+  
+ = Combat contre plusieurs adversaires = 
+  
+  
+  
+ Dans certaines situations, vous serez amené à combattre plusieurs adversaires à la fois. Le texte vous précisera alors si vous devez les combattre les uns après les autres ou tous en même temps. 
+  
+  
+  
+ Si vous devez les combattre les uns après les autres, menez chaque combat comme si c'était un combat à un contre un. 
+  
+  
+  
+ Si vous devez les combattre simultanément, procédez comme suit: 
+  
+  
+  
+ A chaque assaut, vous devez choisir quel adversaire,dans le groupe, vous allez attaquer. Lancez alors les dés et calculez les Forces de Frappe de chacun des adversaires, puis votre propre Force de Frappe pour chaque adversaire. 
+  
+  
+  
+    -Si votre Force de Frappe est plus élevée que celle de l'adversaire que vous avez choisi, vous le blessez (retranchez alors les dégâts de son Endurance). 
+  
+  
+  
+     - Si votre Force de Frappe est plus élevée que celle de l'un des adversaires parmi ceux que vous ne combattez pas dans cet assaut,vous n'infligez aucune blessure, mais il ne vous touche pas (vous parez son coup). 
+  
+  
+  
+    - Si la Force de Frappe de l'un de vos adversaire est plus élevée que la vôtre,vous perdez les points d'Endurance infligés par son arme. 
+  
+  
+  
+   = Fuite = 
+  
+  
+  
+ Dans certaines situations, vous aurez la possibilité de fuir le combat. Dans ce cas, et sauf mention contraire, vous perdez automatiquement un assaut et devez déduire deux points de votre Endurance. 
+  
+  
+  
+    = Vie et mort = 
+  
+  
+  
+ Combattez jusqu'à ce que l'endurance de votre adversaire ou la vôtre soit égale à zéro( sauf mention contraire ). Si votre Endurance tombe à zéro ou moins, il ne vous restera plus qu'à prendre vos dés et à créer un nouveau personnage, puis reprendre l'aventure au début. 
+ ARMES 
+  
+  
+  
+ Une arme vous permet d'augmenter votre Habileté durant un combat. 
+  
+  
+  
+ Par exemple, votre canne de chêne vous donne un bonus de +2 d'Habileté ( ou +2 F.F. ). 
+  
+ Ce qui signifie que si vous avez, par exemple, 10 points d'Habileté initiale,votre Habileté est égale à 12 lorsque vous vous servez de cette canne dans un combat. 
+  
+  
+  
+   = Transport des armes = 
+  
+  
+  
+ Vous ne pouvez transporter que trois armes directement accessibles pour débuter un combat. Les autres armes devront être rangées dans votre  Sac à Dos et vous ne pourrez les utiliser que si vous les notez dans une des trois cases disponibles. 
+  
+  
+  
+   = Combat à deux armes = 
+  
+  
+  
+ Seules les dagues permettent de combattre avec deux armes. Si lors de vos aventures, vous avez réussi à acquérir 2 dagues, vous pouvez vous en servir en même temps dans un combat. Dans ce cas, vous ne gagnez qu'un point d'Habileté ( au lieu de deux ) mais les blessures sont plus graves,et vous pouvez déduire 3 points d'Endurance à votre adversaire au lieu de 2 lors d'un assaut victorieux. 
+  
+  
+  
+ En résumé: 
+  
+  
+  
+           Dague seule  = +2FF et 2 points de dégâts. 
+  
+           Deux dagues = +1FF et 3 points de dégâts. 
+  
+  
+  
+ ATTENTION: Dans le cas où vous vous servez de deux armes, vous ne pouvez utiliser de protection de type 'bouclier'. 
+ ARMURES 
+  
+  
+  
+ Vous pourrez trouver, au cours du jeu, des protections ( boucliers, armures ) qui augmenteront votre Endurance lors des combats. 
+  
+  
+  
+ Exemple: Un bouclier vous apporte 4 points d'Endurance supplémentaires, mais durant un combat uniquement. 
+ RECUPERATION 
+  
+  
+  
+ Vous pouvez consommer un repas ( si vous en avez ) qui vous fera regagner 1D6 points d'Endurance ( lancez un dé et ajouter le résultat à votre Endurance )  à tout moment, sauf pendant un combat, sans  jamais dépasser votre total d'Endurance de départ. 
+  
+  
+ 
+>Que l'aventure commence!=2
+
+#2# Que l'aventure commence!
+C'est par une belle matinée du mois de Mai que vous décidez de partir en randonnée dans les Pyrénées.Le long hiver a eu raison de votre forme physique, et un peu de marche sera salutaire pour votre santé. 
+  
+ Ayant rassemblé votre matériel ( sac à dos, boussole, carte de la région, une solide canne de chêne,une gourde d'eau et de quoi faire deux repas), vous prenez la direction de Saint-Girons. 
+  
+ Ayant quitté l'autoroute, vous arrivez bientôt dans le centre du village, qui est peu animé en cette douce matinée (il faut dire qu'il est encore tôt, à peine 09h00 du matin ). Certains commerces sont cependant ouverts: 
+  
+ 
+>Vous pouvez vous arrêter au marché, sur la place du village=28
+>Vous pouvez entrez dans le café en face de l'église=46
+>Vous décidez de quitter le village pour commencer votre randonnée=7
+
+#3# Le bijoutier de Saint-Girons
+Vous vous approchez du stand du bijoutier. Diverses pièces sont exposées ; certaines assez chères, que vous préférez ignorer, mais d'autres bijoux plus abordables attirent votre oeil: 
+ Vous remarquez en particulier un joli bracelet d'argent gravé de fines lignes sombres, un joli pendentif fait d'une petite pierre rouge/orangée en forme de larme ainsi qu'une bague en pierre noire montée sur un anneau de métal brillant(peut être de l'acier). 
+  
+ Le bracelet en argent n'a semble-t-il rien de particulier et est en vente au prix de 34 Euro. 
+  
+ Le bijoutier  vous explique que la pierre du pendentif a été trouvée dans le lit du Salat (le torrent qui traverse Saint-Girons) et qu'il vous le vendra pour la somme de 35 Euro (il vous fait cadeau d'une chaîne en argent pour l'accrocher) 
+  
+ La bague n'est pas de fabrication locale, elle a été achetée à un grossiste Parisien ; elle est en vente au prix de 43 Euro 
+  
+  
+  
+ Comme vos finances sont limitées, vous ne pouvez acheter qu'un seul de ces bijoux, si vous le désirez (notez le sur votre feuille) 
+  
+  
+ 
+>Si vous ne l'avez pas encore fait, vous pouvez examiner les produits du sculpteur=71
+>Si l'odeur des fromages artisanaux vous attire=23
+>Si vous préférez quitter les lieux=7
+
+#4# Le pain...
+Vous vous emparez de la miche de pain et mordez dedans. Il est dur et assez insipide, mais semble frais 
+  
+  
+ 
+>Si vous souhaitez maintenant manger le fromage=96
+>Si vous préferez vous intéresser à la cruche=37
+>Si vous préferez examiner attentivement la grotte=52
+>Si, enfin, vous préferez criez "Au secours!"=77
+
+#5# Le geolier est mort
+Vous assénez un formidable direct droit dans la mâchoire du geolier. Sa tête va heurter le mur et il s'écroule, mort. 
+  
+ Vous vous redressez aussitôt, prêt à fuir, quand un groupe de gardes à l'aspect peu engageant vous barre le passage. Vous commencez alors à lutter pour tenter de franchir ce barrage, mais vous êtes bientôt submergé par le nombre, et votre vie s'achève avec un coup de poignard en plein coeur. 
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#6# Epuisé!
+Votre état d'épuisement allié à l'émotion de cette révélation ont raison de votre résistance, et vous vous évanouissez, sombrant dans un oubli bienheureux tandis que l'on vous porte délicatement dans une chambre. 
+  
+  
+ 
+>Continuer=58
+
+#7# Début de randonnée
+Vous suivez la petite route sinueuse pendant environ vingt minutes pour arriver finalement au bout du chemin, près d'une chèvrerie. Vous garez soigneusement votre véhicule, pour ne pas gêner, enfilez votre sac à dos, et serrant votre canne de marche, vous vous mettez en route. La journée promet d'être belle ; un magnifique soleil commence à poindre à l'Est. Vous remarquez cependant quelques nappes de brouillard résiduelles, mais vous espèrez qu'elles se dissiperont durant la matinée. 
+  
+ Le sentier est orienté plein Nord et la pente, faible, vous assure un démarrage en douceur. Vous entamez votre ascension heureux de cette randonnée avec une météo si clémente. 
+  
+ Vous marchez depuis bientôt une demi-heure, lorsqu'un spectacle incroyable vous oblige à vous arrêter. 
+  
+  
+  
+ 
+>Continuer=15
+
+#8# Ce n'est qu'un au-revoir...
+Arrivé au bout du couloir, vous apercevez un escalier que vous vous empressez de monter. Une porte vous conduit dans une petite cour aménagée à flanc de montagne. 
+  
+ Le capitaine, vous apercevant, s'approche alors de vous 
+  
+  
+  
+ 
+>Si vous êtes passé à l'armurerie=53
+>Sinon=10
+
+#9# De justesse!
+Voyant le danger qui vous menace, vous effectuez un bond en arrière pour éviter l'avalanche mais vous n'aviez pas remarqué le caillou juste derrière votre pied. Vous butez dessus et vous basculez sur la pente en contrebas du chemin. 
+  
+ Lancez un dé et retranchez le résultat de votre endurance. 
+  
+  
+  
+ 
+>Si votre endurance tombe à zéro ou moins=55
+>Si votre endurance est supérieure à zéro après cet incident=31
+
+#10# cadeau de départ
+"Alors? Bien reposé? Nous avons un chariot qui redescend dans la vallée. De là vous pourrez trouver un transport pour la capitale, Tiba, où vous pourrez vous renseigner sur les Portes. Mais je vois que vous n'avez pas pris d'arme. Méfiez vous : ici la vie est bien plus rude que sur Terre ; j'ai fait préparer pour vous une arme ; passez voir Tibert, notre armurier, il saura vous conseiller. Redescendez les marches, passez devant votre chambre et aller jusqu'au bout du couloir." 
+  
+  
+ 
+>Rebroussant chemin, vous repartez vers l'armurerie=44
+
+#11# Descente dans la vallée
+Saluant de la main le Capitaine, vous grimpez dans le chariot, aidé par un garde regagnant, comme vous, la vallée. Le conducteur fait claquer les rênes et le chariot démarre d'une secousse ; jetant un regard vers l'avant, vous constatez que le chariot n'est pas tiré par un cheval! C'est une sorte de gros animal ressemblant vaguement à un boeuf mais d'une couleur bleu/turquoise! Le conducteur vous apprend que c'est un gigtal, une bête de trait très commune sur Rivencia. 
+  
+ Gardant les yeux fixés sur cet étrange attelage, vous entamez votre descente brinquebalante sur le sentier de montagne. 
+  
+  
+  
+ 
+>Continuer=57
+
+#12# Raccourcisseur
+"Ah je vois! On aime faire sauter les têtes! J'avoue moi aussi avoir ma préférence pour les haches : Ca impressionne tellement qu'on a parfois même pas besoin de s'en servir!" 
+  
+ cette hache de bataille, un peu lourde à manier, vous octroie un bonus de +2 si vous l'utilisez en combat. De plus, si vous faites un '12' lors d'un combat, vous décapitez votre adversaire et êtes automatiquement vainqueur. 
+  
+ Rangez cette arme dans votre équipement ( n'oubliez pas de la noter sur votre feuille ) et prenez congé de l'armurier en le remerciant. 
+  
+  
+  
+ 
+>Dirigez vous maintenant vers l'autre coté du couloir=8
+
+#13# Arrivée dans la vallée
+Vous arrivez dans la vallée en fin de journée et, prenant congé du garde, vous vous dirigez vers une auberge qu'il vous a indiqué à la sortie du village. Vous pourrez y prendre une bonne nuit de repos et vous enquérir d'un moyen de transport pour la capitale. 
+  
+  
+ 
+>Entrez dans l'auberge du "Bout du Pont"=26
+
+#14# Mort du conducteur
+Vous finissez par triompher de votre ennemi. Hélas, le conducteur n'a pas eu cette chance et meurt sous les assauts de son adversaire. celui-ci se retourne alors contre vous et vous devez à nouveau défendre votre vie 
+  
+ Bandit:HABILETE=9 ENDURANCE=7 
+  
+  
+ 
+>Continuer=68
+
+#15# Le spectre de Brocken
+Tandis que vous poursuivez votre ascension droit au Nord, vous observez avec plaisir le lever du Soleil sur votre doite. Mais lorsque vous tournez votre regard à gauche, votre sang se glace! Un étrange silhouette auréolée des couleurs de l'arc-en-ciel semble surgir d'un banc de brume et vous observer... 
+  
+  
+ 
+>Si vous souhaitez vous approcher de l'ombre=93
+>Si vous souhaitez ignorer cette apparition et continuer votre randonnée=64
+>Enfin, si vous préférez faire demi-tour et abandonner votre randonnée ( et le jeu...)=30
+
+#16# Jeu de hasard
+Vous pénétrez dans la petite salle et vous approchez de la table. 
+ Ce jeu s'apparente à une roulette. Un disque de bois comportant 11 cases numérotées de 2 à 12 tourne sur un pivot. Le meneur lance alors une bille de métal et les joueurs doivent parier sur le numéro où s'arrêtera la bille. Si vous souhaitez jouer, choisissez un numéro de 2 à 12 puis la somme que vous misez ( 2 à 10 pièces d'or) 
+  
+ Lancez alors deux dés: 
+ Si la somme indique votre numéro, vous gagnez deux fois votre mise (soit 10 pièces pour 5 misées) 
+ Si la somme est paire (et que votre choix est pair) ou impaire (et que votre choix est impair), vous gagnez la moitié de la mise arrondie en dessous (soit 2 pièces pour 5 misées). 
+ Dans tous les autres cas, vous perdez votre mise. 
+  
+ Le gain maximum autorisé est de 40 pièces d'or, vous serez interdit de jeu au delà. 
+  
+  
+ 
+>Si vous perdez tout votre or=83
+>Vous pouvez retourner dans la salle commune attendre l'aubergiste=95
+>Vous pouvez tenter de vous joindre au groupe silencieux=60
+
+#17# L'aumône...
+Les pélerins vous écoutent leur expliquer la situation dans laquelle vous êtes, puis, semblent se concerter du regard. 
+ Finalement, l'un d'entre eux porte la main à l'intérieur de sa cape et dépose devant vous 4 pièces d'or : 
+ "Voici de quoi vous offrir un repas chaud et une chambre pour cette nuit ; nous ne pouvons faire plus pour vous mais nous prierons pour votre salut" 
+  
+ En les remerciant, vous vous empressez de regagner votre table 
+  
+  
+  
+ 
+>Continuer=95
+
+#18# Une chambre confortable
+L'aubergiste vos conduit à l'étage et ouvre la porte d'une chambre, petite mais propre et chaude. Il vous remet la clef en vous souhaitant une bonne nuit. 
+  
+ Vous entrez, fermez la porte à clef puis, sans même vous déshabiller, vous vous jetez sur le lit et vous endormez aussitôt 
+  
+  
+  
+ 
+>Continuer=89
+
+#19# Le caillou
+L'homme prend un caillou rougeoyant sur la table et vous le montre: 
+  
+ "Nous avons trouvé ceci, incrusté dans votre soulier gauche. Cette pierre est une Clef de Feu, elle permet d'ouvrir les portes qui conduisent à notre Monde". Cette fois, c'est à votre tour de prendre un air suspicieux : Vous ne comprenez pas un traitre mot de ce que vous dit cet homme... Voyant votre incrédulité, l'homme soupire : 
+  
+ "Je vois... Laissez moi vous expliquer : Vous n'êtes plus sur votre Monde, la Terre, mais sur un autre Monde, Rivencia. Au temps jadis,nombreuses étaient les portes qui conduisaient de l'un à l'autre mais elles ont été fermées peu à peu il y a bien longtemps, et de nos jours,seul un petit nombre de passages existe encore. cette pierre, que l'on trouve sur les deux Mondes permet d'ouvrir les quelques portes encore en activité, lorsque les conditions le permettent. Vous avez du en franchir une par hasard et vous voilà coincé chez nous..." 
+  
+ Vous prenez alors soudain conscience de ce qui vous arrive : Perdu loin de chez vous! Dans un Monde inconnu! 
+  
+  
+ 
+>Si votre endurance est supérieure à 10=73
+>Si elle est inférieure=6
+
+#20# L'écurie
+Vous vous approchez discrètement de l'écurie et vous attendez que le palefrenier s'éloigne. 
+  
+ Lancez deux dés 
+  
+  
+  
+ 
+>Si le total est inférieur à votre habileté, vous réussissez à entrer sans vous faire voir.=92
+>Si le total est supérieur, le palefrenier vous aperçoit et vous n'avez pas d'autre choix que d'aller dans le trou au bord du torrent=65
+
+#21# Le guichet du relais
+Vous vous rendez au guichet et demandez un billet pour Tiba : 
+ "C'est 15 pièces d'or" vous annonce le guichetier. 
+  
+  
+  
+ 
+>Si vous avez assez d'or, achetez un billet et montez dans la diligence=80
+>Si vous n'avez pas assez d'or, vous pouvez tenter de vous glisser discrétement dans la diligence=87
+
+#22# Graissage de patte
+ 
+ Vous proposez au garde de vous laisser monter en échange d'un peu d'or. 
+ Le garde réflechi en se massant le menton puis ses yeux s'illuminent ; il attend votre proposition. 
+ L'offre que vous aller lui faire doit être conséquente, pas moins de 5 pièces d'or. 
+ Lancez deux dés et retranchez du résultat le nombre de pièces au dessus de 5 que vous offrez (par exemple, si vous offrez 10 pièces, retranchez 5 du total des dés) 
+  
+  
+>Si le total est inférieur à votre habileté=74
+>Si le total est supérieur à votre habileté=56
+>Si vous n'avez pas assez d'or, vous pouvez lui proposer un objet=94
+>Enfin, si vous préférez l'attaquer=67
+
+#23# Le fromager de Saint-Girons
+Vous suivez le délicieux parfum des fromages et vous arrivez devant un étal particulièrement bien fourni. 
+  
+ La fromagère vous accueille d'un charmant sourire et vous propose quelques spécialités Pyrénéenes 
+  
+ "Les fromages Pyrénéens! Une part de Bethmale peut être? Ou bien un peu de moulis? 5 Euro les 250 gr" 
+  
+ Vous pouvez acheter une ou deux parts (chacune équivalant à un repas). Notez le sur votre feuille. 
+  
+  
+  
+  
+ 
+>Si vous ne l'avez pas encore fait, vous pouvez examiner les produits du sculpteur=71
+>Pour examiner maintenant l'étal du bijoutier (si vous ne l'avez pas encore fait)=3
+>Si vous préférez quitter les lieux=7
+
+#24# Le coffret du Capitaine
+C'est un petit coffret de bois clair, fermé par une serrure. En le soulevant, vous sentez qu'il est assez lourd et qu'un tintement de métal en sort lorsque vous le secouez. 
+  
+  
+ 
+>Si vous préférez reposer le coffret et quitter le bureau par la droite=8
+>Si vous préferez quitter le bureau et partir vers la gauche=44
+>Si vous avez une dague et que vous voulez tenter d'ouvrir le coffret=76
+
+#25# Oups!
+Lorsque vous tendez la Broche au Capitaine, celui-ci ouvre de grands yeux: 
+ "Mais... C'est la broche que je comptais offrir à ma femme! Vous l'avez volé dans mon bureau! Gardes, arrêtez immédiatement cet homme!" 
+  
+ Les gardes vous saisissent avant que vous ayez pu réagir et vous jettent en prison. Cette fois, n'espérez pas en sortir... 
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#26# L'auberge du Bout du Pont
+Vous poussez la porte de l'auberge et vous pénétrez aussitôt dans une ambiance bruyante et surchauffée. 
+ Vous apercevant, l'aubergiste vous fait signe de vous installer à une table en attendant que l'on prenne votre commande. 
+  
+ Vous choisissez une table un peu à l'écart mais qui vous permet de bien observer les autres clients. Vous voyez principalement des paysans et commerçants locaux, mais vous remarquez aussi un petit groupe  de quatre personnes, attablés  de l'autre coté de la salle, qui semblent  épier les autres clients avec circonspection. 
+  
+ Près de l'endroit où ils sont assis, une courte volée de marches semble mener à une petite salle où un groupe de gens s'affairent autour d'une table en criant et riant , probablement un jeu d'argent. 
+  
+  
+  
+ 
+>Si vous souhaitez attendre que l'aubergiste prenne votre commande=95
+>Si vous préférez vous attabler avec le groupe silencieux=60
+>Si vous voulez tenter votre chance au jeu=16
+
+#27# Arrivée de la diligence à Llost
+Le cocher fouette les gigtals et ceux-ci s'ébrouent en tirant lentement la diligence vers le village. Le court trajet s'effectue dans un silence horrifié devant les dégats occasionnés ainsi que le nombre de corps mutilés. 
+ Finalement, le véhicule s'arrête à l'entrée du village en feu.Le cocher s'adresse alors aux passagers: 
+ "Je n'irai pas plus loin, les gigtals ont peur du feu. Je vais continuer à pied. Quelqu'un pour m'accompagner?" 
+  
+  
+  
+ 
+>Si vous souhaitez accompagner le cocher dans son exploration=178
+>Si vous préférez explorer le village de votre coté=29
+>Si, enfin, il vous semble plus prudent d'attendre avec les autres passagers=54
+
+#28# Le marché de Saint-Girons
+Quelques échopes commencent à s'installer. Vous en remarquez particulièrement trois, qui semblent intéressantes : 
+ Un sculpteur sur bois, un bijoutier et un fromager. 
+  
+  
+ 
+>Pour examiner les produits du sculpteur=71
+>Si vous préférez vous intéresser au bijoutier=3
+>Si, enfin, le fromager éveille votre intérêt=23
+
+#29# L'intempérance, mère de tous les vices...
+Vous leur proposez de prendre  un verre avec vous mais ils refusent : 
+ "L'alcool est mauvais pour la paix de l'esprit. Nous préférons nous contenter de notre repas simple. Merci de bien vouloir nous laisser." 
+  
+  
+  
+ 
+>Vous regagnez votre table pour attendre l'aubergiste=95
+
+#30# Trop d'émotions!
+Vous faites aussitôt demi-tour et, courant presque, vous regagnez votre véhicule. 
+  
+ Vous démarrez et prenez la direction de l'autoroute. Ce n'était vraiment pas la journée pour randonner... 
+  
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#31# Une chute dangereuse
+Vous dévalez la pente en roulant, vous blessant au passage. Au bout de ce qui vous semble une éternité, votre tête vient heurter un gros bloc et vous vous évanouissez. 
+  
+  
+ 
+>Continuer=88
+
+#32# Une nuit dehors
+Quittant l'auberge, vous vous retrouvez dans la rue. La nuit est tombée et un vent frisquet souffle sur le village. Vous ne supporterez surement pas de passer une nuit dehors! 
+  
+ Vous vous mettez à chercher un endroit pour vous abriter et vous en trouvez deux qui paraissent prometteurs: Une écurie, près de la sortie du village et un petit renfoncement rocheux, au bord du torrent. 
+  
+  
+  
+ 
+>Si vous essayez de pénétrer dans l'écurie=20
+>Si vous préférez passer la nuit près du torrent=65
+
+#34# Geolier vainqueur!
+Le geolier vous expédie un formidable coup de poing qui vous fait trébucher. Il vous attrape alors par les cheveux et vous traîne jusque sur la paillasse de la cellule, puis sort et referme la porte. 
+  
+ Vous vous évanouissez de nouveau 
+  
+  
+  
+ 
+>Continuer=88
+
+#35# Prison...
+Vous êtes jetés sans ménagement dans un geôle humide et froide. Tous vos appels à la clémence restent lettre morte. Rassurez vous, vous ne resterez pas longtemps en prison, car vous apercevez, par votre fenêtre, le gibet que l'on dresse pour vous... 
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#37# La cruche...
+Vous attrapez la cruche par son anse et l'approchez de votre nez. Elle semble contenir un liquide sombre et l'odeur ne vous est pas familière. 
+  
+ Vous prenez une gorgée et l'avalez. Les larmes vous montent aussitôt aux yeux! La cruche contient un alcool particulièrement puissant! Il vous redonne un peu de forces, mais perturbe quelque peu votre équilibre! 
+  
+ Lancez un dé et ajoutez le résultat à votre endurance. 
+  
+ De plus, vous perdez un point d'habileté pour votre prochain combat (l'effet de l'alcool se dissipera ensuite) 
+  
+  
+  
+ 
+>Si vous ne l'avez pas encore fait, vous pouvez manger le pain=4
+>Ou bien vous pouvez vous intéresser au fromage=96
+>Si vous préferez examiner la grotte=52
+>Si, enfin, vous préferez criez "Au secours!"=77
+
+#39# La curiosité...
+Vous vous penchez sur les documents posés sur le bureau, mais ils sont rédigés dans une langue qui vous est inconnue. 
+  
+  
+ 
+>Si vous souhaitez vous intéresser au petit coffre=24
+>Si vous trouvez plus correct de quitter le bureau et prendre à gauche dans le couloir=44
+>Si vous préférez partir vers la droite=8
+
+#41# Exploration
+Jetant un regard à droite et à gauche dans le couloir, vous vous approchez discrètement de la porte et vous tentez de l'ouvrir. Le battant pivote sans bruit et vous pénetrez dans la pièce. 
+  
+ C'est, semble-t-il, un bureau. Une table couverte de documents en désordre trône au centre de la salle. Les murs sont couverts d'étagères supportant de lourds volumes reliés de cuir. 
+  
+ Sur une petite table, dans un coin, un petit coffre de bois clair cerclé de métal est posé. 
+  
+  
+  
+ 
+>Si vous souhaitez lire les documents posés sur le bureau=39
+>Si vous préférez vous intéresser au petit coffre sur la tablette=24
+>Si vous trouvez plus correct de quitter le bureau et prendre à gauche dans le couloir=44
+>Si vous préférez partir vers la droite=8
+
+#44# Armurerie
+Vous avancez dans le couloir jusqu'à une porte massive. Vous frappez et une voix rude vous invite à entrer. 
+  
+  
+ 
+>Si vous souhaitez entrer=98
+>Si vous préférez rebrousser chemin=8
+>Si vous préférez faire demi-tour et ouvrir la porte en face de votre chambre=41
+
+#46# Le café de Saint-Girons
+Vous poussez la petite porte de bois du café et vous entrez. La salle, assez petite, est peu occupée. Le patron, derrière son bar, vous salue d'un signe de tête. 
+  
+  
+ 
+>Si vous souhaitez vous installer au bar=69
+>Si vous préférez vous installer à une table près de la cheminée=84
+>Si vous préférez quitter les lieux pour commencer votre randonnée=7
+
+#47# Passager clandestin
+Vous vous glissez dans la diligence et vous asseyez près de la porte. Peu après, quelques personnes montent à leur tour et s'installent en vous saluant. 
+  
+  
+ 
+>Continuer=100
+
+#48# Bien mal acquis...
+La serrure du coffret cède soudain sous la lame de votre dague. 
+ A l'intérieur, vous trouvez une petite bourse contenant 12 pièces d'or, ainsi qu'une Broche en Argent montée de pierres turquoise. 
+  
+ Si vous souhaitez conserver les pièces ou la broche ( ou les deux ), notez les sur votre feuille. 
+  
+  
+  
+ 
+>Vous pouvez maintenant quitter le bureau par la gauche=44
+>Si vous préférez partir par la droite=8
+
+#49# Attaque du geolier
+Vous bondissez sur l'homme et réussissez à le faire vaciller. 
+ Votre attaque surprise vous permet de profiter d'un bonus de deux points d'Habileté pour les deux premiers assauts 
+  
+ Geolier:HABILETE=6  ENDURANCE=9 
+  
+  
+  
+  
+ 
+>Si votre endurance descend à 5 points ou moins=34
+>Si vous tuez le geolier=5
+
+#52# Fouille de la grotte
+Vous vous levez sans bruit de votre natte et commencez à inspecter les lieux. 
+  
+ Dans un coin, un simple trou semble servir de fosse d'aisance. 
+ Vous scrutez avec attention les parois de pierre brute, sans rien distinguer d'utile pour fuir. 
+  
+ En tâtonnant le haut d'une des parois, vous remarquez un petit renfoncement, de la largeur d'une main ; vous faites le tour de cette anfractuosité avec vos doigts et vous sentez soudain un petit objet cylindrique. Vous le tirez vers vous : C'est une dague ; elle est en assez mauvais état mais vous permet de bénéficier d'un bonus de +1 d'Habileté lors d'un combat. Si vous souhaitez la conserver, cachez la dans vos vêtements et poursuivez votre exploration ( notez la sur votre feuille ). 
+  
+ Vous vous approchez finalement de la porte. Elle est faite de bois massif, noirci au feu et ne semble pas comporter de judas ni de poignée d'ouverture. Les gonds ont été judicieusement placés à l'extérieur. Vous essayez de pousser la porte mais celle-ci ne bouge pas d'un centimètre. 
+  
+  
+  
+  
+  
+ 
+>Si vous voulez essayez de tirer la porte vers vous=99
+>Si vous estimez plus judicieux de crier "Au secours!"=77
+
+#53# Naissance d'une amitié
+"Fin prêt au départ? Nous avons un chariot qui redescend dans la vallée. De là vous pourrez trouver un transport pour la capitale, Tiba,où vous pourrez vous renseigner sur les Portes.Prenez aussi ceci, de quoi faire deux repas." 
+  
+ Le capitaine vous offre une belle part de viande fumée ainsi qu'une miche de pain noir (notez le sur votre feuille), puis vous serre l'épaule en guise de salut : "Bonne route et soyez prudent, la vie ici risque de vous paraître bien plus mouvementée et périlleuse que sur votre Monde. Ne désespérez pas de pouvoir repartir ; que les Dieux de Rivencia vous soient favorables." 
+  
+ Vous pouvez, si vous le souhaitez, faire un cadeau au Capitaine ( sauf une arme ou de la nourriture ) . Rayez alors l'objet de votre feuille. 
+  
+  
+ 
+>Si vous avez offert au Capitaine une Broche en Argent=25
+>Si vous avez offert autre chose au Capitaine=86
+>Si vous avez préféré ne pas vous séparer de l'un de vos objets=11
+
+#54# Fuite!
+Vous achevez le garde d'un coup brutal. Tandis que vous récupérez vos affaires, un groupe de garde arrive en courant dans votre direction ; votre rixe n'est pas passée inaperçue! Vous devez vous enfuir. Vous vous mettez à courir vers la sortie du village mais les gardes ont tôt fait de vous rattraper... 
+  
+  
+ 
+>Les gardes vous traînent en prison=35
+
+#55# Un randonneur victime de la montagne
+Titre du journal télévisé:"Encore un randonneur victime de la montagne" 
+  
+ "On ne souligne pas assez les dangers de la montagne. Hier, en fin de matinée, un randonneur a été victime de son impréparation et a péri sous une avalanche de pierre. Les secours sont arrivé trop tard ;  la victime avait succombé à ses blessures." 
+  
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#56# escroquerie
+Le garde s'empare de votre or puis vous repousse loin de la diligence: 
+ "Allez, du balai! On veut pas de clochards, ici!" 
+  
+  
+  
+ 
+>Vous pouvez essayer de lui offrir un objet en plus de l'or qu'il vous a volé=94
+>Si vous préférez l'attaquer pour tenter de reprendre votre bien=67
+
+#57# Brigands!
+A l'approche de midi, le conducteur stoppe le chariot pour vous permettre de descendre faire quelques pas et vous restaurer. Mais tandis que vous faites le tour du chariot, un groupe d'individus armés surgit des buissons et se jette sur vous. Il vous faut vous défendre! 
+  
+ Bandit:HABILETE=9 ENDURANCE=8 
+ 
+>Si le combat dure cinq assauts ou moins=85
+>Si le combat dure plus de cinq assauts=14
+
+#58# Une nouvelle aube
+Vous vous éveillez plusieurs heures plus tard. Ce repos vous a fait du bien ; lancez un dé et ajouter le résultat à votre endurance (sans dépasser votre total de départ). Vous regagnez également tous les points d'habileté que vous avez pu perdre. 
+  
+ Sur une table près du lit, quelqu'un a déposé un repas de pain et de fromage, que vous pouvez manger pour récupérer encore un peu de force (lancez un dé et ajoutez le à votre endurance). 
+  
+ Vous remarquez également votre sac à dos et tous vos objets, près de la porte (renotez les sur votre feuille) ainsi que des vêtements (les votres ont été trop abîmés par les arêtes des rochers). Certains objets ont cependant disparus, sans  doute lors de votre chute ; vous constatez la disparition de tous vos papiers, votre portefeuille avec votre argent, ainsi que votre montre. 
+  
+ Une fois rassasié et équipé, vos ouvrez la porte de la chambre. Celle-ci donne sur un couloir lambrissé de bois clair. Quelques lanternes, accrochées au plafond à intervalles réguliers, vous permettent de distinguer une porte en face de la votre ; sur votre droite, le couloir abouti à une solide porte de chêne. Sur votre gauche, vous distinguez les premières marches d'un escalier montant. 
+  
+  
+  
+ 
+>Si vous voulez prendre à droite dans le couloir=44
+>Si vous préférez partir par la gauche=8
+>Si vous préférez tenter d'ouvrir la porte en face de la votre=41
+
+#60# Une bien étrange compagnie
+Vous vous approchez de la table et, saluant les occupants vous leur demander l'autorisation de vous asseoir avec eux. Ils vous regardent avec curiosité puis acceptent d'un hochement de tête. Vous entamez la conversation, en maugréant contre le temps qui souille les vêtements des voyageurs ; vos compagnons de tablée abondent dans votre sens. Ils se présentent comme des pélerins en route pour les hauteurs des Marches de l'Ouest, où ils espèrent accomplir quelque rite religieux que vous ne comprenez pas vraiment. 
+  
+  
+ 
+>Si vous n'avez plus d'argent et souhaitez leur demander l'aumône=17
+>Si vous préférez essayer de leur vendre l'un de vos objets=78
+>Si vous avez de l'or et souhaitez leur offrir à boire=29
+>Si vous souhaitez plutôt prendre congé et retourner attendre l'aubergiste=95
+
+#61# Le relais de diligence
+Vous arrivez au relais de diligence pendant que l'on attèle les gigtals. La diligence semble grande est confortable, ce qui sera un avantage appréciable durant votre long trajet ( 400 km, soit près de dix jours de route ). Vous devez maintenant trouver un moyen d'y prendre place... 
+  
+  
+ 
+>Si vous avez un billet acheté à l'auberge=80
+>Si vous souhaitez acheter un billet au relais=21
+>Si vous voulez tenter de vous glisser discrétement dans la diligence=87
+
+#62# Pris!
+Croyant percevoir une ouverture, vous vous glissez vers la diligence. Au moment où vous ouvrez la porte, vous sentez un main vous saisir le col et vous tirer en arrière : 
+ "Hélà! Vous croyez aller où? On veut pas de resquilleurs, ici, payez votre billet ou allez vous en!" 
+  
+  
+  
+ 
+>Si vous avez de l'or, vous pouvez essayer de soudoyer le garde=22
+>Si vous préférez essayer de lui donner un objet en échange de son silence=94
+>Si vous préferez l'attaquer avec votre arme=67
+
+#64# La randonnée se poursuit
+ 
+ Ignorant cette fantastique apparition, vous vous remettez en route, non sans surveiller du coin de l'oeil cette étrange ombre. Il vous semble remarquer qu'elle se déplace en même temps que vous, mais une nappe de brouillard vient s'interposer et vous la perdez de vue. 
+ 
+
+ 
+ 
+
+Vous poursuivez votre ascension durant une bonne demi-heure, lorsqu'un bruit au dessus de vous vous fait sursauter: 
+ 
+
+Une avalanche de pierres dévale la pente dans votre direction! 
+ 
+
+ 
+ 
+
+Jetez deux dés et comparez le à votre total d'habileté (sans le bonus des armes) 
+ 
+
+ 
+ 
+
+ 
+>Si votre habileté est supérieure au résultat des dés=9
+>Si votre habileté est inférieure au total des dés=55
+
+#65# Humide nuit
+Vous vous installez aussi confortablement que possible dans votre trou pour essayer de dormir. La proximité du torrent (et son humidité) vous empêche cependant de bien récupérer ; pire, la dureté du sol rocheux vous occasionne des contusions. Lancez un dé si vous obtenez de 1 à 4 retirez le de votre endurance ; si vous obtenez 5 ou 6, les blessures sont bénignes et ne vous font pas perdre de force. 
+  
+ Vous pouvez prendre un repas qui vous fera regagner quelques points (lancez un dé et ajoutez le à votre endurance) 
+  
+  
+  
+ 
+>Au petit matin, vous vous rendez au départ de la diligence=61
+
+#66# L'A(r)me d'un chevalier
+"un bon choix, s'exclame l'armurier. un mètre de bon acier feront toujours la différence! Je vous conseille quand même de la manier avec précaution et de bien vous entraîner." 
+  
+ Cette épée est de bonne facture et vous assure un bonus de +3FF quand vous l'utilisez dans un combat. Le bonus pourra être plus important si vous avez l'opportunité de vous entraîner avec un Maitre d'arme. 
+  
+ Notez la sur votre feuille et prenez congé de l'armurier en le remerciant. 
+  
+  
+ 
+>Dirigez vous maintenant vers l'autre coté du couloir=8
+
+#67# Agression
+Vous saisissez votre arme et dans un hurlement rageur, vous vous jetez sur le garde 
+  
+ Garde de la diligence:HABILETE=6 ENDURANCE=8 
+  
+  
+ 
+>Si vous remportez cette bataille en cinq assauts ou moins=54
+>Si le combat dure plus de cinq assauts=90
+
+#68# Une fuite stratégique
+Voyant la tournure que prennent les évènements, le garde saute dans le chariot et vous enjoignant de faire de même : 
+ "Ne restons pas ici! D'autres pourraient venir" 
+  
+ Fouettant le gigtal, vous vous éloignez rapidement du lieu du combat. 
+  
+ 
+>Continuer=13
+
+#69# Accoudé au bar...
+Le patron s'approche de vous pour prendre votre commande. Vous commandez une boisson chaude et vous l'interrogez sur la météo. 
+ " Ca devrait aller, aujourd'hui, ils nous ont prévu un beau soleil. Attention quand même, il y a quelques nappes de brouillard assez denses. Vous montez randonner?" 
+  
+ Vous lui répondez qu'en effet, vous souhaitez gravir le Crabère car vous n'avez pas encore eu l'occasion d'effectuer cette randonnée réputée. 
+  
+ Vous payez votre consommation, et , quittant l'établissement, vous vous mettez en route. 
+  
+  
+  
+ 
+>Pour commencer votre randonnée=7
+
+#71# Le sculpteur de Saint-Girons
+Vous vous approchez de l'étal pour examiner le travail du sculpteur. Celui-ci se lève pour vous saluer: 
+ "Bonjour. Tous ces objets sont artisanaux et réalisés par mes soins et ceux de mon apprenti dans notre atelier. Y a-t-il un produit que vous recherchez en particulier?" 
+  
+ Vous lui répondez que vous ne cherchez rien en particulier. Vous remarquez cependant deux pièces de belle facture: Un splendide médaillon de bois représentant une tête de loup et une petite plaque de buis avec un arbre feuillu. 
+  
+ "C'est mon apprenti qui a sculpté ces deux pièces. Il est vraiment doué, non? Le médaillon est en vente pour 17 Euros, la plaquette est à 26 Euro" 
+  
+ Si vous souhaitez acquérir l'une ou l'autre de ces pièces (ou les deux), notez les sur votre feuille. 
+  
+  
+  
+ 
+>Si l'odeur des fromages artisanaux vous attire=23
+>Pour examiner maintenant l'étal du bijoutier (si vous ne l'avez pas encore fait)=3
+>Si vous préférez quitter les lieux=7
+
+#73# Un repos mérité
+L'homme reprend alors la parole : 
+ "Il semble que vous ne présentiez pas un danger pour nous, et nous pouvons vous relâcher. Je suis le Capitaine Fraïr, de la Garde des Marches de l'Ouest et vous souhaite la bienvenue chez nous." 
+  
+ Vous demandez alors au Capitaine comment retourner sur Terre, mais celui-ci prend un air désolé : 
+  
+ "Je n'en sais rien, malheureusement pour vous. Peut être devriez vous consulter l'un de nos érudits à Tiba, notre capitale, qui pourra vous en dire plus. En attendant, je vous propose de vous reposer un peu ici." 
+  
+ Le Capitaine appelle alors un garde qui vous conduit dans une chambre d'apparence modeste mais avec un lit, sur lequel vous vous allongez et vous ne tardez pas à vous endormir. 
+  
+  
+  
+ 
+>Continuer=58
+
+#74# Le crime paie parfois...
+Le garde empoche votre or puis se détourne ostensiblement. Vous en profitez pour vous glisser dans la diligence 
+  
+  
+ 
+>Allez vous installer confortablement=47
+
+#75# Le pendentif
+L'homme saisit votre pendentif, posé sur la table et vous le montre: 
+ "Ou avez vous trouvé ceci?" 
+ Vous lui expliquez alors que vous l'avez acheté au marché de Saint-Girons, mais il ne semble pas vous croire (ou bien ne pas comprendre). 
+  
+ "Cette pierre est une Clef de Feu, elle permet d'ouvrir les portes qui conduisent à notre Monde". Cette fois, c'est à votre tour de prendre un air suspicieux : Vous ne comprenez pas un traitre mot de ce que vous raconte cet homme... Voyant votre incrédulité, l'homme soupire : 
+  
+ " Je vois... Laissez moi vous expliquer : Vous n'êtes plus sur votre Monde, la Terre, mais sur un autre Monde, Rivencia. Au temps jadis, nombreuses étaient les portes qui conduisaient de l'un à l'autre mais elles ont été fermées peu à peu il y a bien longtemps, et de nos jours, seul un petit nombre de passages existe encore. Cette pierre, que l'on trouve sur les deux Mondes permet d'ouvrir les quelques portes encore en activité, lorsque les conditions le permettent. Vous avez dû en franchir une par hasard et vous voilà coincé chez nous..." 
+  
+ Vous prenez alors soudain conscience de ce qui vous arrive : Perdu loin de chez vous! Dans un Monde inconnu! 
+  
+  
+  
+ 
+>Si votre endurance est supérieure à 10=73
+>Si elle est inférieure=6
+
+#76# Effraction!
+Vous utilisez votre dague pour tenter de forcer la serrure. 
+ Menez cette tentative comme un combat ; si votre endurance tombe à moins de 5, vous êtes si épuisé par votre tentative que vous préférez laisser le coffret. 
+  
+ Si l'endurance du coffret tombe à zéro, le serrure cède. 
+  
+ Coffret du Capitaine:HABILETE=12 ENDURANCE=12 
+  
+  
+ 
+>Si vous ouvrez le coffret en 6 assauts ou moins=48
+>Si le coffret n'est pas ouvert au bout de plus de 6 assauts=81
+>Si vous préférez abandonner et sortir par la gauche=44
+>Si vous souhaiter quitter le bureau par la droite dans le couloir=8
+
+#77# Au secours!
+En désespoir de cause, ne sachant pas quoi faire, vous vous décidez à appeller au secours en cognant contre la porte. 
+  
+ Les voix provenant de derrière la porte s'interrompent et des pas se font entendre, s'approchant de l'endroit où vous êtes. Vous reculez, prêt à bondir sur celui ou celle qui ouvrira la porte, mais lorsque vous voyez la massive silhouette qui s'encadre dans l'ouverture, vous hésitez... 
+  
+  
+  
+ 
+>Si vous souhaitez bondir sur l'arrivant=49
+>Si vous préférez reculer encore vers le fond de la grotte=82
+
+#78# Négoce
+Choisissez un objet dans votre sac puis lancez deux dés. Si le total est inférieur à votre habileté, les pélerins acceptent de vous acheter votre objet. Lancez alors un autre dé pour connaitre le prix qu'ils acceptent de payer. 
+  
+ Vous ne pourrez leur vendre plus de deux objets, ils refuseront toute autre proposition. 
+  
+ Une fois la vente faite, vous pourrez les saluer et regagner votre table 
+  
+  
+  
+ 
+>Continuer=95
+
+#79# La masse
+"On aime jouer sur du velours...La masse d'arme n'est pas l'arme de tout le monde, c'est sur, mais si on souhaite faire des prisonniers, elle est idéale." 
+  
+ Cette masse d'arme vous fait bénéficier d'un bonus de +2 lors des combats où vous l'utilisez.De plus, si vous faites un '12', votre adversaire est sonné. Vous pouvez alors abandonner le combat en considérant que vous avez gagné ou bien poursuivre le combat ; vous bénéficierez alors de deux points d'habileté supplémentaire pendant deux tours de combat. 
+  
+ Rangez cette arme dans votre équipement ( n'oubliez pas de la noter sur votre feuille ) et remerciez l'armurier tout en prenant congé. 
+  
+  
+  
+ 
+>Dirigez vous maintenant  vers l'autre coté du couloir=8
+
+#80# En route!
+Présentant votre billet au préposé, vous montez à l'intérieur de la diligence. Quelques personnes sont déjà installées ; vous les saluez et cherchez une place assise. 
+  
+  
+ 
+>Continuer=100
+
+#81# Ne profite jamais...
+Tandis que vous tentez d'ouvrir le coffret, vous ne remarquez pas que le Capitaine vient d'entrer dans son bureau, vous surprenant à le voler! 
+  
+ Il appele aussitôt ses gardes qui se jettent sur vous sans que vous ayez pu réagir et vous reconduisent en cellule. 
+  
+ Cette fois, vous ne risquez plus d'en sortir avant la fin de votre vie... 
+  
+ -[FIN DE L'AVENTURE]- 
+  
+  
+  
+ 
+>Recommencer=1
+
+#82# Rencontre avec les gardes
+Tandis que vous reculez vers le fond de la grotte, le geolier s'avance et vous fait signe d'approcher. Ne voyant aucun signe d'hostilité de sa part, vous vous décidez à avancer. Le geolier vous fait passer devant lui et vous conduit à une grotte plus vaste dans laquelle brûle un agréable feu de cheminée. Dans un coin de la salle, un homme de haute stature examine avec attention un tas d'objets posés sur  une table de bois. 
+ Vous reconnaissez alors votre matériel! 
+ L'homme se tourne vers vous et vous toise d'abord sans un mot puis: 
+ "Qui êtes vous? Comment êtes vous arrivés ici?" 
+  
+ Vous vous présentez et lui racontez alors votre histoire: la randonnée,la glissade et le réveil dans la cellule. Vous avouez ne rien comprendre à ce qui se passe et vous exigez d'être immédiatement relaché. 
+  
+ L'homme écoute votre histoire puis sourit... 
+  
+  
+  
+  
+  
+  
+ 
+>Si vous possédez un pendentif de pierre rouge=75
+>Si vous ne possédez pas cet objet=19
+
+#83# Ruiné!
+Vous avez perdu tout votre or! Vous n'avez plus la possibilité de rester à l'auberge pour y prendre un repas ou dormir 
+  
+  
+ 
+>Sortir de l'auberge=32
+>Vous pouvez tenter de vous attabler avec le groupe silencieux=60
+
+#84# A la table du café...
+Vous vous installez près du feu (il fait encore frais, pour un mois de Mai) et vous commandez une boisson chaude. 
+ Le patron vous l'apporte, et, tandis qu'il passe un coup de chiffon sur votre table, entame la discussion: 
+  
+ "Vous montez randonner?" vous demande-t-il. Vous lui répondez qu'en effet, vous souhaiter gravir le Crabère car vous n'avez pas encore eu l'occasion d'effectuer cette randonnée réputée. 
+  
+ "Ca devrait aller, aujourd'hui, ils nous ont prévu un beau soleil.Attention quand même, il y a quelques nappes de brouillard assez denses. " 
+  
+ Vous le remerciez, payez votre consommation, et , quittant l'établissement, vous vous mettez en route. 
+  
+  
+  
+ 
+>Vous quittez Saint-Girons et commencez à gravir la route pour entamer votre randonnée=7
+
+#85# Victoire!
+Vous vous débarrassez de votre ennemi rapidement puis vous vous hâtez d'aller aider le conducteur, en fâcheuse posture. Vous mettez son adversaire hors de combat d'une botte bien ajustée, tandis que le garde achève le sien. 
+  
+ Une fois le combat terminé, le garde, après s'être reposé un instant, fouille les cadavres. Il vous remet 15 petites pièces d'or ( notez les ) ainsi qu'une dague ( +2FF en combat ) 
+  
+ "Les voleurs volés! s'exclame-t-il en riant. Ils ont trouvés à qui parler. Mais ne nous attardons pas ici, d'autres pourraient venir". Vous rassemblez votre matériel et, tandis que le chariot se met en route, vous scrutez attentivement les bords de la route pour prévenir toute nouvelle embuscade. 
+  
+  
+  
+ 
+>Continuer=13
+
+#86# Une aide précieuse
+Acceptant avec reconnaissance votre cadeau, le Capitaine reprend la parole : 
+ "Merci, ami ; et si vous passez par la rue des jardins d'Otaon, à Tiba, ne manquez pas de rendre visite à mon ami Cyrilan en lui disant que vous venez de ma part ; il pourra vous être d'une grande aide, là-bas." 
+  
+  
+  
+ 
+>Continuer=11
+
+#87# resquille
+Vous tournez autour de la diligence l'air de rien, puis, profitant de ce que personne ne regarde, vous tentez de vous glisser dans la diligence. 
+  
+ Lancez deux dés: 
+  
+  
+  
+ 
+>Si le total est inférieur à votre habileté=47
+>Si le total est supérieur à votre habileté=62
+
+#88# Prisonnier!
+Vous vous réveillez le corps douloureux et l'esprit embrumé. Vous êtes allongé sur une natte posée à même le sol, dans ce qui semble une petite caverne qu'une lueur de bougie venant d'un trou dans le plafond éclaire chichement. A coté de vous sont posés une cruche, ainsi qu'un morceau de pain et de fromage. 
+  
+ Au fond de la grotte, dans la direction de vos pieds, une solide porte de bois bloque un passage sombre. 
+ En tendant l'oreille, il vous semble entendre des voix provenant de derrière cette porte. 
+  
+ Vous remarquez également que l'on vous a confisqué tout votre matériel! Rayez le de votre feuille (mais conservez une trace, au cas où vous le retrouveriez ultérieurement). N'oubliez pas que vous perdez votre bonus d'habileté au combat tant que vous n'avez pas retrouvé votre canne (ou une arme équivalente) 
+  
+  
+ 
+>Si vous souhaiter manger le pain=4
+>Si vous préférez manger le fromage=96
+>Si vous avez soif et que vous souhaitez boire à la cruche=37
+>Si vous préferez examiner attentivement la grotte=52
+>Si, enfin, vous préferez criez "Au secours!"=77
+
+#89# petit déjeuner
+Au petit matin, l'aubergiste vient frapper à votre porte pour vous signaler que la diligence part dans une heure. 
+  
+ Ce repos salutaire vous fait regagner des forces ( lancez un dé et ajouter le résultat à votre endurance, sans dépasser votre total de départ ). 
+  
+ Vous rassemblez rapidement votre matériel et descendez prendre un petit déjeuner solide pour la route qui vous attend. 
+  
+ Vous pouvez, si vous le désirez, acheter des provisions équivalentes à trois repas à l'aubergiste, pour la somme d'une pièce d'or par repas. 
+  
+  
+  
+ 
+>dêpechez vous d'aller au relais de diligence avant le départ!=61
+
+#90# Débordement
+Vous finissez par abattre le garde mais dix autres arrivent dans votre dos et vous immobilisent avant que vous ne puissiez réagir 
+  
+  
+ 
+>Les gardes vous conduisent en prison=35
+
+#91# Un choix Cornélien
+"Ma foi, lance l'armurier, je ne sais trop que vous dire... L'épée est conventionnelle, assez simple à manier avec un peu d'entraînement. J'aime bien la hache, pour le respect qu'elle inspire. La masse est plutôt pratique si on veut éviter de tuer ses adversaires." 
+  
+  
+ 
+>Si vous souhaiter demander une épée=66
+>Si vous préférez une hache=12
+>Si une masse d'arme a votre préférence=79
+
+#92# Une nuit dans la paille
+Vous vous glissez furtivement dans un box vide, puis en gravissant la mangeoire vous arrivez au grenier rempli de paille. 
+  
+ Vous vous installez alors aussi confortablement que possible et vous vous endormez aussitôt. 
+  
+ Au petit matin, l'activité du relais vous réveille et vous descendez sans vous faire remarquer. 
+  
+  
+  
+ 
+>Tout en brossant vos vêtements, dirigez vous vers la diligence=61
+
+#93# A la poursuite de l'ombre
+Vous quittez le chemin en direction de cette étrange apparition, mais celle-ci commence à disparaitre dans le brouillard. Vous accélerez le pas, mais votre pied vient buter contre un bloc et vous commencez à dévaler la pente en roulant. 
+  
+ Lancez un dé et retranchez le résultat de votre endurance. 
+  
+  
+  
+  
+ 
+>Si votre endurance tombe à zéro ou moins=55
+>Si votre endurance est supérieure à zéro après cet incident=31
+
+#94# Abus de pouvoir
+Vous ouvrez votre sac dans l'espoir de trouver un objet susceptible d'intéresser le garde, mais celui-ci s'empare de votre sac : 
+ "Aller, filez avant que je change d'avis" 
+  
+  
+  
+ 
+>Si vous souhaitez lui abandonner votre sac et toutes vos affaires, montez vous asseoir dans la diligence=47
+>Si vous préférez l'attaquer pour reprendre vos affaires=67
+
+#95# L'aubergiste
+L'aubergiste s'approche enfin de vous pour prendre votre commande. 
+  
+ Un repas chaud vous coûtera une pièce d'or. Une chambre vous en coûtera 3. 
+  
+ Vous apprenez grâce à lui qu'une diligence part demain, deux heures après le lever du Soleil, pour la capitale ; un billet vous coûtera 15 pièces d'or (vous pouvez acheter un billet ici ou bien au relais de la diligence demain matin) 
+  
+  
+  
+ 
+>Si vous désirez louer une chambre pour la nuit=18
+>Si vous voulez tenter de gagner un peu d'argent au jeu=16
+>Si vous n'avez pas d'argent, l'aubergiste vous demandera de quitter son établissement=32
+
+#96# Le fromage...
+Vous prenez le fromage avec précaution et l'approchez de votre bouche. Il dégage une très forte odeur mais vous en mordez tout de même une bouchée. Bien que son goût soit assez amer, il est très nourrissant et vous permet de récupérer un peu de forces. 
+  
+ Lancez un dé et ajouter le résultat à votre endurance (sans dépasser votre total de départ) 
+  
+  
+  
+ 
+>Si vous ne l'avez pas encore fait, vous pouvez vous intéresser au pain=4
+>Si vous avez soif et que vous souhaitez boire à la cruche=37
+>Si vous préferez examiner attentivement la grotte=52
+>Si, enfin, vous préferez criez "Au secours!"=77
+
+#98# Un cadeau de bienvenue
+Vous poussez la porte et vous entrez. 
+  
+ Vous pénetrez dans une vaste salle dont les murs sont couverts d'étagères remplies d'armes. Un garde bedonnant au visage rubicon vous accueille : 
+ "Entrez, entrez, le Capitaine m'a demandé de vous fournir de quoi vous défendre. c'est vrai qu'avec votre bâton, là vous risquez des ennuis. Qu'est-ce qui vous conviendrait?" 
+  
+  
+  
+ 
+>Si vous souhaiter demander une épée=66
+>Si vous préférez une hache=12
+>Si une masse d'arme a votre préférence=79
+>Si vous préférez demander conseil à l'armurier=91
+
+#99# casser les ongles...
+lancez deux dés et comparez les à votre total d'habileté. 
+  
+ Si votre habileté est inférieure au total, relancez un dé et retranchez le résultat de votre endurance, car vous vous êtes cassé les ongles! 
+  
+ La porte ne bouge pas d'un centimètre... 
+  
+  
+  
+ 
+>Continuer=77
+
+#100# En route pour Tiba.
+Peu après votre installation, la diligence se met en route. 
+  
+ Le Soleil est haut dans le ciel, une brise fraîche vient caresser votre visage par la fenêtre ouverte, et dans le sourd brouhaha des conversations à voix basse des autres passagers, vous vous laissez bercer par le roulis et les cahots de la route. 
+  
+ Vous voilà (enfin) sur le trajet de la capitale puis, vous l'espérez, celui de la Terre. Mais que d'aventures n'allez vous pas traverser avant d'y arriver... 
+  
+ Lentement, le souvenir de la Terre s'estompe tandis que vous sombrez dans le sommeil. 
+  
+ - SUITE AU PROCHAIN EPISODE - 
+  
+  
+   
+  
+   
+ 
+

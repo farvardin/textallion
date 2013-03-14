@@ -1,0 +1,5 @@
+title=CYOA from Textallion
+author=Textallion
+version=601200
+orientation=landscape
+

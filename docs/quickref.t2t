@@ -1,0 +1,164 @@
+
+
+
+%!options: --no-toc
+
+
+%% DEF DOCUMENT METADATA 
+%!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - Quick Reference'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Eric Forgeot'
+%!postproc(tex): 'xx DOCUMENT TAGS xx' 'documentation, manual, cheat sheet'
+
+
+
+
+%% DEF PERSONNAL STYLE (it should have a name such as sample.sty and or sample.css in your folder) 
+
+
+
+%!style(tex): quickref
+%!style(xhtml): ../includes/sample.css 
+
+%% DEF PERSONNAL CLASS
+
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+%% We make it look like a normal article document
+%!postproc(tex): '\\documentclass\[openany\]{book}' '\\documentclass[openany]{article}' 
+%!postproc(tex): '\\chapter' '\\subsection' 
+
+
+%% DEF additionnal macros (can be removed)
+
+%!includeconf: documentation_symbols_inc.t2t 
+
+%!--preproc(tex): "$" '\n\n'
+%(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
+
+%!--preproc(tex): "==" '++'
+
+
+
+
+%%%% Beginning of YOUR document %%%%
+
+
+{|2|}
+
+
+== Basics ==
+
+- copy and modify sample.t2t ; sample.sty (margins, header, size of paper, the size and name of the font...). Define ``export TEXTALLIONDOC=your_document_name`` or modify the makefile then :
+- make pdf (needs LaTeX) ; make html (or make slidy for html slide show); make epub (needs [calibre http://calibre.kovidgoyal.net/])
+ - or make pdfsmall : a document with 2 pages in one (needs pdfjam)
+ - or make booklet : a recto-verso leaflet (needs psutils). 
+- make clean ; make cleanall ; make clean-everything
+- make all : html, pdf, epub and clean temporary files.
+
+
+== Special characters and features ==
+
+|| Description | symbol | code |
+| initial |  | ``SYMBlettrine`` |
+| small line break |  | ``SYMBbigskip`` or ``SYMB2bigskip`` |
+| small line break |  | a space as 1st letter of a line |
+| non-breaking space |  | ``SYMBnbsp`` |
+| little leaf | @@ding((166))** | ``SYMBaldinea`` |
+| little leaf (alt) | @@ding((167))** | ``SYMBaldineb`` |
+| 3 stars | *** | ``SYMBtroisetoiles`` |
+| moon first quarter | @@rightmoon** | ``SYMBlunep`` | 
+| full moon  | @@fullmoon**  | ``SYMBlunef`` |
+| moon last quarter | @@leftmoon**  | ``SYMBluned`` |
+| sun  | @@sun** | ``SYMBsoleil`` |
+
+
+- image size: ""[path_to/my_image.png][24]"" //(in millimeters)//
+
+- Wrapping image : ""[image.png]""``SYMBwrapping`` (image to the left) or ``SYMBwrapping``""[image.png]"" (image to the right)
+
+- adding music: ""[song.SYMBoggSYMB]""
+
+
+- colors: ``SYMBColorname of the colorSYMBDoubleArobaseText to colorizeSYMBSlashColor``
+ - basic colors are: @@COLOR@@black@@black@@/COLOR@@
+@@COLOR@@blue@@blue@@/COLOR@@
+@@COLOR@@brown@@brown@@/COLOR@@
+@@COLOR@@cyan@@cyan@@/COLOR@@
+@@COLOR@@darkgray@@darkgray@@/COLOR@@
+@@COLOR@@gray@@gray@@/COLOR@@
+@@COLOR@@green@@green@@/COLOR@@
+@@COLOR@@lightgray@@lightgray@@/COLOR@@
+@@COLOR@@lime@@lime@@/COLOR@@
+@@COLOR@@magenta@@magenta@@/COLOR@@
+@@COLOR@@olive@@olive@@/COLOR@@
+@@COLOR@@orange@@orange@@/COLOR@@
+@@COLOR@@pink@@pink@@/COLOR@@
+@@COLOR@@purple@@purple@@/COLOR@@
+@@COLOR@@red@@red@@/COLOR@@
+@@COLOR@@teal@@teal@@/COLOR@@
+@@COLOR@@violet@@violet@@/COLOR@@
+@@COLOR@@white@@white@@/COLOR@@
+@@COLOR@@yellow@@yellow@@/COLOR@@. Use also html code (only for html) for ex: #6D7D2E
+%black blue brown cyan darkgray gray green light-gray lime magenta olive orange pink purple red teal violet white yellow. 
+ 
+
+ 
+- Centering text: a leading ""|"" (latex only) 
+ - or ``SYMBcenterBegin`` and ``SYMBcenterEnd``:
+ - or with ``SYMBcenterBegin2`` et ``SYMBcenterEnd2``
+
+- Page break : ``SYMBpagebreak`` / line break : ``SYMBlinebreak`` 
+
+- Columns : ``SYMBcol0`` to ``SYMBcol4``
+
+- Increase text size: begins with ``SYMBsizeincBegin`` and ends with ``SYMBsizeincEnd``
+- Decrease text size: begins with ``SYMBsizedecBegin`` and ends with ``SYMBsizedecEnd``
+ 
+- Italic area: begins with ``SYMBitalicBegin`` and ends with ``SYMBitalicEnd``
+- Bold area: begins with ``SYMBboldBegin`` and ends with ``SYMBboldEnd``
+
+- Exergue: begins with ``SYMBexergueBegin`` and ends with ``SYMBexergueEnd``{name of author}
+ 
+- Code: begins with ``SYMBcodeBegin`` and ends with ``SYMBcodeEnd``
+
+- French guillemets: ``SYMBguillemetBegin`` and ``SYMBguillemetEnd``
+- Em dash (quadratin): ``SYMBquadratindash``
+
+- LaTeX code: replace \ by ``SYMBdoublearobase`` and the { et } by ``SYMBdoubleparenthopen`` and ``SYMBdoubleparenthclose`` then end your command with 2 stars ** to indicate the end of the code. Or use verbatim (`) or tagged (') format.
+
+- Index: ``SYMBindex``word``SYMBindex``
+
+
+
+== Syntax ==
+
+- ""**bold**""       :  **bold**
+- ""//italic//""   :  //italic//
+- ""__underline__"" :  __underline__
+- SYMBtiretSYMBtiretstrikeSYMBtiretSYMBtiret      :  --strike--
+- ""== title =="" (different levels)
+- ""- list""
+- ""+ numbered list""
+- ""``code``"" / ""''tag''"" / """"raw"""" (so you can include protected characters like ""|"")
+- ``[image.jpg]``
+- ``[link to a website http://code.google.com/p/textallion]`` : [link to a website http://code.google.com/p/textallion]
+- ""| table |""
+
+- SYMBfootnotenoteSYMBfootnote or SYMBfootnotenote(1)SYMBfootnote : footnote
+
+
+
+{|0|}
+
+
+
+
+
+
+
+
+
+

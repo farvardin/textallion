@@ -1,0 +1,565 @@
+! initial code by AURAES: http://auraes.free.fr/ldveh/
+! 
+! Encodage ISO-8859-1
+! version Beta 0.96 Parchment
+! ------------------------------------------------------------------------------
+
+Constant Story    "La Mort Bleue";
+Constant Headline "Une fiction interactive d'Otto Grimwald.";
+
+Serial  "110711";
+Release 1;
+
+Constant START_PAGE p1;
+Constant PAGE0      p0;
+
+Array folioPage table
+	p1  p2  p3  p4  p5  p6  p7  p8  p9  p10 p11 p12 p13 p14 p15 p16
+	p17 p18 p19 p20 p21 p22 p23 p24 p25 p26 p27 p28 p29 p30 p31 p32
+	p33 p34 p35 p36 p37 p38 p39 p40 p41 p42 p43 p44 p45 p46 p47 p48
+	p49 p50 p51 p52 p53 p54 p55
+;
+! Fin_Array
+
+! ------------------------------------------------------------------------------
+
+[ p0;
+	print "Pour progresser dans le jeu, choisissez parmi les différentes propositions celle qui vous convient, tapez le chiffre qui la précède et validez-la en appuyant sur la touche Entrée/Return.";
+	print "^Si il n'y a qu'une seule proposition, c'est le cas ici, vous pouvez taper indifféremment le chiffre 1 ou la touche Entrée/Return", ".";
+
+	Choix("Commencer le jeu", START_PAGE);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p1; 
+	print "Je me sens tomber. Pas très haut par rapport au sol, heureusement pour moi. Et quelques cordages épais amortissent ma chute. J'ai probablement encore raté un échelon, car je suis dans la lune la plupart du temps en ce moment.";
+
+	Choix("Je me lève", p19);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p2;
+	print "Dès que je pose le pied sur le seuil de ce grand bâtiment, des officiers de police m'arrêtent, au motif que je me suis évadé de la maison où je devais rester, ayant été acquit légalement par M. et Mme Caesar.";
+
+	Choix("En dépit de mes protestations, je suis jeté en prison", p48);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p3;
+	print "Il y a là un groupe de six marins. Ils ne sont qu'en train de s'amuser après tout !";
+
+	Choix("mais je peux leur donner une correction méritée", p23);
+	Choix("ou bien m'enfuir lâchement sur le pont supérieur", p5);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p4;
+	print "Je sonne à la porte. Béatrix m'ouvre, et me voyant, ne semble pas très heureuse de ma présence. Nous étions bons amis auparavant, aussi je ne comprends pas ses réserves.";
+	print "^^Elle porte une jolie petite robe légère, blanche et grise, et je ressens tant de poésie dans l'atmosphère que je ne peux m'empêcher de lui dire ce que j'ai sur le coeur.";
+
+	Choix("Être grossier, mais direct", p35);
+	Choix("Être modéré, mais verbeux", p28);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p5;
+	print "Ce pont est habituellement réservé aux passagers de première classe. J'espère qu'aucun officier du navire ne me remarquera, sinon j'aurai de sérieux problèmes.";
+	print "^J'obtins ce travail sur un navire pour payer ma traversée vers le Grand Continent, qui a été redécouvert il y a seulement quelques siècles.^En attendant, j'ai toujours été curieux au sujet de la vie là-bas, de savoir si les gens étaient comme nous ou si leur culture était si étrangère qu'il n'était pas possible d'y vivre.";
+	print "^^J'ai également essayer d'apprendre leur si difficile langue, et je me suis forcé à l'utiliser quotidiennement. C'est ainsi que j'ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de complètement la maîtriser, j'ai vécu là-bas un moment, puis j'ai décidé d'embarquer sur ce bateau.";
+
+	Choix("Après quelques jours, nous arrivons à New Londrin Haven, et j'entre triomphalement dans la ville", p25);
+	Choix("Mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée", p27);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p6;
+	print "Nous entrons dans un salon de thé à l'ambiance snobinarde, dans une zone touristique. Nous nous ennuyons rapidement en un tel lieu, aussi je propose que nous cherchions un endroit plus agréable pour nous divertir.";
+
+	Choix("Proposer son appartement", p42);
+	Choix("Proposer mon appartement", p38);
+	Choix("Proposer de prendre un verre dans une taverne proche", p7);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p7;
+	print "Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes ici qui frappent dans leurs délicieuses mains en rythme.";
+	print "^^J'en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j'avais l'habitude de ressentir dans le passé.";
+
+	Fin();
+];
+
+! ------------------------------------------------------------------------------
+
+[ p8;
+	print "Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si j'obtiens un cinq ou un six.";
+
+	if (TestChance())
+		Choix("Je suis chanceux", p18);
+	else
+		Choix("Je suis malchanceux", p51);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p9;
+	print "L'opposition est remplie de personnes charmantes et engagées, néanmoins je ne peux garantir que leurs dirigeants soient aussi propres politiquement. Il y en a même qui racontent que la tête pensante de l'opposition est infiltrée par le Indigo Love Syndicate.";
+
+	if (TestChance())
+		Choix("Je suis chanceux", p32);
+	else
+		Choix("Je suis malchanceux", p49);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p10;
+	print "Les quais ne sont pas un endroit très agréable pour un être aussi délicat que moi. J'ai immédiatement le sentiment que je pourrais devenir une proie facile pour la plupart des vautours qui sévissent ici.";
+	print "^^Je remarque une belle femme qui attend près d'un ponton. Au même moment, des marins,  rencontrés sur le bateau où j'étais employé, m'appelle tandis qu'ils entrent dans une taverne.";
+
+	Choix("M'approcher de cette dame", p37);
+	Choix("Suivre mes anciens camarades dans la taverne", p7);
+	Choix("Retourner chez moi", p31);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p11;
+	print "Impassible aux émotions humaines, le navire atteint les premières brumes matinales de l'autre continent. Foulant la jetée et la terre ferme pour la première fois après trois semaines de torture spirituelle, je me sens étourdi et complètement perdu.";
+	print "^^Il y a un grand poster sur un mur, et la sortie vers le reste de la ville.";
+
+	Choix("Regarder le poster", p27);
+	Choix("Sortir", p25);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p12;
+	print "Avant de commettre l'irréparable, je remarque l'ombre de Béatrix arrivant derrière moi, bouleversée et angoissée à mon sujet.";
+
+	Choix("Elle me dit qu'elle regrette sa réaction trop vive, et propose que l'on prenne un verre ensemble dans un salon de thé dans les environs", p6);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p13;
+	print "Le capitaine, arrivant peu après, s'excuse pour la conduire grossière de ses hommes. S'inclinant profondément, il me demande mon opinion sur la route à suivre. Est-ce que je rêve ? il est devenu fou, ou bien c'est une sorte de pitié malsaine à mon encontre...";
+
+	Choix("Au nord, toujours vers notre destination initialement prévue, le Nouveau Continent", p11);
+	Choix("Au sud, pour atteindre une petite île qu'il a juste découverte avec sa longue-vue", p30);
+	Choix("À l'ouest, pour explorer encore plus ce vaste océan bleu", p43);
+	Choix("À l'est, pour retourner vers notre pays d'origine", p24);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p14;
+	print "Que la mort peut être douce, lorsqu'elle est si bleue !";
+
+	Fin();
+];
+
+! ------------------------------------------------------------------------------
+
+[ p15;
+	print "Le soleil est haut dans le ciel, et pourtant je ressens une brise fraiche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet dans ma cabane à huit mètres du sol. Je me rappelle également de ma mère m'appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local.";
+	print "^^J'ai soudain l'impression de tourner en rond...";
+
+	Choix("Continuer à explorer", p21);
+	Choix("Retourner au bateau", p11);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p16;
+	print "Je n'aurais jamais imaginé qu'être vendu comme esclave puisse se passer ainsi. Ce n'était certes pas le marché aux esclaves sur la place publique comme on aurait pu l'imaginer, j'ai juste été conduit dans une cave sombre et humide, où je me suis ennuyé à mourir.";
+
+	Choix("Quelques jours plus tard, j'ai été vendu à une famille aisée", p45);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p17;
+	print "Je plonge dans l'eau sombre. Je me sens si seul, que rapidement j'arrête de respirer.";
+
+	Choix("Je coule plus profondément", p14);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p18;
+	print "Les murs sont maintenant plus propres sans ce poster malsain.";
+
+	Choix("Je peux continuer mon chemin", p25);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p19;
+	print "Je me suis senti déprimé tant d'années que je ne puis le supporter plus longtemps. De plus, mon lieu de résidence et mon emploi actuel menacent graduellement tant ma santé mentale que physique...";
+	print "^^L'océan, immense et bleu, s'étendant à l'infini vers le ";
+	print (sBleu) "nord", ", l'", (sBleu) "est", ", le ", (sBleu) "sud", " et l'", (sBleu) "ouest";
+	print ", reflète le soleil comme une cotte de maille scintillante.";
+	print "^^@<< Hé espèce de saloperie de Francimi ! Viens par ici ! @>>, crient-ils.";
+	print "^^Entouré de ces étrangers Scottani et Iricimi, je ne me sens pas très bien dans cet environnement. Leur casques verts et orange foncés me rendent nerveux. Je n'ai pas besoin de leur obéir, car ce sont de simples marins comme moi. Mais vais-je tolérer ces insultes ?";
+
+	Choix("Me rebeller, rendez-vous au 3", p3);
+	Choix("Attendre (rendez-vous au 13)", p13);
+	Choix("Sauter dans la mer", p17);
+	Choix("ou explorer un peu le bateau, ce qui est un prétexte pour fuir lâchement vers le 5", p5);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p20;
+	print "On me dit avec un ton irrité que je fais erreur. Ce n'est plus là depuis un moment.";
+
+	Choix("On me donne un autre numéro de bureau, au cinquième étage, ce qui me conduit au 53", p53);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p21;
+	print "À l'âge de dix-neuf ans, je suis allé dans la ville la plus proche, pour apprendre à devenir bibliothéquaire. Mon père en fut un peu déçu, lui qui souhaitait que je devienne artiste. J'ai quand même emporté mon accordéon avec moi, pour lui faire plaisir.";
+	print "^^Satanés moustiques ! Avec toutes ces pestes volantes, il est bien difficile de se concentrer.";
+
+	Choix("Explorer un peu plus", p15);
+	Choix("Retourner au bateau", p11);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p22;
+	print "Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.";
+	print "^^Les maisons ici sont plus opulentes, avec des influences marquées des villes d'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et compliquées. Je n'aime pas cela du tout.";
+	print "^^Que puis-je faire maintenant ?";
+
+	Choix("Rencontrer les autorités locales, pour m'annoncer et m'enregistrer dans leurs services", p44);
+	Choix("En apprendre plus sur leurs coutumes et traditions", p33);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p23;
+	print "Des marins entraînés et en nombre sont certainement plus costauds qu'un pauvre vagabond comme moi qui a toujours vécu sur le plancher des vaches, entre la bibliothèque du coin et l'université.";
+
+	Choix("Ils me jettent par dessus-bord", p17);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p24;
+	print "Le navire n'avait probablement pas assez de vivre pour effectuer la traversée, et cela n'était pas une surprise de devoir faire demi-tour pour retourner dans notre pays d'origine.";
+	print "^^Déçu et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce nouveau Continent dont tout le monde parle.";
+	print "^^Je suis malgré tout heureux de revenir ici, et d'être débarrassé d'eux.";
+
+	Choix("Recommencer le voyage depuis le début", p1);
+	Choix("Visiter les docks", p10);
+	Choix("Retourner chez moi", p31);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p25;
+	print "Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.";
+	print "^^Les maisons ici sont plus opulentes, avec des influences marquées des villes d'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et ayant du caractère.";
+	print "^^Une telle sollicitude pour des motifs aussi inspirés m'inspire un tel bonheur que j'en oublie un moment ma solitude spirituelle.";
+	print "^^Le soleil commence à annihiler l'humidité poisseuse de la brume, en envoyant des rayons oranges sur les murs.";
+	print "^^Que faire maintenant ?";
+
+	Choix("Rencontrer les autorités locales, pour m'annoncer et m'enregistrer dans leurs services", p44);
+	Choix("En apprendre plus sur leurs coutumes et traditions", p43);
+	Choix("Voler un peu de nourriture, personne ne me connaît ici après tout", p40);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p26;
+	print "@<< Cher voyageur,";
+	print "^^merci de participer à ce jeu. J'espère que vous ne vous sentirez pas trop limité ici, et que votre liberté de pensée n'est pas trop mise à mal. Cette courte histoire risque par contre de réellement commencer quand vous retournerez à la civilisation. N'espérez pas découvrir beaucoup de choses dans ces îles désertées. Au fait, si par hasard vous rencontrez Jacqueline, dites-lui bonjour de notre part ! @>>";
+
+	Choix("L'esprit en paix et oubliant la tromperie verdoyante de la montagne, je manie frénétiquement les rames pour retourner au bateau", p11);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p27;
+	print "Ce qui était le plus visible et étrange dans cet endroit, c'était un poster imprimé sur un fond bleu-indigo, avec écrit par dessus, en lettres énormes et roses :";
+	print "^^@<< REJOIGNEZ L'ARMÉE DE L'AMOUR(TM)!";
+	print "^^L'Indigo Love Syndicate(tm) a besoin de vous. Merci pour votre attention. @>>";
+
+	Choix("Déchirer ce poster", p8);
+	Choix("S'agenouiller et prier devant ce poster coloré et apaisant", p36);
+	Choix("Repartir immédiatement", p25);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p28;
+	print "Je lui parle de ma philosophie de la vie, et des buts élevés auxquels chacun devrait se référer pour se réaliser dans ce vaste univers. Je lui parle de la beauté, je lui parle de la volonté, de l'ascétisme et de l'humilité.";
+	print "^^Les yeux pleins de larmes, la femme m'embrasse, s'accrochant de façon embarrassante à mon cou, et reniant ses anciens amants.";
+
+	Choix("L'inviter dans un salon de thé, pour s'entretenir plus longtement avec elle sur des sujets essentiels", p6);
+	Choix("Lui donner congé maintenant, pour entretenir son excitation en vue d'un rendez-vous ultérieur, et ne pas arriver trop tard chez moi", p38);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p29;
+	print "Dès que j'entre dans la bâtisse cyclopéenne, je sais que cet endroit est parfait selon tous mes critères, une vie entière à passer au service de la littérature, même avec ma grammaire approximative et mon accent francimi.";
+
+	Fin();
+];
+
+! ------------------------------------------------------------------------------
+
+[ p30;
+	print "Nous naviguons vers une île étrange, une longue piste de jaune-ocre, avec en toile de fond des falaises vertes surplombant la plage. Une fois arrivé sur le sable, je trouve sur le sol une bouteille fermée. Il y a un vieux parchemin dedans.";
+
+	Choix("Examiner la bouteille et son contenu", p26);
+	Choix("Explorer l'île", p15);
+	Choix("Retourner au bateau", p11);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p31;
+	print "Après être entré dans une calèche tirée par des Frisons, j'atteins rapidement la petite ville où je réside habituellement, dans la banlieue de cette métropole, et je fais arrêter le véhicule au centre-ville.";
+
+	Choix("Vais-je réellement rentrer directement chez moi maintenant", p38);
+	Choix("ou rendre visite à une amie à moi auparavant ? Je ne l'ai pas vue depuis un moment, et nous avons sans doute le droit de passer un peu de bon moment ensemble", p4);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p32;
+	print "Quelqu'un m'a vendu, tandis que j'effectuais une importante mission : je devais rencontrer un dirigeant de l'Indigo Love Syndicate, pour le capture, mais c'était sans doute un piège, et c'est **moi** qui ai été capturé à la place.";
+
+	Choix("Aller en prison", p48);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p33;
+	print "Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d'années, après sa séparation physique du vieux continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d'années, une nouvelle secte, appelée le Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites.^Discrète à ses débuts, la secte est maintenant un pouvoir politique sur lequel il faut compter.";
+
+	Choix("Je peux rejoindre l'opposition, pour voir s'ils sont meilleurs que ceux qu'ils prétendent combattre", p9);
+	Choix("Je peux oublier toutes ces théories conspirationistes, et mener une vie normale, en recherchant un petit travail paisible", p52);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p34;
+	print "Lors d'une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d'une promenade au bord de mer, j'arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l'auto-réalisation.";
+	print "^^Partant précipitamment, j'ai oublié de prendre de la nourriture et quelques affaires avec moi, aussi je me sens rapidement bien perdu dans ces rues étrangères, avec mon libre-arbitre et mes poches vides.";
+
+	Choix("Aller rencontrer les autorités locale the local authorities, pour m'enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré", p47);
+	Choix("En apprendre plus sur leurs coutumes et traditions", p33);
+	Choix("Voler un peu de nourriture et des choses de première nécessité", p40);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p35;
+	print "Je la compare à une pouliche sublime et splendide, à la déesse de la fertilité, de la guerre et du désir, à l'infirmière primordiale et ainsi de suite.";
+
+	Choix("Forte comme elle l'est, tout ce que je reçois c'est une gifle bien méritée, et avec la mâchoire et la joue aussi rouges qu'un diable excité ayant mangé du piment, honteux, je repars vers la ville", p41);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p36;
+	print "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+	print "^^Je prie avec la complicité de tous les adeptes de l'Indigo Love Syndicate.";
+	print "^^J'ai à ce moment le sentiment que mon âme vient d'être souillée.";
+
+	Choix("Je continue néanmoins à déambuler dans les rues", p22);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p37;
+	print "Pensant probablement que j'ai mal interprété son activité d'attente, la femme semble énervée d'avoir été dérangée par mon arrivée. Elle me dit carrément qu'elle attend quelqu'un d'autre et se moque de ma vie disgracieuse.";
+
+	Choix("Insister un peu plus", p28);
+	Choix("L'insulter", p46);
+	Choix("Retourner chez moi", p31);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p38;
+	print "Mon appartement se situe dans une maison presque déserte, elle-même sur trois niveaux. J'habite au dernier étage, et ainsi je peux admirer les bois environnants depuis ma salle de bain. Il y a une grande forêt dans la partie orientale de la ville, où les gens peuvent aller chasser, randonner et se ressourcer loin de la vie moderne et stressante.";
+	print "^^Je me sens si fatigué, que je vais au lit immédiatement.";
+
+	Choix("Me lever au 55", p55);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p39;
+	print "Après avoir été assomé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d'une grande ville que je n'ai jamais vue auparavant. Se pourrait-il que je suis arrivé sur le nouveau Continent en fin de compte ?";
+	print "^^Tous les marins ont été séparés pour éviter la rebellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout.";
+
+	Choix("J'entends un jour que les pirates ont prévu de nous vendre en tant qu'esclaves", p16);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p40;
+	print "Voler est facile ici : on dirait que personnes n'est sur ses gardes et ainsi je peux arnaquer pas mal de monde. En fait, ce que je ne savais pas, c'était que les citoyens ne se méfiaient jamais des actes délicteux, car ici la police est tellement efficace que les criminels sont attrapés sous quarante-huit heures.";
+
+	Choix("Aller en prison", p48);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p41;
+	print "Accablée par la faute, cette humeur funeste embrouille mon esprit dans une dépression bien connue. Errant dans la ville sans but, je traverse un pont décoré de fer forgé. Un lampiste s'affaire à illuminer les rues, sans sourire aucun. Le crépuscule s'estompe, remplacé bientôt par la nuit noire. Le ciel indigo se mêle à la rivière indigo, et j'aspire à une telle harmonie qui me fait cruellement défaut.";
+	
+	if (TestChance())
+		Choix("Je suis chanceux", p12);
+	else
+		Choix("Je suis malchanceux", p17);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p42;
+	print "L'appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois orné de motifs en cuivre, et des tapisseries en laine décorés de fibres optiques.";
+	print "^^Elle commence à retirer ses habits, mais se ravise et me dit qu'elle préfère finalement prendre un verre à la taverne.";
+
+	Choix("Sortir de nouveau, pour trouver un bar", p7);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p43;
+	print "La partie occidentale de cette mer est réputée pour ses tornades fourbes et ses tourbillons imprévus.^Le destin de notre embarcation est pourtant mis à mal par des désastres bien plus humains, lorsqu'un bateau pirate nous prend d'assaut.";
+	print "^^Ces rustres passent à l'abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pour très longtemps.";
+
+	if (TestChance())
+		Choix("Je suis chanceux", p39);
+	else
+		Choix("Je suis malchanceux", p54);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p44;
+	print "Ils m'accueillent avec une certaine sympathie, et prennent mon nom. Ils notent ma demande, et me donne le numéro d'un bureau au premier étage.";
+
+	if (TestChance())
+		Choix("Je suis chanceux", p52);
+	else
+		Choix("Je suis malchanceux", p20);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p45;
+	print "Monsieur et Madame Caesar possèdent une maison qui est plus grosse que tout ce que j'ai pu voir auparavant : un terrain d'atterrissage pour aéronef, une tour dans le jardin, et de l'électricité partout pour aider à la pousse des plantes et des légumes...";
+	print "^^Ils m'ont conduit à leur atelier, où je suis censé assembler des choses et réparer tous les gadgets qu'ils ont dans leur maison : des oiseaux mécaniques, et machines électriques, des phonographes...";
+	print "^^Après un an passé ici, ils commencent à me faire confiance.";
+
+	Choix("Vais-je essayer de m'échapper à un moment où ils me surveillent le moins", p34);
+	Choix("ou continuer à vivre ici en tant que travailleur bon marché", p48);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p46;
+	print "Sortant d'un coin sombre, un homme vêtu de noir me frappe dans le dos.";
+
+	Choix("Je vois un voile bleu qui recouvre ma vision", p14);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p47;
+	print "Ils m'accueillent avec beaucoup d'attention, et tandis qu'ils enregistrent mon nom, on me montre une liste des emplois possibles dans le coin.";
+	print "^^J'ai sans doute de la chance, parce qu'il vient de se libérer une place de bibliothéquaire dans la bibliothèque principale de la ville.";
+	print "^^Après m'avoir fait signer quelques papiers, ils me montrent la route sur une carte.";
+
+	Choix("Aller directement là-bas, au cas où quelqu'un d'autre prendrait cette place avant moi", p2);
+	Choix("En apprendre un peu plus sur les coutumes et traditions de la région", p33);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p48;
+	print "Après quelques années en tant que prisonnier, je m'assagis et deviens plus raisonnable une fois libéré.";
+	print "^^Sans doute que le mieux pour moi maintenant est de retourner chez moi, et recommencer ma vie là-bas.";
+	print "^^Serai-je bibliothéquaire, ou aventurier ? Je ne peux encore me décider.";
+
+	Fin();
+];
+
+! ------------------------------------------------------------------------------
+
+[ p49;
+	print "Durant une mission difficile, je sens que je n'obtiens pas l'aide que je mérite habituellement, et j'ai la nette impression de tomber dans un pièce, sans moyen d'en rééchapper.";
+
+	Choix("Tomber dans le piège", p51);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p50;
+	print "Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l'univers. Je lui parle de la beauté, de volonté, d'ascétisme et d'humilité.";
+
+	Choix("La jeune femme, avec pitié et un sourire perplexe, me reconduit au 44", p44);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p51;
+	print "Un adepte Indigo Love, surgissant d'un recoin sombre, me montre son amour et son attention en me poignardant dans le dos.";
+
+	Choix("Un voile bleu recouvre alors ma vision", p14);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p52;
+	print "Dans ce bureau on me présente une liste des emplois possibles dans la région.";
+	print "^^J'ai sans doute de la chance, parce qu'il vient de se libérer une place de bibliothéquaire dans la bibliothèque principale de la ville.";
+	print "^^Après m'avoir fait signer quelques papiers, ils m'indiquent la route sur une carte.";
+
+	Choix("Aller immédiatement là-bas, au cas où quelqu'un d'autre prendrait la place avant moi", p29);
+	Choix("En apprendre plus sur leurs coutumes et traditions", p33);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p53;
+	print "Une jeune femme polie et agréable m'explique avec une voix douce que le bureau que je recherche se trouve maintenant au rez-de-chaussée.";
+
+	Choix("Ce qui me conduit au 44", p44);
+	Choix("Mais avant cela, je peux tenter de la séduire, on ne sait jamais", p50);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p54;
+	print "Pendant l'attaque, le vois le flash bleu acier de l'épée d'un pirate, approchant si dangereusement de ma tête que je finis par en mourir.";
+
+	Choix("Aller au 14", p14);
+];
+
+! ------------------------------------------------------------------------------
+
+[ p55;
+	print "Baillant et m'étirant, je me réveille de bonne humeur. Je n'ai pas découvert de nouveau Continent, je n'ai pas vécu de grandes aventures, mais j'ai rencontré des gens qui n'étaient pas si mal en fin de compte.";
+	print "^^Jour après jour, j'ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une FIN heureuse finalement !";
+
+	Fin();
+];
+
+! ------------------------------------------------------------------------------
