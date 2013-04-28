@@ -39,6 +39,8 @@
 % italic area end     {/// }     
 % bold area begin     { ** }      		
 % bold area end       {/** }   
+% boxed area begin    { [] }   
+% boxed area end      {/[] }   
 % page break          {/...}   
 % line break          {//..}  
 
@@ -245,6 +247,11 @@
 %!preproc: '\{ \*\* \}'   'CONVERTboldBEGIN'
 %!preproc: '\{\/\*\* \}'  'CONVERTboldEND'
 
+%% boxed
+
+%!preproc: '\{ \[\] \}'   'CONVERTboxedBEGIN'
+%!preproc: '\{\/\[\] \}'  'CONVERTboxedEND'
+
 %% more tolerant versions (without space)
 %!preproc: '\{\/\/\}'     'CONVERTitalicBEGIN'
 %!preproc: '\{\/\/\/\}'   'CONVERTitalicEND'
@@ -351,11 +358,22 @@
 %!postproc(tex): 'CONVERTboldBEGIN'    '\\begin{bfseries}'
 %!postproc(tex): 'CONVERTboldEND'      '\\end{bfseries}'
 
-% A mettre dans un style sinon pas valide
+
+% % A mettre dans un style sinon pas valide
 %!postproc(xhtml): 'CONVERTitalicBEGIN'  '<div class="italic"><em>'
 %!postproc(xhtml): 'CONVERTitalicEND'    '</em></div>'
 %!postproc(xhtml): 'CONVERTboldBEGIN'    '<div class="bold"><b>'
 %!postproc(xhtml): 'CONVERTboldEND'      '</b></div>'
+
+
+
+% boxed area
+% see http://distrib-coffee.ipsl.jussieu.fr/pub/mirrors/ctan/macros/latex/contrib/mdframed/mdframed.pdf
+%!postproc(tex): 'CONVERTboxedBEGIN'  '\\begin{mdframed}'
+%!postproc(tex): 'CONVERTboxedEND'  '\\end{mdframed}'
+
+%!postproc(xhtml): 'CONVERTboxedBEGIN'  '<div class="boxed">'
+%!postproc(xhtml): 'CONVERTboxedEND'  '</div>'
 
 
 %%% Colors for xhtml
@@ -485,6 +503,7 @@
 
 %!postproc(tex): "LINEBREAK  " '\par '
 %!postproc(tex): "LINEBREAK " '\par\\noindent '
+%% (TODO? %!postproc(tex): "LINEBREAK " '\newline\\indent\\indent '
 
 
 %% Various replacements (TeX logo)
@@ -530,7 +549,8 @@
 %% Line break
 
 %!preproc: '\{\/\/\.\.\}'          'BREAKLINEHERE'
-%!preproc: "\/\/\.\."              'BREAKLINEHERE'
+% we disable this one which can cause conflits (for ex. end of italic and ...)
+%--!preproc: "\/\/\.\."              'BREAKLINEHERE'
 %!preproc: "\\\\"                  'BREAKLINEHERE'
 
 %!postproc(tex):'BREAKLINEHERE'    '\\newline'
