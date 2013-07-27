@@ -107,6 +107,10 @@ lettre:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/lettre.tex -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
 	-make clean
+
+lettre-1page:
+	pdfjam $(DOCUMENT).pdf '1' --outfile $(DOCUMENT)b.pdf 
+	mv $(DOCUMENT)b.pdf $(DOCUMENT).pdf 
 	
 readpdf:	
 	$(PDFREADER) $(DOCUMENT).pdf
@@ -275,6 +279,7 @@ cyoa-twee:
 	# for use with http://gimcrackd.com/etc/src/
 	# corrected twee parser at https://github.com/mcdemarco/twee
 	#echo "du texte et puis à la fin de la ligne, un numéro par exemple 42"|sed -e "s/\([0-9]\+\)$/\[\[\1 \1\]\]/g"
+	# try to use Unix line feed if possible
 	echo ":: StoryTitle" > $(DOCUMENT)_export.tw 
 	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n//' |\
 	# remove extra textallion syntax |\
@@ -290,13 +295,18 @@ cyoa-twee:
 	 perl -pe 's/\[(.*).jpg\]//' |\
 	 perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	 # choices \
+	 # choices (\r is for windows newline) \
 	 perl -pe 's/- (.*?) (\d+)( *)\n/- \1 [[\2]]\n/' |\
+	 perl -pe 's/- (.*?) (\d+)( *)\r/- \1 [[\2]]/' |\
 	 perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
 	 # chapters \
 	 perl -pe 's/== (\d+) ==/:: \1/' |\
 	 perl -pe 's/==(\d+)==\[(.*)\]/:: \2/' |\
 	 perl -pe 's/==(\d+)==/:: \2/' |\
+	 # make twee lists \
+	 perl -pe 's/^- /* /' |\
 	 # \
 	 perl -pe 's/:: 0/:: Start/' >> $(DOCUMENT)_export.tw 
 	 -iconv -f UTF-8 -t ISO-8859-15 $(DOCUMENT)_export.tw -o $(DOCUMENT)_export_iso8859.tw

@@ -107,6 +107,10 @@ lettre:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/lettre.tex -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
 	-make clean
+
+lettre-1page:
+	pdfjam $(DOCUMENT).pdf '1' --outfile $(DOCUMENT)b.pdf 
+	mv $(DOCUMENT)b.pdf $(DOCUMENT).pdf 
 	
 readpdf:	
 	$(PDFREADER) $(DOCUMENT).pdf
