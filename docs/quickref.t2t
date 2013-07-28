@@ -49,7 +49,7 @@
 {|2|}
 
 
-== Basics ==
+== Basics Commands ==
 
 - copy and modify sample.t2t ; sample.sty (margins, header, size of paper, the size and name of the font...). Define ``export TEXTALLIONDOC=your_document_name`` or modify the makefile then :
 - make pdf (needs LaTeX) ; make html (or make slidy for html slide show); make epub (needs [calibre http://calibre.kovidgoyal.net/])
@@ -59,20 +59,21 @@
 - make all : html, pdf, epub and clean temporary files.
 
 
-== Special characters and features ==
+== Basic Syntax ==
 
-|| Description | symbol | code |
-| initial |  | ``SYMBlettrine`` |
-| small line break |  | ``SYMBbigskip`` or ``SYMB2bigskip`` |
-| small line break |  | a space as 1st letter of a line |
-| non-breaking space |  | ``SYMBnbsp`` |
-| little leaf | @@ding((166))** | ``SYMBaldinea`` |
-| little leaf (alt) | @@ding((167))** | ``SYMBaldineb`` |
-| 3 stars | *** | ``SYMBtroisetoiles`` |
-| moon first quarter | @@rightmoon** | ``SYMBlunep`` | 
-| full moon  | @@fullmoon**  | ``SYMBlunef`` |
-| moon last quarter | @@leftmoon**  | ``SYMBluned`` |
-| sun  | @@sun** | ``SYMBsoleil`` |
+- ""**bold**"" :  **bold**, ""//italic//""   :  //italic//, ""__underline__"" :  __underline__,  SYMBtiretSYMBtiretstrikeSYMBtiretSYMBtiret :  --strike--
+- ""== title =="" (different levels)
+- ""- list""
+- ""+ numbered list""
+- ""``code``"" / ""''tag''"" / """"raw"""" (so you can include protected characters like ""|"")
+- ``[image.jpg]``
+- ``[link to a website http://code.google.com/p/textallion]`` : [link to a website http://code.google.com/p/textallion]
+- ""| table |""
+
+- SYMBfootnotenoteSYMBfootnote or SYMBfootnotenote(1)SYMBfootnote : footnote
+
+
+== Special characters and features ==
 
 
 - image size: ""[path_to/my_image.png][24]"" //(in millimeters)//
@@ -103,7 +104,6 @@
 @@COLOR@@white@@white@@/COLOR@@
 @@COLOR@@yellow@@yellow@@/COLOR@@. Use also html code (only for html) for ex: #6D7D2E
 %black blue brown cyan darkgray gray green light-gray lime magenta olive orange pink purple red teal violet white yellow. 
- 
 
  
 - Centering text: a leading ""|"" (latex only) 
@@ -121,6 +121,8 @@
 - Bold area: begins with ``SYMBboldBegin`` and ends with ``SYMBboldEnd``
 
 - Exergue: begins with ``SYMBexergueBegin`` and ends with ``SYMBexergueEnd``{name of author}
+
+- Boxed area: begins with ``SYMBboxedBegin`` and ends with ``SYMBboxedEnd``
  
 - Code: begins with ``SYMBcodeBegin`` and ends with ``SYMBcodeEnd``
 
@@ -131,27 +133,24 @@
 
 - Index: ``SYMBindex``word``SYMBindex``
 
-
-
-== Syntax ==
-
-- ""**bold**""       :  **bold**
-- ""//italic//""   :  //italic//
-- ""__underline__"" :  __underline__
-- SYMBtiretSYMBtiretstrikeSYMBtiretSYMBtiret      :  --strike--
-- ""== title =="" (different levels)
-- ""- list""
-- ""+ numbered list""
-- ""``code``"" / ""''tag''"" / """"raw"""" (so you can include protected characters like ""|"")
-- ``[image.jpg]``
-- ``[link to a website http://code.google.com/p/textallion]`` : [link to a website http://code.google.com/p/textallion]
-- ""| table |""
-
-- SYMBfootnotenoteSYMBfootnote or SYMBfootnotenote(1)SYMBfootnote : footnote
-
-
-
+ 
 {|0|}
+ 
+|| Description | symbol | code |
+| initial |  | ``SYMBlettrine`` |
+| small line break |  | ``SYMBbigskip`` or ``SYMB2bigskip`` |
+| small line break |  | a space as 1st letter of a line |
+| non-breaking space |  | ``SYMBnbsp`` |
+| little leaf | @@ding((166))** | ``SYMBaldinea`` |
+| little leaf (alt) | @@ding((167))** | ``SYMBaldineb`` |
+| 3 stars | *** | ``SYMBtroisetoiles`` |
+| moon first quarter | @@rightmoon** | ``SYMBlunep`` | 
+| full moon  | @@fullmoon**  | ``SYMBlunef`` |
+| moon last quarter | @@leftmoon**  | ``SYMBluned`` |
+| sun  | @@sun** | ``SYMBsoleil`` |
+
+
+
 
 
 

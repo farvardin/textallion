@@ -9,12 +9,25 @@
 
 //The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip//
 
+
+- 28 july 2013:
+ - [Suzanne Valadon https://fr.wikipedia.org/wiki/Suzanne_Valadon] release:
+                - New syntax for a boxed area. 
+                - CYOA: updated twee. 
+                - HTML: small tweak to the CSS.
+                - PDF: added microtype feature in LaTeX.
+                - PDF: fixed French guillemets in the Lettre template
+                - SHELL: with pdfjam we can remove extra page in the letter template ("make lettre-1page")
+
+
+
 - 22 nov 2012:
  - [Pierre Puvis de Chavannes http://en.wikipedia.org/wiki/Pierre_Puvis_de_Chavannes] release:
                 - CYOA: fixed twee, added undum and choicescript. Separated doc for CYOA.
                 - SHELL (textallion.sh): submenu for new cyoa systems
                 - improved exponent. Added subscript.
-                
+
+
 
 - 27 june 2012:
  - [Félicien Rops http://en.wikipedia.org/wiki/F%C3%A9licien_Rops] release:

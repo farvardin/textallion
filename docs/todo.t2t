@@ -57,7 +57,8 @@
 == PDF (LaTeX and XeTeX) ==
 
 - --Use templates for LaTeX--
-- More templates, for different languages
+- More templates, for different languages. 
+- --Fix the TOC in French even for English documents--
 - Improving templates for LaTeX, especially the xetex version
 - Monospaced content in xetex
 - It's not possible to include a .sty file from internet (latex limitation?)
@@ -67,6 +68,7 @@
 - beamer is broken (doesn't work as expected, needs rework)
 - long links don't reflow to a new line
 - can't use both lettrine & wrap image 
+- section headnote are in UPPERCASE and it's ugly (see markright)
 
 
 == EPUB ==

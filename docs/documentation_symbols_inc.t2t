@@ -23,6 +23,9 @@
 %!postproc(tex): 'SYMBexergueBegin'     '\{~~\~{}\~{}\}' 
 %!postproc(tex): 'SYMBexergueEnd'       '\{/~\~{}\~{}\}' 
 
+%!postproc(tex): 'SYMBboxedBegin'       '\{~~[]~~\}'
+%!postproc(tex): 'SYMBboxedEnd'         '\{/~~[]~~\}'
+
 %!postproc(tex): 'SYMBcodeBegin'        '\{\#\#\#\#\}' 
 %!postproc(tex): 'SYMBcodeEnd'          '\{/\#\#\#\}' 
 

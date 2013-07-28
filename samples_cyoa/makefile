@@ -42,7 +42,13 @@ DOCUMENT_TITLE = xx DOCUMENT TITLE xx
 DOCUMENT_AUTHOR = xx DOCUMENT AUTHOR xx
 DOCUMENT_TAGS = xx DOCUMENT TAGS xx
 DOCUMENT_INFO = textallion - http://textallion.googlecode.com
-DOCUMENT_LANGUAGE = xx DOCUMENT LANGUAGE xx 
+
+ifdef DOCLANG
+  DOCUMENT_LANGUAGE = $(DOCLANG)
+else
+  DOCUMENT_LANGUAGE = xx DOCUMENT LANGUAGE xx 
+endif
+
 #DOCUMENT_COVER = $(TEXTALLIONFOLDER)/media/sample_cover.png
 DOCUMENT_COVER = $(DOCUMENT).jpg
 
@@ -87,6 +93,9 @@ txt:
 
 pdf:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/latex.tex -t tex --toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
+ifeq ($(DOCUMENT_LANGUAGE),en)
+	sed -i -e "s/,frenchb,francais//g" $(DOCUMENT).tex
+endif
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
 	-makeindex $(DOCUMENT).idx
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
@@ -96,6 +105,9 @@ pdf:
 
 xetex:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/xetex.tex -t tex --toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
+ifeq ($(DOCUMENT_LANGUAGE),en)
+	sed -i -e "s/,frenchb,francais//g" $(DOCUMENT).tex
+endif
 	-xelatex -interaction batchmode $(DOCUMENT).tex
 	-xelatex -interaction batchmode $(DOCUMENT).tex
 

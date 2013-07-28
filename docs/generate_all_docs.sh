@@ -11,6 +11,7 @@ mkdir -p /tmp/textallion/samples
 mkdir -p /tmp/textallion/samples_cyoa
 
 # French docs
+export DOCLANG=fr
 export TEXTALLIONDOC=documentation_fr
 make epub
 make pdf
@@ -26,6 +27,7 @@ mv *.pdf /tmp/textallion/docs
 mv *.epub /tmp/textallion/docs
 
 # English docs
+export DOCLANG=en
 export TEXTALLIONDOC=documentation_en
 make epub
 make pdf
@@ -83,6 +85,7 @@ cd ../samples_cyoa
 cp *.jpg /tmp/textallion/samples_cyoa
 
 # Un nouveau monde
+export DOCLANG=fr
 export TEXTALLIONDOC=un_nouveau_monde_gbl
 make cyoa-epub
 make cyoa-pdf
@@ -104,6 +107,7 @@ mv *.pdf /tmp/textallion/samples_cyoa
 mv *.epub /tmp/textallion/samples_cyoa
 
 # The blue death
+export DOCLANG=en
 export TEXTALLIONDOC=the_blue_death
 make cyoa-epub
 make cyoa-pdf
