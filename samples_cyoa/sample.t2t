@@ -45,7 +45,7 @@ This is the first chapter of your story.°°note4°°It will present various way
 You are walking on the bank of a river, in a sunny autumn day. You can see a man holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
 
 - Enter the [#forest] nearby or wander around the hills : 5
-- Ask him about the [6 #twigs] he's getting from the river.
+- Ask him about the [twigs #6] he's getting from the river.
 
 
 
@@ -121,7 +121,7 @@ You have a friend in the village.
 - go to the forest: 3
 
 
-==6==[twigs]
+== 6 ==
 
 He tells you an extraordinary tree is growing several miles above, near the river. He's so old he cannot affort to travel there alone. 
 /.../
@@ -135,8 +135,11 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 - Go to the beach : 5
-- Go to the village nearby : [8 #village]
-
+- Go to the [#village] nearby
+- [tiny village #village]
+- [tiny village|#village]
+- [tiny village | #village]
+- this [#village] nearby, [tiny village|#village]
 
 
 == 7 ==
@@ -163,7 +166,7 @@ This is the forest part.
 
 ==8==[village]
 
-[../media/sample_village.jpg]{~~~~}
+[../media/sample_village.png]{~~~~}
 
 This part is a dead-end!
 

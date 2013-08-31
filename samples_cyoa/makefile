@@ -30,7 +30,7 @@ else
 #  DOCUMENT = exemple_lettre
 #  DOCUMENT = examples
   #DOCUMENT = the_blue_death
-# DOCUMENT = la_mort_bleue
+ DOCUMENT = la_mort_bleue
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -245,11 +245,14 @@ cyoa-gamebook:
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
 	
 cyoa-epub:
-	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/cyoa.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --no-style --no-toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
+	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/epub.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --no-style --no-toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 	cat $(DOCUMENT).html | sed -e "s/<audio\(.*\)audio>//g" > $(DOCUMENT)2.html
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
 	-make tidy
-	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" | sed -e "s/el3.style.visibility = 'hidden';//g" | sed -e "s/div.c3 {display:none}//g" > $(DOCUMENT)2.html
+	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" |\
+	sed -e "s/el[1-9].style.visibility = 'hidden';//g" |\
+	sed -e "s/div.c[1-9] {display:none}//g" |\
+	sed -e "s/span.c[1-9] {visibility:hidden}//g" > $(DOCUMENT)2.html
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
 	#
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak --page-breaks-before //h:div[@id] --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover --no-svg-cover --preserve-cover-aspect-ratio --no-chapters-in-toc

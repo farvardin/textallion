@@ -13,7 +13,7 @@
 - september 2013:
  - [Léonide Bourges https://fr.wikipedia.org/wiki/L%C3%A9onide_Bourges] release:
                 - CYOA: fixed bold, monospace and image syntax in twee.
-                - CYOA: fixed many things in the twee (twine) export so 
+                - CYOA: fixed many things in the twee (twine) export so it will work with named chapters 
                 - CYOA: adding new syntax to allow named chapters: ""[#name]"" and simpler numbered chapters: ""[#number]"" instead of ""[number #number]""
                 
 			

@@ -88,10 +88,11 @@
 - Clean and simplify the js code for fading
 - --Renpy output--
 - renpy: check use of " === , - and big space
-- undum output?
+- --undum output?--
 - Add sound support
-- Ramus: works for numbered chapter, but not for named ones
+- --Ramus: works for numbered chapter, but not for named ones-- (will work with named ""== chapter =="" with the ""[#name]"" or ""[description|#name]"" syntax, not with ""== 5 ==[name]"")
 - Ramus: Dice will scroll up 
+- Ramus: footnotes don't work.
 
 
 

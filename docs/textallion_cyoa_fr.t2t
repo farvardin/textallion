@@ -142,34 +142,6 @@ En effet, pour la présentation des paragraphes, nous avons tendance à encourag
 
 
 
-=== Syntaxe alternative pour les choix ===
-
-//Il n'est pas recommandé d'utiliser cette syntaxe car elle peut entrer en conflit avec d'autres options (comme les graphiques)//
-
-Il est possible d'avoir des liens plus imagés avec :
-
-```
-==17==[nom_du_lien]
-``` 
-
-et l'appel à ce paragraphe sera ainsi :
-
-```
-- Aller à ce paragraphe : [17 #nom_du_lien]
-```
-
-Important : Il ne faut pas d'espace autour du nombre
-
-
-Vous pouvez également créer un lien nommé, et rediriger vers un chapitre standard :
-
-```
-- Entrer [dans la maison 17]
-```
-
-Cela retirera le nombre dans le texte affiché, mais le lien HTML contiendra toujours la référence de ce nombre, aussi vos joueurs pourront quand même le lire. Dans la version PDF, le lien ne fonctionne pas (pour le moment). Cette option est sans doute uniquement utile dans le cas d'une version {^}ePUB{^} seule.
-
-
 
 
 === Images ===

@@ -117,32 +117,42 @@
 % create named paragraphs as well (also for twine)
 %!preproc: '^== ([^ ].*?) =='  '==\1==[\1]'
 
-% use this syntax: [dark forest|#forest-ref-01]
-%!preproc: '\[([^ ].*?)\|#([^ ].*?)\]'  '**[\1 #\2]**' 
 
-% normal t2t links, in bold
-%!preproc: '\[(\d+) #([^ ].*?)\]'  '**[\1 #\2]**' 
+
+% allow to use this syntax: [dark forest|#forest-ref-01]
+%-!preproc: '\[([^ ].*?) \| #([^ ].*?)\]'  '**[\1 #\2]**' 
+%!preproc: '\[([^ ].*?)[ ]*\|[ ]*#([^ ].*?)\]'  '[\1 #\2]' 
+
+
+%% understand short names for links (especially for twine) 
+%% understand #named_link (not working) or [#named_link] or [blabla #named_link]
+%-messes up links-!preproc: ' \#([^ ].*?) '  ' **[\1 #\1]** '
+%-!preproc: '\#([^ ].*?)'  ' [#\1] '
+%-!preproc: '([^ ])\#([^ ].*?)([^ ])'  ' **[\1 #\1]** '
+
+%!preproc: ' \[\#([^ ].*?)\]\.'  ' [\1 #\1].'
+%!preproc: ' \[\#([^ ].*?)\],'  ' [\1 #\1],'
+%!preproc: ' \[\#([^ ].*?)\]$'  ' [\1 #\1]\n'
+%!preproc: ' \[\#([^ ].*?)\] '  ' [\1 #\1] '
+
+% normal t2t links, in bold 
+%-!preproc: '\[(\d+) #([^ ].*?)\]'  '**[\1 #\2]**' 
+%!preproc: '\[([^ ].*?) #([^ ].*?)\]'  '**[\1 #\2]**'
+
+ 
+%% understand "turn to #4 if you want" or "... to [#4]..." as "turn to [4 #4] if you want"
+%% [#4] is the recommended form.
+%!preproc: '\[\#(\d+?)\]'  '**[\1 #\1]**'  
+%!preproc: ' \#(\d+?) '  ' **[\1 #\1]** ' 
 
 
 %% bold all numerical links   
 %-- we disable it because it was done above-!preproc: '\[(\d+?) #(\d+)\]'  '**[\1 #\1]**'   
 %--!preproc: '\[(\d+) #(\d+)\]'  '**[\1 #\1]**' 
 
-%% understand "turn to #4 if you want" or "... to [#4]..." as "turn to [4 #4] if you want"
-%% [#4] is the recommended form.
-%!preproc: '\[\#(\d+)\]'  '**[\1 #\1]**'  
-%!preproc: ' \#(\d+) '  ' **[\1 #\1]** ' 
 
-%% understand short names for links (especially for twine) 
-%% understand #named_link (not working yet) or [#named_link] or [blabla #named_link]
-%-messes up links-!preproc: ' \#([^ ].*?) '  ' **[\1 #\1]** '
-%-!preproc: '\#([^ ].*?)'  ' [#\1] '
-%-!preproc: '([^ ])\#([^ ].*?)([^ ])'  ' **[\1 #\1]** '
 
-%!preproc: ' \[\#([^ ].*?)\]\.'  ' **[\1 #\1]**.'
-%!preproc: ' \[\#([^ ].*?)\],'  ' **[\1 #\1]**,'
-%!preproc: ' \[\#([^ ].*?)\]$'  ' **[\1 #\1]**\n'
-%!preproc: ' \[\#([^ ].*?)\] '  ' **[\1 #\1]** '
+
 
 
 
@@ -209,8 +219,8 @@
 
 % This part is for hiding headers in the html rendering, but only for text and not numbers, to prevent seeing funky namespaces one could use for named chapters (instead of numbered chapters)
 % We trick ramus display which would otherwise remove all the style="display:none"> so don't remove the extra space before none here
-%!postproc(xhtml): '<h2>([^1-9].*?)' '<h2><span style="display: none">\1'
-%!postproc(xhtml): '</h2>' '</span></h2>'
+%!postproc(xhtml): '<h2>([^1-9].*?)</h2>' '<h2><span style="display: none">\1</span></h2>'
+
 
 
 % use this (uncomment) for textual links (TODO)
