@@ -130,10 +130,11 @@
 %-!preproc: '\#([^ ].*?)'  ' [#\1] '
 %-!preproc: '([^ ])\#([^ ].*?)([^ ])'  ' **[\1 #\1]** '
 
-%!preproc: ' \[\#([^ ].*?)\]\.'  ' [\1 #\1].'
-%!preproc: ' \[\#([^ ].*?)\],'  ' [\1 #\1],'
-%!preproc: ' \[\#([^ ].*?)\]$'  ' [\1 #\1]\n'
-%!preproc: ' \[\#([^ ].*?)\] '  ' [\1 #\1] '
+%!preproc: '\[\#([^ ].*?)\]'  '[\1 #\1]'
+%-!preproc: ' \[\#([^ ].*?)\]\.'  ' [\1 #\1].'
+%-!preproc: ' \[\#([^ ].*?)\],'  ' [\1 #\1],'
+%-!preproc: ' \[\#([^ ].*?)\]$'  ' [\1 #\1]\n'
+
 
 % normal t2t links, in bold 
 %-!preproc: '\[(\d+) #([^ ].*?)\]'  '**[\1 #\2]**' 
@@ -161,6 +162,8 @@
 %!--NOT-WORKING--preproc: '(\d+) #([^ ].*?)$'  '**[\1 #\2]**' 
 %!preproc: '(\d+)\.$'  '**[\1 #\1].**'  
 %!preproc: '(\d+)$'  '**[\1 #\1]**'  
+% we also allow spaces at the end
+%!preproc: '(\d+)[ ]*$'  '**[\1 #\1]**'  
 
 
 %% French shortcut: (rendez-vous au ##)
@@ -262,8 +265,11 @@
 %% We add the # here, otherwise the lines before would mess up the footer
 %!postproc(xhtml): 'a href=\"cyoaexplications\"' 'a href="#cyoaexplications"'
 
-%% The first chapter, if called 0, will always be displayed
+%% The first chapter, if called 0, "Intro", or "Introduction", will always be displayed
 %!postproc(xhtml): '<div id="page0" style="display:none">'  '<div id="page0" style="display:block">'
+%-!postproc(xhtml): '<div id="page[I-i]ntro" style="display:none">'  '<div id="pageIntro" style="display:block">'
+%!postproc(xhtml): '<div id="page[I-i]ntro["duction"]*" style="display:none">'  '<div id="pageIntroduction" style="display:block">'
+
 
 
 

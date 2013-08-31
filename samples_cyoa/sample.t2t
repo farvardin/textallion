@@ -1,5 +1,5 @@
 The strange fisherman, a sample for textallion CYOA
-by Farvardin (enter your own name here)
+by Farvardin
 %%date(%Y-%m-%d)
 
 
@@ -22,31 +22,46 @@ by Farvardin (enter your own name here)
 
 
 
-% Insert your logo / picture instead of this one :
-% {->--}  [../media/sample_game_cover.jpg] {-<--} 
 
 
 
+== Introduction ==
 
-== 0 ==
 
+% This is a comment. It begins with a "% ".
+% We'll use comments to give further informations about how to use textallion.
+
+% Chapter == Introduction == is the only chapter you must keep this way to ensure textallion will start correctly. Don't rename it to something else, except for "intro" or "0". Therefore, all the keywords starting by "Intro" will be reserved for this first chapter.
+
+% Insert your own logo / picture instead of this one :
 {->--}  [../media/sample_game_cover.jpg] {-<--} 
 
-- Start the game 1
-
-
+- Read the [#instructions] or start the game 1 
 
 
 == 1 ==
 
-This is the first chapter of your story.°°note4°°It will present various way to use txt2tags and textallion to create CYOA (choose your own adventure)°°
+% after this part, you can delete everything from this sample and write your own game!
+% Write your story like you would do with a normal text editor.
 
+This is the first chapter of your story.°°note1°°It will present various ways to use txt2tags and textallion to create CYOA (choose your own adventure). Check the source code of this sample, and read the comments about various tips for using textallion°°
+
+% We just wrote a note here. Just start your note with °° write note1, note2, note3 etc (you'll have to increment this yourself, hopefully you shouldn't need to write that many notes in your game...), write °°, then the content of your note, and °° again. 
 
 You are walking on the bank of a river, in a sunny autumn day. You can see a man holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
 
-- Enter the [#forest] nearby or wander around the hills : 5
-- Ask him about the [twigs #6] he's getting from the river.
+- Enter the [#forest] nearby.
+- Explore the [green hills|#hills] close to the river: 5
+- Ask the [#man] about the [twigs #6] he's getting from the river: [#6]
 
+% We just wrote 5 different ways to express a link to a new chapter:
+% - 5 at the end of a line will link to the chapter == 5 ==
+% - [#6] could have been written just "6" in this context, but by writing it this way, you can place it anywere in your text. It will link to chapter == 6 == of course.
+% - [#forest] will be linked to a chapter called == forest == 
+% - [green hills|#hills] (or [green hills | #hills]) will link to chapter == hills == and will display "green hills" to the read.
+% - similarly, [twigs #6] will link to chapter == 6 ==, and display "twigs" to the reader
+
+% The first 2 ways (5 and [#6]) have the advantage to be more like traditional CYOA gamebooks, and allow your work to be printed. The other ways will only be available for ebooks or online through a browser.
 
 
 == 2 ==
@@ -102,7 +117,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- Go to the cliff°°note1°°(it's huge!)°° to examine the sea: 6
+- Go to the cliff°°note4°°(it's huge!)°° to examine the sea: 6
 - Go to the forest°°note2°°(a deep forest)°° nearby : 3
 - Look inside the boat : 2
 
@@ -136,10 +151,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 - Go to the beach : 5
 - Go to the [#village] nearby
-- [tiny village #village]
-- [tiny village|#village]
+- [tiny village #village] 
+- [tiny village|#village].
 - [tiny village | #village]
-- this [#village] nearby, [tiny village|#village]
+- this [#village], nearby, [tiny village|#village].
 
 
 == 7 ==
@@ -189,3 +204,6 @@ Nothing here yet!
 - Restart the #game 1
 - [#1] 
 
+
+
+== instructions ==

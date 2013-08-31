@@ -251,6 +251,8 @@ cyoa-epub:
 	-make tidy
 	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" |\
 	sed -e "s/el[1-9].style.visibility = 'hidden';//g" |\
+	sed -e "s/span.c[1-9] {display:none}//g" |\
+	sed -e "s/span.c[1-9] {display: none}//g" |\
 	sed -e "s/div.c[1-9] {display:none}//g" |\
 	sed -e "s/span.c[1-9] {visibility:hidden}//g" > $(DOCUMENT)2.html
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
