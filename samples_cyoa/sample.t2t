@@ -21,17 +21,16 @@ by Farvardin (enter your own name here)
 
 
 
+
 % Insert your logo / picture instead of this one :
-
-{->--}  [../media/sample_game_cover.jpg] {-<--} 
-
-
-//(in construction)//
+% {->--}  [../media/sample_game_cover.jpg] {-<--} 
 
 
 
 
 == 0 ==
+
+{->--}  [../media/sample_game_cover.jpg] {-<--} 
 
 - Start the game 1
 
@@ -40,13 +39,14 @@ by Farvardin (enter your own name here)
 
 == 1 ==
 
-This is the first chapter of your story.
+This is the first chapter of your story.°°note4°°It will present various way to use txt2tags and textallion to create CYOA (choose your own adventure)°°
+
 
 You are walking on the bank of a river, in a sunny autumn day. You can see a man holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
 
-- Enter the forest nearby : 3
+- Enter the [#forest] nearby or wander around the hills : 5
 - Ask him about the [6 #twigs] he's getting from the river.
-- or wander around the hills : 5
+
 
 
 == 2 ==
@@ -80,6 +80,7 @@ This forest is huge and you may get lost, so you'd better go back to the road.
 - Go the beach : 5
 - Go to the market place : 4
 - Enter your home [7 #7] or restart [1 #1] the game.
+- Enter your home [#7] or restart [#1] the game.
 
 
 == 4 ==
@@ -90,7 +91,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 - Go to the cliff : 6
 - Go to beach : 5
-- Go back to the entrance of the [3 #village], where you have a friend.
+- Go back to the entrance of the [#village], where you have a friend.
 
 
 == 5 ==
@@ -104,6 +105,20 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 - Go to the cliff°°note1°°(it's huge!)°° to examine the sea: 6
 - Go to the forest°°note2°°(a deep forest)°° nearby : 3
 - Look inside the boat : 2
+
+
+== game ==
+
+This chapter is linked from a pure keyword 
+
+- go to the end: #9 and enjoy!
+
+
+== village ==
+
+You have a friend in the village.
+
+- go to the forest: 3
 
 
 ==6==[twigs]
@@ -123,9 +138,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 - Go to the village nearby : [8 #village]
 
 
+
 == 7 ==
 
-Congratulation, the game is finished !
+Congratulation, the [#game] is finished !
 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -135,6 +151,14 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+== forest ==
+
+This is the forest part.
+
+- Restart the game 1
+- go deeper in the [dark forest|#forest-ref-01], check [this game info|#game] or return to [#village]
 
 
 ==8==[village]
@@ -147,7 +171,18 @@ This part is a dead-end!
 %- Examine the organigramme : 10
 
 
+== forest-ref-01 ==
+
+This part is deeper in the [#forest].
+
+- Restart the game 1
+
+
+
 == 9 ==
 
 Nothing here yet!
+
+- Restart the #game 1
+- [#1] 
 

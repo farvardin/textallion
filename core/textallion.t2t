@@ -44,7 +44,8 @@
 % page break          {/...}   
 % line break          {//..}  
 
-% footnote 			  °° or { °° }
+% footnote 			  °° or { °° } (ex: sentence bla bla°°note explanation°°
+%                     for cyoa notes are this way: sentence blabla°°note1°°note explanation°°
 % exponent       	  ^^ or { ^^ } {/^^ } 
 % sub       	      { ,, } {/,, }
 
@@ -416,8 +417,22 @@
 
 %% Footnote
 % 
+%% for txt2cyoa
+
+%--!postproc(tex): '°°(.*?)°°' '\\footnote{\1}'
+%!postproc(tex): '°°(.*?)°°(.*?)°°' '\\footnote{\2}'
+%!postproc(xhtml): '°°(.*?)°°(.*?)°°' <a onclick="visibility('\1');">*</a> <span id="\1" style="visibility:hidden">\2</span>
+
+%% for normal textallion
+
 %!postproc(tex): '°°(.*?)\((\d+)\)°°' '\\footnote{\MYxFONT \1}'
 %!postproc(tex): '°°(.*?)°°' '\\footnote{\MYxFONT \1}'
+
+
+
+
+
+
 
 %% Exponent
 % note: \up only with frenchb (babel)

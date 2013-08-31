@@ -10,6 +10,13 @@
 //The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip//
 
 
+- september 2013:
+ - [Léonide Bourges https://fr.wikipedia.org/wiki/L%C3%A9onide_Bourges] release:
+                - CYOA: fixed bold, monospace and image syntax in twee.
+                - CYOA: fixed many things in the twee (twine) export so 
+                - CYOA: adding new syntax to allow named chapters: ""[#name]"" and simpler numbered chapters: ""[#number]"" instead of ""[number #number]""
+                
+			
 - 28 july 2013:
  - [Suzanne Valadon https://fr.wikipedia.org/wiki/Suzanne_Valadon] release:
                 - New syntax for a boxed area. 
@@ -17,6 +24,8 @@
                 - HTML: small tweak to the CSS.
                 - PDF: added microtype feature in LaTeX.
                 - PDF: fixed French guillemets in the Lettre template
+                - PDF: fixed the TOC in French even for English documents
+                - PDF: fixed the headnote which was only displaying "TABLE OF CONTENT" everywhere
                 - SHELL: with pdfjam we can remove extra page in the letter template ("make lettre-1page")
 
 

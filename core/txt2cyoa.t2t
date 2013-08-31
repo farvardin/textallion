@@ -71,7 +71,8 @@
 
 
 %% %%% GBL 
-%% voir http://redohome.hd.free.fr/gameBooks
+%% was on http://redohome.hd.free.fr/gameBooks (dead link now)
+%%  http://www.animationsource.org/forum/gamebook-language-g-b-l-une-nouvelle-facon-d-ecrire-t3366.html
 %
 %!preproc: '@titre ([^ ].*?)$' ' '
 %!preproc: '@auteur ([^ ].*?)$' ' '
@@ -97,9 +98,10 @@
 %!preproc: '\&iuml\;'	ï
 %!preproc: '\&uuml\;'	ü
 
-%% %%% fin de GBL
+%% %%% end of GBL markup
 
 % PREPROC options 
+
 
 %!preproc: '^==(\d+)==$'	'WARNING : \1 is not named !!!!'
 
@@ -111,14 +113,38 @@
 %!preproc: '^== Page (\d+) =='  '==\1==[\1]'  
 %!preproc: '^== (\d+) =='  '==\1==[\1]'   
 
-% handle named paragraphs as well
+
+% create named paragraphs as well (also for twine)
 %!preproc: '^== ([^ ].*?) =='  '==\1==[\1]'
 
-%% bold all numerical links  
-%!preproc: '\[(\d+) #(\d+)\]'  '**[\1 #\1]**'   
+% use this syntax: [dark forest|#forest-ref-01]
+%!preproc: '\[([^ ].*?)\|#([^ ].*?)\]'  '**[\1 #\2]**' 
 
-%% understand "turn to #4 if you want" as "turn to [4 #4] if you want"
-%!preproc: '\#(\d+)'  '**[\1 #\1]**'  
+% normal t2t links, in bold
+%!preproc: '\[(\d+) #([^ ].*?)\]'  '**[\1 #\2]**' 
+
+
+%% bold all numerical links   
+%-- we disable it because it was done above-!preproc: '\[(\d+?) #(\d+)\]'  '**[\1 #\1]**'   
+%--!preproc: '\[(\d+) #(\d+)\]'  '**[\1 #\1]**' 
+
+%% understand "turn to #4 if you want" or "... to [#4]..." as "turn to [4 #4] if you want"
+%% [#4] is the recommended form.
+%!preproc: '\[\#(\d+)\]'  '**[\1 #\1]**'  
+%!preproc: ' \#(\d+) '  ' **[\1 #\1]** ' 
+
+%% understand short names for links (especially for twine) 
+%% understand #named_link (not working yet) or [#named_link] or [blabla #named_link]
+%-messes up links-!preproc: ' \#([^ ].*?) '  ' **[\1 #\1]** '
+%-!preproc: '\#([^ ].*?)'  ' [#\1] '
+%-!preproc: '([^ ])\#([^ ].*?)([^ ])'  ' **[\1 #\1]** '
+
+%!preproc: ' \[\#([^ ].*?)\]\.'  ' **[\1 #\1]**.'
+%!preproc: ' \[\#([^ ].*?)\],'  ' **[\1 #\1]**,'
+%!preproc: ' \[\#([^ ].*?)\]$'  ' **[\1 #\1]**\n'
+%!preproc: ' \[\#([^ ].*?)\] '  ' **[\1 #\1]** '
+
+
 
 %% number at end of the line = link
 %% bold for named links and normal links too      
@@ -167,6 +193,8 @@
 %
 %!--postproc(xhtml): '<h2>([^ ].*?)</h2>([^ ].*?)<a id' '<div id="\1"> <h2>\1</h2>\2</div><a id'
 
+%% Create divs for headers H2
+
 %!postproc(xhtml): '<h2 id="([^ ].*?)">([^ ].*?)</h2>' '<div id="page\2" style="display:none"> \n<br/>\n<br/><h2>\2</h2>'
 %!--old-txt2tags26-postproc(xhtml): '<h2>([^ ].*?)</h2>' '<div id="page\1" style="display:none"> \n\n<h2>\1</h2>'
 %!postproc(xhtml): '<div id' '<p><br/><br/><br/></p></div>\n\n<div id'
@@ -178,6 +206,12 @@
 %!postproc(xhtml): '</body>' '<p></p>\n</body>'
 
 %!postproc(xhtml): '</h1>$<div id="([^ ].*?)" style="display:none">' '</h1><div id="([^ ].*?)" style="display:block">' 
+
+% This part is for hiding headers in the html rendering, but only for text and not numbers, to prevent seeing funky namespaces one could use for named chapters (instead of numbered chapters)
+% We trick ramus display which would otherwise remove all the style="display:none"> so don't remove the extra space before none here
+%!postproc(xhtml): '<h2>([^1-9].*?)' '<h2><span style="display: none">\1'
+%!postproc(xhtml): '</h2>' '</span></h2>'
+
 
 % use this (uncomment) for textual links (TODO)
 %!--postproc(xhtml): '<a href="#([^ ].*?)">' <a href="#\1" onclick="show('page\1')">
@@ -199,15 +233,18 @@
 %% use this for button links
 %% Change showAndFade to show to remove the fade in effect
 
-%!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a>' <button onclick="fade('page\2');showAndFade('page\2');location.assign( '#page\1' );" href="#page\1">\1</button>
+%-original-but-wrong?-!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a>' <button onclick="fade('page\2');showAndFade('page\2');location.assign( '#page\1' );" href="#page\1">\1</button>
 
-%% no longer needed
-%--!postproc(xhtml): "showAndFade\(\'page1\'\)" show('page1')
+%!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a>' <button onclick="fade('page\1');showAndFade('page\1');location.assign( '#page\1' );" href="#page\1">\2</button>
+
+%% with some txt following link ? Still needed?
 
 %!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a> ([^ ].*?)$' <button onclick="show('page\2');location.assign( '#\1' );" href="#\1">\1</button> \3 
 
-%% remove buttons we've just set before
+%-!postproc(xhtml): '<a href="#([^ ].*?)">([^ ].*?)</a> ([^ ].*?)$' <button onclick="show('page\1');location.assign( '#\1' );" href="#\1">\2</button> \3 
 
+%% remove buttons we've just set before
+%% comment or remove this to enable buttons again
 %!postproc(xhtml): '<button' '<a'
 %!postproc(xhtml): '</button' '</a'
 
@@ -225,11 +262,7 @@
 
 %% Footnote
 %% already in textallion
-%
-%!postproc(tex): '°°(.*?)°°(.*?)°°' '\\footnote{\2}'
-%!--postproc(xhtml): '°°(.*?)°°(.*?)°°' <a onclick="visibility('\1');">*</a> <span id="\1" style="visibility:hidden">\2</span>
-
-
+% 
 
 
 

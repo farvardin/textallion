@@ -80,7 +80,7 @@ Avec textallion, vous pouvez créer des « livres dont vous êtes le héros » (
 
 La conception de vos livres-jeux avec textallion se fait avec un éditeur de texte, à l'aide d'une syntaxe très simple. 
 
-Une fois l'aventure réalisée, il faut pouvoir la diffuser. C'est pourquoi textallion propose différentes possibilités d'export : PDF pour imprimer, ePUB pour publier sur livre électronique, tablette ou smartphone, HTML pour publier sur site internet. L'export HTML est d'ailleurs riche de plusieurs moteurs de rendu (Ramus, Twee, Undum, ChoiceScript...). Enfin, quelques autres formats utilisés par des systèmes de fictions interactives (Inform, Ren'PY) permettront d'étendre encore plus les possibilités d'expérimentation.
+Une fois l'aventure réalisée, il faut pouvoir la diffuser. C'est pourquoi textallion propose différentes possibilités d'export : PDF pour imprimer, ePUB pour publier sur livre électronique, tablette ou smartphone, HTML pour publier sur site internet. L'export HTML est d'ailleurs riche de plusieurs moteurs de rendu (Ramus, Twine (Twee), Undum, ChoiceScript...). Enfin, quelques autres formats utilisés par des systèmes de fictions interactives (Inform, Ren'PY) permettront d'étendre encore plus les possibilités d'expérimentation.
 
 
 
@@ -95,27 +95,39 @@ Vos paragraphes (chapitres, sections...) seront créés en utilisant la balise s
 
 
 ```
-== z ==
+== nombre ==
 ```
 
 
-Important : Vous devez laisser un espace de chaque côté du nombre pour créer l'ancre du paragraphe, qui servira lors de l'appel d'un lien depuis un autre paragraphe.
+Important : Vous devez laisser un espace de chaque côté du nombre pour créer l'ancre du paragraphe, qui servira lors de l'appel d'un lien depuis un autre paragraphe. Vous devez également débuter cette création de paragraphe en début de ligne, ne laissez pas d'espace avant pour centrer le paragraphe dans votre source.
 
 
 === Choix ===
 
-Pour créer un choix on peut utiliser ces 2 formules :
+Pour créer un choix on peut utiliser cette syntaxe :
 
 
 ```
-- Description du choix : z
-- Description du choix : [z #z]. Et quelques mots ensuite.
+- Description du choix : nombre
+- Description du choix : [#nombre]. Et quelques mots ensuite.
+- Description du choix : [#mot]. Et éventuellement quelques mots ensuite.
 ```
 
+avec le nombre indiqué se référant au numéro de votre paragraphe lié. Textallion sera capable de détecter qu'il s'agit d'un choix, et le reliera automatiquement au paragraphe de destination.
 
-avec z symbolisant le numéro de votre paragraphe. Textallion sera capable de détecter qu'il s'agit d'un choix, et le reliera automatiquement au paragraphe de destination.
+Il est obligatoire d'utiliser la syntaxe ``[#nombre]`` si ce nombre est suivi de quelque chose et n'est pas tout seul à la fin de la ligne. Pour pouvoir bénéficier de toutes les possibilités d'export dans tous les formats proposés, il est conseillé de s'en tenir à la première possibilité d'écriture, plus classique aux livres-jeux de l'époque.
 
-Il est obligatoire d'utiliser la syntaxe ``[z #z]`` si le nombre est suivi de quelque chose et n'est pas tout seul à la fin de la ligne. Pour pouvoir bénéficier de toutes les possibilités d'export dans tous les formats proposés, il est conseillé de s'en tenir à la première possibilité d'écriture.
+Enfin, la syntaxe avec ``[#mot]`` permet d'écrire des aventure modernes, prévues notamment pour le système twine, avec uniquement des mots-clé en tant que des paragraphes, à la place des nombres. 
+
+Vos paragraphes associés seront donc caractérisés par les mots-clés les appelant, de cette manière :
+
+```
+== mot ==
+```
+
+Enfin, parce qu'au bout d'un moment vous aurez épuisé toutes les possibilités de mot-clé, il est possible d'associer un label différent du mot-clé pour le lien : [description|#mot-clé]
+
+Rappelez-vous, le dièse # est comme une ancre qui redirige toujours vers le nom d'un chapitre. Le mot-clé, et ainsi le chapitre (qui seront cachés dans twine), doivent être en un seul mot, quitte à utiliser des - ou des _ pour en relier plusieurs.
 
 
 === Réflexions sur le systèmes utilisé ===
@@ -123,10 +135,10 @@ Il est obligatoire d'utiliser la syntaxe ``[z #z]`` si le nombre est suivi de qu
 
 Maintenant que la syntaxe a été dévoilée, nous souhaiterions revenir sur le concept de livre-jeu : diverses solutions existent pour créer de telles oeuvres, par exemple une interface avancée de programmation qui s'occupe de lister les embranchements existants, ceux disponibles, ou bien qui mélange aléatoirement les chapitres. De telles interfaces ont leurs raisons d'être, mais nous préférons utiliser pour notre part la simplicité du texte brut.
 
-Nous ne sommes pas en mesure de fournir une telle interface, mais une solution approchante existe, partiellement, avec le logiciel [Twine  http://gimcrackd.com/etc/src/]. De plus, nous avons réalisé un petit script (core/twee_to_textallion.sh) permettant de convertir du format de twee vers celui de textallion.
+Nous ne sommes pas en mesure de fournir une telle interface, mais une solution approchante existe, partiellement, avec le logiciel [Twine  http://gimcrackd.com/etc/src/]. De plus, nous avons réalisé un petit script (core/twee_to_textallion.sh) permettant de convertir du format de twee vers celui de textallion. Ainsi si vous souhaitez utiliser ce logiciel, il vous sera ensuite possible de récupérer votre travail dans textallion pour en faire autre chose (livre électronique, fichier pdf, impression papier). Mais si vous voulez en faire autre chose, il vous faudra rédiger vos aventures dans Twine en gardant la syntaxe avec uniquement des nombres en tant que chapitres et que liens.
 
 
-D'autre part, pour la présentation des paragraphes, nous encourageons à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer le support complet pour les mots-clés.
+En effet, pour la présentation des paragraphes, nous avons tendance à encourager à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer un support plus complet pour les mots-clés. Pour le moment celui-ci fonctionne le mieux en conjonction avec Twine.
 
 
 
@@ -158,6 +170,8 @@ Vous pouvez également créer un lien nommé, et rediriger vers un chapitre stan
 Cela retirera le nombre dans le texte affiché, mais le lien HTML contiendra toujours la référence de ce nombre, aussi vos joueurs pourront quand même le lire. Dans la version PDF, le lien ne fonctionne pas (pour le moment). Cette option est sans doute uniquement utile dans le cas d'une version {^}ePUB{^} seule.
 
 
+
+
 === Images ===
 
 Vous pouvez ajouter des images avec ``[votreimage.jpg]`` (ou .png)
@@ -168,6 +182,13 @@ Pour utiliser des images incluses dans le texte, on peut utiliser la syntaxe
 ```
 
 //(comme dans textallion)//
+
+
+
+=== Notes de bas de page ===
+
+Les notes de bas de page, peuvent être vues comme un moyen de rajouter des indications pour le joueur (aide ou triche). Il n'est pas possible de garder la même syntaxe que dans textallion, aussi ici on a : phrase blabla°°note1°°explication de la note°° avec note1 à incrémenter soit-même dans le jeu. Dans twine, ces notes figureront simplement entre parenthèse après leur lieu d'insertion.
+
 
 
 === Organigramme ===
@@ -214,6 +235,7 @@ De plus, vous devrez sans doute éditer un peu la source avant d'être capable d
 
 
 - [twee(code) / Twine http://gimcrackd.com/etc/src/] est un format de livre-jeu utilisable sur internet, basé sur tiddlywiki. La commande ``make cyoa-twee`` exporte dans ce format. (La version de twee sur le site officiel est buggée, donc nous utilisons une [version patchée https://github.com/mcdemarco/twee]).
+
 Le script core/twee_to_textallion.sh permet d'exporter vers textallion un travail réalisé dans Twine.
 
 

@@ -30,7 +30,7 @@ else
 #  DOCUMENT = exemple_lettre
 #  DOCUMENT = examples
   #DOCUMENT = the_blue_death
- #DOCUMENT = la_mort_bleue
+# DOCUMENT = la_mort_bleue
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -203,6 +203,7 @@ configuration-update:
 cyoa-play:
 	$(BROWSER) $(DOCUMENT).html
 
+#todo : notes
 cyoa-html:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/cyoa.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --css-inside --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 	
@@ -286,6 +287,7 @@ cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
 	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g"  >> $(DOCUMENT)_export.gbl
 
+cyoa-twine:	cyoa-twee
 
 cyoa-twee:
 	# for use with http://gimcrackd.com/etc/src/
@@ -296,29 +298,45 @@ cyoa-twee:
 	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n//' |\
 	# remove extra textallion syntax |\
 	 perl -pe 's/TESTLUCK/\[i\]Am I lucky today? (throwing a dice, 5 or 6 means luck)\[\/i\]/'|\
+	 # italic and underline are the same. Only bold is different |\
+	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
+	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
 	 perl -pe 's/¯/ /g' |\
 	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
 	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
 	 perl -pe 's/rdv/rendez-vous/' |\
-	 # images \
+	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
 	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
 	 perl -pe 's/\[\[(.*).png] 1\]//' |\
-	 perl -pe 's/\[(.*).jpg\]//' |\
-	 perl -pe 's/\[(.*).jpg\]//' |\
-	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).jpg\]/\[img\[\1.jpg\]\]/' |\
+	 perl -pe 's/\[(.*).png\]/\[img\[\1.png\]\]/' |\
+	 # why did we remove media? |\
+	 #perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	 # choices (\r is for windows newline) \
+	 # choices and links (\r is for windows newline) \
 	 perl -pe 's/- (.*?) (\d+)( *)\n/- \1 [[\2]]\n/' |\
 	 perl -pe 's/- (.*?) (\d+)( *)\r/- \1 [[\2]]/' |\
-	 perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 perl -pe 's/\[(.*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 perl -pe 's/ \#(\d+) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
+	 perl -pe 's/\[\#(\d+)\]/[[\1]]/g' |\
+	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
 	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
 	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
+	 # notes \
+	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
 	 # chapters \
 	 perl -pe 's/== (\d+) ==/:: \1/' |\
-	 perl -pe 's/==(\d+)==\[(.*)\]/:: \2/' |\
+	 perl -pe 's/==(\d+)==\[(.*)\]/:: \1/' |\
 	 perl -pe 's/==(\d+)==/:: \2/' |\
+	 perl -pe 's/== (.*?) ==\[(.*?)\]/:: \2/' |\
+	 perl -pe 's/== (.*?) ==/:: \1/' |\
 	 # make twee lists \
 	 perl -pe 's/^- /* /' |\
+	 perl -pe 's/^+ /# /' |\
 	 # \
 	 perl -pe 's/:: 0/:: Start/' >> $(DOCUMENT)_export.tw 
 	 -iconv -f UTF-8 -t ISO-8859-15 $(DOCUMENT)_export.tw -o $(DOCUMENT)_export_iso8859.tw

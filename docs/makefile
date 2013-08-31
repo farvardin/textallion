@@ -110,13 +110,7 @@ endif
 latex:
 	make pdf
 
-% sffms-style LaTeX output for Sphinx.
-sffms:
-	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/sffms.tex -t tex --toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
-	-pdflatex -interaction batchmode $(DOCUMENT).tex
-	-pdflatex -interaction batchmode $(DOCUMENT).tex
-	# (the compilation of the latex document is duplicated so the TOC generated the first time will be included the second time)
-	
+
 
 lettre:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/lettre.tex -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
