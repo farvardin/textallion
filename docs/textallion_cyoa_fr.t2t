@@ -108,7 +108,7 @@ Pour créer un choix on peut utiliser cette syntaxe :
 
 
 ```
-- Description du choix : nombre
+- Description du choix (débutant par un tiret "-") : nombre
 - Description du choix : [#nombre]. Et quelques mots ensuite.
 - Description du choix : [#mot]. Et éventuellement quelques mots ensuite.
 ```
@@ -117,7 +117,7 @@ avec le nombre indiqué se référant au numéro de votre paragraphe lié. Texta
 
 Il est obligatoire d'utiliser la syntaxe ``[#nombre]`` si ce nombre est suivi de quelque chose et n'est pas tout seul à la fin de la ligne. Pour pouvoir bénéficier de toutes les possibilités d'export dans tous les formats proposés, il est conseillé de s'en tenir à la première possibilité d'écriture, plus classique aux livres-jeux de l'époque.
 
-Enfin, la syntaxe avec ``[#mot]`` permet d'écrire des aventure modernes, prévues notamment pour le système twine, avec uniquement des mots-clé en tant que des paragraphes, à la place des nombres. 
+Enfin, la syntaxe avec ``[#mot]`` permet d'écrire des aventure modernes, prévues notamment pour le système twine, avec uniquement des mots-clé en tant que des paragraphes, à la place des nombres. Il n'est d'ailleurs pas nécessaire de les indiquer dans une structure de choix, débutant par un tiret.
 
 Vos paragraphes associés seront donc caractérisés par les mots-clés les appelant, de cette manière :
 

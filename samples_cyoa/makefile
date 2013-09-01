@@ -303,6 +303,9 @@ cyoa-twee:
 	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n//' |\
 	# remove extra textallion syntax |\
 	 perl -pe 's/TESTLUCK/\[i\]Am I lucky today? (throwing a dice, 5 or 6 means luck)\[\/i\]/'|\
+	 # replace any ="introduction" by 0 |\
+	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	 # italic and underline are the same. Only bold is different |\
 	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
@@ -319,15 +322,17 @@ cyoa-twee:
 	 #perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
 	 # choices and links (\r is for windows newline) \
-	 perl -pe 's/- (.*?) (\d+)( *)\n/- \1 [[\2]]\n/' |\
-	 perl -pe 's/- (.*?) (\d+)( *)\r/- \1 [[\2]]/' |\
-	 perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
-	 perl -pe 's/\[(.*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/- \1 [[\2]]\n/' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/- \1 [[\2]]/' |\
+	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
 	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
-	 perl -pe 's/ \#(\d+) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
-	 perl -pe 's/\[\#(\d+)\]/[[\1]]/g' |\
+	 perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
 	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
 	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
 	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\

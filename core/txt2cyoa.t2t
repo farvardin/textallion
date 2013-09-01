@@ -41,7 +41,6 @@
 %!postproc(txt):  "s'" "s"
 %!postproc(txt):  "t'" "t"
 %!postproc(txt):  "u'" "u"
-%!--DOESNT-WORK--postproc(txt): '(\d+)'  '@@@\1@@@' 
 %!postproc(txt): 'au (\d+)'  '@@@\1@@@' 
 %pour eviter les chiffres au milieu des lignes, avant le rdv :
 %!postproc(txt): '(\d+),'  '' 
@@ -117,27 +116,20 @@
 % create named paragraphs as well (also for twine)
 %!preproc: '^== ([^ ].*?) =='  '==\1==[\1]'
 
-
+ 
 
 % allow to use this syntax: [dark forest|#forest-ref-01]
-%-!preproc: '\[([^ ].*?) \| #([^ ].*?)\]'  '**[\1 #\2]**' 
+ 
 %!preproc: '\[([^ ].*?)[ ]*\|[ ]*#([^ ].*?)\]'  '[\1 #\2]' 
 
 
-%% understand short names for links (especially for twine) 
-%% understand #named_link (not working) or [#named_link] or [blabla #named_link]
-%-messes up links-!preproc: ' \#([^ ].*?) '  ' **[\1 #\1]** '
-%-!preproc: '\#([^ ].*?)'  ' [#\1] '
-%-!preproc: '([^ ])\#([^ ].*?)([^ ])'  ' **[\1 #\1]** '
+%% understand short names like [#named_link] for links (especially for twine) 
 
 %!preproc: '\[\#([^ ].*?)\]'  '[\1 #\1]'
-%-!preproc: ' \[\#([^ ].*?)\]\.'  ' [\1 #\1].'
-%-!preproc: ' \[\#([^ ].*?)\],'  ' [\1 #\1],'
-%-!preproc: ' \[\#([^ ].*?)\]$'  ' [\1 #\1]\n'
+
 
 
 % normal t2t links, in bold 
-%-!preproc: '\[(\d+) #([^ ].*?)\]'  '**[\1 #\2]**' 
 %!preproc: '\[([^ ].*?) #([^ ].*?)\]'  '**[\1 #\2]**'
 
  
@@ -147,19 +139,10 @@
 %!preproc: ' \#(\d+?) '  ' **[\1 #\1]** ' 
 
 
-%% bold all numerical links   
-%-- we disable it because it was done above-!preproc: '\[(\d+?) #(\d+)\]'  '**[\1 #\1]**'   
-%--!preproc: '\[(\d+) #(\d+)\]'  '**[\1 #\1]**' 
-
-
-
-
-
-
 
 %% number at end of the line = link
 %% bold for named links and normal links too      
-%!--NOT-WORKING--preproc: '(\d+) #([^ ].*?)$'  '**[\1 #\2]**' 
+
 %!preproc: '(\d+)\.$'  '**[\1 #\1].**'  
 %!preproc: '(\d+)$'  '**[\1 #\1]**'  
 % we also allow spaces at the end
@@ -176,18 +159,6 @@
 %!postproc: 'rdv au' 'rendez-vous au'
 %!postproc: 'Rv au' 'Rendez-vous au'
 %!postproc: 'Rdv au' 'Rendez-vous au'
-
-
-
-
-% POSTPROC options
-
-%!--postproc(tex): 'wrap=\\includegraphics{([^ ].*?)}=wrap' '\\begin{wrapfigure}{l}{0\\textwidth} \\vspace{-00mm}  \\includegraphics[height=4cm]{\1} \\vspace{-00mm} \\end{wrapfigure} '
-
-% center section + bold 
-%!--postproc(tex): '\\subsection\*{([^ ].*?)}' '\\textbf{\\begin{center}\\subsection*{\Huge{\1}}\\end{center}}'
-
-
 
 
 
@@ -278,15 +249,12 @@
 
 %% Footnote
 %% already in textallion
-% 
-
-
 
 
 
 %!--postproc(xhtml): '<meta name="generator" content="http://txt2tags.org" />' '<meta name="generator" content="http://txt2tags.org" /><meta http-equiv="content-type" content="text/html; charset=UTF-8" />'
 
-%%%% Retirer les cochonneries de txt2tags
+%%%% Remove unwanted stuffs from txt2tags
 
 %!postproc(tex): '\\usepackage\[urlcolor=blue,colorlinks=true\]{hyperref}' ''
 
@@ -306,24 +274,10 @@
 
 
 
-% Use personnal A4 style
-%% TODO : à changer vers textallion
-%%!style(tex): ../includes/cyoa_A4 
-%%!style(tex): ../samples_cyoa/blue_death_temp.sty 
-%%!style(tex): ../includes/sample_cyoa.sty
-
-% size of paper and margins
-%!--style(tex): geometry 
-%!--postproc(tex): {geometry} 	[a4paper, portrait, total={170 mm,237 mm}]{geometry} 
-
-%!--postproc(tex): '\\usepackage{graphicx}' '\\usepackage{cyoa_A4} % general style'
-%!--postproc(tex): '\\documentclass{article}' '\\documentclass[6pt, a4paper]{article}'
-
-%!--postproc(tex): '\\subsubsection\*\{([^ ].*?)\}' '\\textbf{\\subsection*{\\LARGE\\underline{{\1}}}}'
-
 
 
 %% quickfix before using template with textallion, otherwise titles won't looks nice and with chapter, it always breaks. We also reduce the space after the chapter number (vskip -2)
+%% todo: should be safe to remove now
 %!postproc(tex): '\\chapter\{(\d+)\}' '\\textbf{\\begin{center}\\subsection*{\\Huge{\1}}\\end{center}\\vskip-2em}'
 
 % TXT2CYOA CODE ENDS HERE 

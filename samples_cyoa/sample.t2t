@@ -48,25 +48,26 @@ This is the first chapter of your story.°°note1°°It will present various way
 
 % We just wrote a note here. Just start your note with °° write note1, note2, note3 etc (you'll have to increment this yourself, hopefully you shouldn't need to write that many notes in your game...), write °°, then the content of your note, and °° again. 
 
-You are walking on the bank of a river, in a sunny autumn day. You can see a man holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
+You are walking on the bank of a river, in a sunny autumn day. You can see a [#man] holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
 
 - Enter the [#forest] nearby.
 - Explore the [green hills|#hills] close to the river: 5
-- Ask the [#man] about the [twigs #6] he's getting from the river: [#6]
+- Ask the [#man] about the [twigs #8] he's getting from the river: [#8]
 
 % We just wrote 5 different ways to express a link to a new chapter:
-% - 5 at the end of a line will link to the chapter == 5 ==
-% - [#6] could have been written just "6" in this context, but by writing it this way, you can place it anywere in your text. It will link to chapter == 6 == of course.
+% - 5 at the end of a line (starting with "-") will link to the chapter == 5 ==
+% - [#6] could have been written just "6" in this context, but by writing it this way, you can place it anywhere in your text. It will link to chapter == 6 == of course.
 % - [#forest] will be linked to a chapter called == forest == 
 % - [green hills|#hills] (or [green hills | #hills]) will link to chapter == hills == and will display "green hills" to the read.
 % - similarly, [twigs #6] will link to chapter == 6 ==, and display "twigs" to the reader
 
-% The first 2 ways (5 and [#6]) have the advantage to be more like traditional CYOA gamebooks, and allow your work to be printed. The other ways will only be available for ebooks or online through a browser.
+% The first 2 ways (5 and [#6]) have the advantage to be more like traditional CYOA gamebooks, and allow your work to be printed. The other ways will only be available for electronic ebooks or through a web-browser.
 
 
 == 2 ==
 
-There is nothing interesting in this chapter
+There is nothing interesting in this chapter. In fact this is only a test chapter.
+
 This template story is almost empty yet, but you can improve it yourself!
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -78,23 +79,16 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 == 3 ==
 
-You are in the old forest. 
+You are at the edge of the old forest. 
 
 [../media/sample_forest.png]{~~~~}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 This forest is huge and you may get lost, so you'd better go back to the road.
 
-- Go back to the cliff : 6
-- Go the beach : 5
-- Go to the market place : 4
-- Enter your home [7 #7] or restart [1 #1] the game.
+- Go to the cliff: 6
+- Go back to the hills close to the beach: 5
+- Enter the [#forest] anyway.
+- Go to the market place in your village: 4
 - Enter your home [#7] or restart [#1] the game.
 
 
@@ -104,42 +98,25 @@ There is no one here.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- Go to the cliff : 6
-- Go to beach : 5
+- Go up to the cliff: 6
+- Go to the hills: 5
 - Go back to the entrance of the [#village], where you have a friend.
 
 
 == 5 ==
 
-You find nothing in the hills. There is the sea on the west.
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs #8].
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- Go close to the cliff to examine the sea from above: 6
+- Go to the forest nearby: 3
+- Look inside the boat: 2
+- Talk to the man: 8
+- You decide you feel bored and go bakc to your home [#7] or restart [#1] the game.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-- Go to the cliff°°note4°°(it's huge!)°° to examine the sea: 6
-- Go to the forest°°note2°°(a deep forest)°° nearby : 3
-- Look inside the boat : 2
-
-
-== game ==
-
-This chapter is linked from a pure keyword 
-
-- go to the end: #9 and enjoy!
-
-
-== village ==
-
-You have a friend in the village.
-
-- go to the forest: 3
 
 
 == 6 ==
 
-He tells you an extraordinary tree is growing several miles above, near the river. He's so old he cannot affort to travel there alone. 
-/.../
 You stand on the edge of a cliff.°°note3°°(it's very huge!)°°
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -151,42 +128,68 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 - Go to the beach : 5
 - Go to the [#village] nearby
-- [tiny village #village] 
-- [tiny village|#village].
-- [tiny village | #village]
-- this [#village], nearby, [tiny village|#village].
+
+
 
 
 == 7 ==
 
-Congratulation, the [#game] is finished !
+Your home is a simple hut in the village of Uldirir.
+
+- Here you can choose to continue the game by going again by the seaside, to the hills: 5
+- Or [#test] various things in this game.
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+== 8 ==
+
+The man tells you that an extraordinary tree is growing several miles above, along the river. He's so old he cannot travel there alone. 
+
+- You propose to go there for him: 10
 
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+== 9 ==
+
+Nothing here yet!
+
+- Restart the [#game]: 1
+- [#1] 
+
+== 10 ==
+
+Nothing here yet!
+
+
+== game ==
+
+This chapter is linked from a pure keyword 
+
+- Now restart the game: 1
+
+
+== village ==
+
+[../media/sample_village.png]{~~~~}
+
+You have a friend in the village.
+
+- go to the forest: 3
 
 
 == forest ==
 
-This is the forest part.
+As soon as you enter the forest, you hear some strange noises.
 
-- Restart the game 1
-- go deeper in the [dark forest|#forest-ref-01], check [this game info|#game] or return to [#village]
+- Go deeper in your exploration of the [dark forest|#forest-ref-01], or return to the [#village].
 
 
-==8==[village]
+== hills ==
 
-[../media/sample_village.png]{~~~~}
+blabla 
 
-This part is a dead-end!
-
-- Restart the game 1
-%- Examine the organigramme : 10
+- go to 5
 
 
 == forest-ref-01 ==
@@ -196,14 +199,31 @@ This part is deeper in the [#forest].
 - Restart the game 1
 
 
+== man ==
 
-== 9 ==
+The man has a long beard and some strange nostrils. He's quite aged and looks quite crazy.
 
-Nothing here yet!
+- Talk to the man: 8
+- Go back home: 7
 
-- Restart the #game 1
-- [#1] 
+
+
+== test ==
+
+This part is for testing purpose only.
+
+- [tiny village #village] 
+- [tiny village|#village].
+- [tiny village | #village]
+- this [#village], nearby, [tiny village|#village].
+
+- Enter your home [7 #7] or restart [1 #1] the game.
+- Enter your home [#7] or restart [#1] the game.
+- go deeper in the [dark forest|#forest-ref-01], check [this game info|#game] or return to [#village]
 
 
 
 == instructions ==
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
