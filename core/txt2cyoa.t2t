@@ -5,7 +5,7 @@
 %% "choose your own adventure" easily made with txt2tags
 %% (module for textallion)
 %
-% by Eric Forgeot (c) 2007-2011
+% by Eric Forgeot (c) 2007-2013
 %
 % Complete source code: http://textallion.googlecode.com
 % License: http://en.wikipedia.org/wiki/BSD_licenses
@@ -101,6 +101,11 @@
 
 % PREPROC options 
 
+% tt + decimal = turn to ...
+
+%!preproc: 'tt (\d+)([ ]?)' 'turn to \1'
+
+
 
 %!preproc: '^==(\d+)==$'	'WARNING : \1 is not named !!!!'
 
@@ -159,6 +164,8 @@
 %!postproc: 'rdv au' 'rendez-vous au'
 %!postproc: 'Rv au' 'Rendez-vous au'
 %!postproc: 'Rdv au' 'Rendez-vous au'
+
+
 
 
 
@@ -278,7 +285,10 @@
 
 %% quickfix before using template with textallion, otherwise titles won't looks nice and with chapter, it always breaks. We also reduce the space after the chapter number (vskip -2)
 %% todo: should be safe to remove now
-%!postproc(tex): '\\chapter\{(\d+)\}' '\\textbf{\\begin{center}\\subsection*{\\Huge{\1}}\\end{center}\\vskip-2em}'
+%-!postproc(tex): '\\chapter\{(\d+)\}' '\\textbf{\\begin{center}\\subsection*{\\Huge{\1}}\\end{center}\\vskip-2em}'
+
+%!postproc(tex): '\\chapter\{(\d+)\}' '\\textbf{\\subsection*{\\begin{center}\\Huge{\1}\\end{center}}\\vskip-2em}'
+ 
 
 % TXT2CYOA CODE ENDS HERE 
 

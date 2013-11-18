@@ -102,11 +102,11 @@ Mais il est né également de la frustration de ne pas pouvoir utiliser simpleme
 
 Le but est donc de pouvoir sortir un roman ou un texte littéraire, en utilisant {^}txt2tags{^} comme pré-processeur, et ainsi garder des marques de formatage non distrayantes, tout en pouvant exporter en {^}LaTeX{^} et {^}html{^} selon le type du document final envisagé : publication papier ([pdf documentation_fr.pdf]), page internet ([html documentation_fr.html], ainsi qu'en [version de présentation avec slidy documentation_fr_slide.html]), ou encore livre électronique ([epub documentation_fr.epub]), et cela à partir d'une __[source unique pour tous ces documents documentation_fr.t2t]__.
 
-Ainsi, cet outil s'adresse surtout à ceux qui souhaitent écrire facilement et rapidement des textes de type poésie ou prose, sans entrer dans les méandres des commandes {^}LaTeX{^}.
+Ainsi, cet outil s'adresse surtout à ceux qui souhaitent écrire facilement et rapidement des textes de type poésie ou prose, sans entrer dans les méandres des commandes {^}LaTeX{^}. (LaTeX est parfois le contraire du wysiwyg (what you see is what you get), par certains aspect cela devient du wysiwyhtst : "What you see is what you have tested several times".)
 
 Il présente par défaut : mise en gras, italique, soulignage, barré, texte coloré, organisation hiérarchique (titres et sous-titres), listes à puce ou numérotées, inclusion d'images et de liens hypertextes, numérotation des pages, haut de page avec titre et ligne de séparation, support des notes de bas de page, exergues (épigraphes), table des matières, colonnes, modification de taille de polices (très basique), ornementations type lettrine ou petites feuilles aldines.
 
-Il inclut également un système pour la création de "livres-jeux" (livres dont vous êtes le héros).
+Il inclut également un système pour la création de « livres-jeux » (livres dont vous êtes le héros).
 
 Cet outil est relativement simple à utiliser, mais pas simpliste : il est nécessaire pour en tirer partie d'avoir quelques bases en informatique, du fait de l'obligation de l'installation et de l'utilisation des ressources de plusieurs autres projets en même temps (python, latex). Dit autrement, c'est un peu un outil pour geeks, mais malgré tout il sera possible d'avoir un confort d'écriture nullement atteint avec les traitements de texte habituels, et l'installation de ces autres logiciels ne nous semble pas insurmontable avec un peu de bonne volonté. 
 
@@ -125,7 +125,7 @@ Ce n'est donc pas un logiciel clé en main qui permettra de réaliser tout et n'
 
 Ce présent manuel se focalise surtout sur la création de documents pdf, destinés en particulier à l'impression, mais tout est normalement adaptable pour la publication en {^}html{^} pour internet, et le format {^}ePUB{^} pour les liseuses numériques (lecteurs d'ebooks, livres électroniques, téléphones portables, smartphones).
 
-//Note : Ce projet avait pour nom "txt2tex" à l'origine.//
+//Note : Ce projet avait pour nom « txt2tex » à l'origine.//
 
 
 %De tout ceci il ressort quelques barrières pour l'utilisation de textallion, mais également quelques points positifs : 
@@ -168,7 +168,7 @@ Le TeXtallion a été testé avec succès sur ces plateformes :
 
 [LaTeX http://www.latex-project.org/] et [python 2 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
-(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-extra  texlive-lang-french latexml latex-xcolor tipa texlive-fonts-recommended texlive-xetex)
+(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-extra  texlive-lang-french latexml latex-xcolor tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)
 éventuellement texlive-fonts-extra
 
 Vous pouvez utiliser le petit script d'installation ``textallion_install.sh`` (à lancer en root), pour copier l'ensemble des fichiers nécessaires dans /usr/share/textallion/, ou le dossier de votre choix.
@@ -1081,6 +1081,7 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
 - Storyist : http://storyist.com/
 - http://www.texts.io/
 - La poule ou l'oeuf (logiciel libre) : http://pouleouoeuf.org/
+- Patoline / Patobook (logiciel libre) : http://www.patoline.org/
 - Celtx (logiciel libre) : http://www.celtx.com
 - Troff :
  - Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 

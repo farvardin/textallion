@@ -5,7 +5,7 @@
 %% Tiny almost-Kiss Word Processor
 %% based on the txt2tags tool and wiki syntax
 %
-% by Eric Forgeot (c) 2008-2011
+% by Eric Forgeot (c) 2008-2013
 %
 % http://anamnese.online.fr/site2/textallion/docs/presentation.html
 % Complete source code: http://textallion.googlecode.com
@@ -52,7 +52,8 @@
 % column			  {|n|}
 
 % exergue (epigraph)  {  ~~}             
-% exergue end         {/ ~~}
+% exergue end         {/ ~~} 
+% exergue end (with author) {/ ~~}Author 
 
 % code (monospace)    {####}  or {###;}             
 % code end            {/###}  or {/##;}
@@ -147,11 +148,18 @@
 % page break for header 1
 % and replacement from the default txt2tags article 
 
-%!postproc(tex): '\\section\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part'
-%!postproc(tex): '\\subsection\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
+%!postproc(tex): '\\section\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part*'
+%!postproc(tex): '\\section'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part'
+%!postproc(tex): '\\subsection\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter*'
+%!postproc(tex): '\\subsection'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
 %% TODO: slow down the generation of the latex doc if this one is searched with \ 
-%!postproc(tex): '\\subsubsection\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section'
-%!postproc(tex): '\\paragraph\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+%!postproc(tex): '\\subsubsection\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section*'
+%!postproc(tex): '\\subsubsection'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section'
+%!postproc(tex): '\\paragraph\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection*'
+%!postproc(tex): '\\paragraph'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+
+
+
 
 %--!postproc(tex): '\\section\*' '\\part'
 %--!postproc(tex): '\\subsection\*' '\\chapter'
@@ -595,6 +603,8 @@
 %!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\end{exergue}'
 %!postproc(xhtml): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'     '</div><div class="exergueauthor">\1</div>'
 
+%% TODO : problème placement et fin de div à cause de exergueauthor
+
 %!preproc: '\{\/ ~~\}'   'CONVERTexergueEND'
 %!postproc(tex): 'CONVERTexergueEND'  '\end{exergue}'
 %!postproc(xhtml): 'CONVERTexergueEND'     '</div>'
@@ -740,8 +750,8 @@
 
 
 %amsmath
-%!postproc(tex): 'CONVERTplus'           '\oplus'
-%!postproc(tex): 'CONVERTminus'          '\ominus'
+%!postproc(tex): 'CONVERTplus'           '(+)'
+%!postproc(tex): 'CONVERTminus'          '(-)'
 
 %!postproc(tex): 'CONVERTattention'      '(!)'
 %!postproc(tex): 'CONVERTinformation'    '(i)'

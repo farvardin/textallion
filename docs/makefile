@@ -28,7 +28,7 @@ ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
 else
    DOCUMENT = documentation_en
-  #DOCUMENT = documentation_fr
+  DOCUMENT = documentation_fr
   #DOCUMENT = textallion_cyoa_en
   #DOCUMENT = textallion_cyoa_fr
   #DOCUMENT = testcase
@@ -109,8 +109,7 @@ endif
 
 latex:
 	make pdf
-
-
+	
 
 lettre:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/lettre.tex -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
@@ -241,11 +240,16 @@ cyoa-gamebook:
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
 	
 cyoa-epub:
-	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/cyoa.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --no-style --no-toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
+	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/epub.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --no-style --no-toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 	cat $(DOCUMENT).html | sed -e "s/<audio\(.*\)audio>//g" > $(DOCUMENT)2.html
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
 	-make tidy
-	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" | sed -e "s/el3.style.visibility = 'hidden';//g" | sed -e "s/div.c3 {display:none}//g" > $(DOCUMENT)2.html
+	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" |\
+	sed -e "s/el[1-9].style.visibility = 'hidden';//g" |\
+	sed -e "s/span.c[1-9] {display:none}//g" |\
+	sed -e "s/span.c[1-9] {display: none}//g" |\
+	sed -e "s/div.c[1-9] {display:none}//g" |\
+	sed -e "s/span.c[1-9] {visibility:hidden}//g" > $(DOCUMENT)2.html
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
 	#
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak --page-breaks-before //h:div[@id] --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover --no-svg-cover --preserve-cover-aspect-ratio --no-chapters-in-toc
@@ -283,6 +287,7 @@ cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
 	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g"  >> $(DOCUMENT)_export.gbl
 
+cyoa-twine:	cyoa-twee
 
 cyoa-twee:
 	# for use with http://gimcrackd.com/etc/src/
@@ -292,30 +297,53 @@ cyoa-twee:
 	echo ":: StoryTitle" > $(DOCUMENT)_export.tw 
 	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n//' |\
 	# remove extra textallion syntax |\
-	 perl -pe 's/TESTLUCK/\[i\]Am I lucky today? (throwing a dice, 5 or 6 means luck)\[\/i\]/'|\
+	 perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	 # abbreviations |\
+	 perl -pe 's/tt (\d+)/turn to [[\1]]/g' |\
+	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
+	 # replace any ="introduction" by 0 |\
+	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 # italic and underline are the same. Only bold is different |\
+	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
+	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
 	 perl -pe 's/¯/ /g' |\
 	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
 	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
 	 perl -pe 's/rdv/rendez-vous/' |\
-	 # images \
+	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
 	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
 	 perl -pe 's/\[\[(.*).png] 1\]//' |\
-	 perl -pe 's/\[(.*).jpg\]//' |\
-	 perl -pe 's/\[(.*).jpg\]//' |\
-	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).jpg\]/\[img\[\1.jpg\]\]/' |\
+	 perl -pe 's/\[(.*).png\]/\[img\[\1.png\]\]/' |\
+	 # why did we remove media? |\
+	 #perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	 # choices (\r is for windows newline) \
-	 perl -pe 's/- (.*?) (\d+)( *)\n/- \1 [[\2]]\n/' |\
-	 perl -pe 's/- (.*?) (\d+)( *)\r/- \1 [[\2]]/' |\
-	 perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
-	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
-	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
+	 # choices and links (\r is for windows newline) \
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/- \1 [[\2]]\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/- \1 [[\2]]/g' |\
+	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
+	 perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
+	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
+	 # notes \
+	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
 	 # chapters \
 	 perl -pe 's/== (\d+) ==/:: \1/' |\
-	 perl -pe 's/==(\d+)==\[(.*)\]/:: \2/' |\
+	 perl -pe 's/==(\d+)==\[(.*)\]/:: \1/' |\
 	 perl -pe 's/==(\d+)==/:: \2/' |\
+	 perl -pe 's/== (.*?) ==\[(.*?)\]/:: \2/' |\
+	 perl -pe 's/== (.*?) ==/:: \1/' |\
 	 # make twee lists \
 	 perl -pe 's/^- /* /' |\
+	 perl -pe 's/^+ /# /' |\
 	 # \
 	 perl -pe 's/:: 0/:: Start/' >> $(DOCUMENT)_export.tw 
 	 -iconv -f UTF-8 -t ISO-8859-15 $(DOCUMENT)_export.tw -o $(DOCUMENT)_export_iso8859.tw
@@ -538,7 +566,7 @@ clean-temp:
 	-rm  *~ 
 	-rm  .*~
 	-rm  $(DOCUMENT).toc
-	-rm  $(DOCUMENT).tex
+	-rm  -fr $(DOCUMENT).tex
 	-rm  $(DOCUMENT)_slide.tex
 	-rm  $(DOCUMENT)2.html
 	-rm  $(DOCUMENT).ps

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Textallion"
-#define MyAppVersion "2012-02-05"
+#define MyAppVersion "2013-11-18"
 #define MyAppPublisher "textallion"
 #define MyAppURL "http://textallion.googlecode.com"
 #define MyAppExeName "textallion_cygwin.bat"
@@ -53,8 +53,7 @@ Source: "C:\textallion_setup\filetype_extensions.conf"; DestDir: "{tmp}"; Flags:
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}" ; IconFilename: "{app}\textallion.ico"
 Name: "{group}\{cm:UninstallProgram,{#MyAppName}}"; Filename: "{uninstallexe}"  ;  IconFilename: "{app}\uninstall.ico"
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppName}";  Tasks: desktopicon
+Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\textallion.ico" ; Tasks: desktopicon
 
 
 [Code]
@@ -75,7 +74,7 @@ var
 function MiktexCheck(): Boolean;
 begin
   if not MiktexChecked then begin
-    MiktexCheckResult := MsgBox('During this installation, do you want to download Miktex (recommended)? It will create PDF file.', mbConfirmation, MB_YESNO) = idYes;
+    MiktexCheckResult := MsgBox('During this installation, do you want to download and install Miktex (recommended)? It is needed to create PDF file.', mbConfirmation, MB_YESNO) = idYes;
     MiktexChecked := True;
   end;
 end;
@@ -92,7 +91,7 @@ end;
 function CalibreCheck(): Boolean;
 begin
   if not CalibreChecked then begin
-    CalibreCheckResult := MsgBox('During this installation, do you want to download Calibre (recommended)? It will create EPUB file.', mbConfirmation, MB_YESNO) = idYes;
+    CalibreCheckResult := MsgBox('During this installation, do you want to download and install Calibre (recommended)? It is needed to create EPUB file.', mbConfirmation, MB_YESNO) = idYes;
     CalibreChecked := True;
   end;
 end;
@@ -107,7 +106,7 @@ end;
 function GeanyCheck(): Boolean;
 begin
   if not GeanyChecked then begin
-    GeanyCheckResult := MsgBox('During this installation, do you want to download Geany (recommended)? It will help editing source files.', mbConfirmation, MB_YESNO) = idYes;
+    GeanyCheckResult := MsgBox('During this installation, do you want to download Geany (highly recommended)? It will help editing source files. If you dont have it, it will require more setup from your part to edit your source files properly', mbConfirmation, MB_YESNO) = idYes;
     GeanyChecked := True;
   end;
 end;
@@ -153,9 +152,9 @@ begin;
 
  MiktexCheck();
  if (MiktexCheckResult = True) then begin
- if not FileExists(expandConstant('{src}\basic-miktex-2.9.4407.exe')) then begin
+ if not FileExists(expandConstant('{src}\basic-miktex-2.9.4813.exe')) then begin
       //Let's download miktex
-     itd_addfile('http://mirror.ibcp.fr/pub/CTAN/systems/win32/miktex/setup/basic-miktex-2.9.4407.exe',expandconstant('{src}\basic-miktex-2.9.4407.exe'));  
+     itd_addfile('http://mirror.ibcp.fr/pub/CTAN/systems/win32/miktex/setup/basic-miktex-2.9.4813.exe',expandconstant('{src}\basic-miktex-2.9.4813.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -163,9 +162,9 @@ begin;
 
 CalibreCheck();
  if (CalibreCheckResult = True) then begin
- if not FileExists(expandConstant('{src}\calibre-0.8.38.msi')) then begin
+ if not FileExists(expandConstant('{src}\calibre-0.9.35.msi')) then begin
       //Let's download Calibre
-     itd_addfile('http://calibre-ebook.googlecode.com/files/calibre-0.8.38.msi',expandconstant('{src}\calibre-0.8.38.msi'));  
+     itd_addfile('https://calibre-ebook.googlecode.com/files/calibre-0.9.35.msi',expandconstant('{src}\calibre-0.9.35.msi'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -173,9 +172,9 @@ CalibreCheck();
  GeanyCheck();
  if (GeanyCheckResult = True) then begin
 // FileGeany := ExpandConstant('{app}\geany-0.20_setup.exe');
- if not FileExists(expandConstant('{src}\geany-0.21_setup.exe')) then begin
+ if not FileExists(expandConstant('{src}\geany-1.23_setup.exe')) then begin
       //Let's download Geany
-     itd_addfile('http://download.geany.org/geany-0.21_setup.exe',expandconstant('{src}\geany-0.21_setup.exe'));  
+     itd_addfile('http://download.geany.org/geany-1.23_setup.exe',expandconstant('{src}\geany-1.23_setup.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -183,9 +182,9 @@ CalibreCheck();
  SumatraCheck();
  if (SumatraCheckResult = True) then begin
 // FileSumatra := ExpandConstant('{app}\SumatraPDF-1.4-install.exe');
- if not FileExists(expandConstant('{src}\SumatraPDF-1.9-install.exe')) then begin
+ if not FileExists(expandConstant('{src}\SumatraPDF-2.4-install.exe')) then begin
       //Let's download sumatra
-     itd_addfile('https://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-1.9-install.exe',expandconstant('{src}\SumatraPDF-1.9-install.exe'));  
+     itd_addfile('https://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-2.4-install.exe',expandconstant('{src}\SumatraPDF-2.4-install.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -226,17 +225,17 @@ end;
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, "&", "&&")}}"; Flags: shellexec postinstall skipifsilent; Components: Main
-Filename: "{src}\basic-miktex-2.9.4407.exe"; Parameters: "/SILENT " ; Check: MiktexCheckInstall ; Components: Miktex
-Filename: "msiexec"; Parameters: "/i ""{src}\calibre-0.8.38.msi""" ; Check: CalibreCheckInstall ; Components: Calibre
+Filename: "{src}\basic-miktex-2.9.4813.exe"; Parameters: "/SILENT " ; Check: MiktexCheckInstall ; Components: Miktex
+Filename: "msiexec"; Parameters: "/i ""{src}\calibre-0.9.35.msi""" ; Check: CalibreCheckInstall ; Components: Calibre
 ;Filename: "{src}\calibre-0.7.50.msi"; Parameters: "/SILENT " ; Check: CalibreCheckInstall ; Components: Calibre
-Filename: "{src}\geany-0.21_setup.exe"; Parameters: "/SILENT " ; Check: GeanyCheckInstall ; Components: Geany
-Filename: "{src}\SumatraPDF-1.9-install.exe"; Parameters: "/SILENT " ; Check: SumatraCheckInstall ; Components: Sumatra
+Filename: "{src}\geany-1.23_setup.exe"; Parameters: "/SILENT " ; Check: GeanyCheckInstall ; Components: Geany
+Filename: "{src}\SumatraPDF-2.4-install.exe"; Parameters: "/SILENT " ; Check: SumatraCheckInstall ; Components: Sumatra
 
 [Components]
-Name: Main; Description: Main cygwin Installation; Types: full compact custom; Flags: fixed
+Name: Main; Description: Main Textallion Installation (cygwin); Types: full compact custom; Flags: fixed
 Name: Miktex; Types: full; Description: MikTeX (for creating PDF)
 Name: Calibre; Types: full; Description: Calibre (for creating EPUB)
-Name: Geany; Types: full; Description: Geany text editor (optional but recommended)
+Name: Geany; Types: full; Description: Geany text editor (recommended)
 Name: Sumatra; Types: full; Description: Sumatra PDF reader (optional)
 
 ;[UninstallRun]

@@ -29,21 +29,21 @@
 %\titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before }[ after ]
 \usepackage{titlesec}
 
-\titleformat{\part}[hang]
-{\TITLExPARTxOPTIONS}{\thepart}{\TITLExSEPxSIZE pt}{\TITLExPARTxOPTIONS}
+% \def\TITLExSEPxSIZExbis{40} marche pas
+
+
+
+%% display <=> hang : display will put numbering on a different line
+\titleformat{\part}[hang]{\TITLExPARTxOPTIONS}{\thepart}{\TITLExSEPxSIZE pt}{\TITLExPARTxOPTIONS}
 %%TODO part
 
-\titleformat{\chapter}[hang]
-{\TITLExCHAPTERxOPTIONS}{\thechapter}{\TITLExSEPxSIZE pt}{\TITLExCHAPTERxOPTIONS}
+\titleformat{\chapter}[hang]{\TITLExCHAPTERxOPTIONS}{\thechapter}{\TITLExSEPxSIZE pt}{\TITLExCHAPTERxOPTIONS}
 
-\titleformat{\section}[display]
-{\TITLExSECTIONxOPTIONS}{\sectiontitlename\ \thesection}{\TITLExSEPxSIZE pt}{\TITLExSECTIONxOPTIONS}
+\titleformat{\section}[hang]{\TITLExSECTIONxOPTIONS}{\sectiontitlename \thesection}{\TITLExSEPxSIZE pt}{\TITLExSECTIONxOPTIONS}
 
-\titleformat{\subsection}[display]
-{\TITLExSUBSECTIONxOPTIONS}{\subsectiontitlename\ \thesubsection}{\TITLExSEPxSIZE pt}{\TITLExSUBSECTIONxOPTIONS}
+\titleformat{\subsection}[hang]{\TITLExSUBSECTIONxOPTIONS}{\subsectiontitlename \thesubsection}{\TITLExSEPxSIZExbis pt}{\TITLExSUBSECTIONxOPTIONS}
 
-\titleformat{\subsubsection}[display]
-{\TITLExSUBxSUBxSECTIONxOPTIONS}{\subsubsectiontitlename\ \thesubsubsection}{\TITLExSEPxSIZE pt}{\TITLExSUBxSUBxSECTIONxOPTIONS}
+\titleformat{\subsubsection}[hang]{\TITLExSUBxSUBxSECTIONxOPTIONS}{\subsubsectiontitlename \thesubsubsection}{\TITLExSEPxSIZExbis pt}{\TITLExSUBxSUBxSECTIONxOPTIONS}
 
 
 
@@ -242,6 +242,8 @@
 % ---------- PACKAGES --------------------------------------------------
 
 %\usepackage{amsmath,amssymb,amsfonts,textcomp}
+\let\iint\relax
+\let\iiint\relax
 \usepackage{amsmath}
 
 %\usepackage{initial} %lettrine

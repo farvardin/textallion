@@ -72,8 +72,8 @@ This template story is almost empty yet, but you can improve it yourself!
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-- Go to the left :  7
-- Go to the right :  5
+- Go to the left, tt 7
+- Go to the right, tt 5 
 - Use the boat : [7 #7]. It could be a good solution.
 
 
@@ -105,13 +105,13 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 == 5 ==
 
-You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs #8].
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs|#8].
 
 - Go close to the cliff to examine the sea from above: 6
 - Go to the forest nearby: 3
 - Look inside the boat: 2
 - Talk to the man: 8
-- You decide you feel bored and go bakc to your home [#7] or restart [#1] the game.
+- You decide you feel bored and go back to your home [#7] or restart [#1] the game.
 
 
 
@@ -212,6 +212,8 @@ The man has a long beard and some strange nostrils. He's quite aged and looks qu
 
 This part is for testing purpose only.
 
+- Secret chapter: tt 2
+
 - [tiny village #village] 
 - [tiny village|#village].
 - [tiny village | #village]
@@ -220,6 +222,11 @@ This part is for testing purpose only.
 - Enter your home [7 #7] or restart [1 #1] the game.
 - Enter your home [#7] or restart [#1] the game.
 - go deeper in the [dark forest|#forest-ref-01], check [this game info|#game] or return to [#village]
+
+
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man #man] which is collecting [twigs|#8].
+
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs #8].
 
 
 

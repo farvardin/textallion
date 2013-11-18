@@ -110,7 +110,7 @@ Pour créer un choix on peut utiliser cette syntaxe :
 ```
 - Description du choix (débutant par un tiret "-") : nombre
 - Description du choix : [#nombre]. Et quelques mots ensuite.
-- Description du choix : [#mot]. Et éventuellement quelques mots ensuite.
+- Description du choix, avec un [#mot]. Et éventuellement quelques mots ensuite.
 ```
 
 avec le nombre indiqué se référant au numéro de votre paragraphe lié. Textallion sera capable de détecter qu'il s'agit d'un choix, et le reliera automatiquement au paragraphe de destination.
@@ -125,7 +125,9 @@ Vos paragraphes associés seront donc caractérisés par les mots-clés les appe
 == mot ==
 ```
 
-Enfin, parce qu'au bout d'un moment vous aurez épuisé toutes les possibilités de mot-clé, il est possible d'associer un label différent du mot-clé pour le lien : [description|#mot-clé]
+Enfin, parce qu'au bout d'un moment vous aurez épuisé toutes les possibilités de mot-clé, il est possible d'associer un label différent du mot-clé pour le lien : 
+
+``[une description du choix|#mot-clé]``
 
 Rappelez-vous, le dièse # est comme une ancre qui redirige toujours vers le nom d'un chapitre. Le mot-clé, et ainsi le chapitre (qui seront cachés dans twine), doivent être en un seul mot, quitte à utiliser des - ou des _ pour en relier plusieurs.
 

@@ -35,7 +35,7 @@ else
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
   #DOCUMENT = who_are_you
-  DOCUMENT = sample
+  #DOCUMENT = sample
 endif
 
 DOCUMENT_TITLE = xx DOCUMENT TITLE xx
@@ -203,7 +203,6 @@ configuration-update:
 cyoa-play:
 	$(BROWSER) $(DOCUMENT).html
 
-#todo : notes
 cyoa-html:
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/cyoa.html --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t xhtml --css-inside --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 	
@@ -302,7 +301,11 @@ cyoa-twee:
 	echo ":: StoryTitle" > $(DOCUMENT)_export.tw 
 	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n//' |\
 	# remove extra textallion syntax |\
-	 perl -pe 's/TESTLUCK/\[i\]Am I lucky today? (throwing a dice, 5 or 6 means luck)\[\/i\]/'|\
+	 perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	 # abbreviations |\
+	 perl -pe 's/tt (\d+)/turn to [[\1]]/g' |\
+	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
 	 # replace any ="introduction" by 0 |\
 	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
 	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
@@ -322,20 +325,18 @@ cyoa-twee:
 	 #perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
 	 # choices and links (\r is for windows newline) \
-	 perl -pe 's/- (.*?) (\d+?)( *)\n/- \1 [[\2]]\n/' |\
-	 perl -pe 's/- (.*?) (\d+?)( *)\r/- \1 [[\2]]/' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/- \1 [[\2]]\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/- \1 [[\2]]/g' |\
 	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
-	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
 	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
 	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
 	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
 	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
 	 perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
 	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
-	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
-	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
 	 # notes \
 	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
 	 # chapters \
@@ -569,7 +570,7 @@ clean-temp:
 	-rm  *~ 
 	-rm  .*~
 	-rm  $(DOCUMENT).toc
-	-rm  $(DOCUMENT).tex
+	-rm  -fr $(DOCUMENT).tex
 	-rm  $(DOCUMENT)_slide.tex
 	-rm  $(DOCUMENT)2.html
 	-rm  $(DOCUMENT).ps

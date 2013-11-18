@@ -97,42 +97,23 @@ Important: You must add spaces around the number to create the anchor.
 To create a choice, use either :
 
 ```
-- Description of the choice : z
-- Description of the choice : [z #z]. More words afterwards.
+- Description of the choice (starting with a dash "-"): number
+- Description of the choice: [#number]. More words afterwards.
+- Description of the choice with a [#keyword], and some more things afterward.
 ```
 
 
-with z being replaced by the number of your section. Textallion will be able to detect that it's a choice, and link to the related heading.
+with the number refering to the number of one of your chapter. Textallion will be able to detect that it's a choice, and link to the related chapter.
 
-You must use the syntax ``[z #z]`` if the number is followed by something and not alone at the end of the line. This syntax might not be supported in advances export features (other CYOA systems)
+You must use the syntax ``[#number]`` if the number is followed by something and not alone at the end of the line. This syntax might not be supported in advanced export features (other CYOA systems). It works well with twine though.
+
+Also if you need to describe your choice with more than one single ``[#keyword]``, or reuse the word but link to another place with another keyword for an alternative chapter, you can use this syntax:
+
+``[your description|#keyword_without-space]``
+
+The dash # is like an anchor which will redirect to the name of a chapter.
 
 
-
-=== Alternative for choices ===
-
-//It's not really advices to use this because it may clash with some other options (graphs, ramus for example).//
-
-You can add more descriptive links with :
-
-```
-==17==[name_of_link]
-```
-
-and the call to this chapter would be :
-
-```
-- Go to this chapter : [17 #name_of_link]
-```
-
-Important: There musn't be space around the number in the heading!
-
-You can also name your link, and redirect to a chapter:
-
-```
-- Enter [into the house 17]
-```
-
-it will remove the number from the displayed text, but the HTML link will still get the number so your player will be aware of it. The PDF version hyperlink will be broken (at the moment). Probably only useful for the {^}ePUB{^} version.
 
 
 === Pictures ===
