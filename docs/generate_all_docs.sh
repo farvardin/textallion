@@ -120,6 +120,7 @@ mv *.epub /tmp/textallion/samples_cyoa
 
 # other actions
 $TXT2TAGS readme.t2t
+$TXT2TAGS -t rst -o ../README.rst readme.t2t
 cp ../README.txt /tmp/textallion/
 
 make clean-everything

@@ -3,7 +3,7 @@ Le TeXtallion, a simple word processor
 
 
 %!target: aat
-%!options: --width=72 --chars=@-/-_=-^"-=$ --outfile ../README.txt 
+%!options(aat): --width=72 --chars=@-/-_=-^"-=$ --outfile ../README.txt 
 %!encoding: utf-8
 
 

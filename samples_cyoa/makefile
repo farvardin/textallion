@@ -29,8 +29,8 @@ ifdef TEXTALLIONDOC
 else
 #  DOCUMENT = exemple_lettre
 #  DOCUMENT = examples
-  #DOCUMENT = the_blue_death
- DOCUMENT = la_mort_bleue
+  DOCUMENT = the_blue_death
+ #DOCUMENT = la_mort_bleue
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -355,6 +355,7 @@ cyoa-twee:
 	$(PYTHONVER) $(TEXTALLIONFOLDER)/templates/twee/twee -t jonah $(DOCUMENT)_export.tw > $(DOCUMENT)_twee_jonah.html
 	$(PYTHONVER) $(TEXTALLIONFOLDER)/templates/twee/twee -t sugarcane $(DOCUMENT)_export.tw > $(DOCUMENT)_twee_sugarcane.html
 	$(PYTHONVER) $(TEXTALLIONFOLDER)/templates/twee/twee -t mobile $(DOCUMENT)_export.tw > $(DOCUMENT)_twee_mobile.html
+	$(PYTHONVER) $(TEXTALLIONFOLDER)/templates/twee/twee -t sugarcube $(DOCUMENT)_export.tw > $(DOCUMENT)_twee_sugarcube.html
 
 cyoa-hyena:
 	# for use with http://www.projectaon.org/staff/jens/

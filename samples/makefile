@@ -613,5 +613,22 @@ cleanall: clean-temp clean-docs
 clean-everything: cleanall
 
 
+DOCUMENTNEWNAME = newname
+
+rename:
+	@echo "Edit the DOCUMENTNEWNAME variable at the end of the makefile (no space please)"
+	@echo "(current document name to replace is $(DOCUMENT))"
+	@echo "(current document new name is $(DOCUMENTNEWNAME))"
+	@echo "press a key to start"
+	@read PAUSE
+	-mv $(DOCUMENT).t2t $(DOCUMENTNEWNAME).t2t
+	-mv $(DOCUMENT).sty $(DOCUMENTNEWNAME).sty
+	-mv $(DOCUMENT).css $(DOCUMENTNEWNAME).css
+	-mv $(DOCUMENT).jpg $(DOCUMENTNEWNAME).jpg
+	-mv $(DOCUMENT).png $(DOCUMENTNEWNAME).png
+	-mv $(DOCUMENT).svg $(DOCUMENTNEWNAME).svg
+	-sed -i -e "s/$(DOCUMENT)/$(DOCUMENTNEWNAME)/" $(DOCUMENTNEWNAME).t2t
+	-sed -i -e "s/$(DOCUMENT)/$(DOCUMENTNEWNAME)/" makefile
+
 
 
