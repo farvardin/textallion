@@ -52,8 +52,8 @@ TeXtallion, some examples
 %!--preproc(tex): "$" '{//..}'
 %(this one is not activated. It's supposed to replace single line break by a real line break, which is not activated by default in txt2tags)
 
-%% Remove the ordered lists from the LaTeX output
-%!preproc(tex): "^\+ " '- '
+%% Remove the ordered lists from the LaTeX output, if enabled
+%!--preproc(tex): "^\+ " '- '
 
 %% enable the line below if you don't intend to use lists, but wish to use single dash dialogue style (in French)
 %--!preproc: "^- " 'QUADRATINDASH '

@@ -54,6 +54,7 @@
 - Slidy menu are too big
 
 
+
 == PDF (LaTeX and XeTeX) ==
 
 - --Use templates for LaTeX--
@@ -72,6 +73,7 @@
 
 - note : if you want to separate chapters on different pages, use "book". If you want to write a memo with every parts alltogether to save space, use "article". Important: article won't support "chapters", so they will be ignored and break the hierarchy you could have made. Use the replacements proposed at the beginning of new documents.
 
+
 == EPUB ==
 
 - --Extra unwanted entries in TOC, such as footnotes and linked documents--
@@ -82,7 +84,12 @@
 
 == Windows ==
 
-%http://compgroups.net/comp.text.tex/MikTeX-Broken or advise to use miktex 2.8
+
+% http://compgroups.net/comp.text.tex/MikTeX-Broken or advise to use miktex 2.8
+
+- Easier updates
+
+
 
 == txt2cyoa ==
 
@@ -94,7 +101,6 @@
 - --Ramus: works for numbered chapter, but not for named ones-- (will work with named ""== chapter =="" with the ""[#name]"" or ""[description|#name]"" syntax, not with ""== 5 ==[name]"")
 - Ramus: Dice will scroll up 
 - Ramus: footnotes don't work.
-
 
 
 

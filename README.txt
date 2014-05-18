@@ -68,7 +68,7 @@ All textallion code and hacks are released under the BSD license[1]
 
 { -- }
 
-  Copyright (c) 2008-2013, Eric Forgeot.
+  Copyright (c) 2008- %%date , Eric Forgeot.
   All rights reserved.
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are
@@ -149,6 +149,8 @@ sur-mon-blog-avec.html
 - http://www.auntiepixelante.com/twine/ for the help with the twine
 syntax
 - http://www.mcdemarco.net/ for the twee patch
+
+20140302
 
 
                              @-----------@

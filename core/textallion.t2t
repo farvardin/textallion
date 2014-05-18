@@ -5,7 +5,7 @@
 %% Tiny almost-Kiss Word Processor
 %% based on the txt2tags tool and wiki syntax
 %
-% by Eric Forgeot (c) 2008-2013
+% by Eric Forgeot (c) 2008-2014
 %
 % http://anamnese.online.fr/site2/textallion/docs/presentation.html
 % Complete source code: http://textallion.googlecode.com
@@ -18,7 +18,7 @@
 %% Symbols cheatsheet
 
 
-% lettrine      	  {*~~~} or *~~~    (was in a previous release : -**-)
+% lettrine      	  {*~~~} or *~~~    (was in a previous release : -**-, now disabled because confuses with bold)
 % bigskip       	  {*-*-} or *-*-
 % three stars   ✵ 	  {** *}  			(was in a previous release : *** )
 % aldine leaf   ❦ 	  {-@- } 			(was in a previous release : *--* )
@@ -51,12 +51,16 @@
 
 % column			  {|n|}
 
-% exergue (epigraph)  {  ~~}             
+% exergue begin (epigraph)  {  ~~}             
 % exergue end         {/ ~~} 
 % exergue end (with author) {/ ~~}Author 
 
 % code (monospace)    {####}  or {###;}             
 % code end            {/###}  or {/##;}
+
+% small caps begin    {%%%%}
+% small caps end      {/%%%}
+
 
 % french guillemets begin «  { "  }   or   {"   }   or  {" }    
 % french guillemets end  »   {  " }   or   {   "}   or  { "}
@@ -70,6 +74,9 @@
 % right wrapping      {~~~~}[image.png] 
 
 % espace semi quadratin	¯
+
+% colors begin 			@@COLOR@@red@@
+% colors end 			@@/COLOR@@
 
 %% TODO
 % attention/warning   {!}
@@ -208,10 +215,10 @@
 
 %% symbols 
 
-%!preproc: '\{\*~~~\}'    '-**-'
+%!preproc: '\{\*~~~\}'    'CONVERTlettrine' 
 %% TODO Lettrine: CONVERTlettrine
-%!preproc: '\*~~~'        '-**-'
-%!preproc: '\{\*-\*-\}'   '*-*-'
+%!preproc: '\*~~~'        'CONVERTlettrine'
+%!preproc: '\{\*-\*-\}'   '*-*-'  
 %!preproc: '\{\*\* \*\}'  'CONVERTtroisetoiles'
 %!preproc: '\{\*\*\*\}'   'CONVERTtroisetoiles'
 %!preproc: '\{\* \*\*\}'  'CONVERTtroisetoiles'
@@ -304,6 +311,10 @@
 
 %!preproc: '\{\#\#\#\#\}'    'CONVERTcodeBEGIN'
 %!preproc: '\{\/\#\#\#\}'    'CONVERTcodeEND'
+
+%!preproc: '\{%%%%\}'    'CONVERTsmallcapsBEGIN'
+%!preproc: '\{\/%%%\}'    'CONVERTsmallcapsEND'  
+
 
 %!preproc: '\{\+\}'          'CONVERTplus'
 %!preproc: '\{\-\}'          'CONVERTminus'
@@ -437,7 +448,7 @@
 %!postproc(tex): '°°(.*?)°°' '\\footnote{\MYxFONT \1}'
 
 
-
+ 
 
 
 
@@ -617,6 +628,12 @@
 %!postproc(xhtml): 'CONVERTcodeEND'     '</div>'
 
 
+%!postproc(tex): 'CONVERTsmallcapsBEGIN'  '\\textsc{'
+%!postproc(xhtml): 'CONVERTsmallcapsBEGIN'     '<div class="smallcaps">'
+
+%!postproc(tex): 'CONVERTsmallcapsEND'  '}'
+%!postproc(xhtml): 'CONVERTsmallcapsEND'     '</div>'
+
 
 %%% music and video
 
@@ -734,7 +751,7 @@
 %--!--postproc(tex): "-\*\*-(.)" "\n\n\\lettrine[lines=\\INITIALxLETTERxSIZE, lhang=0.33, loversize=0.25]{\1}{}"
 % ou bien lettrine LaTeX sur la première lettre, le reste du mot en petite majuscule :
 
-%!postproc(tex): "-\*\*-(.)(.*?) " "\n\n\\lettrine[lines=\\INITIALxLETTERxSIZE, lhang=0.33, loversize=0.25]{\1}{\2} "
+%!postproc(tex): "CONVERTlettrine(.)(.*?) " "\n\n\\lettrine[lines=\\INITIALxLETTERxSIZE, lhang=0.33, loversize=0.25]{\1}{\2} "
 
 %!postproc(tex): '\*-\*-'               '\\bigskip'
 %!postproc(tex): 'CONVERTaldinea'       '\\parag'
@@ -759,8 +776,8 @@
 
 
 
-%%!postproc(xhtml): '-\*\*-(.)' '<span style="font-size: 200%; vertical-align: baseline">\1</span>'
-%!postproc(xhtml): '-\*\*-(.)' '</p><p class="initial">\1'
+%%!postproc(xhtml): 'CONVERTlettrine(.)' '<span style="font-size: 200%; vertical-align: baseline">\1</span>'
+%!postproc(xhtml): 'CONVERTlettrine(.)' '</p><p class="initial">\1'
 
 %!preproc(xhtml): '\*-\*-'   '\n\n'
 

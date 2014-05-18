@@ -14,7 +14,8 @@ Eric Forgeot
 
 
 %% DEF PERSONAL STYLE (usually called something like sample.sty and/or sample.css) 
-%!style(tex): ../includes/sample.sty
+%-!style(tex): ../includes/sample.sty
+%!style(tex): ../includes/sample_sans.sty
 %-!style(xhtml): ../includes/sample.css
 %!style(xhtml): ../includes/sample_sans.css 
 
@@ -90,6 +91,16 @@ __Citation__ :
 {/ ~~}Guillaume Grumbold, bibliothéquaire{//..}
 %@@hspace((0mm)) )) @@end((textsf))**
 %{/-- }
+
+
+% ''\textsc{Des petites capitales}''
+
+
+{%%%%}Des petites capitales{/%%%}
+
+ 
+
+
 
 
 == Présentation ==
@@ -590,6 +601,8 @@ Le Verbatim de txt2tags (trois fois `) fonctionne bien avec HTML, mais peut pose
 En exergue on place traditionnellement une citation avec son auteur sous un titre de chapitre. Nous avons fait en sorte de décaler le texte à droite, avec une margue assez importante à gauche, c'est pour cela que nous avons indiqué comme symboles pour débuter ``SYMBexergueBegin`` et pour terminer ``SYMBexergueEnd``. Il est possible de modifier l'apparence finale en modifiant le style LaTeX ou le style CSS.
 Vous pouvez indiquer un auteur à cette citation en l'accolant juste après ``SYMBexergueBegin`` ou après ``SYMBexergueEnd``, soit entre accolades, soit directement.
 
+Veuillez éviter d'écrire sur une seule ligne : SYMBexergueBeginCitationSYMBexergueEnd
+
 Ainsi :
 
 {####}SYMBexergueBegin
@@ -930,7 +943,7 @@ On pourra ainsi include des notes@@footnote((Essai note de pied de page.))** (ve
 
 Mais attention, de cette manière, celles-ci n'apparaîtront pas lors de l'export html@@footnote((Cette note sera perdue en html.))**
 
-Il vaut mieux utiliser cette forme pour avoir des notes sauvegardées°°Cette note sera gardée dans la version html du document.°°
+Il vaut mieux utiliser cette forme pour avoir des notes sauvegardées°°Cette note sera gardée dans la version html du document, incluant également du //formatage// éventuel.°°
 
 Enfin, il y a également cette forme alternative{ °° }Uniquement pour garder l'idée des symboles entourés d'accolades...{ °° }
 
@@ -1099,6 +1112,8 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
  
 - typo : http://typeplate.com/
 
+- scribe https://github.com/schacon/git-scribe (asciidoc)
+
 
 %!include: license.t2t
 
@@ -1109,5 +1124,5 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
 %!include: todo.t2t
 
 
-%%index
+
 

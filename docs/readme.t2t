@@ -47,7 +47,7 @@ http://code.google.com/p/textallion/
 
 
 %!include: license.t2t
-
+%%date
 
 %!include: changelog.t2t
 
