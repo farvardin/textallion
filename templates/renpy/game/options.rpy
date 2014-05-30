@@ -17,14 +17,17 @@ init -1 python hide:
 
     ## These control the width and height of the screen.
 
-    config.screen_width = 800
-    config.screen_height = 480
+    config.screen_width = 1024
+    config.screen_height = 600
+
+    # disable this for android?
+    #config.gl_resize = True
 
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
 
     config.window_title = u"A Ren'Py Game, exported from Textallion"
-    config.window_icon = "../icon.png"
+    #config.window_icon = "../icon.png"
 
     # These control the name and version of the game, that are reported
     # with tracebacks and other debugging logs.
@@ -157,7 +160,12 @@ init -1 python hide:
 
     ## The default size of text.
 
-    # style.default.size = 24
+    style.default.size = 24
+    style.menu_choice.size = 24
+
+    ## for android
+    #style.default.size = 44
+    #style.menu_choice.size = 44
 
     ## Note that these only change the size of some of the text. Other
     ## buttons have their own styles.
@@ -175,9 +183,9 @@ init -1 python hide:
 
     config.has_music = True
 
-    ## Set this to False if the game does not have voicing.
+    ## Set this to True if the game has voicing.
 
-    config.has_voice = True
+    config.has_voice = False
 
     ## Sounds that are used when button and imagemaps are clicked.
 
@@ -244,11 +252,31 @@ init -1 python hide:
     ## Used when the window is hidden.
     config.window_hide_transition = None
 
+    ## Used when showing NVL-mode text directly after ADV-mode text.
+    config.adv_nvl_transition = dissolve
+
+    ## Used when showing ADV-mode text directly after NVL-mode text.
+    config.nvl_adv_transition = dissolve
+
+    ## Used when yesno is shown.
+    config.enter_yesno_transition = None
+
+    ## Used when the yesno is hidden.
+    config.exit_yesno_transition = None
+
+    ## Used when entering a replay
+    config.enter_replay_transition = None
+
+    ## Used when exiting a replay
+    config.exit_replay_transition = None
+
+    ## Used when the image is changed by a say statement with image attributes.
+    config.say_attribute_transition = None
 
     #########################################
     ## This is the name of the directory where the game's data is
     ## stored. (It needs to be set early, before any other init code
-    ## is run, so the persisten information can be found by the init code.)
+    ## is run, so the persistent information can be found by the init code.)
 python early:
     config.save_directory = "minimal-1306397421"
 
@@ -267,6 +295,10 @@ init -1 python hide:
     ## The default text speed in characters per second. 0 is infinite.
 
     config.default_text_cps = 21
+
+    ## The default auto-forward time setting.
+
+    config.default_afm_time = 10
 
     #########################################
     ## More customizations can go here.

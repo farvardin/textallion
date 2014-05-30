@@ -6,17 +6,16 @@
 #
 # Screen that's used to display adv-mode dialogue.
 # http://www.renpy.org/doc/html/screen_special.html#say
-
 screen say:
 
     # Defaults for side_image and two_window
     default side_image = None
     default two_window = False
 
-    # Decide if we want to use the one-window or two-window varaint.
+    # Decide if we want to use the one-window or two-window variant.
     if not two_window:
 
-        # The one window variant.        
+        # The one window variant.
         window:
             id "window"
 
@@ -34,13 +33,13 @@ screen say:
         vbox:
             style "say_two_window_vbox"
 
-            if who:            
+            if who:
                 window:
                     style "say_who_window"
 
                     text who:
                         id "who"
-                        
+
             window:
                 id "window"
 
@@ -48,12 +47,15 @@ screen say:
                     style "say_vbox"
 
                 text what id "what"
-              
+
     # If there's a side image, display it above the text.
     if side_image:
         add side_image
     else:
         add SideImage() xalign 0.0 yalign 1.0
+
+    # Use the quick menu.
+    use quick_menu
 
 
 ##############################################################################
@@ -64,37 +66,39 @@ screen say:
 
 screen choice:
 
-    window: 
-        style "menu_window"        
+    window:
+        style "menu_window"
         xalign 0.5
         yalign 0.5
-        
+
         vbox:
             style "menu"
             spacing 2
-            
+
             for caption, action, chosen in items:
-                
-                if action:  
-                    
+
+                if action:
+
                     button:
                         action action
-                        style "menu_choice_button"                        
+                        style "menu_choice_button"
 
                         text caption style "menu_choice"
-                    
+
                 else:
                     text caption style "menu_caption"
 
-init -2 python:
-    config.narrator_menu = True
-    
-    style.menu_window.set_parent(style.default)
-    style.menu_choice.set_parent(style.button_text)
-    style.menu_choice.clear()
-    style.menu_choice_button.set_parent(style.button)
-    style.menu_choice_button.xminimum = int(config.screen_width * 0.75)
-    style.menu_choice_button.xmaximum = int(config.screen_width * 0.75)
+init -2:
+    $ config.narrator_menu = True
+
+    style menu_window is default
+
+    style menu_choice is button_text:
+        clear
+
+    style menu_choice_button is button:
+        xminimum int(config.screen_width * 0.75)
+        xmaximum int(config.screen_width * 0.75)
 
 
 ##############################################################################
@@ -105,13 +109,14 @@ init -2 python:
 
 screen input:
 
-    window:
+    window style "input_window":
         has vbox
 
-        text prompt
-        input id "input"
+        text prompt style "input_prompt"
+        input id "input" style "input_text"
 
-        
+    use quick_menu
+
 ##############################################################################
 # Nvl
 #
@@ -160,9 +165,11 @@ screen nvl:
                         text caption style "nvl_dialogue"
 
     add SideImage() xalign 0.0 yalign 1.0
-        
+
+    use quick_menu
+
 ##############################################################################
-# Main Menu 
+# Main Menu
 #
 # Screen that's used to display the main menu, when Ren'Py first starts
 # http://www.renpy.org/doc/html/screen_special.html#main-menu
@@ -190,10 +197,12 @@ screen main_menu:
         textbutton _("Help") action Help()
         textbutton _("Quit") action Quit(confirm=False)
 
-init -2 python:
+init -2:
 
     # Make all the main menu buttons be the same size.
-    style.mm_button.size_group = "mm"
+    style mm_button:
+        size_group "mm"
+
 
 
 ##############################################################################
@@ -213,7 +222,7 @@ screen navigation:
         style_group "gm_nav"
         xalign .98
         yalign .98
-        
+
         has vbox
 
         textbutton _("Return") action Return()
@@ -224,9 +233,12 @@ screen navigation:
         textbutton _("Help") action Help()
         textbutton _("Quit") action Quit()
 
-init -2 python:
-    style.gm_nav_button.size_group = "gm_nav"
-    
+init -2:
+
+    # Make all game menu navigation buttons the same size.
+    style gm_nav_button:
+        size_group "gm_nav"
+
 
 ##############################################################################
 # Save, Load
@@ -238,7 +250,7 @@ init -2 python:
 # Since saving and loading are so similar, we combine them into
 # a single screen, file_picker. We then use the file_picker screen
 # from simple load and save screens.
-    
+
 screen file_picker:
 
     frame:
@@ -250,29 +262,32 @@ screen file_picker:
         # page of files.
         hbox:
             style_group "file_picker_nav"
-            
+
             textbutton _("Previous"):
                 action FilePagePrevious()
 
             textbutton _("Auto"):
                 action FilePage("auto")
 
+            textbutton _("Quick"):
+                action FilePage("quick")
+
             for i in range(1, 9):
                 textbutton str(i):
                     action FilePage(i)
-                    
+
             textbutton _("Next"):
                 action FilePageNext()
 
         $ columns = 2
         $ rows = 5
-                
+
         # Display a grid of file slots.
         grid columns rows:
             transpose True
             xfill True
             style_group "file_picker"
-            
+
             # Display ten file slots, numbered 1 - 10.
             for i in range(1, columns * rows + 1):
 
@@ -285,18 +300,16 @@ screen file_picker:
 
                     # Add the screenshot.
                     add FileScreenshot(i)
-                    
-                    # Format the description, and add it as text.
-                    $ description = "% 2s. %s\n%s" % (
-                        FileSlotName(i, columns * rows),
-                        FileTime(i, empty=_("Empty Slot.")),
-                        FileSaveName(i))
 
-                    text description
+                    $ file_name = FileSlotName(i, columns * rows)
+                    $ file_time = FileTime(i, empty=_("Empty Slot."))
+                    $ save_name = FileSaveName(i)
+
+                    text "[file_name]. [file_time!t]\n[save_name!t]"
 
                     key "save_delete" action FileDelete(i)
-                    
-                    
+
+
 screen save:
 
     # This ensures that any other menu screen is replaced.
@@ -313,23 +326,20 @@ screen load:
     use navigation
     use file_picker
 
-init -2 python:
-    style.file_picker_frame = Style(style.menu_frame)
+init -2:
+    style file_picker_frame is menu_frame
+    style file_picker_nav_button is small_button
+    style file_picker_nav_button_text is small_button_text
+    style file_picker_button is large_button
+    style file_picker_text is large_button_text
 
-    style.file_picker_nav_button = Style(style.small_button)
-    style.file_picker_nav_button_text = Style(style.small_button_text)
-
-    style.file_picker_button = Style(style.large_button)
-    style.file_picker_text = Style(style.large_button_text)
-
-    
 
 ##############################################################################
 # Preferences
 #
 # Screen that allows the user to change the preferences.
 # http://www.renpy.org/doc/html/screen_special.html#prefereces
-    
+
 screen preferences:
 
     tag menu
@@ -371,7 +381,8 @@ screen preferences:
                 style_group "pref"
                 has vbox
 
-                textbutton _("Joystick...") action ShowMenu("joystick_preferences")
+                textbutton _("Joystick...") action Preference("joystick")
+
 
         vbox:
             frame:
@@ -403,6 +414,9 @@ screen preferences:
                 label _("Auto-Forward Time")
                 bar value Preference("auto-forward time")
 
+                if config.has_voice:
+                    textbutton _("Wait for Voice") action Preference("wait for voice", "toggle")
+
         vbox:
             frame:
                 style_group "pref"
@@ -419,36 +433,43 @@ screen preferences:
                 bar value Preference("sound volume")
 
                 if config.sample_sound:
-                    textbutton "Test":
+                    textbutton _("Test"):
                         action Play("sound", config.sample_sound)
                         style "soundtest_button"
 
-            frame:
-                style_group "pref"
-                has vbox
+            if config.has_voice:
+                frame:
+                    style_group "pref"
+                    has vbox
 
-                label _("Voice Volume")
-                bar value Preference("voice volume")
+                    label _("Voice Volume")
+                    bar value Preference("voice volume")
 
-                if config.sample_voice:
-                    textbutton "Test":
-                        action Play("voice", config.sample_voice)
-                        style "soundtest_button"
+                    textbutton _("Voice Sustain") action Preference("voice sustain", "toggle")
+                    if config.sample_voice:
+                        textbutton _("Test"):
+                            action Play("voice", config.sample_voice)
+                            style "soundtest_button"
 
-init -2 python:
-    style.pref_frame.xfill = True
-    style.pref_frame.xmargin = 5
-    style.pref_frame.top_margin = 5
+init -2:
+    style pref_frame:
+        xfill True
+        xmargin 5
+        top_margin 5
 
-    style.pref_vbox.xfill = True
+    style pref_vbox:
+        xfill True
 
-    style.pref_button.size_group = "pref"
-    style.pref_button.xalign = 1.0
+    style pref_button:
+        size_group "pref"
+        xalign 1.0
 
-    style.pref_slider.xmaximum = 192
-    style.pref_slider.xalign = 1.0
+    style pref_slider:
+        xmaximum 192
+        xalign 1.0
 
-    style.soundtest_button.xalign = 1.0
+    style soundtest_button:
+        xalign 1.0
 
 
 ##############################################################################
@@ -456,7 +477,7 @@ init -2 python:
 #
 # Screen that asks the user a yes or no question.
 # http://www.renpy.org/doc/html/screen_special.html#yesno-prompt
-    
+
 screen yesno_prompt:
 
     modal True
@@ -472,23 +493,69 @@ screen yesno_prompt:
         ypos .1
         yanchor 0
         ypadding .05
-        
+
         has vbox:
             xalign .5
             yalign .5
             spacing 30
-            
+
         label _(message):
             xalign 0.5
 
         hbox:
             xalign 0.5
             spacing 100
-            
+
             textbutton _("Yes") action yes_action
             textbutton _("No") action no_action
 
+    # Right-click and escape answer "no".
+    key "game_menu" action no_action
 
-init -2 python:    
-    style.yesno_button.size_group = "yesno"
-    style.yesno_label_text.text_align = 0.5
+init -2:
+    style yesno_button:
+        size_group "yesno"
+
+    style yesno_label_text:
+        text_align 0.5
+        layout "subtitle"
+
+
+##############################################################################
+# Quick Menu
+#
+# A screen that's included by the default say screen, and adds quick access to
+# several useful functions.
+screen quick_menu:
+
+    # Add an in-game quick menu.
+    hbox:
+        style_group "quick"
+
+        xalign 1.0
+        yalign 1.0
+
+        textbutton _("Back") action Rollback()
+        textbutton _("Save") action ShowMenu('save')
+        textbutton _("Q.Save") action QuickSave()
+        textbutton _("Q.Load") action QuickLoad()
+        textbutton _("Skip") action Skip()
+        textbutton _("F.Skip") action Skip(fast=True, confirm=True)
+        textbutton _("Auto") action Preference("auto-forward", "toggle")
+        textbutton _("Prefs") action ShowMenu('preferences')
+
+init -2:
+    style quick_button:
+        is default
+        background None
+        xpadding 5
+
+    style quick_button_text:
+        is default
+        size 12
+        idle_color "#8888"
+        hover_color "#ccc"
+        selected_idle_color "#cc08"
+        selected_hover_color "#cc0"
+        insensitive_color "#4448"
+
