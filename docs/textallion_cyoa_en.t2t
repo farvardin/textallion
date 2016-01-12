@@ -4,7 +4,7 @@ Eric Forgeot
 
 
 % Tiny, almost-KISS word processor
-% http://textallion.googlecode.com
+% https://bitbucket.org/farvardin/textallion
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'

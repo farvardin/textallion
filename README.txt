@@ -3,7 +3,7 @@ ________________________________________________________________________
 
 
                @----------------------------------------@               
-               / Le TeXtallion, a simple word processor /               
+               / Le Textallion, a simple word processor /               
                @----------------------------------------@               
 
 
@@ -55,7 +55,7 @@ used the installation script) for a little front-end.
                      / Source Code and bug report /
                      @----------------------------@
 
-http://code.google.com/p/textallion/
+https://bitbucket.org/farvardin/textallion
 
 
                         @---------------------@
@@ -68,7 +68,7 @@ All textallion code and hacks are released under the BSD license[1]
 
 { -- }
 
-  Copyright (c) 2008- %%date , Eric Forgeot.
+  Copyright (c) 2008-2015, Eric Forgeot.
   All rights reserved.
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are
@@ -150,7 +150,7 @@ sur-mon-blog-avec.html
 syntax
 - http://www.mcdemarco.net/ for the twee patch
 
-20140302
+20151028
 
 
                              @-----------@
@@ -164,8 +164,28 @@ filename will show a new date, for example:
 textallion_2010-08-13_chasseriau.zip and then
 textallion_2010-08-15_chasseriau.zip/
 
+- Full changelog from the repository:
+https://bitbucket.org/farvardin/textallion/commits/all
+
+- 28 aug 2015:
+ - Paul Delaroche[6] release:
+                - various bugfixes
+                - adding support for wkhtmltopdf (render pdf from html
+using webkit)
+                - use {^category!keyword} for index in latex
+                - updated Ramus cyoa
+                - adding smallcaps
+
+
+
+
+                                - updated ms windows installer
+
+
+
+
 - 18 nov 2013:
- - Léonide Bourges[6] release:
+ - Léonide Bourges[7] release:
                 - CYOA: fixed bold, monospace and image syntax in twee.
                 - CYOA: fixed many things in the twee (twine) export so
 it will work with named chapters
@@ -176,7 +196,7 @@ it will work with named chapters
                 - updated windows installer
 
 - 28 july 2013:
- - Suzanne Valadon[7] release:
+ - Suzanne Valadon[8] release:
                 - New syntax for a boxed area.
                 - CYOA: updated twee.
                 - HTML: small tweak to the CSS.
@@ -190,14 +210,14 @@ documents
 letter template ("make lettre-1page")
 
 - 22 nov 2012:
- - Pierre Puvis de Chavannes[8] release:
+ - Pierre Puvis de Chavannes[9] release:
                 - CYOA: fixed twee, added undum and choicescript.
 Separated doc for CYOA.
                 - SHELL (textallion.sh): submenu for new cyoa systems
                 - improved exponent. Added subscript.
 
 - 27 june 2012:
- - Félicien Rops[9] release:
+ - Félicien Rops[10] release:
                 - EPUB: updated CSS, and various adjustement to visually
 match the pdf version
                 - HTML/EPUB: added htsplit (not used yet)
@@ -210,7 +230,7 @@ general doc, letter or cyoa
                 - fixed centered tables with blank space before pipe.
 
 - 20 apr 2012:
- - Odilon Redon[10] release:
+ - Odilon Redon[11] release:
                 - EPUB: added variable for epub info
                 - PDF: fixed various TeX errors
                 - PDF: added "lettre" template for writing letters in
@@ -222,20 +242,20 @@ bigger fonts)
 corrections.
 
 - 24 july 2011:
- - Cléo de Mérode[11] release:
+ - Cléo de Mérode[12] release:
                 - CYOA: Added inform 7 support
                 - Added sound and video using HTML5 (ogg vorbis/theora)
                 - Corrected quickref document
 
 - 11 june 2011:
- - Georges Seurat[12] release:
+ - Georges Seurat[13] release:
                 - CYOA: improved the renpy output (images, end of game)
                 - CYOA: added Ramus HTML rendering
 (http://felix.plesoianu.ro//index.php/page:Software:Ramus)
                 - .desktop file (for unix desktops)
 
 - 27 mai 2011:
- - Paul Signac[13] release:
+ - Paul Signac[14] release:
                 - CYOA: Now textallion can use txt2cyoa for generating
 HTML, PDF and EPUB gamebooks.
                 - CYOA: fade in js effect when displaying new chapter.
@@ -243,7 +263,7 @@ HTML, PDF and EPUB gamebooks.
                 - New logo
 
 - 31 mar 2011:
- - Édouard Vuillard[14] release:
+ - Édouard Vuillard[15] release:
                 - Now use templates.
                 - Added a SVG sample cover (can generate a personalised
 png cover with imagemagick)
@@ -261,7 +281,7 @@ not recognised by LaTeX.
 installation etc.
 
 - 27 feb 2011:
- - Charles-François Daubigny[15] release:
+ - Charles-François Daubigny[16] release:
                 - Double brackets option for links.
                 - LaTeX equations.
                 - Index symbol.
@@ -270,7 +290,7 @@ installation etc.
                 - Corrected table of content for EPUB output.
                 - Updated doc.
                 - Moved txt2tags to a contrib section
-                - Use of webfonts[16].
+                - Use of webfonts[17].
                 - Auto generation of a homepage with links to the html,
 pdf, epub and qr-code.
                 - make configuration-update to diff between the latest
@@ -278,7 +298,7 @@ textallion install and your makefile, css and sty project files.
                 - Improved initialisation script (textallion.sh).
 
 - 30 dec 2010:
- - Alexandre-Hyacinthe Dunouy[17] release:
+ - Alexandre-Hyacinthe Dunouy[18] release:
                 - New symbols for adding italic and bold area
                 - New symbol for adding page break
                 - Real footnotes effect for html (css3)
@@ -290,7 +310,7 @@ textallion install and your makefile, css and sty project files.
                 - A script for creating a new skeleton project.
 
 - 30 nov 2010:
- - Jean-Auguste-Dominique Ingres[18] release:
+ - Jean-Auguste-Dominique Ingres[19] release:
                 - Updated to latest txt2tags 2.6 (and "2.7" devel)
                 - New target: slidy, from txt2tags upstream, for making
 html presentations (using js)
@@ -301,13 +321,13 @@ easily portable (this behavior can be changed in the makefile if needed)
 alternatives, normal, bigger, smaller)
 
 - 13 oct 2010:
- - Gustave Moreau[19] release:
+ - Gustave Moreau[20] release:
                 - Added columns options
                 - Added a quick reference cheatsheet
                 - Fixed some bugs (sub-lists)
 
 - 21 aug 2010:
- - Théodore Chassériau[20] release:
+ - Théodore Chassériau[21] release:
                 - Corrected line break (added noindent) for LaTeX, when
 using a space at the beginning of a line.
                 - Added non-breaking space symbol
@@ -325,7 +345,7 @@ makefile
 documents.
 
 - 08 jul 2010:
- - Marcellin Desboutin[21] release:
+ - Marcellin Desboutin[22] release:
                 - Changed the symbol representations to a more
 consistent one (4 signs between braces), with less possibility for a
 clash with existing texts.
@@ -333,22 +353,22 @@ clash with existing texts.
 on the first page cover.
 
 - 25 apr 2010:
- - Théodore Géricault[22] release:
+ - Théodore Géricault[23] release:
                 - Better display for the epub version (fixed alignment
 and margins)
 
 - 20 mar 2010:
- - Douanier Rousseau[23] release:
+ - Douanier Rousseau[24] release:
                 - Support for colors in html and LaTeX
 
 - 23 feb 2010:
- - Daumier[24] release:
+ - Daumier[25] release:
                 - Update of the makefile for use with the latest Calibre
                 - Support for image size information
                 - Simplification and improvement of the style for the
 html css
                 - Use of a code name for the releases (French/European
-painters or artists from the 19ème century[25])
+painters or artists from the 19ème century[26])
 
 - 24 dec 2009:
                 - Beginning of a support for packaged version in a
@@ -389,7 +409,7 @@ Syntax, backend and docs
 end-
 - -pb indents-
 - a graphical GUI for conversion (a simple tk interface?), and a
-graphical GUI for edition (based on RedNotebook[26] or SciTE[27] for
+graphical GUI for edition (based on RedNotebook[27] or SciTE[28] for
 example?). Or a Qt Gui with some kparts using the kate syntax. Something
 based on http://qapote.tuxfamily.org/ or
 http://latexila.sourceforge.net/
@@ -420,7 +440,7 @@ HTML
 
 - Find more ideas from
  - http://epubzengarden.com/
- - http://librairie.immateriel.fr/ (example[28])
+ - http://librairie.immateriel.fr/ (example[29])
  - and from http://typekit.com/ ?
 
 - support for http://labs.cavorite.com/presentacular
@@ -462,7 +482,9 @@ space, use "article". Important: article won't support "chapters", so
 they will be ignored and break the hierarchy you could have made. Use
 the replacements proposed at the beginning of new documents.
 
-== EPUB ==
+
+EPUB
+====
 
 - -Extra unwanted entries in TOC, such as footnotes and linked
 documents-
@@ -472,6 +494,8 @@ documents-
 
 Windows
 =======
+
+- Easier updates
 
 
 txt2cyoa
@@ -493,27 +517,28 @@ not with == 5 ==[name])
 [3] http://txt2tags.org/
 [4] http://calibre-ebook.com/
 [5] http://www.jrsoftware.org/isinfo.php
-[6] https://fr.wikipedia.org/wiki/L%C3%A9onide_Bourges
-[7] https://fr.wikipedia.org/wiki/Suzanne_Valadon
-[8] http://en.wikipedia.org/wiki/Pierre_Puvis_de_Chavannes
-[9] http://en.wikipedia.org/wiki/F%C3%A9licien_Rops
-[10] http://en.wikipedia.org/wiki/Odilon_Redon
-[11] http://en.wikipedia.org/wiki/Cl%C3%A9o_de_M%C3%A9rode
-[12] http://fr.wikipedia.org/wiki/Georges_Seurat
-[13] http://fr.wikipedia.org/wiki/Paul_Signac
-[14] http://fr.wikipedia.org/wiki/%C3%89douard_Vuillard
-[15] http://fr.wikipedia.org/wiki/Charles-Fran%C3%A7ois_Daubigny
-[16] http://www.google.com/webfonts
-[17] http://en.wikipedia.org/wiki/Alexandre-Hyacinthe_Dunouy
-[18] http://en.wikipedia.org/wiki/Jean_Auguste_Dominique_Ingres
-[19] http://en.wikipedia.org/wiki/Gustave_Moreau
-[20] http://en.wikipedia.org/wiki/Th%C3%A9odore_Chass%C3%A9riau
-[21] http://fr.wikipedia.org/wiki/Marcellin_Desboutin
-[22] http://en.wikipedia.org/wiki/Th%C3%A9odore_G%C3%A9ricault
-[23] http://en.wikipedia.org/wiki/Henri_Rousseau
-[24] http://en.wikipedia.org/wiki/Honor%C3%A9_Daumier
-[25] http://fr.wikipedia.org/wiki/Liste_de_peintres_fran%C3%A7ais#XIXe_s
+[6] https://fr.wikipedia.org/wiki/Paul_Delaroche
+[7] https://fr.wikipedia.org/wiki/L%C3%A9onide_Bourges
+[8] https://fr.wikipedia.org/wiki/Suzanne_Valadon
+[9] http://en.wikipedia.org/wiki/Pierre_Puvis_de_Chavannes
+[10] http://en.wikipedia.org/wiki/F%C3%A9licien_Rops
+[11] http://en.wikipedia.org/wiki/Odilon_Redon
+[12] http://en.wikipedia.org/wiki/Cl%C3%A9o_de_M%C3%A9rode
+[13] http://fr.wikipedia.org/wiki/Georges_Seurat
+[14] http://fr.wikipedia.org/wiki/Paul_Signac
+[15] http://fr.wikipedia.org/wiki/%C3%89douard_Vuillard
+[16] http://fr.wikipedia.org/wiki/Charles-Fran%C3%A7ois_Daubigny
+[17] http://www.google.com/webfonts
+[18] http://en.wikipedia.org/wiki/Alexandre-Hyacinthe_Dunouy
+[19] http://en.wikipedia.org/wiki/Jean_Auguste_Dominique_Ingres
+[20] http://en.wikipedia.org/wiki/Gustave_Moreau
+[21] http://en.wikipedia.org/wiki/Th%C3%A9odore_Chass%C3%A9riau
+[22] http://fr.wikipedia.org/wiki/Marcellin_Desboutin
+[23] http://en.wikipedia.org/wiki/Th%C3%A9odore_G%C3%A9ricault
+[24] http://en.wikipedia.org/wiki/Henri_Rousseau
+[25] http://en.wikipedia.org/wiki/Honor%C3%A9_Daumier
+[26] http://fr.wikipedia.org/wiki/Liste_de_peintres_fran%C3%A7ais#XIXe_s
 i.C3.A8cle
-[26] http://rednotebook.sourceforge.net/
-[27] http://www.scintilla.org/SciTE.html
-[28] http://librairie.immateriel.fr/fr/read_book/9782212128611/chap02
+[27] http://rednotebook.sourceforge.net/
+[28] http://www.scintilla.org/SciTE.html
+[29] http://librairie.immateriel.fr/fr/read_book/9782212128611/chap02

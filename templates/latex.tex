@@ -1,5 +1,5 @@
 %% TEXTALLION
-%% http://textallion.googlecode.com
+%% https://bitbucket.org/farvardin/textallion
 %% LaTeX template 
 
 \documentclass[openany]{book} %% openany to remove the blank pages
@@ -22,12 +22,16 @@
 \uchyph=0
 
 \usepackage[pdftex]{graphicx}
+
+
 \usepackage{paralist} %% needed for compact lists
 \usepackage[normalem]{ulem} %% needed by strike
 %%\usepackage[urlcolor=blue,colorlinks=true]{hyperref}  %%hyperref defined elsewhere
 \usepackage[%(ENCODING)s]{inputenc}  %% char encoding
 \usepackage{%(STYLE)s}  %% user defined
 
+%%todo: check this:
+\usepackage[protrusion=true,expansion=true]{microtype}
 
 
 %%---------------- Author & Metatags ------------------------------------
@@ -47,7 +51,7 @@
 \usepackage[\DEFAULTxFONTxSIZE pt]{extsizes} 
 \usepackage[cm]{aeguill}                    %% French guillemets
 \usepackage[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm},\GEOMETRYxADDITIONALxOPTION]{geometry}       %% paper and text size
-\usepackage{mdframed} %% boxes and frames
+
 
 \usepackage{TEXTALLIONPATH/core/textallion}  %% basic LaTeX definitions for textallion
 

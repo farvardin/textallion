@@ -7,6 +7,10 @@
 define n = Character('Narrator', color="#c8ffc8")
 
 init:
+
+    # Lower the music volume by 1/3
+    $ renpy.music.set_volume(0.67, .5, channel="music")
+    
     image bg = "bg.jpg"
     
     init python:
@@ -25,6 +29,7 @@ init:
             
         dissolve = Dissolve(0.5)
             
+
 
 # The game starts here.
 label start:

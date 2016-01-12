@@ -10,7 +10,7 @@ par Otto Grimwald
 %!postproc(tex): 'xx DOCUMENT TAGS xx'   'cyoa, steampunk'
 
 
-%% DEF PERSONNAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 
+%% DEF PERSONAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 
 %!style(tex): ../includes/sample_cyoa.sty
 %!style(xhtml): ../includes/sample.css 
 
@@ -28,6 +28,8 @@ par Otto Grimwald
 % Insert your logo / picture instead of this one :
 
 {->--}[[la_mort_bleue.jpg] 1]{-<--} 
+
+% note : version courante de ce jeu
 
 
 
@@ -60,7 +62,7 @@ Dès que je pose le pied sur le seuil de ce grand bâtiment, des officiers de po
 
 Il y a là un groupe de six marins. Ils ne sont qu'en train de s'amuser après tout !
 
-- mais je peux leur donner une correction méritée : 23
+- Mais je peux leur donner une correction méritée : 23
 - ou bien m'enfuir lâchement sur le pont supérieur : 5
 
 
@@ -83,10 +85,10 @@ Ce pont est habituellement réservé aux passagers de première classe. J'espèr
 J'obtins ce travail sur un navire pour payer ma traversée vers le Grand Continent, qui a été redécouvert il y a seulement quelques siècles.
 En attendant, j'ai toujours été curieux au sujet de la vie là-bas, de savoir si les gens étaient comme nous ou si leur culture était si étrangère qu'il n'était pas possible d'y vivre. 
 
-J'ai également essayé d'apprendre leur si difficile langue, et je me suis forcé à l'utiliser quotidiennement. C'est ainsi que j'ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de complètement la maîtriser, j'ai vécu là-bas un moment, puis j'ai décidé d'embarquer sur ce bateau.
+J'ai également essayé d'apprendre leur si difficile langue, et je me suis forcé à l'utiliser quotidiennement. C'est ainsi que j'ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de parfaitement la maîtriser, j'ai vécu là-bas un moment, puis j'ai décidé d'embarquer sur ce bateau.
 
 - Après quelques jours, nous arrivons à New Londrin Haven, et j'entre triomphalement dans la ville : 25
-- Mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée : 27
+- mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée : 27
 
 
 
@@ -101,7 +103,7 @@ Nous entrons dans un salon de thé à l'ambiance snobinarde, dans une zone touri
 
 == 7 ==
 
-Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes ici qui frappent dans leurs délicieuses mains en rythme.
+Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes présentes ici qui frappent en rythme dans leurs délicieuses mains.
 
 J'en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j'avais l'habitude de ressentir dans le passé.
 
@@ -139,7 +141,7 @@ TESTLUCK
 
 Les quais ne sont pas un endroit très agréable pour un être aussi délicat que moi. J'ai immédiatement le sentiment que je pourrais devenir une proie facile pour la plupart des vautours qui sévissent ici. 
 
-Je remarque une belle femme qui attend près d'un ponton. Au même moment, des marins, rencontrés sur le bateau où j'étais employé, m'interpellent tandis qu'ils entrent dans une taverne.
+Je remarque une belle femme qui attend près d'un ponton. Au même moment des marins, rencontrés sur le bateau où j'étais employé, m'interpellent tandis qu'ils entrent dans une taverne.
 
 - M'approcher de cette dame : 37
 - Suivre mes anciens camarades dans la taverne : 7
@@ -150,10 +152,10 @@ Je remarque une belle femme qui attend près d'un ponton. Au même moment, des m
 
 Impassible aux émotions humaines, le navire atteint les premières brumes matinales de l'autre continent. Foulant la jetée et la terre ferme pour la première fois après trois semaines de torture spirituelle, je me sens étourdi et complètement perdu.
 
-Il y a un grand poster sur un mur, et la sortie vers le reste de la ville.
+Il y a un grand poster sur un mur, et de l'autre côté la sortie du port, pour aller vers le reste de la ville.
 
 - Regarder le poster : 27
-- Sortir : 25
+- Partir directement vers la ville : 25
 
 
 == 12 ==
@@ -169,10 +171,10 @@ Le capitaine, arrivant peu après, s'excuse pour la conduire grossière de ses h
 
 Devrons-nous aller :
 
-- Au Nord, toujours vers notre destination initialement prévue, le Nouveau Continent : 11
-- Au Sud, pour atteindre une petite île qu'il a juste découverte avec sa longue-vue : 30
-- À l'Ouest, pour explorer encore plus ce vaste océan bleu : 43
-- À l'Est, pour retourner vers notre pays d'origine : 24
+- Au nord, toujours vers notre destination initialement prévue, le Nouveau Continent : 11
+- Au sud, pour atteindre une petite île qu'il vient de découvrir avec sa longue-vue : 30
+- À l'ouest, pour explorer encore plus ce vaste océan bleu : 43
+- À l'est, pour retourner vers notre pays d'origine : 24
 
 
 == 14 ==
@@ -183,7 +185,7 @@ Que la mort peut être douce, lorsqu'elle est si bleue !
 
 == 15 ==
 
-Le soleil est haut dans le ciel, et pourtant je ressens une brise fraîche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet dans ma cabane à huit mètres du sol. Je me rappelle également de ma mère m'appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local.
+Le soleil est haut dans le ciel, et pourtant je ressens une brise fraîche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet de ma cabane à huit mètres du sol. Je me rappelle également de ma mère m'appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local.
 
 J'ai soudain l'impression de tourner en rond...
 
@@ -254,7 +256,7 @@ Satanés moustiques ! Avec toutes ces pestes volantes, il est bien difficile de 
 
 == 22 ==
 
-Cette ville est énorme selon les standards du vieux continent. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.
+Cette ville est énorme selon les standards du Vieux Continent. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.
 
 Les maisons ici sont plus opulentes, avec des influences marquées des villes d'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et compliquées. Je n'aime pas cela du tout.
 
@@ -276,7 +278,7 @@ Des marins entraînés et en nombre sont certainement plus costauds qu'un pauvre
 
 Le navire n'avait probablement pas assez de vivre pour effectuer la traversée, et cela n'était pas une surprise de devoir faire demi-tour pour retourner dans notre pays d'origine.
 
-Déçus et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce nouveau Continent dont tout le monde parle.
+Déçus et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce Nouveau Continent dont tout le monde parle.
 
 Je suis malgré tout heureux de revenir ici, et d'être débarrassé d'eux.
 
@@ -287,13 +289,13 @@ Je suis malgré tout heureux de revenir ici, et d'être débarrassé d'eux.
 
 == 25 ==
 
-Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.
+Cette ville est énorme selon les standards du Vieux Continent. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu'en Euralinia.
 
 [../media/tbd_city01.jpg]{~~~~} 
 
 Les maisons ici sont plus opulentes, avec des influences marquées des villes d'Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et ayant du caractère. 
 
-Une telle sollicitude pour des motifs aussi inspirés m'inspire un tel bonheur que j'en oublie un moment ma solitude spirituelle.
+Une telle sollicitude pour des motifs aussi inspirés me communique un tel bonheur que j'en oublie un moment ma solitude spirituelle.
 
 Le soleil commence à annihiler l'humidité poisseuse de la brume, en envoyant des rayons oranges sur les murs.
 
@@ -307,11 +309,9 @@ Que faire maintenant ?
 == 26 ==
 
 { // }
-
-«¯Cher voyageur,
+«¯Cher voyageur, 
 
 merci de participer à ce jeu. J'espère que vous ne vous sentirez pas trop limité ici, et que votre liberté de pensée n'est pas trop mise à mal. Cette courte histoire risque par contre de réellement commencer quand vous retournerez à la civilisation. N'espérez pas découvrir beaucoup de choses dans ces îles désertées. Au fait, si par hasard vous rencontrez Jacqueline, dites-lui bonjour de notre part !¯»
-
 {/// }
 
 
@@ -323,12 +323,12 @@ merci de participer à ce jeu. J'espère que vous ne vous sentirez pas trop limi
 Ce qui était le plus visible et étrange dans cet endroit, c'était un poster imprimé sur un fond bleu-indigo, avec écrit par dessus, en lettres énormes et roses :
 
 { // }
+«¯REJOIGNEZ L'ARMÉE DE L'AMOUR™ !
 
-«¯REJOIGNEZ L'ARMÉE DE L'AMOUR(TM)!
-
-L'Indigo Love Syndicate(tm) a besoin de vous. Merci pour votre attention.¯»
-
+L'Indigo Love Syndicate™ a besoin de vous. Merci pour votre attention.¯»
 {/// }
+
+% { ^^ }TM{/^^ }
 
 Il n'y a pas de moyen clair pour les contacter. Peut-être qu'ils sont devenus si puissants récemment qu'il est aisé de tomber sur eux. On verra bien !
 
@@ -384,7 +384,7 @@ Quelqu'un m'a vendu, tandis que j'effectuais une importante mission : je devais 
 
 == 33 ==
 
-Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d'années, après sa séparation physique du vieux continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d'années, une nouvelle secte, appelée le Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites. 
+Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d'années, après sa séparation physique du Vieux Continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d'années, une nouvelle secte, appelée l'Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites. 
 Discrète à ses débuts, la secte est maintenant un pouvoir politique sur lequel il faut compter.
 
 - Je peux rejoindre l'opposition, pour voir s'ils sont meilleurs que ceux qu'ils prétendent combattre : 9
@@ -393,11 +393,11 @@ Discrète à ses débuts, la secte est maintenant un pouvoir politique sur leque
 
 == 34 ==
 
-Lors d'une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d'une promenade au bord de mer, j'arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l'auto-réalisation.
+Au cours d'une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d'une promenade au bord de mer, j'arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l'auto-réalisation.
 
-Partant précipitamment, j'ai oublié de prendre de la nourriture et quelques affaires avec moi, aussi je me sens rapidement bien perdu dans ces rues étrangères, avec mon libre-arbitre et mes poches vides.
+Partant précipitamment, j'oublie de prendre de la nourriture et quelques affaires avec moi, et rapidement je me sens bel et bien perdu dans ces rues étrangères, avec mon libre arbitre et mes poches vides.
 
-- Aller rencontrer les autorités locale the local authorities, pour m'enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré : 47
+- Aller rencontrer les autorités locale, pour m'enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré : 47
 - En apprendre plus sur leurs coutumes et traditions : 33
 - Voler un peu de nourriture et des choses de première nécessité : 40
 
@@ -407,7 +407,7 @@ Partant précipitamment, j'ai oublié de prendre de la nourriture et quelques af
 
 Je la compare à une pouliche sublime et splendide, à la déesse de la fertilité, de la guerre et du désir, à l'infirmière primordiale et ainsi de suite.
 
-- Forte comme elle l'est, tout ce que je reçois c'est une gifle bien méritée, et avec la mâchoire et la joue aussi rouges qu'un diable excité ayant mangé du piment, honteux, je repars vers la ville: 41
+- Forte comme elle l'est, tout ce que je reçois c'est une gifle bien méritée. Honteux, avec la mâchoire et la joue aussi rouges qu'un diable excité ayant mangé du piment, je repars vers la ville: 41
 
 
 == 36 ==
@@ -424,7 +424,7 @@ J'ai à ce moment le sentiment que mon âme vient d'être souillée.
 
 == 37 ==
 
-Pensant probablement que j'ai mal interprété son activité d'attente, la femme semble énervée d'avoir été dérangée par mon arrivée. Elle me dit carrément qu'elle attend quelqu'un d'autre et se moque de ma vie disgracieuse.
+Pensant probablement que j'ai mal interprété son attitude aux abords d'un lieu de passage, la femme semble énervée d'avoir été dérangée par mon arrivée. Elle me dit carrément qu'elle attend quelqu'un d'autre et se moque de ma vie disgracieuse.
 
 - Insister un peu plus : 28
 - L'insulter : 46
@@ -443,7 +443,7 @@ Je me sens si fatigué, que je vais au lit immédiatement.
 
 == 39 ==
 
-Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d'une grande ville que je n'ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le nouveau Continent en fin de compte ?
+Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d'une grande ville que je n'ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le Nouveau Continent en fin de compte ?
 
 Tous les marins ont été séparés pour éviter la rébellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout.
 
@@ -472,7 +472,7 @@ TESTLUCK
 
 == 42 ==
 
-L'appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois orné de motifs en cuivre, et des tapisseries en laine décorées de fibres optiques.
+L'appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois, ornés de motifs en cuivre, et des tapisseries en laine décorées de fibres optiques.
 
 Elle commence à retirer ses habits, mais se ravise et me dit qu'elle préfère finalement prendre un verre à la taverne.
 
@@ -484,7 +484,7 @@ Elle commence à retirer ses habits, mais se ravise et me dit qu'elle préfère 
 La partie occidentale de cette mer est réputée pour ses tornades fourbes et ses tourbillons imprévus.
 Le destin de notre embarcation est pourtant mis à mal par des désastres bien plus humains, lorsqu'un bateau pirate nous prend d'assaut.
 
-Ces rustres passent à l'abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pour très longtemps.
+Ces rustres passent à l'abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pendant très longtemps.
 
 TESTLUCK
 
@@ -561,7 +561,7 @@ Durant une mission difficile, je sens que je n'obtiens pas l'aide que je mérite
 
 == 50 ==
 
-Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l'univers. Je lui parle de la beauté, de volonté, d'ascétisme et d'humilité. 
+Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l'univers. Je lui parle de beauté, de volonté, d'ascétisme et d'humilité. 
 
 - La jeune femme, avec pitié et un sourire perplexe, me reconduit au 44
 
@@ -590,7 +590,7 @@ Après m'avoir fait signer quelques papiers, ils m'indiquent la route sur une ca
 Une jeune femme polie et agréable m'explique avec une voix douce que le bureau que je recherche se trouve maintenant au rez-de-chaussée.
 
 - Ce qui me conduit au 44
-- Mais avant cela, je peux tenter de la séduire, on ne sait jamais : 50
+- mais avant cela, je peux tenter de la séduire, on ne sait jamais : 50
 
 
 == 54 ==
@@ -602,7 +602,7 @@ Pendant l'attaque, je vois le flash bleu acier de l'épée d'un pirate, approcha
 
 == 55 ==
 
-Baillant et m'étirant, je me réveille de bonne humeur. Je n'ai pas découvert de nouveau Continent, je n'ai pas vécu de grandes aventures, mais j'ai rencontré des gens qui n'étaient pas si mal en fin de compte.
+Bâillant et m'étirant, je me réveille de bonne humeur. Je n'ai pas découvert de Nouveau Continent, je n'ai pas vécu de grandes aventures, mais j'ai rencontré des gens qui n'étaient pas si mal en fin de compte.
 
 Jour après jour, j'ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une fin heureuse finalement !
 

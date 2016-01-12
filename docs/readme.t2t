@@ -1,4 +1,4 @@
-Le TeXtallion, a simple word processor
+Le Textallion, a simple word processor
 
 
 
@@ -42,12 +42,11 @@ used the installation script) for a little front-end.
 
 = Source Code and bug report =
 
-http://code.google.com/p/textallion/
+https://bitbucket.org/farvardin/textallion
  
 
-
 %!include: license.t2t
-%%date
+
 
 %!include: changelog.t2t
 

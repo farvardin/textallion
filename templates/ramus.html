@@ -3,7 +3,7 @@
 <html> 
  <head> 
   <meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
-  <meta name="generator" content="http://textallion.googlecode.com - http://txt2tags.org - http://felix.plesoianu.ro//index.php/page:Software:Ramus" />
+  <meta name="generator" content="https://bitbucket.org/farvardin/textallion - http://txt2tags.org - http://felix.plesoianu.ro//index.php/page:Software:Ramus" />
   <meta content="minimum-scale=0.5, width=device-width, maximum-scale=2.0, user-scalable=yes" name="viewport" />
   <title>%(HEADER1)s</title>
   <style type="text/css"> 
@@ -16,8 +16,7 @@
     /*font-weight: 800;*/
     /*font-size: 30px;*/
     /*src: url('http://themes.googleusercontent.com/static/fonts/tangerine/v2/HGfsyCL5WASpHOFnouG-RD8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');*/
-    src: url('http://themes.googleusercontent.com/static/fonts/imfellenglish/v2/xwIisCqGFi8pff-oa9uSVEGbiRUdT7ySew84y3CmKhM.ttf') format('truetype');	
-
+    src: local('imfellenglish.ttf'), url('http://themes.googleusercontent.com/static/fonts/imfellenglish/v2/xwIisCqGFi8pff-oa9uSVEGbiRUdT7ySew84y3CmKhM.ttf') format('truetype');	
 }
 
 html { 
@@ -33,9 +32,9 @@ html {
         background: #170804 url("body_bg.jpg") repeat-x left top;
         }
 body {
-	Font-size: 1.4em;
-	Width: 800px;
-	Margin: 1.5em auto;
+	font-size: 1.4em;
+	max-width: 800px;
+	margin: 1.5em auto;
 	Padding: 1.5em;
 	/*Background-color: #E9E1CE;*/
 	background: #E9E1CE url("text_bg.jpg") ;
@@ -66,6 +65,12 @@ h6 { Font-size: 1.1em; }
 }
 #transcript th { Color: #ffffff; Background-color: #808080; Font-family: CustomFont,Palatino,sans-serif; }
 #transcript hr { Color: #808080; }
+
+/* Flaired edges, by Tomas Theunissen */ 
+hr { height: 0px; border-style: none; border-color: black; border-width: 0px 0 0 0; border-radius: 0px; font-size: 1.2em; text-align: center;} 
+hr:after {  content: "❧";}
+
+
 address { Font-size: 0.9em; }
 dt { Font-weight: bold; }
 

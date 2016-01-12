@@ -1,11 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # v 1.0 (after some previous unnumbered versions) [12-09-2009]
 # v 1.1 (option for reading epub in lynx. SBT) [09-12-2011]
 
-# by Jellby http://www.mobileread.com/forums/member.php?u=14253 and SBT
-# source http://www.mobileread.com/forums/showthread.php?t=51267
+# by Jellby http://www.mobileread.com/forums/member.php?u=14253 
+# and by SBT source http://www.mobileread.com/forums/showthread.php?t=51267
 
+# to get images, add this in yout lynx.conf
+#      XLOADIMAGE_COMMAND:xv %s &
+#      MAKE_LINKS_FOR_ALL_IMAGES:TRUE
+
+# Lynx viewer is enabled by default.
+
+
+LYNX_VIEWER=1
+     
 get_data() {
   OPF=$(sed -n -e '/<rootfile /s/.*full-path="\([^"]*\)".*/\1/p' META-INF/container.xml)
   BASEDIR=$(dirname $OPF)
@@ -309,7 +318,7 @@ read_toc() {
 
 while getopts ":o:v" OPTION; do
   case "$OPTION" in
-    o ) OPEN=1 ;;
+    o ) LYNX_VIEWER=0 & OPEN=1 ;;
     v ) LYNX_VIEWER=1 ;;
   esac
 done

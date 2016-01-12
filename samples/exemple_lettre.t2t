@@ -3,7 +3,7 @@ Lettre
 
 
 % Tiny almost-Kiss Word Processor
-% http://textallion.googlecode.com
+% https://bitbucket.org/farvardin/textallion
 
 
 %% DEF PERSONNAL STYLE
@@ -40,7 +40,7 @@ Lettre
 %!postproc(tex): 'xx DOCUMENT RECIPIENT FAX xx'             'Fax : 41 83 53 54 43'
 
 %!postproc(tex): 'xx DOCUMENT TITLE xx'                     'Retour des livres' 
-%!postproc(tex): '%\\date{}'                                '\\date{le 9 mars 2012}'
+%!postproc(tex): '%\\date{}'                                '%\\date{le 9 mars 2012}'
 
 
 %%%% Corps de VOTRE lettre %%%%
@@ -52,9 +52,10 @@ Votre compte de lecteur nous indique que ces documents ont dépassé le délai d
 
 - //Le Rouge et l'Or//, de Mariette Stédalle
 - //Malicorne, village fleuri//, de Paul Gobillot
+- --//Le retour des Dents de la Peur//, de Jack King-- (plus la peine, on vient de le retrouver, il était en fait en réserve !)
 
 
 Merci de nous retourner ces documents __au plus vite__, d’autres lecteurs les attendent.
 
-Vous en souhaitant bonne réception, veuillez agréer, Madame, l'expression de mes salutations distinguées.
+Vous souhaitant bonne réception de cette missive, veuillez agréer, Madame, l'expression de mes salutations distinguées.
 

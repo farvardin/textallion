@@ -2,9 +2,9 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Textallion"
-#define MyAppVersion "2013-11-18"
+#define MyAppVersion "2015-08-28"
 #define MyAppPublisher "textallion"
-#define MyAppURL "http://textallion.googlecode.com"
+#define MyAppURL "https://bitbucket.org/farvardin/textallion"
 #define MyAppExeName "textallion_cygwin.bat"
 ;#include ReadReg(HKEY_LOCAL_MACHINE,'Software\Sherlock Software\InnoTools\Downloader','ScriptPath','')
 #include <C:\textallion_setup\it_download.iss>
@@ -27,12 +27,12 @@ DefaultGroupName={#MyAppName}
 ;LicenseFile=C:\textallion_setup\cygwin\usr\share\textallion\docs\license.t2t
 InfoBeforeFile=C:\textallion_setup\readme.txt
 OutputBaseFilename=textallion_setup
-SetupIconFile=textallion.ico
+SetupIconFile=textallion_setup\textallion.ico
 UninstallDisplayIcon={app}\unins000.exe
 Compression=lzma
 SolidCompression=yes
-WizardImageFile=logo_textallion.bmp
-WizardSmallImageFile=logo_textallion_small.bmp
+WizardImageFile=textallion_setup\logo_textallion.bmp
+WizardSmallImageFile=textallion_setup\logo_textallion_small.bmp
 
 [Languages]
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"; InfoBeforeFile: C:\textallion_setup\readmeFR.txt
@@ -48,6 +48,8 @@ Source: "C:\textallion_setup\textallion.ico"; DestDir: "{app}"; Flags: ignorever
 Source: "C:\textallion_setup\cygwin\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs;  Components: Main
 ; correct Geany incorrect handling of txt2tags files
 Source: "C:\textallion_setup\filetype_extensions.conf"; DestDir: "{tmp}"; Flags: ignoreversion recursesubdirs createallsubdirs;  Components: Geany
+Source: "C:\textallion_setup\solarized-light.conf"; DestDir: "{tmp}"; Flags: ignoreversion recursesubdirs createallsubdirs;  Components: Geany
+Source: "C:\cygwin\usr\share\textallion_bitbucket\core\locale"; DestDir: "{tmp}"; Flags: ignoreversion recursesubdirs createallsubdirs;  Components: Main
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
@@ -152,9 +154,9 @@ begin;
 
  MiktexCheck();
  if (MiktexCheckResult = True) then begin
- if not FileExists(expandConstant('{src}\basic-miktex-2.9.4813.exe')) then begin
+ if not FileExists(expandConstant('{src}\basic-miktex-2.9.5105.exe')) then begin
       //Let's download miktex
-     itd_addfile('http://mirror.ibcp.fr/pub/CTAN/systems/win32/miktex/setup/basic-miktex-2.9.4813.exe',expandconstant('{src}\basic-miktex-2.9.4813.exe'));  
+     itd_addfile('http://mirrors.ircam.fr/pub/CTAN/systems/win32/miktex/setup/basic-miktex-2.9.5105.exe',expandconstant('{src}\basic-miktex-2.9.5105.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -162,9 +164,9 @@ begin;
 
 CalibreCheck();
  if (CalibreCheckResult = True) then begin
- if not FileExists(expandConstant('{src}\calibre-0.9.35.msi')) then begin
+ if not FileExists(expandConstant('{src}\calibre-1.48.0.msi')) then begin
       //Let's download Calibre
-     itd_addfile('https://calibre-ebook.googlecode.com/files/calibre-0.9.35.msi',expandconstant('{src}\calibre-0.9.35.msi'));  
+     itd_addfile('http://download.calibre-ebook.com/1.48.0/calibre-1.48.0.msi',expandconstant('{src}\calibre-1.48.0.msi'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -172,9 +174,9 @@ CalibreCheck();
  GeanyCheck();
  if (GeanyCheckResult = True) then begin
 // FileGeany := ExpandConstant('{app}\geany-0.20_setup.exe');
- if not FileExists(expandConstant('{src}\geany-1.23_setup.exe')) then begin
+ if not FileExists(expandConstant('{src}\geany-1.25_setup.exe')) then begin
       //Let's download Geany
-     itd_addfile('http://download.geany.org/geany-1.23_setup.exe',expandconstant('{src}\geany-1.23_setup.exe'));  
+     itd_addfile('http://download.geany.org/geany-1.25_setup.exe',expandconstant('{src}\geany-1.25_setup.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -182,9 +184,9 @@ CalibreCheck();
  SumatraCheck();
  if (SumatraCheckResult = True) then begin
 // FileSumatra := ExpandConstant('{app}\SumatraPDF-1.4-install.exe');
- if not FileExists(expandConstant('{src}\SumatraPDF-2.4-install.exe')) then begin
+ if not FileExists(expandConstant('{src}\SumatraPDF-3.0-install.exe')) then begin
       //Let's download sumatra
-     itd_addfile('https://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-2.4-install.exe',expandconstant('{src}\SumatraPDF-2.4-install.exe'));  
+     itd_addfile('http://kjkpub.s3.amazonaws.com/sumatrapdf/rel/SumatraPDF-3.0-install.exe',expandconstant('{src}\SumatraPDF-3.0-install.exe'));  
      //Start the download after the "Ready to install" screen is shown
      end;
  end;
@@ -219,17 +221,22 @@ begin
 
     // correct Geany incorrect handling of txt2tags files
       filecopy(expandconstant('{tmp}\filetype_extensions.conf'),expandconstant('{pf32}\Geany\data\filetype_extensions.conf'),false);
+      filecopy(expandconstant('{tmp}\solarized-light.conf'),expandconstant('{pf32}\Geany\data\colorschemes\solarized-light.conf'),false);
+      
+   // locale
+
+  
       end;
 
 end;
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, "&", "&&")}}"; Flags: shellexec postinstall skipifsilent; Components: Main
-Filename: "{src}\basic-miktex-2.9.4813.exe"; Parameters: "/SILENT " ; Check: MiktexCheckInstall ; Components: Miktex
-Filename: "msiexec"; Parameters: "/i ""{src}\calibre-0.9.35.msi""" ; Check: CalibreCheckInstall ; Components: Calibre
-;Filename: "{src}\calibre-0.7.50.msi"; Parameters: "/SILENT " ; Check: CalibreCheckInstall ; Components: Calibre
-Filename: "{src}\geany-1.23_setup.exe"; Parameters: "/SILENT " ; Check: GeanyCheckInstall ; Components: Geany
-Filename: "{src}\SumatraPDF-2.4-install.exe"; Parameters: "/SILENT " ; Check: SumatraCheckInstall ; Components: Sumatra
+Filename: "{src}\basic-miktex-2.9.5105.exe"; Parameters: "/SILENT " ; Check: MiktexCheckInstall ; Components: Miktex
+Filename: "msiexec"; Parameters: "/i ""{src}\calibre-1.48.0.msi""" ; Check: CalibreCheckInstall ; Components: Calibre
+;Filename: "{src}\calibre-1.48.0.msi"; Parameters: "/SILENT " ; Check: CalibreCheckInstall ; Components: Calibre
+Filename: "{src}\geany-1.25_setup.exe"; Parameters: "/SILENT " ; Check: GeanyCheckInstall ; Components: Geany
+Filename: "{src}\SumatraPDF-3.0-install.exe"; Parameters: "/SILENT " ; Check: SumatraCheckInstall ; Components: Sumatra
 
 [Components]
 Name: Main; Description: Main Textallion Installation (cygwin); Types: full compact custom; Flags: fixed

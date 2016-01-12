@@ -4,7 +4,7 @@ Eric Forgeot
 
 
 % Tiny, almost-KISS word processor
-% http://textallion.googlecode.com
+% https://bitbucket.org/farvardin/textallion
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
@@ -105,13 +105,13 @@ It also includes a CYOA (choose-your-own-adventure) creation system.
 //Note: This project was originally named "txt2tex".//
 
 
-== Getting TeXtallion ==
+== Getting Textallion ==
 
-The latest version can be found there: http://code.google.com/p/textallion/downloads/list
+The latest version can be found there: https://bitbucket.org/farvardin/textallion
 
 There is also a mirror located [there http://anamnese.online.fr/site2/textallion/textallion.zip].
 
-Older versions can be retrieved from http://anamnese.online.fr/site2/textallion/
+% Older versions can be retrieved from http://anamnese.online.fr/site2/textallion/
 
 
 === Optional packages ===
@@ -121,7 +121,7 @@ You can automate your document processing with 'GNU make' adapting the included 
 
 == Prerequisites ==
 
-TeXtallion has been tested on these operating systems:
+Textallion has been tested on these operating systems:
 
 
 === Linux ===
@@ -134,6 +134,8 @@ Running the ``textallion_install.sh`` script from a root shell will copy everyth
 
 
 === Windows ===
+
+You can get the ``textallion_setup.exe`` installer from: https://bitbucket.org/farvardin/textallion/downloads
 
 [Python http://www.python.org] must be installed on your computer. Choose version 2.x (for example python 2.7) because textallion is not compatible with Python 3. 
 
@@ -193,7 +195,7 @@ On Linux, you can use the textallion.sh script to process your document; modify 
 - **``make pdf``** to generate a LaTeX document and then a pdf file. If the compilation goes well, you won't see any errors, and the output will end with "entering extended mode".
 - ``make pdfsmall`` for making a document with 2 pages in one using pdfjam - linking is disabled in the output,  good for hard copy printing only.
 - ``make booklet`` for making a recto-verso leaflet via psutils, links will also be disabled and the column alignment seems to need some adjustment.
-- **``make epub``** to create an {^}ePUB{^} format e-book file from the html file, using the free program [calibre http://calibre.kovidgoyal.net/]. You can also use [Sigil http://code.google.com/p/sigil/] for reformatting your {^}ePUB{^} document.
+- **``make epub``** to create an {^}ePUB{^} format e-book file from the html file, using the free program [calibre http://calibre.kovidgoyal.net/]. You can also use [Sigil http://sigil-ebook.com/] for reformatting your {^}ePUB{^} document.
 - ``make clean`` to clean the folder of temporary files.
 - ``make cleanall`` to clean the folder of temporary files, and erase all the generated .tex and .pdf files; prompts for confirmation first.
  - ``make configuration-update`` when updating your textallion package. This uses a diff tool such as meld, to compare the configuration files of your project (makefile, css & sty) with the updated source files and help you update them if necessary.
@@ -838,7 +840,7 @@ It supports ([Text Figures http://en.wikipedia.org/wiki/Text_figures]): 12345678
 - Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 
 - http://nestededitor.sourceforge.net/(libre)
 
- - {^}ePUB{^} creation : [sigil https://code.google.com/p/sigil/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
+ - {^}ePUB{^} creation : [sigil http://sigil-ebook.com/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
  - html : 
  - pdf : openoffice, LaTeX, [Lout http://fr.wikipedia.org/wiki/Lout], [writer2latex http://writer2latex.sourceforge.net/]]
 

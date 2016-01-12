@@ -5,7 +5,7 @@ Eric Forgeot
 
 
 % Tiny almost-Kiss Word Processor
-% http://textallion.googlecode.com
+% https://bitbucket.org/farvardin/textallion
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
@@ -158,9 +158,9 @@ Ce présent manuel se focalise surtout sur la création de documents pdf, destin
 %- utilisation de svn ou autre gestionnaire de version pour travail collaboratif, corrections ou révisions
 
 
-== Obtenir le TeXtallion ==
+== Obtenir le Textallion ==
 
-La dernière version se trouve à cette adresse : http://code.google.com/p/textallion/downloads/list
+La dernière version se trouve à cette adresse : https://bitbucket.org/farvardin/textallion
 
 Il y a également une copie ici : http://anamnese.online.fr/site2/textallion/textallion.zip
 
@@ -170,10 +170,14 @@ Il est possible de retrouver les anciennes versions dans http://anamnese.online.
 
 Il est recommendé d'automatiser vos créations de documents en utilisant  'GNU make', à partir du makefile d'exemple. Vous pouvez également ajouter des modifications postcripts (édition pdf au niveau vectoriel) avec des outils tels que pstopdf, psutils (pdfnup, psbook) et pdfjam.
 
+Parfois l'utilisation de LaTeX n'est pas toujours aisée. Pour un export simple vers le format PDF, il est possible d'utiliser [wkhtmltopdf http://wkhtmltopdf.org/]
+
+
 
 == Pré-requis (installation) ==
 
-Le TeXtallion a été testé avec succès sur ces plateformes :
+Le Textallion a été testé avec succès sur ces plateformes :
+
 
 === Linux ===
 
@@ -195,11 +199,11 @@ Si vous utilisez la distribution Archlinux, vous pouvez installer textallion ave
 
 ==== 1ème méthode ====
 
-Utiliser l'installateur ``textallion_setup.exe`` téléchargeable ici : http://code.google.com/p/textallion/downloads/list
+Utiliser l'installateur ``textallion_setup.exe`` téléchargeable ici : https://bitbucket.org/farvardin/textallion/downloads
 Ce qui installera conjointement :
 - [MiKTeX http://miktex.org/] (de préférence la version 2.8)
 - et [Calibre http://calibre-ebook.com/download_windows]
-- ainsi que geany (éditeur de texte) et sumatra pdf (lecteur pdf libre)
+- ainsi que geany (éditeur de texte) et sumatra pdf (lecteur pdf libre) 
 
 
 ==== 2ème méthode ====
@@ -300,6 +304,7 @@ Pour compiler le document final, en html, pdf ou {^}ePUB{^}, veuillez ouvrir un 
  - ``make pdfsmall`` pour faire tenir le document avec 2 pages sur une seule (nécessite pdfjam, et les liens ne seront plus actifs)
  - ``make booklet`` pour créer une brochure gérant le recto-verso (nécessite psutils, et les liens ne seront plus actifs). Les colonnes ne semblent pas bien alignées pour le moment.
  - **``make epub``** pour créer un fichier {^}ePUB{^} (livre électronique), nécessite le logiciel libre [calibre http://calibre.kovidgoyal.net/] pour réaliser la conversion à partir du fichier html. 
+ - ``make pdfnolatex`` ou ``make pdfweb`` pour créer un document pdf à partir de la source html, sans passer par LaTeX et en utilisant un moteur de rendu webkit (wkhtmltopdf)
  - ``make clean`` pour nettoyer le dossier
  - ``make cleanall`` pour nettoyer et effacer les fichiers pdf et html générés, avec confirmation (attention si vous avez d'autres documents sous ces formats dans le même dossier)
  - ``make configuration-update``, pour comparer avec un outil graphique (par défaut meld), les fichiers de configuration par défaut pour makefile, css et sty de la dernière version installée de textallion, avec votre projet en cours. Vous pourrez ainsi éventuellement mettre à jour plus facilement les dernières modifications rapportées, tout en gardant vos paramètres personnels.
@@ -347,7 +352,7 @@ Format pour la lecture numérique, l'{^}ePUB{^} est adapté pour l'utilisation d
 
 Le style par défaut, à modifier à votre convenance si nécessaire est epub.css (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
 
-Notre exportation {^}ePUB{^} est très loin d'être parfaite, on utilise simplement un export xhtml et quelques simplifications, pour la conversion avec le logiciel Calibre. Vous pouvez si nécessaire utiliser un outil comme [Sigil http://code.google.com/p/sigil/] pour reformater ensuite manuellement votre document ou optimiser son apparence.
+Notre exportation {^}ePUB{^} est très loin d'être parfaite, on utilise simplement un export xhtml et quelques simplifications, pour la conversion avec le logiciel Calibre. Vous pouvez si nécessaire utiliser un outil comme [Sigil http://sigil-ebook.com/] pour reformater ensuite manuellement votre document ou optimiser son apparence.
 
 
 == Syntaxe ==
@@ -570,6 +575,9 @@ De la même manière vous pouvez inclure des vidéos au format ogg/theora, avec 
 Exemple de vidéo (téléchargée depuis un site internet extérieur) :
 
 [http://upload.wikimedia.org/wikipedia/commons/7/79/Big_Buck_Bunny_small.ogv]
+
+Exemple de vidéo :
+[http://v2v.cc/~j/theora_testsuite/320x240.ogg]
 
 
 *-*-
@@ -1100,9 +1108,11 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
  - Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 
  - http://utroff.org/
 
+- http://asciidoctor.org/ (pour asciidoc)
+
 - http://nestededitor.sourceforge.net/(libre)
 
- - création d'{^}ePUB{^} : [sigil https://code.google.com/p/sigil/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
+ - création d'{^}ePUB{^} : [sigil https://github.com/Sigil-Ebook/Sigil], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
  - html : 
  - pdf : openoffice, LaTeX, [Lout http://fr.wikipedia.org/wiki/Lout], [writer2latex http://writer2latex.sourceforge.net/]]
  

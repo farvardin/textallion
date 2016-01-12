@@ -5,7 +5,7 @@
 %% Tiny almost-Kiss Word Processor
 %% based on the txt2tags tool and wiki syntax
 %
-% by Eric Forgeot (c) 2008-2014
+% by Eric Forgeot (c) 2008-2015
 %
 % http://anamnese.online.fr/site2/textallion/docs/presentation.html
 % Complete source code: http://textallion.googlecode.com
@@ -46,8 +46,8 @@
 
 % footnote 			  °° or { °° } (ex: sentence bla bla°°note explanation°°
 %                     for cyoa notes are this way: sentence blabla°°note1°°note explanation°°
-% exponent       	  ^^ or { ^^ } {/^^ } 
-% sub       	      { ,, } {/,, }
+% exponent / superscript  --^^ or-- { ^^ } {/^^ } 
+% subscript       	      { ,, } {/,, }
 
 % column			  {|n|}
 
@@ -101,6 +101,11 @@
 %!preproc(tex):  '\{\^\}'          CONVERTindex
 %!postproc(tex):  'CONVERTindex([^ ].*?)CONVERTindex' \1\\index{\1}
 
+
+% not necessary, just use {^}indexed word{^group index!displayed word in the index}
+%--!preproc(tex):  '\{\^([^ ].*?)!([^ ].*?)\}' CONVERTindxnommeSTART\1EXCL\2END
+%--!postproc(tex):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)EXCL([^ ].*?)END' \1\\index{\2!\1}
+
 %!preproc(tex):  '\{\^([^ ].*?)\}' CONVERTindxnommeSTART\1END
 %!postproc(tex):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)END' \1\\index{\2}
 
@@ -114,8 +119,11 @@
 %!preproc(xhtml):  '\{\^\}'          CONVERTindex
 %!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindex' \1
 
+%--!preproc(xhtml):  '\{\^([^ ].*?)!([^ ].*?)\}' CONVERTindxnommeSTART\1EXCL\2END
+%--!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)EXCL([^ ].*?)END' \1 (\2)
+
 %!preproc(xhtml):  '\{\^([^ ].*?)\}' CONVERTindxnommeSTART\1END
-%!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)END' \1
+%!postproc(xhtml):  'CONVERTindex([^ ].*?)CONVERTindxnommeSTART([^ ].*?)END' \1 (\2)
 
 
 %!preproc(xhtml):  '%%index'         'CONVERTprintindex'
@@ -629,10 +637,10 @@
 
 
 %!postproc(tex): 'CONVERTsmallcapsBEGIN'  '\\textsc{'
-%!postproc(xhtml): 'CONVERTsmallcapsBEGIN'     '<div class="smallcaps">'
+%!postproc(xhtml): 'CONVERTsmallcapsBEGIN'     '<span class="smallcaps">'
 
 %!postproc(tex): 'CONVERTsmallcapsEND'  '}'
-%!postproc(xhtml): 'CONVERTsmallcapsEND'     '</div>'
+%!postproc(xhtml): 'CONVERTsmallcapsEND'     '</span>'
 
 
 %%% music and video
@@ -640,6 +648,9 @@
 %% Only for xhtml
 %!preproc(xhtml): '\[http://([^ ].*?).ogg\]' 'OGG@@HTTP_\1.ogg@@'
 %!preproc(xhtml): '\[([^ ].*?).ogg\]' 'OGG@@\1.ogg@@'
+
+%!preproc(xhtml): '\[http://([^ ].*?).mp3\]' 'MP3@@HTTP_\1.mp3@@'
+%!preproc(xhtml): '\[([^ ].*?).mp3\]' 'MP3@@\1.mp3@@'
 
 %!preproc(xhtml): '\[http://([^ ].*?).ogv\]' 'OGV@@HTTP_\1.ogv@@'
 %!preproc(xhtml): '\[([^ ].*?).ogv\]' 'OGV@@\1.ogv@@'
@@ -653,6 +664,10 @@
 %!postproc(xhtml): 'OGG@@HTTP_([^ ].*?).ogg@@' <audio preload="metadata" controls="controls"><source src="http://\1.ogg" type="audio/ogg"><a href="http://\1.ogg">Download the music file (your browser doesn't support this html5 video format)</a></audio>
 
 %!postproc(xhtml): 'OGG@@([^ ].*?).ogg@@' <audio preload="metadata" controls="controls"><source src="\1.ogg" type="audio/ogg"><a href="\1.ogg">Download the music file (your browser doesn't support this html5 video format)</a></audio>
+
+%!postproc(xhtml): 'MP3@@HTTP_([^ ].*?).mp3@@' <audio preload="metadata" controls="controls"><source src="http://\1.mp3" type="audio/mp3"><a href="http://\1.mp3">Download the music file (your browser doesn't support this html5 video format)</a></audio>
+
+%!postproc(xhtml): 'MP3@@([^ ].*?).mp3@@' <audio preload="metadata" controls="controls"><source src="\1.mp3" type="audio/mp3"><a href="\1.mp3">Download the music file (your browser doesn't support this html5 video format)</a></audio>
 
 %!postproc(xhtml): 'OGV@@HTTP_([^ ].*?).ogv@@' <video src="http://\1.ogv" controls><a href="http://\1.ogv">Download the file (your browser doesn't support this html5 video format)</a></video>
 

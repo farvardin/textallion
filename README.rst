@@ -58,7 +58,7 @@ All textallion code and hacks are released under the `BSD license <http://en.wik
 
 ::
 
-  Copyright (c) 2008-2013, Eric Forgeot. 
+  Copyright (c) 2008-2014, Eric Forgeot. 
   All rights reserved.
    
   Redistribution and use in source and binary forms, with or without
@@ -121,6 +121,8 @@ Credit is due to:
 - http://www.auntiepixelante.com/twine/ for the help with the twine syntax
 - http://www.mcdemarco.net/ for the twee patch
 
+20140819
+
 
 *********
 Changelog
@@ -128,6 +130,12 @@ Changelog
 
 *The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip*
 
+
+- 2014:
+
+ - `Paul Delaroche <https://fr.wikipedia.org/wiki/Paul_Delaroche>`_ release:
+
+                - various bugfixes
 
 - 18 nov 2013:
 
@@ -424,7 +432,10 @@ PDF (LaTeX and XeTeX)
 
 - note : if you want to separate chapters on different pages, use "book". If you want to write a memo with every parts alltogether to save space, use "article". Important: article won't support "chapters", so they will be ignored and break the hierarchy you could have made. Use the replacements proposed at the beginning of new documents.
 
-== EPUB ==
+
+EPUB
+====
+
 
 - Extra unwanted entries in TOC, such as footnotes and linked documents
 - Epub files looks bad with FBReader desktop edition (but ok in Calibre)
@@ -433,6 +444,9 @@ PDF (LaTeX and XeTeX)
 
 Windows
 =======
+
+
+- Easier updates
 
 
 txt2cyoa

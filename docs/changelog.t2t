@@ -9,10 +9,18 @@
 
 //The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip//
 
+- Full changelog from the repository: https://bitbucket.org/farvardin/textallion/commits/all
 
-- 2014:
+
+- 28 aug 2015:
  - [Paul Delaroche https://fr.wikipedia.org/wiki/Paul_Delaroche] release:
                 - various bugfixes
+                - adding support for wkhtmltopdf (render pdf from html using webkit)
+                - use {^category!keyword} for index in latex 
+                - updated Ramus cyoa
+                - adding smallcaps
+				- updated ms windows installer
+                
 
 - 18 nov 2013:
  - [Léonide Bourges https://fr.wikipedia.org/wiki/L%C3%A9onide_Bourges] release:

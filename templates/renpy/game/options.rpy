@@ -164,8 +164,13 @@ init -1 python hide:
     style.menu_choice.size = 24
 
     ## for android
-    #style.default.size = 44
-    #style.menu_choice.size = 44
+    #style.default.size = 40
+    #style.menu_choice.size = 40
+    #style.default.size = 40
+    #style.menu_choice.size = 40
+    #style.large_button.size = 35
+    #style.label.size = 35
+    #style.button_text.size = 35
 
     ## Note that these only change the size of some of the text. Other
     ## buttons have their own styles.

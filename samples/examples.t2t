@@ -3,7 +3,7 @@ TeXtallion, some examples
 
 
 % Tiny almost-Kiss Word Processor
-% http://textallion.googlecode.com
+% https://bitbucket.org/farvardin/textallion
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx'  'Textallion - Samples'
@@ -71,7 +71,7 @@ TeXtallion, some examples
 
 [../media/logo_textallion.png]
 
-Here are some document examples for TeXtallion...
+Here are some document examples for Textallion...
 
 + There are some poetry
 + Some prose as well
@@ -329,7 +329,7 @@ They walked on in silence for some time, and more than one passer-by stared in a
 
 = Examples de textes en français =
 
-[../images/logo_textallion.png]
+[../media/logo_textallion.png]
 
 Voici quelques exemples de documents utilisant le TeXtallion...
 
@@ -605,7 +605,7 @@ Raw area test
 
 % a comment will be in gray and italic
 
-[test xmpp:username@example.com?message]
+[test mailto:username@example.com]
 
 
 == My Subtitle 2 ==
