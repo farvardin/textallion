@@ -1,5 +1,5 @@
 %% TEXTALLION
-%% http://textallion.googlecode.com
+%% https://bitbucket.org/farvardin/textallion
 %% XeTeX template 
 
 
@@ -94,25 +94,34 @@ Ligatures={Common, Rare, Historical},
 \fontspec[Ligatures={Common, Rare,Historical},Scale=1.00]{\DEFAULTxXETEXxFONT}
 \fontsize{\DEFAULTxXETEXxFONTxSIZE pt}{\DEFAULTxXETEXxFONTxSIZE pt}\selectfont %% The second value should be for line space skip
 
-\thispagestyle{empty}
+
 %%\thispagestyle{fancy}
+\thispagestyle{empty}
 
+\null\newpage 
+\thispagestyle{empty}
 
+\null\newpage 
+\thispagestyle{empty}
 
 \begin{center}
 	
 	\vspace*{5mm}
 	
-		\LARGE{\author}
+		%%\LARGE{\author}
+		{\scalefont{1.5}\selectfont{\author}}
 		
 	
-	\vspace*{35mm}	
+	\vspace*{30mm}	
 	
-		\Huge{\title}
+		%%\Huge{\title}
+		%%{\fontsize{60}{60}\selectfont{\title}}
+		{\scalefont{3}\selectfont{\title}}
 		
-	\vspace*{65mm}
+	\vspace*{130mm}
 	
-	\huge{\ding{167}} 
+	%%\huge{\ding{167}} 
+	{\scalefont{3}\selectfont{\ding{167}}}
 		
 \end{center}
 

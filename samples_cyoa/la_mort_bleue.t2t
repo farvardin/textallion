@@ -24,12 +24,20 @@ par Otto Grimwald
 
 %!postproc(tex): 'TESTLUCK' \\begin{itshape}Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec.\\end{itshape}
 
+%% image background (TeX)
+
+%!postproc(tex): '\\begin\{document\}' 'MYBACKGROUND\n\\begin{document}\nMYBACKGROUN2'
+%!postproc(tex): 'MYBACKGROUND' '\\usepackage{watermark}'
+%!postproc(tex): 'MYBACKGROUN2' \\thiswatermark{\put(-69,-800.7){\\includegraphics[width=210mm]{la_mort_bleue.jpg}}}
+
+
 
 % Insert your logo / picture instead of this one :
 
 {->--}[[la_mort_bleue.jpg] 1]{-<--} 
 
 % note : version courante de ce jeu
+
 
 
 

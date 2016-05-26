@@ -13,26 +13,26 @@ The Page0 is a page. " ".
 
 
 A choice called Page1ChoiceA is for Page1. "Je me lève ". It triggers Page19.
-The Page1 is a page. " Je me sens tomber. Pas très haut par rapport au sol, heureusement pour moi. Et quelques cordages épais amortissent ma chute. J[']ai probablement encore raté un échelon, car je suis dans la lune la plupart du temps en ce moment. ".
+The Page1 is a page. " Je me sens tomber. Pas très haut par rapport au sol, heureusement pour moi. Et quelques cordages épais amortissent ma chute. J[']ai probablement encore raté un échelon, car il faut dire que je suis dans la lune la plupart du temps en ce moment. ".
 
 
 A choice called Page2ChoiceA is for Page2. "En dépit de mes protestations, je suis jeté en prison ". It triggers Page48.
 The Page2 is a page. " Dès que je pose le pied sur le seuil de ce grand bâtiment, des officiers de police m[']arrêtent, au motif que je me suis évadé de la maison où je devais rester, ayant été acquit légalement par M. et Mme Caesar. ".
 
 
-A choice called Page3ChoiceA is for Page3. "mais je peux leur donner une correction méritée ". It triggers Page23.
+A choice called Page3ChoiceA is for Page3. "Mais je peux leur donner une correction méritée ". It triggers Page23.
 A choice called Page3ChoiceB is for Page3. "ou bien m[']enfuir lâchement sur le pont supérieur ". It triggers Page5.
 The Page3 is a page. " Il y a là un groupe de six marins. Ils ne sont qu[']en train de s[']amuser après tout ! ".
 
 
 A choice called Page4ChoiceA is for Page4. "Être grossier, mais direct ". It triggers Page35.
 A choice called Page4ChoiceB is for Page4. "Être modéré, mais verbeux ". It triggers Page28.
-The Page4 is a page. " Je sonne à la porte. Béatrix m[']ouvre, et me voyant, ne semble pas très heureuse de ma présence. Nous étions bons amis auparavant, aussi je ne comprends pas ses réserves. Elle porte une jolie petite robe légère, blanche et grise, et je ressens tant de poésie dans l[']atmosphère que je ne peux m[']empêcher de lui dire ce que j[']ai sur le coeur. ".
+The Page4 is a page. " Je sonne à la porte. Béatrix m[']ouvre, et me voyant, ne semble pas très heureuse de ma présence. Nous étions bons amis auparavant, aussi je ne comprends pas ses réserves. Elle porte une jolie petite robe légère, blanche et grise, et je ressens tant de poésie dans l[']atmosphère que je ne peux m[']empêcher de lui dire ce que j[']ai sur le cœur. ".
 
 
 A choice called Page5ChoiceA is for Page5. "Après quelques jours, nous arrivons à New Londrin Haven, et j[']entre triomphalement dans la ville ". It triggers Page25.
-A choice called Page5ChoiceB is for Page5. "Mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée ". It triggers Page27.
-The Page5 is a page. " Ce pont est habituellement réservé aux passagers de première classe. J[']espère qu[']aucun officier du navire ne me remarquera, sinon j[']aurai de sérieux problèmes. J[']obtins ce travail sur un navire pour payer ma traversée vers le Grand Continent, qui a été redécouvert il y a seulement quelques siècles.En attendant, j[']ai toujours été curieux au sujet de la vie là-bas, de savoir si les gens étaient comme nous ou si leur culture était si étrangère qu[']il n[']était pas possible d[']y vivre. J[']ai également essayer d[']apprendre leur si difficile langue, et je me suis forcé à l[']utiliser quotidiennement. C[']est ainsi que j[']ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de complètement la maîtriser, j[']ai vécu là-bas un moment, puis j[']ai décidé d[']embarquer sur ce bateau. ".
+A choice called Page5ChoiceB is for Page5. "mais avant cela, je peux explorer un moment le port, amoindrissant par contre le prestige de mon arrivée ". It triggers Page27.
+The Page5 is a page. " Ce pont est habituellement réservé aux passagers de première classe. J[']espère qu[']aucun officier du navire ne me remarquera, sinon j[']aurai de sérieux problèmes. J[']obtins ce travail sur un navire pour payer ma traversée vers le Grand Continent, qui a été redécouvert il y a seulement quelques siècles.En attendant, j[']ai toujours été curieux au sujet de la vie là-bas, de savoir si les gens étaient comme nous ou si leur culture était si étrangère qu[']il n[']était pas possible d[']y vivre. J[']ai également essayé d[']apprendre leur si difficile langue, et je me suis forcé à l[']utiliser quotidiennement. C[']est ainsi que j[']ai déménagé vers Iricimia, qui a une langue proche, et même si je suis loin de parfaitement la maîtriser, j[']ai vécu là-bas un moment, puis j[']ai décidé d[']embarquer sur ce bateau. ".
 
 
 A choice called Page6ChoiceA is for Page6. "Proposer son appartement ". It triggers Page42.
@@ -41,7 +41,7 @@ A choice called Page6ChoiceC is for Page6. "Proposer de prendre un verre dans un
 The Page6 is a page. " Nous entrons dans un salon de thé à l[']ambiance snobinarde, dans une zone touristique. Nous nous ennuyons rapidement en un tel lieu, aussi je propose que nous cherchions un endroit plus agréable pour nous divertir. ".
 
 
-The Page7 is a page. " Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes ici qui frappent dans leurs délicieuses mains en rythme. J[']en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j[']avais l[']habitude de ressentir dans le passé. ". 
+The Page7 is a page. " Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau. Étrangement, ils ne sont pas trop hostile à ma présence. Nous prenons une bière, puis une autre, et finalement je termine la nuit à danser sur les tables, pour la plus grande joie des femmes présentes ici qui frappent en rythme dans leurs délicieuses mains. J[']en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j[']avais l[']habitude de ressentir dans le passé. ". 
 It is followed by GameEnd.
 
 
@@ -57,22 +57,22 @@ The Page9 is a page. " L[']opposition est remplie de personnes charmantes et eng
 A choice called Page10ChoiceA is for Page10. "M[']approcher de cette dame ". It triggers Page37.
 A choice called Page10ChoiceB is for Page10. "Suivre mes anciens camarades dans la taverne ". It triggers Page7.
 A choice called Page10ChoiceC is for Page10. "Retourner chez moi ". It triggers Page31.
-The Page10 is a page. " Les quais ne sont pas un endroit très agréable pour un être aussi délicat que moi. J[']ai immédiatement le sentiment que je pourrais devenir une proie facile pour la plupart des vautours qui sévissent ici. Je remarque une belle femme qui attend près d[']un ponton. Au même moment, des marins, rencontrés sur le bateau où j[']étais employé, m[']appelle tandis qu[']ils entrent dans une taverne. ".
+The Page10 is a page. " Les quais ne sont pas un endroit très agréable pour un être aussi délicat que moi. J[']ai immédiatement le sentiment que je pourrais devenir une proie facile pour la plupart des vautours qui sévissent ici. Je remarque une belle femme qui attend près d[']un ponton. Au même moment des marins, rencontrés sur le bateau où j[']étais employé, m[']interpellent tandis qu[']ils entrent dans une taverne. ".
 
 
 A choice called Page11ChoiceA is for Page11. "Regarder le poster ". It triggers Page27.
-A choice called Page11ChoiceB is for Page11. "Sortir ". It triggers Page25.
-The Page11 is a page. " Impassible aux émotions humaines, le navire atteint les premières brumes matinales de l[']autre continent. Foulant la jetée et la terre ferme pour la première fois après trois semaines de torture spirituelle, je me sens étourdi et complètement perdu. Il y a un grand poster sur un mur, et la sortie vers le reste de la ville. ".
+A choice called Page11ChoiceB is for Page11. "Partir directement vers la ville ". It triggers Page25.
+The Page11 is a page. " Impassible aux émotions humaines, le navire atteint les premières brumes matinales de l[']autre continent. Foulant la jetée et la terre ferme pour la première fois après trois semaines de torture spirituelle, je me sens étourdi et complètement perdu. Il y a un grand poster sur un mur, et de l[']autre côté la sortie du port, pour aller vers le reste de la ville. ".
 
 
 A choice called Page12ChoiceA is for Page12. "Elle me dit qu[']elle regrette sa réaction trop vive, et propose que l[']on prenne un verre ensemble dans un salon de thé dans les environs ". It triggers Page6.
 The Page12 is a page. " Avant de commettre l[']irréparable, je remarque l[']ombre de Béatrix arrivant derrière moi, bouleversée et angoissée à mon sujet. ".
 
 
-A choice called Page13ChoiceA is for Page13. "Au Nord, toujours vers notre destination initialement prévue, le Nouveau Continent ". It triggers Page11.
-A choice called Page13ChoiceB is for Page13. "Au Sud, pour atteindre une petite île qu[']il a juste découverte avec sa longue-vue ". It triggers Page30.
-A choice called Page13ChoiceC is for Page13. "À l[']Ouest, pour explorer encore plus ce vaste océan bleu ". It triggers Page43.
-A choice called Page13ChoiceD is for Page13. "À l[']Est, pour retourner vers notre pays d[']origine ". It triggers Page24.
+A choice called Page13ChoiceA is for Page13. "Au nord, toujours vers notre destination initialement prévue, le Nouveau Continent ". It triggers Page11.
+A choice called Page13ChoiceB is for Page13. "Au sud, pour atteindre une petite île qu[']il vient de découvrir avec sa longue-vue ". It triggers Page30.
+A choice called Page13ChoiceC is for Page13. "À l[']ouest, pour explorer encore plus ce vaste océan bleu ". It triggers Page43.
+A choice called Page13ChoiceD is for Page13. "À l[']est, pour retourner vers notre pays d[']origine ". It triggers Page24.
 The Page13 is a page. " Le capitaine, arrivant peu après, s[']excuse pour la conduire grossière de ses hommes. S[']inclinant profondément, il me demande mon opinion sur la route à suivre. Est-ce que je rêve ? il est devenu fou, ou bien c[']est une sorte de pitié malsaine à mon encontre... Devrons-nous aller : ".
 
 
@@ -82,7 +82,7 @@ It is followed by GameEnd.
 
 A choice called Page15ChoiceA is for Page15. "Continuer à explorer ". It triggers Page21.
 A choice called Page15ChoiceB is for Page15. "Retourner au bateau ". It triggers Page11.
-The Page15 is a page. " Le soleil est haut dans le ciel, et pourtant je ressens une brise fraiche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet dans ma cabane à huit mètres du sol. Je me rappelle également de ma mère m[']appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local. J[']ai soudain l[']impression de tourner en rond... ".
+The Page15 is a page. " Le soleil est haut dans le ciel, et pourtant je ressens une brise fraîche dévorant mon cou et mes côtes. Je me souviens de mon enfance en Francimia, mes jeux dans les arbres et entre les rares collines vertes de notre domaine familial. Plus tard, toujours dans les arbres, en train de lire des livres à thème fantastique, allongé sur le tapis rouge et violet de ma cabane à huit mètres du sol. Je me rappelle également de ma mère m[']appelant, avec sa voix haut perchée, pour venir manger la « Gargouaillotte à la Pisaille », un plat local. J[']ai soudain l[']impression de tourner en rond... ".
 
 
 A choice called Page16ChoiceA is for Page16. "Quelques jours plus tard, j[']ai été vendu à une famille aisée ". It triggers Page45.
@@ -98,10 +98,10 @@ The Page18 is a page. " Les murs sont maintenant plus propres sans ce poster mal
 
 
 A choice called Page19ChoiceA is for Page19. "Me rebeller, rdv au ****". It triggers Page3.
-A choice called Page19ChoiceB is for Page19. "Attendre rendez-vous au ****". It triggers Page13.
-A choice called Page19ChoiceC is for Page19. "Sauter dans la mer ****". It triggers Page17.
+A choice called Page19ChoiceB is for Page19. "Attendre, rendez-vous au ****". It triggers Page13.
+A choice called Page19ChoiceC is for Page19. "Sauter dans la mer ". It triggers Page17.
 A choice called Page19ChoiceD is for Page19. "ou explorer un peu le bateau, ce qui est un prétexte pour fuir lâchement vers le ****". It triggers Page5.
-The Page19 is a page. " Je me suis senti déprimé tant d[']années que je ne puis le supporter plus longtemps. De plus, mon lieu de résidence et mon emploi actuel menacent graduellement tant ma santé mentale que physique... L[']océan, immense et bleu, s[']étendant à l[']infini vers le nord, l[']est, le sud et l[']ouest, reflète le soleil comme une cotte de maille scintillante. « Hé espèce de saloperie de Francimi ! Viens par ici ! », crient-ils. Entouré de ces étrangers Scottani et Iricimi, je ne me sens pas très bien dans cet environnement. Leur casques verts et orange foncés me rendent nerveux. Je n[']ai pas besoin de leur obéir, car ce sont de simples marins comme moi. Mais vais-je tolérer ces insultes ? ".
+The Page19 is a page. " Je me suis senti déprimé tant d[']années que je ne puis le supporter plus longtemps. De plus, mon lieu de résidence et mon emploi actuel menacent graduellement tant ma santé mentale que physique... L[']océan, immense et bleu, s[']étendant à l[']infini dans toutes les directions cardinales, reflète le soleil comme une cotte de maille scintillante. « Hé espèce de saloperie de Francimi ! Viens par ici ! », crient-ils. Entouré de ces étrangers Scottani et Iricimi, je ne me sens pas très bien dans cet environnement. Leur casques verts et orange foncés me rendent nerveux. Je n[']ai pas besoin de leur obéir, car ce sont de simples marins comme moi. Mais vais-je tolérer ces insultes ? ".
 
 
 A choice called Page20ChoiceA is for Page20. "On me donne un autre numéro de bureau, au cinquième étage, ce qui me conduit au ****". It triggers Page53.
@@ -110,12 +110,12 @@ The Page20 is a page. " On me dit avec un ton irrité que je fais erreur. Ce n['
 
 A choice called Page21ChoiceA is for Page21. "Explorer un peu plus ". It triggers Page15.
 A choice called Page21ChoiceB is for Page21. "Retourner au bateau ". It triggers Page11.
-The Page21 is a page. " À l[']âge de dix-neuf ans, je suis allé dans la ville la plus proche, pour apprendre à devenir bibliothéquaire. Mon père en fut un peu déçu, lui qui souhaitait que je devienne artiste. J[']ai quand même emporté mon accordéon avec moi, pour lui faire plaisir. Satanés moustiques ! Avec toutes ces pestes volantes, il est bien difficile de se concentrer. ".
+The Page21 is a page. " À l[']âge de dix-neuf ans, je suis allé dans la ville la plus proche, pour apprendre à devenir bibliothécaire. Mon père en fut un peu déçu, lui qui souhaitait que je devienne artiste. J[']ai quand même emporté mon accordéon avec moi, pour lui faire plaisir. Satanés moustiques ! Avec toutes ces pestes volantes, il est bien difficile de se concentrer. ".
 
 
 A choice called Page22ChoiceA is for Page22. "Rencontrer les autorités locales, pour m[']annoncer et m[']enregistrer dans leurs services ". It triggers Page44.
 A choice called Page22ChoiceB is for Page22. "En apprendre plus sur leurs coutumes et traditions ". It triggers Page33.
-The Page22 is a page. " Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu[']en Euralinia. Les maisons ici sont plus opulentes, avec des influences marquées des villes d[']Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et compliquées. Je n[']aime pas cela du tout. Que puis-je faire maintenant ? ".
+The Page22 is a page. " Cette ville est énorme selon les standards du Vieux Continent. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu[']en Euralinia. Les maisons ici sont plus opulentes, avec des influences marquées des villes d[']Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et compliquées. Je n[']aime pas cela du tout. Que puis-je faire maintenant ? ".
 
 
 A choice called Page23ChoiceA is for Page23. "Ils me jettent par dessus-bord au ****". It triggers Page17.
@@ -125,13 +125,13 @@ The Page23 is a page. " Des marins entraînés et en nombre sont certainement pl
 A choice called Page24ChoiceA is for Page24. "Recommencer le voyage depuis le début ". It triggers Page1.
 A choice called Page24ChoiceB is for Page24. "Visiter les docks ". It triggers Page10.
 A choice called Page24ChoiceC is for Page24. "Retourner chez moi ". It triggers Page31.
-The Page24 is a page. " Le navire n[']avait probablement pas assez de vivre pour effectuer la traversée, et cela n[']était pas une surprise de devoir faire demi-tour pour retourner dans notre pays d[']origine. Déçu et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce nouveau Continent dont tout le monde parle. Je suis malgré tout heureux de revenir ici, et d[']être débarrassé d[']eux. ".
+The Page24 is a page. " Le navire n[']avait probablement pas assez de vivre pour effectuer la traversée, et cela n[']était pas une surprise de devoir faire demi-tour pour retourner dans notre pays d[']origine. Déçus et fatigués, les marins quittent le bateau en colonnes disciplinées. Habitués aux petites traversées locales, ils ne sont pas près de retourner vers ce Nouveau Continent dont tout le monde parle. Je suis malgré tout heureux de revenir ici, et d[']être débarrassé d[']eux. ".
 
 
 A choice called Page25ChoiceA is for Page25. "Rencontrer les autorités locales, pour m[']annoncer et m[']enregistrer dans leurs services ". It triggers Page44.
 A choice called Page25ChoiceB is for Page25. "En apprendre plus sur leurs coutumes et traditions ". It triggers Page33.
 A choice called Page25ChoiceC is for Page25. "Voler un peu de nourriture, personne ne me connaît ici après tout ". It triggers Page40.
-The Page25 is a page. " Cette ville est énorme selon les standards du vieux contient. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu[']en Euralinia. Les maisons ici sont plus opulentes, avec des influences marquées des villes d[']Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et ayant du caractère. Une telle sollicitude pour des motifs aussi inspirés m[']inspire un tel bonheur que j[']en oublie un moment ma solitude spirituelle. Le soleil commence à annihiler l[']humidité poisseuse de la brume, en envoyant des rayons oranges sur les murs. Que faire maintenant ? ".
+The Page25 is a page. " Cette ville est énorme selon les standards du Vieux Continent. De gigantesques dirigeables traversent pompeusement les airs, mais il y a également quelques avions, plus qu[']en Euralinia. Les maisons ici sont plus opulentes, avec des influences marquées des villes d[']Asinalia les plus extrêmes-orientales, dénotant un goût certain pour les décorations délicates et ayant du caractère. Une telle sollicitude pour des motifs aussi inspirés me communique un tel bonheur que j[']en oublie un moment ma solitude spirituelle. Le soleil commence à annihiler l[']humidité poisseuse de la brume, en envoyant des rayons oranges sur les murs. Que faire maintenant ? ".
 
 
 A choice called Page26ChoiceA is for Page26. "L[']esprit en paix et oubliant la tromperie verdoyante de la montagne, je manie frénétiquement les rames pour retourner au bateau ". It triggers Page11.
@@ -144,7 +144,7 @@ A choice called Page27ChoiceC is for Page27. "Repartir immédiatement ". It trig
 The Page27 is a page. " Ce qui était le plus visible et étrange dans cet endroit, c[']était un poster imprimé sur un fond bleu-indigo, avec écrit par dessus, en lettres énormes et roses :  Il n[']y a pas de moyen clair pour les contacter. Peut-être qu[']ils sont devenus si puissants récemment qu[']il est aisé de tomber sur eux. On verra bien ! ".
 
 
-A choice called Page28ChoiceA is for Page28. "L[']inviter dans un salon de thé, pour s[']entretenir plus longtement avec elle sur des sujets essentiels ". It triggers Page6.
+A choice called Page28ChoiceA is for Page28. "L[']inviter dans un salon de thé, pour s[']entretenir plus longuement avec elle sur des sujets essentiels ". It triggers Page6.
 A choice called Page28ChoiceB is for Page28. "Lui donner congé maintenant, pour entretenir son excitation en vue d[']un rendez-vous ultérieur, et ne pas arriver trop tard chez moi ". It triggers Page38.
 The Page28 is a page. " Je lui parle de ma philosophie de la vie, et des buts élevés auxquels chacun devrait se référer pour se réaliser dans ce vaste univers. Je lui parle de la beauté, je lui parle de la volonté, de l[']ascétisme et de l[']humilité. Les yeux pleins de larmes, la femme m[']embrasse, s[']accrochant de façon embarrassante à mon cou, et reniant ses anciens amants. ".
 
@@ -165,21 +165,21 @@ The Page31 is a page. " Après être entré dans une calèche tirée par des Fri
 
 
 A choice called Page32ChoiceA is for Page32. "Aller en prison ". It triggers Page48.
-The Page32 is a page. " Quelqu[']un m[']a vendu, tandis que j[']effectuais une importante mission : je devais rencontrer un dirigeant de l[']Indigo Love Syndicate, pour le capture, mais c[']était sans doute un piège, et c[']est **moi** qui ai été capturé à la place. ".
+The Page32 is a page. " Quelqu[']un m[']a vendu, tandis que j[']effectuais une importante mission : je devais rencontrer un dirigeant de l[']Indigo Love Syndicate, pour le capturer, mais c[']était sans doute un piège, et c[']est **moi** qui ai été capturé à la place. ".
 
 
 A choice called Page33ChoiceA is for Page33. "Je peux rejoindre l[']opposition, pour voir s[']ils sont meilleurs que ceux qu[']ils prétendent combattre ". It triggers Page9.
-A choice called Page33ChoiceB is for Page33. "Je peux oublier toutes ces théories conspirationistes, et mener une vie normale, en recherchant un petit travail paisible ". It triggers Page52.
-The Page33 is a page. " Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d[']années, après sa séparation physique du vieux continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d[']années, une nouvelle secte, appelée le Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites. Discrète à ses débuts, la secte est maintenant un pouvoir politique sur lequel il faut compter. ".
+A choice called Page33ChoiceB is for Page33. "Je peux oublier toutes ces théories conspirationnistes, et mener une vie normale, en recherchant un petit travail paisible ". It triggers Page52.
+The Page33 is a page. " Après quelques recherches dans les bibliothèques et musées, je découvre que cette société a été fondée il y a un millier d[']années, après sa séparation physique du Vieux Continent. Elle a grandi à une allure normale, sans événement marquant. Plus inquiétant est le fait que depuis une dizaine d[']années, une nouvelle secte, appelée l[']Indigo Love Syndicate, se répand rapidement à travers le pays, tant parmi le peuple que les élites. Discrète à ses débuts, la secte est maintenant un pouvoir politique sur lequel il faut compter. ".
 
 
-A choice called Page34ChoiceA is for Page34. "Aller rencontrer les autorités locale the local authorities, pour m[']enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré ". It triggers Page47.
+A choice called Page34ChoiceA is for Page34. "Aller rencontrer les autorités locale, pour m[']enregistrer dans leurs services et pouvoir commencer un travail honnête et rémunéré ". It triggers Page47.
 A choice called Page34ChoiceB is for Page34. "En apprendre plus sur leurs coutumes et traditions ". It triggers Page33.
 A choice called Page34ChoiceC is for Page34. "Voler un peu de nourriture et des choses de première nécessité ". It triggers Page40.
-The Page34 is a page. " Lors d[']une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d[']une promenade au bord de mer, j[']arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l[']auto-réalisation. Partant précipitamment, j[']ai oublié de prendre de la nourriture et quelques affaires avec moi, aussi je me sens rapidement bien perdu dans ces rues étrangères, avec mon libre-arbitre et mes poches vides. ".
+The Page34 is a page. " Au cours d[']une journée ensoleillée où la plupart des domestiques sont dehors avec la famille lors d[']une promenade au bord de mer, j[']arrive à désactiver la clôture électrique et à escalader les hauts murs entourant la propriété, pour rejoindre la liberté et l[']auto-réalisation. Partant précipitamment, j[']oublie de prendre de la nourriture et quelques affaires avec moi, et rapidement je me sens bel et bien perdu dans ces rues étrangères, avec mon libre arbitre et mes poches vides. ".
 
 
-A choice called Page35ChoiceA is for Page35. "Forte comme elle l[']est, tout ce que je reçois c[']est une gifle bien méritée, et avec la mâchoire et la joue aussi rouges qu[']un diable excité ayant mangé du piment, honteux, je repars vers la ville". It triggers Page41.
+A choice called Page35ChoiceA is for Page35. "Forte comme elle l[']est, tout ce que je reçois c[']est une gifle bien méritée. Honteux, avec la mâchoire et la joue aussi rouges qu[']un diable excité ayant mangé du piment, je repars vers la ville". It triggers Page41.
 The Page35 is a page. " Je la compare à une pouliche sublime et splendide, à la déesse de la fertilité, de la guerre et du désir, à l[']infirmière primordiale et ainsi de suite. ".
 
 
@@ -190,7 +190,7 @@ The Page36 is a page. " //Lorem ipsum dolor sit amet, consectetur adipisicing el
 A choice called Page37ChoiceA is for Page37. "Insister un peu plus ". It triggers Page28.
 A choice called Page37ChoiceB is for Page37. "L[']insulter ". It triggers Page46.
 A choice called Page37ChoiceC is for Page37. "Retourner chez moi ". It triggers Page31.
-The Page37 is a page. " Pensant probablement que j[']ai mal interprété son activité d[']attente, la femme semble énervée d[']avoir été dérangée par mon arrivée. Elle me dit carrément qu[']elle attend quelqu[']un d[']autre et se moque de ma vie disgracieuse. ".
+The Page37 is a page. " Pensant probablement que j[']ai mal interprété son attitude aux abords d[']un lieu de passage, la femme semble énervée d[']avoir été dérangée par mon arrivée. Elle me dit carrément qu[']elle attend quelqu[']un d[']autre et se moque de ma vie disgracieuse. ".
 
 
 A choice called Page38ChoiceA is for Page38. "Me lever au ****". It triggers Page55.
@@ -198,11 +198,11 @@ The Page38 is a page. " Mon appartement se situe dans une maison presque désert
 
 
 A choice called Page39ChoiceA is for Page39. "J[']entends un jour que les pirates ont prévu de nous vendre en tant qu[']esclaves ". It triggers Page16.
-The Page39 is a page. " Après avoir été assomé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d[']une grande ville que je n[']ai jamais vue auparavant. Se pourrait-il que je suis arrivé sur le nouveau Continent en fin de compte ? Tous les marins ont été séparés pour éviter la rebellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout. ".
+The Page39 is a page. " Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d[']une grande ville que je n[']ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le Nouveau Continent en fin de compte ? Tous les marins ont été séparés pour éviter la rébellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout. ".
 
 
 A choice called Page40ChoiceA is for Page40. "Aller en prison ". It triggers Page48.
-The Page40 is a page. " Voler est facile ici : on dirait que personnes n[']est sur ses gardes et ainsi je peux arnaquer pas mal de monde. En fait, ce que je ne savais pas, c[']était que les citoyens ne se méfiaient jamais des actes délicteux, car ici la police est tellement efficace que les criminels sont attrapés sous quarante-huit heures. ".
+The Page40 is a page. " Voler est facile ici : on dirait que personnes n[']est sur ses gardes et ainsi je peux arnaquer pas mal de monde. En fait, ce que je ne savais pas, c[']était que les citoyens ne se méfiaient jamais des actes délictueux, car ici la police est tellement efficace que les criminels sont attrapés sous quarante-huit heures. ".
 
 
 A choice called Page41ChoiceA is for Page41. "Si je suis chanceux ". It triggers Page12.
@@ -211,22 +211,22 @@ The Page41 is a page. " Accablée par la faute, cette humeur funeste embrouille 
 
 
 A choice called Page42ChoiceA is for Page42. "Sortir de nouveau, pour trouver un bar ". It triggers Page7.
-The Page42 is a page. " L[']appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois orné de motifs en cuivre, et des tapisseries en laine décorés de fibres optiques. Elle commence à retirer ses habits, mais se ravise et me dit qu[']elle préfère finalement prendre un verre à la taverne. ".
+The Page42 is a page. " L[']appartement de Béatrix est confortable et moderne : il y a là beaucoup de meubles en bois, ornés de motifs en cuivre, et des tapisseries en laine décorées de fibres optiques. Elle commence à retirer ses habits, mais se ravise et me dit qu[']elle préfère finalement prendre un verre à la taverne. ".
 
 
 A choice called Page43ChoiceA is for Page43. "Si je suis chanceux ". It triggers Page39.
 A choice called Page43ChoiceB is for Page43. "Si je suis malchanceux ". It triggers Page54.
-The Page43 is a page. " La partie occidentale de cette mer est réputée pour ses tornades fourbes et ses tourbillons imprévus.Le destin de notre embarcation est pourtant mis à mal par des désastres bien plus humains, lorsqu[']un bateau pirate nous prend d[']assaut. Ces rustres passent à l[']abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pour très longtemps. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+The Page43 is a page. " La partie occidentale de cette mer est réputée pour ses tornades fourbes et ses tourbillons imprévus.Le destin de notre embarcation est pourtant mis à mal par des désastres bien plus humains, lorsqu[']un bateau pirate nous prend d[']assaut. Ces rustres passent à l[']abordage, emplis de haine et de violence, et même si nous essayons de nous rebeller, nous ne sommes pas assez fort pour contenir leurs attaques pendant très longtemps. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
 
 
 A choice called Page44ChoiceA is for Page44. "Si je suis chanceux ". It triggers Page52.
 A choice called Page44ChoiceB is for Page44. "Si je suis malchanceux ". It triggers Page20.
-The Page44 is a page. " Ils m[']accueillent avec une certaine sympathie, et prennent mon nom. Ils notent ma demande, et me donne le numéro d[']un bureau au premier étage. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
+The Page44 is a page. " Ils m[']accueillent avec une certaine sympathie, et prennent mon nom. Ils notent ma demande, et me donnent le numéro d[']un bureau au premier étage. Am I lucky today? (throwing a dice, 5 or 6 means luck) ".
 
 
 A choice called Page45ChoiceA is for Page45. "Vais-je essayer de m[']échapper à un moment où ils me surveillent le moins ". It triggers Page34.
 A choice called Page45ChoiceB is for Page45. "ou continuer à vivre ici en tant que travailleur bon marché ". It triggers Page48.
-The Page45 is a page. " Monsieur et Madame Caesar possèdent une maison qui est plus grosse que tout ce que j[']ai pu voir auparavant : un terrain d[']atterrissage pour aéronef, une tour dans le jardin, et de l[']électricité partout pour aider à la pousse des plantes et des légumes... Ils m[']ont conduit à leur atelier, où je suis censé assembler des choses et réparer tous les gadgets qu[']ils ont dans leur maison : des oiseaux mécaniques, et machines électriques, des phonographes... Après un an passé ici, ils commencent à me faire confiance. ".
+The Page45 is a page. " Monsieur et Madame Caesar possèdent une maison qui est plus grosse que tout ce que j[']ai pu voir auparavant : un terrain d[']atterrissage pour aéronef, une tour dans le jardin, et de l[']électricité partout pour aider à la pousse des plantes et des légumes... Ils m[']ont conduit à leur atelier, où je suis censé assembler des choses et réparer tous les gadgets qu[']ils ont dans leur maison : des oiseaux mécaniques, des machines électriques, des phonographes... Après un an passé ici, ils commencent à me faire confiance. ".
 
 
 A choice called Page46ChoiceA is for Page46. "Je vois un voile bleu qui recouvre ma vision ". It triggers Page14.
@@ -235,19 +235,19 @@ The Page46 is a page. " Sortant d[']un coin sombre, un homme vêtu de noir me fr
 
 A choice called Page47ChoiceA is for Page47. "Aller directement là-bas, au cas où quelqu[']un d[']autre prendrait cette place avant moi ". It triggers Page2.
 A choice called Page47ChoiceB is for Page47. "En apprendre un peu plus sur les coutumes et traditions de la région ". It triggers Page33.
-The Page47 is a page. " Ils m[']accueillent avec beaucoup d[']attention, et tandis qu[']ils enregistrent mon nom, on me montre une liste des emplois possibles dans le coin. J[']ai sans doute de la chance, parce qu[']il vient de se libérer une place de bibliothéquaire dans la bibliothèque principale de la ville. Après m[']avoir fait signer quelques papiers, ils me montrent la route sur une carte. ".
+The Page47 is a page. " Ils m[']accueillent avec beaucoup d[']attention, et tandis qu[']ils enregistrent mon nom, on me montre une liste des emplois possibles dans le coin. J[']ai sans doute de la chance, parce qu[']il vient de se libérer une place de bibliothécaire dans la bibliothèque principale de la ville. Après m[']avoir fait signer quelques papiers, ils me montrent la route sur une carte. ".
 
 
-The Page48 is a page. " Après quelques années en tant que prisonnier, je m[']assagis et deviens plus raisonnable une fois libéré. Sans doute que le mieux pour moi maintenant est de retourner chez moi, et recommencer ma vie là-bas. Serai-je bibliothéquaire, ou aventurier ? Je ne peux encore me décider. ". 
+The Page48 is a page. " Après quelques années en tant que prisonnier, je m[']assagis et deviens plus raisonnable une fois libéré. Sans doute que le mieux pour moi maintenant est de retourner chez moi, et recommencer ma vie là-bas. Serai-je bibliothécaire, ou aventurier ? Je ne peux encore me décider. ". 
 It is followed by GameEnd.
 
 
 A choice called Page49ChoiceA is for Page49. "Tomber dans le piège ". It triggers Page51.
-The Page49 is a page. " Durant une mission difficile, je sens que je n[']obtiens pas l[']aide que je mérite habituellement, et j[']ai la nette impression de tomber dans un pièce, sans moyen d[']en rééchapper. ".
+The Page49 is a page. " Durant une mission difficile, je sens que je n[']obtiens pas l[']aide que je mérite habituellement, et j[']ai la nette impression de tomber dans un piège, sans moyen d[']en réchapper. ".
 
 
 A choice called Page50ChoiceA is for Page50. "La jeune femme, avec pitié et un sourire perplexe, me reconduit au ****". It triggers Page44.
-The Page50 is a page. " Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l[']univers. Je lui parle de la beauté, de volonté, d[']ascétisme et d[']humilité. ".
+The Page50 is a page. " Je lui raconte ma philosophie de vie, et lui parle des buts que chacun devrait souhaiter atteindre dans l[']univers. Je lui parle de beauté, de volonté, d[']ascétisme et d[']humilité. ".
 
 
 A choice called Page51ChoiceA is for Page51. "Un voile bleu recouvre alors ma vision ". It triggers Page14.
@@ -256,19 +256,19 @@ The Page51 is a page. " Un adepte Indigo Love, surgissant d[']un recoin sombre, 
 
 A choice called Page52ChoiceA is for Page52. "Aller immédiatement là-bas, au cas où quelqu[']un d[']autre prendrait la place avant moi ". It triggers Page29.
 A choice called Page52ChoiceB is for Page52. "En apprendre plus sur leurs coutumes et traditions ". It triggers Page33.
-The Page52 is a page. " Dans ce bureau on me présente une liste des emplois possibles dans la région. J[']ai sans doute de la chance, parce qu[']il vient de se libérer une place de bibliothéquaire dans la bibliothèque principale de la ville. Après m[']avoir fait signer quelques papiers, ils m[']indiquent la route sur une carte. ".
+The Page52 is a page. " Dans ce bureau on me présente une liste des emplois possibles dans la région. J[']ai sans doute de la chance, parce qu[']il vient de se libérer une place de bibliothécaire dans la bibliothèque principale de la ville. Après m[']avoir fait signer quelques papiers, ils m[']indiquent la route sur une carte. ".
 
 
 A choice called Page53ChoiceA is for Page53. "Ce qui me conduit au ****". It triggers Page44.
-A choice called Page53ChoiceB is for Page53. "Mais avant cela, je peux tenter de la séduire, on ne sait jamais ". It triggers Page50.
+A choice called Page53ChoiceB is for Page53. "mais avant cela, je peux tenter de la séduire, on ne sait jamais ". It triggers Page50.
 The Page53 is a page. " Une jeune femme polie et agréable m[']explique avec une voix douce que le bureau que je recherche se trouve maintenant au rez-de-chaussée. ".
 
 
 A choice called Page54ChoiceA is for Page54. "Aller au ****". It triggers Page14.
-The Page54 is a page. " Pendant l[']attaque, le vois le flash bleu acier de l[']épée d[']un pirate, approchant si dangereusement de ma tête que je finis par en mourir. ".
+The Page54 is a page. " Pendant l[']attaque, je vois le flash bleu acier de l[']épée d[']un pirate, approchant si dangereusement de ma tête que je finis par en mourir. ".
 
 
-The Page55 is a page. " Baillant et m[']étirant, je me réveille de bonne humeur. Je n[']ai pas découvert de nouveau Continent, je n[']ai pas vécu de grandes aventures, mais j[']ai rencontré des gens qui n[']étaient pas si mal en fin de compte. Jour après jour, j[']ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une FIN heureuse finalement ! ". 
+The Page55 is a page. " Bâillant et m[']étirant, je me réveille de bonne humeur. Je n[']ai pas découvert de Nouveau Continent, je n[']ai pas vécu de grandes aventures, mais j[']ai rencontré des gens qui n[']étaient pas si mal en fin de compte. Jour après jour, j[']ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une fin heureuse finalement ! ". 
 It is followed by GameEnd.
 
 

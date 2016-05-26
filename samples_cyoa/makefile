@@ -205,6 +205,7 @@ website:
 cover:
 	convert $(DOCUMENT).svg $(DOCUMENT).jpg
 	convert $(DOCUMENT).svg $(DOCUMENT).png
+	#convert $(DOCUMENT).svg $(DOCUMENT)_cover.pdf
 	
 	
 configuration-update:
@@ -236,6 +237,9 @@ cyoa-ramus:
 	sed -i -e "s/xxRAMUS_INITxx/<div id=\"story\" style=\"Display: none;\">\n<div id=\"start\">\n<li>Start: <b><a rel=\"page1\">1<\/a><\/b>/g" $(DOCUMENT)_ramus.html
 	
 
+cyoa-check:
+	-cat $(DOCUMENT).t2t | grep -i "==" > check.txt 
+	-cat $(DOCUMENT).t2t | grep -i "[^.\/\?\!=]$$" >> check.txt 
 
 cyoa-txt:
 	$(TXT2TAGS) --no-headers -t txt $(DOCUMENT).t2t
@@ -245,6 +249,11 @@ cyoa-pdf:
 	#-pdflatex $(DOCUMENT).tex
 	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/latex.tex --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
 	-pdflatex -interaction batchmode $(DOCUMENT).tex
+	
+cyoa-xetex:
+	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/xetex.tex --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t -t tex --no-toc --outfile $(DOCUMENT).tex $(DOCUMENT).t2t
+	-xelatex -interaction batchmode $(DOCUMENT).tex
+	#-xelatex -interaction batchmode $(DOCUMENT).tex
 
 cyoa-gamebook: 
 # doesnt work yet!
@@ -633,6 +642,7 @@ clean-temp:
 	-rm  *.ind
 	-rm  *.fax
 	-rm  *.tns
+	-rm check.txt
 
 
 

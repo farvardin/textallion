@@ -26,6 +26,8 @@ install(){
 	mkdir -p ${INSTALLPATH}/.hg/
 	cp -fr ../textallion/contrib/others/hgrc ${INSTALLPATH}/.hg/
 	chmod +x /usr/bin/textallion
+	cp ${INSTALLPATH}/contrib/others/textallion.desktop /usr/share/applications/
+	cp ${INSTALLPATH}/media/logo_textallion.png /usr/share/icons/textallion.png
 	sed -i -e "s|TEXTALLIONPATH=/usr/share/textallion/|TEXTALLIONPATH=${INSTALLPATH}|g" ${INSTALLPATH}/core/textallion.sh
 	if test core/textallion.t2t -nt ${INSTALLPATH}/core/textallion.t2t; then
     	printf "\n** Error **\n"

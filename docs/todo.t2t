@@ -102,6 +102,7 @@
 - --Ramus: works for numbered chapter, but not for named ones-- (will work with named ""== chapter =="" with the ""[#name]"" or ""[description|#name]"" syntax, not with ""== 5 ==[name]"")
 - Ramus: Dice will scroll up 
 - Ramus: footnotes don't work.
+- make a backup of the current work ("snapshot") with current date+time
 
 
 

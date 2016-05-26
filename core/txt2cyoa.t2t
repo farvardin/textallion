@@ -5,7 +5,7 @@
 %% "choose your own adventure" easily made with txt2tags
 %% (module for textallion)
 %
-% by Eric Forgeot (c) 2007-2013
+% by Eric Forgeot (c) 2007-2016
 %
 % Complete source code: http://textallion.googlecode.com
 % License: http://en.wikipedia.org/wiki/BSD_licenses
@@ -158,6 +158,15 @@
 
 %!preproc: '\(rdv au (\d+)\)'  '(rendez-vous au **[\1 #\1]**)'  
 %!preproc: '\(rendez-vous au (\d+)\)'  '(rendez-vous au **[\1 #\1]**)'  
+%!preproc: 'endez-vous au (\d+)'  'endez-vous au **[\1 #\1]**'
+
+%% usual shortcuts (allez au, rendez-vous au)
+%!preproc: 'endez-vous au \*\*(\d+)\*\*'  'endez-vous au **[\1 #\1]**'
+%!preproc: 'llez au \*\*(\d+)\*\*'  'llez au **[\1 #\1]**'
+%% variants: rendez-vous alors au..
+%!preproc: 'endez-vous ([^ ].*?) au \*\*(\d+)\*\*'  'endez-vous \1 au **[\2 #\2]**'
+%!preproc: 'llez ([^ ].*?) au \*\*(\d+)\*\*'  'llez \1 au **[\2 #\2]**'
+%!preproc: 'au \*\*(\d+)\*\*'  'au **[\1 #\1]**'
 
 % Transforme l'abréviation 'rdv au' en 'rendez-vous au' (french only)
 %!postproc: 'rv au' 'rendez-vous au'
