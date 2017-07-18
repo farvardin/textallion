@@ -1,0 +1,49 @@
+body {
+    font-family: serif;
+    /*font-weight: lighter;*/
+}
+
+h1 {
+    text-align: center;
+    /*font-weight: lighter;*/
+}
+
+.container {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+p {
+    color: #555;
+    line-height: 1.7em;
+    font-size: 13pt;
+}
+
+a {
+    color: #444;
+    line-height: 1.7em;
+    font-size: 13pt;
+	font-style: italic;
+	font-weight: bold;
+	text-decoration:none;
+}
+
+p {
+    opacity: 0.0;
+    transition: opacity 1.0s;
+}
+
+p.show {
+    opacity: 1.0;
+}
+
+p.choice {
+    text-align: center;
+}
+
+a:hover {
+    color: black;
+	text-decoration:underline;
+}

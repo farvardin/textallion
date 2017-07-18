@@ -24,6 +24,11 @@
 %\renewcommand*{\footnotelayout}{\it\sffamily} %%  doesn't work...
 
 \usepackage{longtable} % allows to write tables that continue to the next page.  
+\usepackage{tabu} % allows to write tables with automatic line break for long lines (require longtable as well)
+\global\tabulinesep=\TABUxSEP
+
+%\usepackage{tabularx} % we use tabu instead
+%\usepackage{ltxtable} % we use tabu instead
 
 % for customizing titles
 %\titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before }[ after ]

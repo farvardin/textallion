@@ -188,8 +188,12 @@ Un menu pour cela existe dans le script « textallion.sh », ou sinon vous pouve
  - ``make cyoa-cs`` (ou ``make cyoa-choicescript``): converti votre jeu vers le format [ChoiceScript http://www.choiceofgames.com/], sous le dossier votre_jeu_choicescript. Attention, à chaque appel de ``make cyoa-cs``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
  - ``make cyoa-hyena`` : converti votre jeu vers le format [Hyena http://www.projectaon.org/staff/jens/], sous le nom votre_jeu_export.gamebook
  - ``make cyoa-renpy`` : converti votre jeu vers le format [Renpy http://renpy.org/], dans le dossier votre_jeu_renpy. Attention, à chaque appel de ``make cyoa-renpy``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
- - ``make cyoa-undum`` : converti votre jeu vers le format [Undum http://undum.com], sous le dossier votre_jeu_undum. Attention, à chaque appel de ``make cyoa-undum``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).           
+
+ - ``make cyoa-undum`` : converti votre jeu vers le format [Undum http://undum.com], sous le dossier votre_jeu_undum. Attention, à chaque appel de ``make cyoa-undum``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).    
+       
  - ``make cyoa-inform7`` : converti votre jeu vers un code source utilisable dans [Inform 7 http://inform7.com], avec une extension .i7.
+
+ - ``make cyoa-inkle`` : convertir votre jeu vers un code source [Inkle http://www.inklestudios.com/ink/], dans un dossier votre_jeu_inkle.
  
 
 Si vous choisissez de créer vos jeux avec textallion, en plus des exports PDF, HTML et {^}ePUB{^}, vous pourrez également exporter dans ces formats :
@@ -212,6 +216,8 @@ De plus, vous devrez sans doute éditer un peu la source avant d'être capable d
 
 Le script core/twee_to_textallion.sh permet d'exporter vers textallion un travail réalisé dans Twine.
 
+
+- [Inkle http://www.inklestudios.com/ink/] est un format utilisé par Inkle Studio, ça peut être utilisé en javascript et même avec le logiciel de conception de jeu Unity.
 
 
 === Note sur la création des chapitres ===

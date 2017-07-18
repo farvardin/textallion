@@ -648,11 +648,14 @@ You can use the ``{|n|}`` symbol for setting text in ``n`` columns, ``n`` being 
 
 === Tables ===
 
-Tables are supported by txt2tags. But because in the LaTeX (pdf) export, tables won't be displayed when they reach the end of a page, we use the ``longtable`` package instead of ``tabular``. If you don't like this, add this in the header of your document: 
+Tables are supported by txt2tags. But because in the LaTeX (pdf) export, tables won't be displayed when they reach the end of a page, we use the ``longtable`` and ``tabu`` packages instead of ``tabular``. If you don't like this, add this in the header of your document: 
 
-``` %!postproc(tex): 'longtable' 'tabular'``.
+``` %!postproc(tex): 'longtable' 'tabular'``
 
-In the case your tables has so many columns that it will print outside the width of the page, use this trick to wrap long texts, for example if your table has 4 columns:
+``` %!postproc(tex): 'longtabu' 'tabular'``
+
+
+In the case your tables has so many columns that it might print outside the width of the page, ``tabu`` should handle this correctly, but if you use only ``longtable``, you can use this trick to wrap long texts, for example if your table has 4 columns:
 
 ``` %!postproc(tex): '\{\|l\|l\|l\|l\|\}' {|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
 

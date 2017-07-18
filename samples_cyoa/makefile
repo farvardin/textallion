@@ -28,8 +28,8 @@ ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
 else
 #  DOCUMENT = examples
-  #DOCUMENT = the_blue_death
- DOCUMENT = la_mort_bleue
+  DOCUMENT = the_blue_death
+  #DOCUMENT = la_mort_bleue
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -308,7 +308,67 @@ cyoa-gbl:
 	echo "%!includeconf: txt2cyoa.t2t" >> $(DOCUMENT)_gbl.t2t 
 	cat $(DOCUMENT).gbl | sed -e "s/= \(.*\) =/\n=== \1 ===\n/g" |\
 	# sed -e "s/=\(.*\)=/\n=== \1 ===\n/g" | sed -e "s/= \(.*\)=/\n=== \1 ===\n/g" | sed -e "s/=\(.*\) =/\n=== \1 ===\n/g" |\
-	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g" >> $(DOCUMENT)_gbl.t2t 
+	sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g" >> $(DOCUMENT)_gbl.t2t	
+
+
+
+cyoa-inkle:
+	# for use with http://www.inklestudios.com/ink/
+	cat $(DOCUMENT).t2t  | perl -pe 's/^\%(.*)\n/\/\//' | sed -e "s/== 0 ==/-> start\n\n === start ===/g" |\
+	# remove extra textallion syntax |\
+	perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	# images and sound not supported in ink?|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	# replace any ="introduction" by 0 |\
+	perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	# italic and underline are the same. Only bold is different |\
+	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
+	# choices and links  \
+	perl -pe 's/- (.*?) (\d+?)( *)\n/* \1 -> paragraph_\2 \n/g' |\
+	perl -pe 's/^- /* /g' |\
+	perl -pe 's/\[\#(\d+?)\]/-> paragraph_\1 \n/g' |\
+	perl -pe 's/\[\#(.*?)\]/-> \1 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \| \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?)\|\#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	perl -pe 's/: ->/->/g' |\
+	perl -pe 's/THE END/->END/g' |\
+	perl -pe 's/FIN/->END/g' |\
+	# abbreviations |\
+	perl -pe 's/tt ->/->/g' |\
+	perl -pe 's/, rdv au ->/->/g' |\
+	perl -pe 's/, rendez-vous au ->/->/g' |\
+	perl -pe 's/ au ->/->/g' |\
+	perl -pe 's/ to the ->/->/g' |\
+	# chapters \
+	perl -pe 's/==(\d+)==\[(.*)\]/== \1 ==/' |\
+	#perl -pe 's/== (.*?) ==\[(.*?)\]/\2/' TODO?\
+	perl -pe 's/== (.*?) ==\[(.*?)\]/== \1 ==/' |\
+	#perl -pe 's/== (.*?) == /== \1 ==/' \
+	perl -pe 's/==(\d+)==/=== paragraph_\1 ===/'  |\
+	perl -pe 's/== (\d+) ==/=== paragraph_\1 ===/' > $(DOCUMENT)_inkle.ink
+	# export to html
+	-mkdir $(DOCUMENT)_inkle/
+	cat $(TEXTALLIONFOLDER)/templates/inkle/index.html |\
+	sed -e "s/TEXTALLION STORY/$(DOCUMENT_TITLE)/g" > $(DOCUMENT)_inkle/index.html
+	cp $(TEXTALLIONFOLDER)/templates/inkle/ink.js $(DOCUMENT)_inkle/
+	cp $(TEXTALLIONFOLDER)/templates/inkle/main.js $(DOCUMENT)_inkle/
+	cp $(TEXTALLIONFOLDER)/templates/inkle/style.css $(DOCUMENT)_inkle/
+	mono $(TEXTALLIONFOLDER)/templates/inkle/inklecate.exe $(DOCUMENT)_inkle.ink 
+	echo "var storyContent = "> $(DOCUMENT)_inkle/textallion_story.js
+	cat $(DOCUMENT)_inkle.ink.json >> $(DOCUMENT)_inkle/textallion_story.js
+	echo ";" >> $(DOCUMENT)_inkle/textallion_story.js
 
 cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
@@ -679,7 +739,7 @@ rename:
 	@echo "(We will keep the older $(DOCUMENT).t2t as a reference)"
 	@echo "press a key to start"
 	@read PAUSE
-	-cp $(DOCUMENT).t2t $(DOCUMENTNEWNAME).t2t
+	-cp -i $(DOCUMENT).t2t $(DOCUMENTNEWNAME).t2t
 	-mv $(DOCUMENT).sty $(DOCUMENTNEWNAME).sty
 	-mv $(DOCUMENT).css $(DOCUMENTNEWNAME).css
 	-mv $(DOCUMENT).jpg $(DOCUMENTNEWNAME).jpg

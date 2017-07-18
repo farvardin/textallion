@@ -153,9 +153,12 @@ You can invoque ``make cyoa-graph`` to produce the svg and png version.
  - ``make cyoa-cs`` (or ``make cyoa-choicescript``): convert your  game to the [ChoiceScript http://www.choiceofgames.com/] format, into the new folder your_game_choicescript. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
  - ``make cyoa-hyena`` : convert your game to the [Hyena http://www.projectaon.org/staff/jens/], format, under the name your_game_export.gamebook
  - ``make cyoa-renpy`` : convert your game to the popular [Renpy http://renpy.org/] format, into a new folder your_game_renpy. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
-  - ``make cyoa-inform7`` : convert your game into [Inform 7 http://inform7.com] source code, with an  .i7 extension.
 
  - ``make cyoa-undum`` : convert your game into [Undum http://undum.com] format, into a new folder your_game_undum. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+
+ - ``make cyoa-inform7`` : convert your game into an [Inform 7 http://inform7.com] project, with a .i7 extension.
+ 
+ - ``make cyoa-inkle`` : convert your game into [Inkle http://www.inklestudios.com/ink/] format, into a new folder your_game_inkle.
  
 
 note: in the case cyoa-graph is not working on windows, you can render the generated cyoa-game_graph.txt with online tools such as http://ashitani.jp/gv/
@@ -181,3 +184,9 @@ You may have to tweak a bit the source before being able to compile it in Inform
 
 - [Twee(code) / Twine http://gimcrackd.com/etc/src/] is a format gamebook usable on the Internet, based on TiddlyWiki. `` make cyoa-twee`` will export to this format. (The version on the official site is buggy so we use a [patched version https://github.com/mcdemarco/twee]).
 You can also import from twee into textallion in the case you want to design your game using Twine.
+
+
+
+- [Inkle http://www.inklestudios.com/ink/] is a format used by Inkle Studio, it can be used in javascript or even integrated to the the Unity framework.
+
+

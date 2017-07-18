@@ -182,7 +182,7 @@ You have a friend in the village.
 
 As soon as you enter the forest, you hear some strange noises.
 
-- Go deeper in your exploration of the [dark forest|#forest-ref-01], or return to the [#village].
+- Go deeper in your exploration of the [dark forest|#forest_ref_01], or return to the [#village].
 
 
 == hills ==
@@ -192,7 +192,7 @@ blabla
 - go to 5
 
 
-== forest-ref-01 ==
+== forest_ref_01 ==
 
 This part is deeper in the [#forest].
 
@@ -221,7 +221,7 @@ This part is for testing purpose only.
 
 - Enter your home [7 #7] or restart [1 #1] the game.
 - Enter your home [#7] or restart [#1] the game.
-- go deeper in the [dark forest|#forest-ref-01], check [this game info|#game] or return to [#village]
+- go deeper in the [dark forest|#forest_ref_01], check [this game info|#game] or return to [#village]
 
 
 You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man #man] which is collecting [twigs|#8].

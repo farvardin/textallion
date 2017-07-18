@@ -856,9 +856,12 @@ Vous pouvez utiliser le symbole ``{|n|}`` pour signifier que vous voulez avoir v
 
 === Tables ===
 
-Les tables sont natives dans txt2tags. Mais dans l'export LaTeX (pdf) par défaut, si une table est trop longue, elle sortira en bas de la page et la fin ne sera pas affichée, aussi nous utilisons le paquet ``longtable`` au lieu de ``tabular``. Si vous préférez revenir à tabular, veuillez rajouter ceci dans votre en-tête :
+Les tables sont natives dans txt2tags. Mais dans l'export LaTeX (pdf) par défaut, si une table est trop longue, elle sortira en bas de la page et la fin ne sera pas affichée, aussi nous utilisons le paquet ``longtable`` et ``tabu`` au lieu de ``tabular``. Si vous préférez revenir à tabular, veuillez rajouter ceci dans votre en-tête :
 
-``` %!postproc(tex): 'longtable' 'tabular'``.
+``` %!postproc(tex): 'longtable' 'tabular'``
+
+``` %!postproc(tex): 'longtabu' 'tabular'``
+
 
 In the case your tables has so many columns that it will print outside the width of the page, use this trick to wrap long texts, for example if your table has 4 columns:
 
@@ -1097,6 +1100,7 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
 
 == Outils concurrents, similaires ou associés ==
 
+
 - Ulysses : http://www.the-soulmen.com/ulysses/
 - Scrivener : http://www.literatureandlatte.com/scrivener.php
 - Storyist : http://storyist.com/
@@ -1107,6 +1111,9 @@ par //Aloysius Bertrand// dans __Gaspard de la Nuit__.
 - Troff :
  - Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 
  - http://utroff.org/
+ - http://bardinflor.perso.aquilenet.fr/frundis/intro-fr
+
+- http://fountain.io/ (pour scénarios)
 
 - http://asciidoctor.org/ (pour asciidoc)
 

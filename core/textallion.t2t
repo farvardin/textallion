@@ -864,7 +864,11 @@
 
 %% Tables
 %% allows to write tables that continue to the next page.  
-%!postproc(tex): 'tabular' 'longtable'
+%!--postproc(tex): 'tabular' 'longtable'
+%!postproc(tex): 'tabular' 'longtabu'
+
+%!postproc(tex): 'c\|c\|\}' 'c|X|}'
+%!postproc(tex): 'l\|l\|\}' 'l|X|}'
 
 
 %% TODO :
