@@ -61,6 +61,9 @@ TeXtallion, some examples
 %% replace level 2 unordered headers by ordered headers.
 %--!preproc(tex): "==" '++'
 
+%% because verbatim doesn't break lines
+%!postproc(tex): '{verbatim}' '{spverbatim}'
+
 
 
 %%%% Beginning of YOUR document %%%%
@@ -121,7 +124,7 @@ Here are some document examples for Textallion...
  Oh why is earth set so remote?
  I cannot reach the nearest star
  That hangs afloat.
-//..
+			 {//..}
  I would not care to reach the moon,
  One round monotonous of change;
  Yet even she repeats her tune
@@ -499,7 +502,8 @@ Et le corbeau, immuable, est toujours installé sur le buste pâle de Pallas, ju
 
 = Diverses =
 
-//Some texts in other languages°°Persian or chinese poetry won't be displayed in pdf : unicode is a work in progress and should require xetex which is not supported yet, but it's working in the html output.(2)°°.//
+//Some texts in other languages°°Not all unicode scripts are supported by xetex, but they should work in the html output.(2)°°.//
+
 
 {*~~~}Fjölnir sonur Yngvifreys réð þá fyrir Svíum og Uppsalaauð. Hann var ríkur og ársæll og friðsæll. Þá var Frið-Fróði að Hleiðru. Þeirra í millum var heimboð og vingan. Þá er Fjölnir fór til Fróða á Selund þá var þar fyrir búin mikil veisla og boðið til víða um lönd. 
  

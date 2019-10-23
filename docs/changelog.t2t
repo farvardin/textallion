@@ -12,6 +12,17 @@
 - Full changelog from the repository: https://bitbucket.org/farvardin/textallion/commits/all
 
 
+-  2019:
+ - release:
+		- updated installation script
+		- adding more free audio/video formats
+		- use .desktop with the installer
+		- use tabu instead of longtable for the tables
+		- CYOA: adding templates for inform7, twee
+		- CYOA: new target: Inkle (Ink syntax)
+		- now default txt2tags version is for python3
+ 
+
 - 28 aug 2015:
  - [Paul Delaroche https://fr.wikipedia.org/wiki/Paul_Delaroche] release:
                 - various bugfixes

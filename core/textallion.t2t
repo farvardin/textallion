@@ -348,14 +348,6 @@
 %!postproc(tex): 'CONVERTcenterBEGIN' '\\begin{center}'
 %!postproc(tex): 'CONVERTcenterEND' '\\end{center}'
 
-% Latex equations
-%!preproc(xhtml): '\{ \$\$ \}(.*?)\{ \$\$ \}'  '\1'
-% inline
-%!preproc(tex): '^\{ \$\$ \}(.*?)\{ \$\$ \}$'  ''\[\1\]''
-% offline
-%!preproc(tex): '\{ \$\$ \}(.*?)\{ \$\$ \}'  ''$\1$''
-% !! still a bug with _ which are escaped with \_
-
 
 
 % making a tab before image working for latex too
@@ -874,5 +866,18 @@
 %% TODO :
 % ? faire pour poésies : 1 espace : retour à la ligne, 2 espaces ou tab : centré
 
+
+% Latex equations
+%!preproc(xhtml): '\{ \$\$ \}(.*?)\{ \$\$ \}'  '\1'
+% inline
+%!preproc(tex): '^\{ \$\$ \}(.*?)\{ \$\$ \}$'  ''\[\1\]''
+% offline
+%!preproc(tex): '\{ \$\$ \}(.*?)\{ \$\$ \}'  ''$\1$''
+% !! still a bug with _ which are escaped with \_
+
+
+% quick fix for latex equations above which add some rendering errors:
+%!postproc(tex): '\$\\backslash\$' '\\'
+%!postproc(tex): '\$ackslash\$' '\\'
 
 

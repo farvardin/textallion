@@ -68,7 +68,7 @@ All textallion code and hacks are released under the BSD license[1]
 
 { -- }
 
-  Copyright (c) 2008-2015, Eric Forgeot.
+  Copyright (c) 2008-2017, Éric Forgeot.
   All rights reserved.
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are
@@ -117,7 +117,7 @@ You can contact me about Textallion:
 
 - on the discussion-list: http://groups.google.com/group/textallion-
 discuss
-- on the bug-tracker: http://code.google.com/p/textallion/issues/list
+- on the bug-tracker: https://bitbucket.org/farvardin/textallion/issues
 - using this form there:
 http://anamnese.online.fr/site2/index.php?id=contact
 
@@ -149,8 +149,6 @@ sur-mon-blog-avec.html
 - http://www.auntiepixelante.com/twine/ for the help with the twine
 syntax
 - http://www.mcdemarco.net/ for the twee patch
-
-20151028
 
 
                              @-----------@
@@ -511,6 +509,7 @@ with named == chapter == with the [#name] or [description|#name] syntax,
 not with == 5 ==[name])
 - Ramus: Dice will scroll up
 - Ramus: footnotes don't work.
+- make a backup of the current work ("snapshot") with current date+time
 
 [1] http://en.wikipedia.org/wiki/BSD_licenses
 [2] http://creativecommons.org/licenses/by-sa/3.0/

@@ -2,7 +2,8 @@ Le Textallion, a simple word processor
 
 
 
-%!target: aat
+%!target: rst
+%!options(rst): --outfile ../README.rst
 %!options(aat): --width=72 --chars=@-/-_=-^"-=$ --outfile ../README.txt 
 %!encoding: utf-8
 

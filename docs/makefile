@@ -15,14 +15,9 @@
 TEXTALLIONFOLDER = ../
 # <!> keep /usr/share/textallion if it is written so!
 
-ifeq ($(wildcard /usr/bin/python2),)
- PYTHONVER = python 
-else 
- PYTHONVER = python2
-endif
 
-TXT2TAGS = $(PYTHONVER) $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
-#TXT2TAGS = txt2tags
+#TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
+TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 
 ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
@@ -328,6 +323,15 @@ cyoa-inkle:
 	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	# choices and links  \
 	perl -pe 's/- (.*?) (\d+?)( *)\n/* \1 -> paragraph_\2 \n/g' |\
+	perl -pe 's/^- /* /g' |\
+	perl -pe 's/\[\#(\d+?)\]/-> paragraph_\1 \n/g' |\
+	perl -pe 's/\[\#(.*?)\]/-> \1 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \| \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?)\|\#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/ [\1] -> \2 \n/g' |\
 	perl -pe 's/: ->/->/g' |\
 	perl -pe 's/THE END/->END/g' |\
 	perl -pe 's/FIN/->END/g' |\

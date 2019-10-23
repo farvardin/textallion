@@ -130,6 +130,9 @@ Textallion has been tested on these operating systems:
 
 For example Archlinux, Mandriva and Debian have [TeXlive http://www.tug.org/texlive/]
 
+//(under Debian run: apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)//
+
+
 Running the ``textallion_install.sh`` script from a root shell will copy everything needed into /usr/share/textallion/, or your folder of choice.
 
 
@@ -137,7 +140,7 @@ Running the ``textallion_install.sh`` script from a root shell will copy everyth
 
 You can get the ``textallion_setup.exe`` installer from: https://bitbucket.org/farvardin/textallion/downloads
 
-[Python http://www.python.org] must be installed on your computer. Choose version 2.x (for example python 2.7) because textallion is not compatible with Python 3. 
+[Python http://www.python.org] must be installed on your computer. Choose either version 3.x or 2.x, textallion should be compatible with both, but python 3 is now the default.
 
 - unzip the textallion archive, for example into C:\temp\textallion. You can select another folder, but we assume that location in the following examples.
 

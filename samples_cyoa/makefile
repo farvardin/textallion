@@ -326,9 +326,9 @@ cyoa-inkle:
 	 perl -pe 's/\[(.*).jpg\]//' |\
 	 perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	# replace any ="introduction" by 0 |\
-	perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	# replace any ="introduction" by 0 TODO dangerous outsite heading |\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	# italic and underline are the same. Only bold is different |\
 	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	# choices and links  \
@@ -370,6 +370,64 @@ cyoa-inkle:
 	cat $(DOCUMENT)_inkle.ink.json >> $(DOCUMENT)_inkle/textallion_story.js
 	echo ";" >> $(DOCUMENT)_inkle/textallion_story.js
 
+
+cyoa-tavern:
+	# for use with http://zzo38computer.org/fossil/tavern.ui/
+	cat $(DOCUMENT).t2t  |\
+ 	# replace === title === used in "who are you" |\
+	perl -pe "s/=== (.*) ===/\1/g" |\
+	# replace any ="introduction" by 0  TODO : dangerous outsite heading|\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\perl -pe 's/^\%(.*)\n/\/\//' | sed -e "s/== 0 ==/INCLUDE bookadv.inc\n\n START-PAGE INTRO/g" |\
+	# remove extra textallion syntax |\
+	perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	# images and sound not supported in tavern?|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	# remove italic, underline and bold |\
+	perl -pe "s/\*\*(.*?)\*\*/\1/g" |\
+	# choices and links  \
+	perl -pe 's/- (.*?) (\d+?)( *)\n/>|  \1 | \2 \n/g' |\
+	perl -pe 's/^- />|   /g' |\
+	perl -pe 's/\[\#(\d+?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[\#(.*?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \| \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?)\|\#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	perl -pe 's/: ->/->/g' |\
+	perl -pe 's/THE END/->END/g' |\
+	perl -pe 's/FIN/->END/g' |\
+	# paragraphs |\
+	perl -pe 's/^[ ?]?([a-z].)/ PT| \1/g' |\
+	perl -pe 's/^[ ?]?([A-Z].)/ PT| \1/g' |\
+	perl -pe 's/(!|\?|\.)[ ?]?\r?\n/\1|/g' |\
+	# abbreviations |\
+	perl -pe 's/tt (\d+)/| \1/g' |\
+	perl -pe 's/turn to (\d+)/| \1/g' |\
+	perl -pe 's/, rdv au  (\d+)/| \1/g' |\
+	perl -pe 's/, rendez-vous au  (\d+)/| \1/g' |\
+	perl -pe 's/ au  (\d+)->/| \1/g' |\
+	perl -pe 's/ go to (\d+)/| \1/g' |\
+	# chapters \
+	perl -pe 's/==(\d+)==\[(.*)\]/PAGE>>>\n\n<<<PAGE \1 /' |\
+	#perl -pe 's/== (.*?) ==\[(.*?)\]/\2/' TODO?\
+	perl -pe 's/== (.*?) ==\[(.*?)\]/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/== (.*?) ==/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/==(\d+)==/PAGE>>>\n\n<<<PAGE \1/'  |\
+	perl -pe 's/== (\d+) ==/PAGE>>>\n\n<<<PAGE \1/' > $(DOCUMENT)_tavern.txt
+	# export to tavern
+	~/bin/tavernc < $(DOCUMENT)_tavern.txt > $(DOCUMENT)_tavern.tav
+	
+	
 cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
 	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g"  >> $(DOCUMENT)_export.gbl
@@ -661,8 +719,96 @@ cyoa-inform7:
 	 cd inform7
 	 make z8
 
+cyoa-inform5:
+	cat $(DOCUMENT).t2t | perl -pe 's/^\%(.*)\n//' |\
+	# remove extra textallion syntax |\
+	 perl -pe 's/TESTLUCK/print "Am I lucky today? (throwing a dice, 5 or 6 means luck)";/'|\
+	 perl -pe 's/THE END/print "THE END";/'|\
+	 # abbreviations |\
+	 perl -pe 's/tt (\d+)/turn to [[\1]]/g' |\
+	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
+	 # replace any ="introduction" by 0 |\
+	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 # italic and underline are the same. Only bold is different |\
+	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
+	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
+	 perl -pe 's/¯/ /g' |\
+	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	 perl -pe 's/rdv/rendez-vous/' |\
+	 # remove images / [[bla.jpg] 1] est pour image sur premiere page |\
+	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]/ /' |\
+	 perl -pe 's/\[(.*).png\]/ /' |\
+	 # why did we remove media? |\
+	 #perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	 # choices and links (\r is for windows newline) \
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/print \"\1\: \2"; \naddchoice\(@@@\2@@@, chapter\2\);/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/print \"\1: \2\"; \naddchoice\(@@@\2@@@, chapter\2\);/g' |\
+	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 # main text |\
+	 perl -pe 's/^(.*)\.[ ]*\n/ print "\1.";/' |\
+	perl -pe 's/^(.*)[ ]*\![ ]*\n/ print \1 !";/' |\
+	perl -pe 's/^(.*)[ ]*\?[ ]*\n/ print "\1 ?";/' |\
+	perl -pe 's/^(.*)[ ]*\:[ ]*\n/ print "\1 :";/' |\
+	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
+	 #perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
+	 #perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
+	 # notes \
+	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
+	 perl -pe 's/“/"/g' |\
+	 perl -pe 's/”/"/g' |\
+	 # chapters \
+	 perl -pe 's/==(\d+)==\[(.*)\]/\n];\n\[ chapter\1 ; /g' |\
+	 perl -pe 's/==(\d+)==/\n];\n\[ chapter\1 ; /g' |\
+	 perl -pe 's/== (\d+) ==/\n];\n\[ chapter\1 ; /g' |\
+	 perl -pe 's/== (.*?) ==\[(.*?)\]/:: \2/g' |\
+	 perl -pe 's/== (.*?) ==/:: \1/g' |\
+	 # make  lists \
+	 perl -pe 's/^+ / /'|\
+	 perl -pe "s/@@@/'/g" |\
+	 perl -pe 's/^- /* /' 	 > $(DOCUMENT)_z3.inf
+
+
+
 cyoa-inform6:
 	inform +source_path=$(TEXTALLIONFOLDER)/templates/inform6/ +include_path=./,$(TEXTALLIONFOLDER)/templates/inform6/,/usr/share/inform/include +code_path=./ "$1".inf 
+	
+	
+cyoa-zx:
+	sed 's/^$$/ /' $(DOCUMENT).t2t > $(DOCUMENT).tmp  
+	printf  "CLS\nstart:\n" >> $(DOCUMENT).tmp  
+	cat $(DOCUMENT).tmp |\
+	perl -pe 's/==(\d+)==\[(.*)\]/\nlabel\1:\n/' |\
+	perl -pe 's/== (\d+) ==/\nlabel\1:\n/' |\
+	perl -pe 's/^(.*)\.[ ]*\n/  CLS\n PRINT  "\1."/' |\
+	perl -pe 's/^(.*)\![ ]*\n/  CLS\n PRINT  "\1 !"/' |\
+	perl -pe 's/^(.*)\?[ ]*\n/  CLS\n PRINT  "\1 ?"/' |\
+	perl -pe 's/^(.*)\:[ ]*\n/  CLS\n PRINT  "\1 :"/' |\
+	perl -pe 's/\{->--\} FIN \{-<--\}[ ]*"./PRINT "FIN"/' |\
+	perl -pe 's/\{->--\} THE END \{-<--\}[ ]*"./PRINT "THE END"/' |\
+	perl -pe 's/%(.*)/ REM \1 /' |\
+	 # remove extra textallion syntax |\
+	 perl -pe 's/{(.*)}\n//g' |\
+	 perl -pe 's/{(.*)}//g' |\
+	 # images and sound not supported yet|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	perl -pe 's/- (.*?) (\d+?)( *)\n/PRINT "\1 (\2)"\nChoice=INPUT(4)\n if Choice="\2" then GOTO label\2\nEND IF\n/g' > $(DOCUMENT)_zx.bas
+	
 
 # images (thumbnails)
 

@@ -183,14 +183,12 @@ Le Textallion a été testé avec succès sur ces plateformes :
 
 [LaTeX http://www.latex-project.org/] et [python 2 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
-(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-extra  texlive-lang-french latexml latex-xcolor tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)
-éventuellement texlive-fonts-extra
+//(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)//
+
 
 Vous pouvez utiliser le petit script d'installation ``textallion_install.sh`` (à lancer en root), pour copier l'ensemble des fichiers nécessaires dans /usr/share/textallion/, ou le dossier de votre choix.
 
 Pour désinstaller ce qui a été précédemment installé par ce script, il suffit d'effacer le dossier /usr/share/textallion/ et le fichier /usr/bin/textallion
-
-Si vous utilisez la distribution Archlinux, vous pouvez installer textallion avec la commande ``yaourt -S textallion``, qui utilisera le [paquet AUR adéquat http://aur.archlinux.org/packages.php?ID=42705].
 
 
 
@@ -226,7 +224,7 @@ Pour créer des {^}ePUB{^}s, vous aurez besoin d'installer [Calibre http://calib
 
 ==== 3ème méthode ====
 
-[Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 2 de python (par exemple python 2.7) car la version 3 n'est pas compatible. 
+[Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 3 de python de préférence, la version 2 devrait être encore compatible, mais python3 est maintenant utilisé par défaut.
 
 - décompressez l'archive contenant textallion dans par exemple C:\temp\textallion (pour le reste des exemples, on a considéré que cela se trouvait dans ce dossier)
 

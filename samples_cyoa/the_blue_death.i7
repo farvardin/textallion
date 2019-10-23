@@ -13,7 +13,7 @@ The Page0 is a page. " ".
 
 
 A choice called Page1ChoiceA is for Page1. "Stand up". It triggers Page19.
-The Page1 is a page. " I'm falling down. Not very far from the “ground”, fortunately for me. Some thick, heavy ropes are softening my falling. I've probably missed my step, because I'm absent-minded most of the time now. ".
+The Page1 is a page. " I'm falling down. Not very far from the "ground", fortunately for me. Some thick, heavy ropes are softening my falling. I've probably missed my step, because I'm absent-minded most of the time now. ".
 
 
 A choice called Page2ChoiceA is for Page2. "Despite my protests, I am sent to jail". It triggers Page48.
@@ -82,7 +82,7 @@ It is followed by GameEnd.
 
 A choice called Page15ChoiceA is for Page15. "Explore more". It triggers Page21.
 A choice called Page15ChoiceB is for Page15. "Go back to the boat". It triggers Page11.
-The Page15 is a page. " The sun is high in the sky, yet I feel a chill devoring my neck and my ribs. I remember my childhood in Francimia, my games in the trees and between the rare green hills of the family's domain. Later, still in the trees, reading fantasy books lying on the red and purple carpet in my hut 8 meters above the ground. I remember my mother calling me, with her high pitched voice, to eat the "Gargouaillotte à la Pisaille", a local dish. I suddenly feel I'm turning around. ".
+The Page15 is a page. " The sun is high in the sky, yet I feel a chill devoring my neck and my ribs. I remember my childhood in Francimia, my games in the trees and between the rare green hills of the family's domain. Later, still in the trees, reading fantasy books lying on the red and purple carpet in my hut 8 meters above the ground. I remember my mother calling me, with her high pitched voice, to eat the 'Gargouaillotte a la Pisaille', a local dish. I suddenly feel I'm turning around. ".
 
 
 A choice called Page16ChoiceA is for Page16. "A few days later, I was sold to a rich family". It triggers Page45.
@@ -99,9 +99,9 @@ The Page18 is a page. " The walls are now cleaner without this sick poster. ".
 
 A choice called Page19ChoiceA is for Page19. "Rebel". It triggers Page3.
 A choice called Page19ChoiceB is for Page19. "Wait". It triggers Page13.
-A choice called Page19ChoiceC is for Page19. "Jump into the sea ****". It triggers Page17.
+A choice called Page19ChoiceC is for Page19. "Jump into the sea ". It triggers Page17.
 A choice called Page19ChoiceD is for Page19. "or look around on the ship, fleeing cowardly to the ****". It triggers Page5.
-The Page19 is a page. " I've felt depressed so many years that I can't stand it any longer. Besides, my current residence and occupation is endangering my sanity and health more and more... The blue ocean, spreading endlessly toward the north, the east, the south and the west, is reflecting the sun like a glittering chainmail. “Hey Francimi bastard! Come here!”, they shout. Surrounded by those Scottani and Iricimi strangers, I don't feel at ease in this place. Their green and dark-orange helmets make me nervous. I don't really need to obey, they're just basic sailors like me. But could I bear the insults? ".
+The Page19 is a page. " I've felt depressed so many years that I can't stand it any longer. Besides, my current residence and occupation is endangering my sanity and health more and more... The blue ocean, spreading endlessly toward the all directions, is reflecting the sun like a glittering chainmail. “Hey Francimi bastard! Come here!”, they shout. Surrounded by those Scottani and Iricimi strangers, I don't feel at ease in this place. Their green and dark-orange helmets make me nervous. I don't really need to obey, they're just basic sailors like me. But could I bear the insults? ".
 
 
 A choice called Page20ChoiceA is for Page20. "They give me another office number, on the fifth floor, leading me to ****". It triggers Page53.
@@ -268,7 +268,7 @@ A choice called Page54ChoiceA is for Page54. "Go to ****". It triggers Page14.
 The Page54 is a page. " During the attack, I see the flashing blue of a pirate's sword, approaching my head so dangerously that I eventually die. ".
 
 
-The Page55 is a page. " Yawning and stretching, I awake with a good mood. I haven't discovered a new Continent, I haven't experienced great adventures, but I met some people who weren't bad at all. Day after day, I meet my friend Beatrix more and more often, and she tries to cope with my grim humor. She always tells me our story is really like an happy END after all! ". 
+The Page55 is a page. " Yawning and stretching, I awake with a good mood. I haven't discovered a new Continent, I haven't experienced great adventures, but I met some people who weren't bad at all. Day after day, I meet my friend Beatrix more and more often, and she tries to cope with my grim humor. She always tells me our story is really like an happy end after all! ". 
 It is followed by GameEnd.
 
 

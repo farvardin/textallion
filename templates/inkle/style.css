@@ -1,11 +1,12 @@
 body {
-    font-family: serif;
-    /*font-weight: lighter;*/
+    font-family: sans-serif;
+    font-weight: normal;
+    background-color: #f3f0dc;
 }
 
 h1 {
     text-align: center;
-    /*font-weight: lighter;*/
+    font-weight: normal;
 }
 
 .container {
@@ -16,18 +17,16 @@ h1 {
 }
 
 p {
-    color: #555;
+   /* color: #111;*/
     line-height: 1.7em;
     font-size: 13pt;
 }
 
-a {
-    color: #444;
+a { 
+	color:#E87645;
     line-height: 1.7em;
     font-size: 13pt;
-	font-style: italic;
 	font-weight: bold;
-	text-decoration:none;
 }
 
 p {
@@ -44,6 +43,32 @@ p.choice {
 }
 
 a:hover {
-    color: black;
-	text-decoration:underline;
+    color: #444;
 }
+
+
+a::before {
+  content: " ";
+}
+
+
+a:hover::after {
+  content: " ";
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
