@@ -321,9 +321,9 @@ cyoa-inkle:
 	 perl -pe 's/\[(.*).jpg\]//' |\
 	 perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	# replace any ="introduction" by 0 |\
-	perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	# replace any ="introduction" by 0 TODO dangerous outsite heading |\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	# italic and underline are the same. Only bold is different |\
 	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	# choices and links  \
@@ -365,6 +365,64 @@ cyoa-inkle:
 	cat $(DOCUMENT)_inkle.ink.json >> $(DOCUMENT)_inkle/textallion_story.js
 	echo ";" >> $(DOCUMENT)_inkle/textallion_story.js
 
+
+cyoa-tavern:
+	# for use with http://zzo38computer.org/fossil/tavern.ui/
+	cat $(DOCUMENT).t2t  |\
+ 	# replace === title === used in "who are you" |\
+	perl -pe "s/=== (.*) ===/\1/g" |\
+	# replace any ="introduction" by 0  TODO : dangerous outsite heading|\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\perl -pe 's/^\%(.*)\n/\/\//' | sed -e "s/== 0 ==/INCLUDE bookadv.inc\n\n START-PAGE INTRO/g" |\
+	# remove extra textallion syntax |\
+	perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	# images and sound not supported in tavern?|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	# remove italic, underline and bold |\
+	perl -pe "s/\*\*(.*?)\*\*/\1/g" |\
+	# choices and links  \
+	perl -pe 's/- (.*?) (\d+?)( *)\n/>|  \1 | \2 \n/g' |\
+	perl -pe 's/^- />|   /g' |\
+	perl -pe 's/\[\#(\d+?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[\#(.*?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \| \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?)\|\#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	perl -pe 's/: ->/->/g' |\
+	perl -pe 's/THE END/->END/g' |\
+	perl -pe 's/FIN/->END/g' |\
+	# paragraphs |\
+	perl -pe 's/^[ ?]?([a-z].)/ PT| \1/g' |\
+	perl -pe 's/^[ ?]?([A-Z].)/ PT| \1/g' |\
+	perl -pe 's/(!|\?|\.)[ ?]?\r?\n/\1|/g' |\
+	# abbreviations |\
+	perl -pe 's/tt (\d+)/| \1/g' |\
+	perl -pe 's/turn to (\d+)/| \1/g' |\
+	perl -pe 's/, rdv au  (\d+)/| \1/g' |\
+	perl -pe 's/, rendez-vous au  (\d+)/| \1/g' |\
+	perl -pe 's/ au  (\d+)->/| \1/g' |\
+	perl -pe 's/ go to (\d+)/| \1/g' |\
+	# chapters \
+	perl -pe 's/==(\d+)==\[(.*)\]/PAGE>>>\n\n<<<PAGE \1 /' |\
+	#perl -pe 's/== (.*?) ==\[(.*?)\]/\2/' TODO?\
+	perl -pe 's/== (.*?) ==\[(.*?)\]/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/== (.*?) ==/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/==(\d+)==/PAGE>>>\n\n<<<PAGE \1/'  |\
+	perl -pe 's/== (\d+) ==/PAGE>>>\n\n<<<PAGE \1/' > $(DOCUMENT)_tavern.txt
+	# export to tavern
+	~/bin/tavernc < $(DOCUMENT)_tavern.txt > $(DOCUMENT)_tavern.tav
+	
+	
 cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
 	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g"  >> $(DOCUMENT)_export.gbl

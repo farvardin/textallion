@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>%(HEADER1)s</title>
+<style>
+	html {
+		Font-family: serif;
+		Font-size: 16pt;
+		Color: black;
+		Background-color: tan;
+	}
+	
+	a { Color: #006699; text-decoration:none; }
+	a:hover {	color: #009de6; background-color: #e6f7ff; text-decoration:underline; }
+
+	h1, h2 {
+                Font-family: sans-serif;
+                Color: saddlebrown;
+                Border-bottom: 2px solid saddlebrown;
+                Padding: 1ex 0;
+        }
+	
+	.title2 { text-align:right; Font-family: sans-serif; font-size: 1.7em;  color:SaddleBrown;  Padding: 0.5ex 0;  }
+	.title3 { text-align:right; Font-family: sans-serif; font-size: 1.0em;  color:Sienna;  Padding: 0.5ex 0; }
+	.center { text-align:center; }
+
+	body {
+		Width: 70ex;
+		Max-width: 80%%;
+		Padding: 3ex;
+		Margin: 1ex auto;
+		Line-height: 1.5em;
+		Text-align: justify;
+		Min-height: 25em;
+		Background-color: white;
+		Box-shadow: 0.5ex 0.5ex 0.5ex saddlebrown;
+	}
+	
+	footer {
+                Border-top: 2px solid saddlebrown;
+                Padding: 1ex 0;
+	}
+</style>
+<meta name="viewport" content="width=device-width">
+
+
+<h1>%(HEADER1)s</h1> 
+<div class="title2">%(HEADER2)s</div> 
+<div class="title3">%(HEADER3)s</div>
+
+
+
+<div role="log" id="transcript">Please enable Javascript to play.</div>
+
+
+
+
+
+<footer>
+<div style="text-align: right;">
+	<input type="button" value = "Restart" onclick="history.go(0)" />
+</div>
+
+<div style="text-align: center; font-size: 12pt; font-style:italic; color:#777777">
+	:: made using <a href="https://bitbucket.org/farvardin/textallion" target="_blank">textallion</a> and <a href="https://notimetoplay.org/engines/ramus/index.html" target="_blank">ramus</a> ::
+</div>
+
+
+</footer>
+
+
+
+
+xxRAMUS_INITxx
+   
+%(BODY)s
+
+
+</div>
+
+<!-- You shouldn't need to edit below this line. -->
+
+
+<script>
+var START = "start";
+var TRANS = "transcript";
+var transcript = null;
+
+window.addEventListener("load", function () {
+	transcript = document.getElementById(TRANS);
+	var start = document.getElementById(START);
+	transcript.innerHTML = "";
+	advanceStory(start);
+});
+
+function advanceStory(fragment) {
+	var clone = fragment.cloneNode(true);
+	var links = clone.getElementsByTagName("a");
+	clone.removeAttribute("id"); // To avoid ending up with duplicates.
+	setupLinks(links);
+	transcript.appendChild(clone);
+	clone.scrollIntoView({behavior: "smooth"});
+}
+
+function setupLinks(links) {
+	for (var i = 0; i < links.length; i++) {
+		if (links[i].rel !== "external") {
+			links[i].addEventListener("click", linkCallback);
+			links[i].addEventListener("keydown", linkCallback);
+		}
+	}
+}
+
+function clearLinks(links) {
+	for (var i = 0; i < links.length; i++) {
+		if (links[i].rel !== "external") {
+			clearOneLink(links[i]);
+			i--;
+		}
+	}
+}
+
+
+function clearOneLink(element) {
+	element.outerHTML = element.innerHTML;
+}
+
+function linkCallback(event) {
+	var target_id = this.hash.slice(1);
+	var target = document.getElementById(target_id);
+	if (target === null) {
+		alert("Broken link!");
+		return;
+	}
+	if (this.rel === "clear") {
+		transcript.innerHTML = "";
+	} else if (this.rel === "continue") {
+		clearLinks(transcript.getElementsByTagName("a"));
+		transcript.appendChild(document.createElement("hr"));
+	} else {
+		clearLinks(transcript.getElementsByTagName("a"));
+		// original Ramus2 behavior:
+		//clearOneLink(this);
+	}
+	advanceStory(target);
+	event.preventDefault();
+}
+</script>

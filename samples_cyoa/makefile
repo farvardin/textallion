@@ -21,8 +21,8 @@ else
  PYTHONVER = python2
 endif
 
-TXT2TAGS = $(PYTHONVER) $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
-#TXT2TAGS = txt2tags
+#TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
+TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 
 ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
@@ -237,6 +237,27 @@ cyoa-ramus:
 	sed -i -e "s/xxRAMUS_INITxx/<div id=\"story\" style=\"Display: none;\">\n<div id=\"start\">\n<li>Start: <b><a rel=\"page1\">1<\/a><\/b>/g" $(DOCUMENT)_ramus.html
 	
 
+cyoa-ramus2:
+	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/ramus2.html  --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t  -t xhtml --no-css-inside --outfile $(DOCUMENT)_ramus2.html $(DOCUMENT).t2t
+	sed -i -e "s/href=\"#/rel=\"/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/style=\"display:none\"//g" $(DOCUMENT)_ramus2.html
+	#sed -i -e "s/onclick\(.*\)rel/rel/" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/<p><br\/><br\/><br\/><\/p><\/div>/xxCLEARLINKSxx\n<\/div>/g" $(DOCUMENT)_ramus2.html
+	# remove the 1st occurence only 
+	sed -i -e "0,/\xxCLEARLINKSxx/s/\xxCLEARLINKSxx//" $(DOCUMENT)_ramus2.html
+	# Create the do clear links
+	# If you don't like it this way, uncomment the next line first, to remove everything
+	#sed -i -e "s/rel=\"/rel=\"clear\" href=\"#/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/rel=\"/href=\"#/g" $(DOCUMENT)_ramus2.html
+	#sed -i -e "s/\xxCLEARLINKSxx/<\?do clear_all_links\(\)\; \?\>/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/\xxCLEARLINKSxx//g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/xxRAMUS_INITxx/<div style=\"Display: none;\">\n<div id=\"start\">\n<li>Start: <b><a href=\"#page1\">1<\/a><\/b>/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/THE END/THE END<br\/><a rel=\"clear\" href=\"#start\"><i>Start over?<\/i><\/a>/g" $(DOCUMENT)_ramus2.html
+	cp $(DOCUMENT)_ramus2.html $(DOCUMENT)_ramus2b.html
+	sed -i -e "s/href=/rel=\"clear\" href=/g" $(DOCUMENT)_ramus2b.html
+	
+
+
 cyoa-check:
 	-cat $(DOCUMENT).t2t | grep -i "==" > check.txt 
 	-cat $(DOCUMENT).t2t | grep -i "[^.\/\?\!=]$$" >> check.txt 
@@ -435,7 +456,7 @@ cyoa-togbl:
 cyoa-twine:	cyoa-twee
 
 cyoa-twee:
-	# for use with http://gimcrackd.com/etc/src/
+	# for use with https://github.com/tweecode
 	# corrected twee parser at https://github.com/mcdemarco/twee
 	#echo "du texte et puis à la fin de la ligne, un numéro par exemple 42"|sed -e "s/\([0-9]\+\)$/\[\[\1 \1\]\]/g"
 	# try to use Unix line feed if possible
