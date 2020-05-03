@@ -3,7 +3,7 @@
 # %%%% Textallion %%%%
 # Tiny almost-Kiss Word Processor
 # http://anamnese.online.fr/site2/textallion/docs/presentation.html
-# Complete source code: https://bitbucket.org/farvardin/textallion
+# Complete source code: https://textallion.sourceforge.io
 # License: http://creativecommons.org/licenses/by-sa/3.0/
 
 # initiate the variables, from the user's input

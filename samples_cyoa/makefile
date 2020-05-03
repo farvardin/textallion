@@ -1,10 +1,9 @@
-# Makefile for TeXtallion
+# Makefile for Textallion
 # Tiny almost-Kiss Word Processor
 # http://anamnese.online.fr/site2/textallion/docs/presentation.html
 # License: http://en.wikipedia.org/wiki/BSD_licenses
 #
-# get newest txt2tags   at http://txt2tags.org (might not be fully compatible with textallion)
-# get newest textallion at https://bitbucket.org/farvardin/textallion
+# get newest textallion at https://textallion.sourceforge.io
 #
 # This is a Makefile for *GNU make*, the default for Linux.
 # On *BSD systems, you'll need to use "gmake" instead of "make"
@@ -28,8 +27,8 @@ ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
 else
 #  DOCUMENT = examples
-  DOCUMENT = the_blue_death
-  #DOCUMENT = la_mort_bleue
+  #DOCUMENT = the_blue_death
+  DOCUMENT = la_mort_bleue
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -41,7 +40,8 @@ endif
 DOCUMENT_TITLE = xx DOCUMENT TITLE xx
 DOCUMENT_AUTHOR = xx DOCUMENT AUTHOR xx
 DOCUMENT_TAGS = xx DOCUMENT TAGS xx
-DOCUMENT_INFO = textallion - https://bitbucket.org/farvardin/textallion
+DOCUMENT_IFID = xx DOCUMENT IFID xx
+DOCUMENT_INFO = textallion - https://textallion.sourceforge.io
 
 ifdef DOCLANG
   DOCUMENT_LANGUAGE = $(DOCLANG)
@@ -190,7 +190,7 @@ epub:
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak  --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover  --preserve-cover-aspect-ratio --no-chapters-in-toc --disable-font-rescaling
 	# --filter-css font-family
 	#
-	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion - https://bitbucket.org/farvardin/textallion' --comments "$(DOCUMENT_INFO)" --cover $(DOCUMENT_COVER) 
+	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion - https://textallion.sourceforge.io' --comments "$(DOCUMENT_INFO)" --cover $(DOCUMENT_COVER) 
 
 # split (not working well...)
 
@@ -276,6 +276,102 @@ cyoa-xetex:
 	-xelatex -interaction batchmode $(DOCUMENT).tex
 	#-xelatex -interaction batchmode $(DOCUMENT).tex
 
+
+cyoa-dialog:
+	# for use with dialog
+	# https://linusakesson.net/dialog
+	# @DOLLAR@T expands as $T
+	echo "(intro)	(activate node #start)\n(library links enabled)\n(label @DOLLAR@Target)\n        (current node @DOLLAR@Origin)\n        (label @DOLLAR@Origin to @DOLLAR@Target)" |\
+	perl -pe "s/\@DOL-LAR\@/'$'/g" > $(DOCUMENT)_export.dg 
+	# remove 3 first lines of the t2t doc (from line 1 to end line 3) \
+	cat $(DOCUMENT).t2t  | sed '1,4d' | \
+	# metadata (before removing them all|\
+	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT TITLE xx\'[ ]*\'(.*?)\'/\(story title\) \1/g" |\
+	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT AUTHOR xx\'[ ]*\'(.*?)\'/\(story author\) \1/g" |\
+	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT IFID xx\'[ ]*\'(.*?)\'/\(story ifid\) \1/g" |\
+	perl -pe 's/^\%(.*)\n//' |\
+	 # abbreviations |\
+	 perl -pe 's/tt (\d+)/to somewhere else : \1/g' |\
+	 perl -pe 's/rdv au (\d+)/ : \1/g' |\
+	 perl -pe 's/, rendez-vous au (\d+)/ : \1/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/ : \1/g' |\
+	 perl -pe 's/ au (\d+)/ ailleurs : \1/g' |\
+	 perl -pe 's/to the (\d+)/to somewhere else : \1/g' |\
+	 perl -pe 's/to (\d+)/to somewhere else : \1/g' |\
+	 # replace any ="introduction" by 0 |\
+	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 # italic and underline are the same. Only bold is different |\
+	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
+	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
+	 perl -pe 's/¯/ /g' |\
+	 # remove extra textallion syntax |\
+	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	 perl -pe 's/rdv/rendez-vous/' |\
+	 	# remove t2t syntax \
+	perl -pe 's/\/\///g' |\
+	perl -pe 's/\*\*//g' |\
+	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
+	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]/%% (define resource ## \1) /' |\
+	 perl -pe 's/\[(.*).png\]/%% /' |\
+	 # why did we remove media? |\
+	 #perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	 # choices and links (\r is for windows newline) \
+	 #perl -pe 's/- (.*?) (\d+?)( *)\n/(label #node\2)\n      (line)\1 \n(* offers #node\2)\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
+	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
+	 perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
+	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
+	 # notes \
+	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
+	 # chapters \
+	 perl -pe 's/== (\d+) ==/#node\1\n(disp *)/' |\
+	 perl -pe 's/==(\d+)==\[(.*)\]/#node\1\n(disp *)/' |\
+	 #perl -pe 's/==(\d+)==/#node\1/\n(disp *)/' |\
+	 perl -pe 's/== (.*?) ==\[(.*?)\]/#node\2\n(disp *)/' |\
+	 perl -pe 's/== (.*?) ==/#node\1\n(disp *)/' |\
+	 # main text |\
+	perl -pe 's/^(.*)\.[ ]*\n/     (par)\1.\n/' |\
+	perl -pe 's/^(.*)[ ]*\![ ]*\n/      (par)\1 !\n/' |\
+	perl -pe 's/^(.*)[ ]*\?[ ]*\n/      (par)\1 ?\n/' |\
+	perl -pe 's/^(.*)[ ]*\:[ ]*\n/      (par)\1 \n/' |\
+	perl -pe 's/^(.*)[ ]*\"[ ]*\n/      (par)\1 "\n/' |\
+	perl -pe 's/^(.*)[ ]*\»[ ]*\n/      (par)\1 »\n/' |\
+	perl -pe 's/^\"(.*)\n/      (par)"\1 \n/' |\
+	perl -pe 's/^\«(.*)\n/      (par)«\1 \n/' |\
+	# special \
+		perl -pe 's/TESTLUCK/      (par) Am I lucky today? \\(throwing a dice, 5 or 6 means luck\\) /'|\
+	 perl -pe 's/THE END/     (par) THE END/'|\
+	 perl -pe 's/FIN/     (par) (game over { FIN })/'|\
+	# |\
+	# remove extra label |\
+	perl -pe 's/      \(par\)\(label/(label/' |\
+	# remove blank lines \
+	perl -pe s'/^\n|^[\ ]*\n//g' |\
+	# add extra space before nodes \
+	perl -pe 's/^#node/\n#node/' |\
+	perl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /s' |\
+	 # make twee lists \
+	 #perl -pe 's/^- /* /' |\
+	 #perl -pe 's/^+ /# /' |\
+	 # remove empty white spaces and lines\
+	 #sed -r '/^\s*$/d' |\
+	perl -pe 's/#node0/#start/' >> $(DOCUMENT)_export.dg
+	sed -i -e "s/@DOLLAR@/$$/g" $(DOCUMENT)_export.dg
+	 
+	 
 cyoa-gamebook: 
 # doesnt work yet!
 # http://www.ctan.org/tex-archive/macros/latex/contrib/gamebook
@@ -302,7 +398,7 @@ cyoa-epub:
 	#
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak --page-breaks-before //h:div[@id] --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover --no-svg-cover --preserve-cover-aspect-ratio --no-chapters-in-toc
 	#
-	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion & txt2cyoa - https://bitbucket.org/farvardin/textallion' --comments 'textallion - https://bitbucket.org/farvardin/textallion' --cover $(DOCUMENT_COVER) 
+	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion & txt2cyoa - https://textallion.sourceforge.io' --comments 'textallion - https://textallion.sourceforge.io' --cover $(DOCUMENT_COVER) 
 
 
 cyoa-graph:	

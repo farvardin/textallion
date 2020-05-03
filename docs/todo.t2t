@@ -103,6 +103,8 @@
 - Ramus: Dice will scroll up 
 - Ramus: footnotes don't work.
 - make a backup of the current work ("snapshot") with current date+time
+- Dialog: support @bold, @italic span (see https://linusakesson.net/dialog/docs/io.html)
+- Dialog: support resources such as images
 
 
 

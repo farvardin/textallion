@@ -4,7 +4,7 @@ Eric Forgeot
 
 
 % Tiny, almost-KISS word processor
-% https://bitbucket.org/farvardin/textallion
+% https://textallion.sourceforge.io
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
@@ -132,11 +132,15 @@ To use wrapped pictures, type:
 === Graph ===
 
 
-It's possible to get a graph with all the chapters connected together.
+It's possible to get an organigram with all the chapters connected together.
 
 You need to have graphviz installed to do that, and make sure each choice starts on one individual line, with a - and ends with the number of the choice.
 
 You can invoque ``make cyoa-graph`` to produce the svg and png version.
+
+
+note: in the case cyoa-graph is not working on windows, you can render the generated cyoa-game_graph.txt with online tools such as http://ashitani.jp/gv/
+
 
 
 *-*-
@@ -147,23 +151,59 @@ You can invoque ``make cyoa-graph`` to produce the svg and png version.
  - **``make cyoa-html``** : create HTML file to publish the game on internet 
  - **``make cyoa-pdf``** : create the PDF file for printing the gamebook
  - **``make cyoa-epub``** : create the {^}ePUB{^} file to be displayed in a ebook reader or on a phone (android, iphone, ipad)
- - ``make cyoa-ramus``: Use [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] as an alternative HTML rendering. The output game will get _ramus.html at the end.
- - ``make cyoa-graph`` : create organigram
  - ``make cyoa-play`` : start the default browser and play the HTML file
- - ``make cyoa-cs`` (or ``make cyoa-choicescript``): convert your  game to the [ChoiceScript http://www.choiceofgames.com/] format, into the new folder your_game_choicescript. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
- - ``make cyoa-hyena`` : convert your game to the [Hyena http://www.projectaon.org/staff/jens/], format, under the name your_game_export.gamebook
- - ``make cyoa-renpy`` : convert your game to the popular [Renpy http://renpy.org/] format, into a new folder your_game_renpy. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+ 
 
- - ``make cyoa-undum`` : convert your game into [Undum http://undum.com] format, into a new folder your_game_undum. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+By choosing to create games with textallion, in addition to the PDF, HTML and {^}ePUB{^} exports, you can also create games in those formats (some are obsolete):
+
+
+ - ``make cyoa-cs`` (or ``make cyoa-choicescript``): convert your  game to the [ChoiceScript http://www.choiceofgames.com/] format, into the new folder your_game_choicescript. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+  
+  - ``make cyoa-dialog`` : convert your game into [Dialog https://linusakesson.net/dialog/] format, into a new file your_game_export.dg (.dg is the dialog extension of course).
+  
+  - ``make cyoa-gamebook`` : convert your game into [Gamebook LaTeX http://www.ctan.org/tex-archive/macros/latex/contrib/gamebook] format (it's a work in progress, don't use it yet).
+  
+  - ``make cyoa-gbl`` : not used anymore. For converting the gbl format to textallion. (https://linuxfr.org/users/redo_fr/journaux/hs-ldveh-un-style-litt%C3%A9raire-qui-revient-%C3%A0-la-mode)
+  
+ - ``make cyoa-hyena`` : convert your game to the [Hyena http://www.projectaon.org/staff/jens/], format, under the name your_game_export.gamebook
+ 
+ - ``make cyoa-inform5`` : convert your game into an [Inform 5 http://www.inform-fiction.org/] project (not tested anymore).
+ 
+  - ``make cyoa-inform6`` : convert your game into an [Inform 6 http://www.inform-fiction.org/] project (not developped anymore).
 
  - ``make cyoa-inform7`` : convert your game into an [Inform 7 http://inform7.com] project, with a .i7 extension.
  
  - ``make cyoa-inkle`` : convert your game into [Inkle http://www.inklestudios.com/ink/] format, into a new folder your_game_inkle.
+  
+ 
+ - ``make cyoa-ramus``: Use [Ramus https://notimetoplay.org/engines/ramus/legacy.html] as an alternative HTML rendering. The output game will get _ramus.html at the end.
+ 
+  - ``make cyoa-ramus2``: Use the new [Ramus https://notimetoplay.org/engines/ramus/] backend as an alternative HTML rendering. The output game will get _ramus2.html and _ramus2b.html at the end.
+
+ - ``make cyoa-renpy`` : convert your game to the popular [Renpy http://renpy.org/] format, into a new folder your_game_renpy. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
+
+ - ``make cyoa-tavern`` : convert your game to the [Tavern http://zzo38computer.org/fossil/tavern.ui/] format. I'm not sure if this system is developped anymore.
+
+ - ``make cyoa-togbl`` : convert to the gbl format (not used anymore).
+ 
+ - ``make cyoa-twee`` (or ``make cyoa-twine``) : convert your game to [Twine https://twinery.org/], by using the twee intermediate format.
+ 
+ 
+ - ``make cyoa-undum`` : convert your game into [Undum http://idmillington.github.io/undum/] format, into a new folder your_game_undum. Beware, this command will delete and recreate a previous folder with this name, so if you intend to modify the renpy code, move this folder elsewhere.
  
 
-note: in the case cyoa-graph is not working on windows, you can render the generated cyoa-game_graph.txt with online tools such as http://ashitani.jp/gv/
+ - ``make cyoa-txt`` : export to simple txt
+ 
+ - ``make cyoa-xetex`` : to latex using the xetex engine (for advanced pdf rendering)
+ 
+ - ``make cyoa-zx`` : export to ZX Spectrum basic  (in development) 
+ 
+ 
 
-By choosing to create games with textallion, in addition to the PDF, HTML and {^}ePUB{^} exports, you can also create games in those formats:
+
+
+More about the other formats:
+
 
 - [Renpy http://www.renpy.org] is a popular format for creating visual novels. 
 The export from textallion will recreate your paragraphs and your choices in the format used by renpy, generating a working folder containing everything you need to read later from renpy. You should then move that folder into renpy's workspace default to work further on this project (including addition of multimedia documents, images, sounds ...). Please note that the command ``make cyoa-renpy`` will completely destroy the original folder and replace it with a new one. So if you intend to add new elements in the code, you can either change the makefile accordingly, or move the folder elsewhere as indicated above.
@@ -171,7 +211,7 @@ The export from textallion will recreate your paragraphs and your choices in the
 To mean the end of a game, any occurrence of "THE END" will move the player to the end of the file, stopping the game.
 The inclusion of images will be converted to the renpy format, and on each page, the background image will overlap the images already posted. To hide the images properly, although this is not an obligation, it is advisable to add ``$ hidemypic ("my_image.jpg")`` at the end of the paragraph after the use of a given image.
 
-- [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] CYOA system, with a look similar to Undum, yet simpler to use.
+- [Ramus https://notimetoplay.org/engines/ramus/] CYOA system, with a look similar to Undum, yet simpler to use.
 
 - [Hyena http://www.projectaon.org/staff/jens/] is the format used by the Project Aon (Lone Wolf free version). There is also an implementation to replay those games, with [gamebook-engine http://www.freegameengines.org/gamebook-engine/]
 
@@ -182,8 +222,8 @@ The output file will be yourgame.i7. Then convert it to zcode (.z5) using Inform
 You may have to tweak a bit the source before being able to compile it in Inform, for example remove the "Page0" lines. Texts such as "So it will lead you to the 14" will be converted to "So it will lead you to the ''****''" (four stars), you'll probably want to edit this as well (you can just replace it to ''...'').
 
 
-- [Twee(code) / Twine http://gimcrackd.com/etc/src/] is a format gamebook usable on the Internet, based on TiddlyWiki. `` make cyoa-twee`` will export to this format. (The version on the official site is buggy so we use a [patched version https://github.com/mcdemarco/twee]).
-You can also import from twee into textallion in the case you want to design your game using Twine.
+- [Twee(code) / Twine https://twinery.org/] is a format gamebook usable on the Internet, based on TiddlyWiki. `` make cyoa-twee`` will export to this format. (The version on the official site is buggy so we use a [patched version https://github.com/mcdemarco/twee]).
+You can also import from twee into textallion in the case you want to design your game using Twine. (use the /usr/share/textallion/core/twee_to_textallion.sh tool)
 
 
 

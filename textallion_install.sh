@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# %%%% TeXTallion %%%%
+# %%%% Textallion %%%%
 # Tiny almost-Kiss Word Processor
 # http://anamnese.online.fr/site2/textallion/docs/presentation.html
-# Complete source code: https://bitbucket.org/farvardin/textallion
+# Complete source code: https://textallion.sourceforge.io
 # License: http://en.wikipedia.org/wiki/BSD_licenses
 
 # This script will install textallion into /usr/share/textallion unless you modify the INSTALLPATH value.
@@ -42,14 +42,14 @@ PWD="`pwd`"
 PWD2="${PWD##*/}"
 echo ${PWD2}
 	if [ ${PWD2} != "textallion" ]; then
-		echo "It seems you're not running this installation script from the textallion folder. We'll try to download it from the bitbucket repo, is it OK (you'll need to have mercurial / hg installed on your system)? (Y/n)"
+		echo "It seems you're not running this installation script from the textallion folder. We'll try to download it from the sourceforge repo, is it OK (you'll need to have mercurial / hg installed on your system)? (Y/n)"
 		read updateit
 			case $updateit in
 					"n"|"N"|"no"|"NO"|"non")
 						echo "We'll abort now"
 						;;
 					"y"|"Y"|"yes"|*)
-					hg clone https://bitbucket.org/farvardin/textallion
+					hg clone http://hg.code.sf.net/p/textallion/code textallion-code
 					cd textallion
 					chmod +x textallion_install.sh
 					sudo ./textallion_install.sh

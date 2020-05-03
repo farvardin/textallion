@@ -8,6 +8,7 @@ par Otto Grimwald
 %!postproc(tex): 'xx DOCUMENT TITLE xx'  'La Mort Bleue'
 %!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Otto Grimwald'
 %!postproc(tex): 'xx DOCUMENT TAGS xx'   'cyoa, steampunk'
+%!postproc(tex): 'xx DOCUMENT IFID xx'   '1C88C7EA-8D37-4C8B-B662-2F35C4F69DAA'
 
 
 %% DEF PERSONAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 

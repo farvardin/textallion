@@ -9,10 +9,10 @@
 
 //The release filenames are in the form: textallion_year-month-day_artistname.zip. If some additions are made during the same month, there won't be a full release with a new artist's name, but the update's filename will show a new date, for example:  textallion_2010-08-13_chasseriau.zip and then textallion_2010-08-15_chasseriau.zip//
 
-- Full changelog from the repository: https://bitbucket.org/farvardin/textallion/commits/all
+- Full changelog from the repository: https://sourceforge.net/p/textallion/code/ref/default/
 
 
--  2019:
+-  2020:
  - release:
 		- updated installation script
 		- adding more free audio/video formats
@@ -20,7 +20,9 @@
 		- use tabu instead of longtable for the tables
 		- CYOA: adding templates for inform7, twee
 		- CYOA: new target: Inkle (Ink syntax)
+		- CYOA: new target: Dialog (can render to zcode, html and C64)
 		- now default txt2tags version is for python3
+		- change mercurial repository from Bitbucket to Sourceforge
  
 
 - 28 aug 2015:

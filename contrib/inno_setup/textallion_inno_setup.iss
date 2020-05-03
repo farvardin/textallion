@@ -4,7 +4,7 @@
 #define MyAppName "Textallion"
 #define MyAppVersion "2015-08-28"
 #define MyAppPublisher "textallion"
-#define MyAppURL "https://bitbucket.org/farvardin/textallion"
+#define MyAppURL "https://textallion.sourceforge.io"
 #define MyAppExeName "textallion_cygwin.bat"
 ;#include ReadReg(HKEY_LOCAL_MACHINE,'Software\Sherlock Software\InnoTools\Downloader','ScriptPath','')
 #include <C:\textallion_setup\it_download.iss>

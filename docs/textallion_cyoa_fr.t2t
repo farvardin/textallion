@@ -4,7 +4,7 @@ Eric Forgeot
 
 
 % Tiny, almost-KISS word processor
-% https://bitbucket.org/farvardin/textallion
+% https://textallion.sourceforge.io
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
 %!postproc(tex): 'xx DOCUMENT TITLE xx' 'Textallion - documentation'
@@ -80,7 +80,7 @@ Avec textallion, vous pouvez créer des « livres dont vous êtes le héros » (
 
 La conception de vos livres-jeux avec textallion se fait avec un éditeur de texte, à l'aide d'une syntaxe très simple. 
 
-Une fois l'aventure réalisée, il faut pouvoir la diffuser. C'est pourquoi textallion propose différentes possibilités d'export : PDF pour imprimer, ePUB pour publier sur livre électronique, tablette ou smartphone, HTML pour publier sur site internet. L'export HTML est d'ailleurs riche de plusieurs moteurs de rendu (Ramus, Twine (Twee), Undum, ChoiceScript...). Enfin, quelques autres formats utilisés par des systèmes de fictions interactives (Inform, Ren'PY) permettront d'étendre encore plus les possibilités d'expérimentation.
+Une fois l'aventure réalisée, il faut pouvoir la diffuser. C'est pourquoi textallion propose différentes possibilités d'export : PDF pour imprimer, ePUB pour publier sur livre électronique, tablette ou smartphone, HTML pour publier sur site internet. L'export HTML est d'ailleurs riche de plusieurs moteurs de rendu (Ramus, Twine (Twee), Undum, ChoiceScript...). Enfin, quelques autres formats utilisés par des systèmes de fictions interactives (Inform, Ren'PY, Dialog) permettront d'étendre encore plus les possibilités d'expérimentations et de réalisations.
 
 
 
@@ -137,10 +137,10 @@ Rappelez-vous, le dièse # est comme une ancre qui redirige toujours vers le nom
 
 Maintenant que la syntaxe a été dévoilée, nous souhaiterions revenir sur le concept de livre-jeu : diverses solutions existent pour créer de telles oeuvres, par exemple une interface avancée de programmation qui s'occupe de lister les embranchements existants, ceux disponibles, ou bien qui mélange aléatoirement les chapitres. De telles interfaces ont leurs raisons d'être, mais nous préférons utiliser pour notre part la simplicité du texte brut.
 
-Nous ne sommes pas en mesure de fournir une telle interface, mais une solution approchante existe, partiellement, avec le logiciel [Twine  http://gimcrackd.com/etc/src/]. De plus, nous avons réalisé un petit script (core/twee_to_textallion.sh) permettant de convertir du format de twee vers celui de textallion. Ainsi si vous souhaitez utiliser ce logiciel, il vous sera ensuite possible de récupérer votre travail dans textallion pour en faire autre chose (livre électronique, fichier pdf, impression papier). Mais si vous voulez en faire autre chose, il vous faudra rédiger vos aventures dans Twine en gardant la syntaxe avec uniquement des nombres en tant que chapitres et que liens.
+Nous ne sommes pas en mesure de fournir une telle interface, mais une solution approchante existe, partiellement, avec le logiciel [Twine  http://gimcrackd.com/etc/src/]. De plus, nous avons réalisé un petit script (core/convert_twee_to_textallion.sh) permettant de convertir du format de twee vers celui de textallion. Ainsi si vous souhaitez utiliser ce logiciel, il vous sera ensuite possible de récupérer votre travail dans textallion pour en faire autre chose (livre électronique, fichier pdf, impression papier). Mais si vous voulez en faire autre chose, il vous faudra rédiger vos aventures dans Twine en gardant la syntaxe avec uniquement des nombres en tant que chapitres et que liens.
 
 
-En effet, pour la présentation des paragraphes, nous avons tendance à encourager à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer un support plus complet pour les mots-clés. Pour le moment celui-ci fonctionne le mieux en conjonction avec Twine.
+En effet, pour la présentation des paragraphes, nous avons tendance à encourager à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum, Dialog), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer un support plus complet pour les mots-clés. Pour le moment celui-ci fonctionne le mieux en conjonction avec Twine.
 
 
 
@@ -182,21 +182,57 @@ Un menu pour cela existe dans le script « textallion.sh », ou sinon vous pouve
  - **``make cyoa-html``** : génère le fichier HTML destiné à être publié sur internet  
  - **``make cyoa-pdf``** : génère le fichier PDF destiné à l'impression  
  - **``make cyoa-epub``** : génère le fichier {^}ePUB{^} destiné à être joué sur liseuse ou téléphone (android, iphone, ipad)
- - ``make cyoa-ramus``: Utilise [Ramus http://felix.plesoianu.ro//index.php/page:Software:Ramus] comme format d'affichage alternative en HTML (le fichier final sera renommé _ramus.html à la fin)
- - ``make cyoa-graph`` : génère l'organigramme
+
+
+
  - ``make cyoa-play`` : lance le fichier HTML de base avec le navigateur défini dans le makefile (par défaut firefox)
- - ``make cyoa-cs`` (ou ``make cyoa-choicescript``): converti votre jeu vers le format [ChoiceScript http://www.choiceofgames.com/], sous le dossier votre_jeu_choicescript. Attention, à chaque appel de ``make cyoa-cs``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
+
+
+Si vous choisissez de créer vos jeux avec textallion, en plus des exports PDF, HTML et {^}ePUB{^}, vous pourrez également exporter dans ces formats :
+
+
+ - ``make cyoa-cs`` (ou ``make cyoa-choicescript``): convertit votre jeu vers le format [ChoiceScript http://www.choiceofgames.com/], sous le dossier votre_jeu_choicescript. Attention, à chaque appel de ``make cyoa-cs``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
+
+  - ``make cyoa-dialog`` : convert your game into [Dialog https://linusakesson.net/dialog/] format, into a new file your_game_export.dg (.dg is the dialog extension of course).
+
+  - ``make cyoa-gamebook`` : obsolète.
+
+  - ``make cyoa-gbl`` : obsolète. cf. https://linuxfr.org/users/redo_fr/journaux/hs-ldveh-un-style-litt%C3%A9raire-qui-revient-%C3%A0-la-mode
+
+
  - ``make cyoa-hyena`` : converti votre jeu vers le format [Hyena http://www.projectaon.org/staff/jens/], sous le nom votre_jeu_export.gamebook
  - ``make cyoa-renpy`` : converti votre jeu vers le format [Renpy http://renpy.org/], dans le dossier votre_jeu_renpy. Attention, à chaque appel de ``make cyoa-renpy``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).
 
- - ``make cyoa-undum`` : converti votre jeu vers le format [Undum http://undum.com], sous le dossier votre_jeu_undum. Attention, à chaque appel de ``make cyoa-undum``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).    
-       
+ - ``make cyoa-inform5`` : converti votre jeu vers un code source utilisable dans Inform 5 (abandonné).
+
+ - ``make cyoa-inform6`` : converti votre jeu vers un code source utilisable dans Inform 6 (abandonné).
+
  - ``make cyoa-inform7`` : converti votre jeu vers un code source utilisable dans [Inform 7 http://inform7.com], avec une extension .i7.
 
  - ``make cyoa-inkle`` : convertir votre jeu vers un code source [Inkle http://www.inklestudios.com/ink/], dans un dossier votre_jeu_inkle.
  
+ - ``make cyoa-ramus``: Utilise [Ramus https://notimetoplay.org/engines/ramus/legacy.html] comme format d'affichage alternatif en HTML (le fichier final sera renommé _ramus.html à la fin)
 
-Si vous choisissez de créer vos jeux avec textallion, en plus des exports PDF, HTML et {^}ePUB{^}, vous pourrez également exporter dans ces formats :
+ - ``make cyoa-ramus2``: Utilise [Ramus 2 https://notimetoplay.org/engines/ramus/] comme format d'affichage alternatif en HTML (le fichier final sera renommé _ramus2.html et _ramus2b.html à la fin)
+
+ - ``make cyoa-tavern`` : convert your game to the [Tavern http://zzo38computer.org/fossil/tavern.ui/] format. I'm not sure if this system is developped anymore.
+
+
+ - ``make cyoa-twee`` (ou ``make cyoa-twine``)  : convert your game to [Twine https://twinery.org/], by using the twee intermediate format.
+ 
+
+
+ - ``make cyoa-undum`` : convertit votre jeu vers le format [Undum http://idmillington.github.io/undum/], sous le dossier votre_jeu_undum. Attention, à chaque appel de ``make cyoa-undum``, cela détruit et recréé ce dossier, aussi vos éventuelles modifications ultérieures seront effacées (voir plus bas).    
+       
+
+ - ``make cyoa-xetex`` : to latex using the xetex engine (for advanced pdf rendering)
+ 
+ - ``make cyoa-zx`` : export to ZX Spectrum basic  (in development) 
+
+
+
+Quelques infos supplémentaires sur les autres formats :
+
 
 - [Renpy http://www.renpy.org] est un format populaire pour la création de romans visuels. L'export depuis textallion va recréer vos paragraphes et vos choix dans le format utilisé par Renpy, en générant un dossier de travail contenant tout ce qu'il faut pour le relire depuis le logiciel Renpy. Vous veillerez à déplacer ensuite ce dossier dans l'espace de travail par défaut de Renpy, pour retravailler ce projet (rajout de documents multimedia notamment, images, sons...). Attention, la commande ``make cyoa-renpy`` détruit le dossier précédemment généré, pour complètement le remplacer par un nouveau. Si vous souhaitez rajouter des éléments dans le code Renpy, soit vous modifier le makefile en conséquence, soit vous le déplacer comme indiqué précédemment. 
 

@@ -1,5 +1,5 @@
 REM batch file for using with textallion
-REM http://textallion.googlecode.com
+REM https://textallion.sourceforge.io
 
 set TEXTALLIONPATH=C:\temp\textallion
 set PYTHONPATH=C:\Python27
