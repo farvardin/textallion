@@ -12,8 +12,8 @@
 - Full changelog from the repository: https://sourceforge.net/p/textallion/code/ref/default/
 
 
--  2020:
- - release:
+-  18 mai 2020:
+ - [Frédéric-François d'Andiran https://fr.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric-Fran%C3%A7ois_d%27Andiran] release:
 		- updated installation script
 		- adding more free audio/video formats
 		- use .desktop with the installer
@@ -22,7 +22,7 @@
 		- CYOA: new target: Inkle (Ink syntax)
 		- CYOA: new target: Dialog (can render to zcode, html and C64)
 		- now default txt2tags version is for python3
-		- change mercurial repository from Bitbucket to Sourceforge
+		- change mercurial repository from Bitbucket to [Sourceforge https://textallion.sourceforge.io/]
  
 
 - 28 aug 2015:

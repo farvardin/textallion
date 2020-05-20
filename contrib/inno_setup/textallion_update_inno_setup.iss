@@ -4,7 +4,7 @@
 #define MyAppName "Textallion-Update"
 #define MyAppVersion "2011-06-03"
 #define MyAppPublisher "textallion"
-#define MyAppURL "http://textallion.googlecode.com"
+#define MyAppURL "https://textallion.sourceforge.io/"
 #define MyAppExeName "textallion_update.exe"
 
 [Setup]

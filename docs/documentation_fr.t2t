@@ -276,14 +276,14 @@ SYMBpercent!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'votre nom'
 SYMBpercent!postproc(tex): 'xx DOCUMENT TAGS xx' 'mots clés de votre document'
 
 SYMBpercent!style(tex): sample.sty
-SYMBpercent!style(xhtml): http://textallion.googlecode.com/hg/includes/sample.css
+SYMBpercent!style(xhtml): sample.css
 
-SYMBpercent!includeconf: http://textallion.googlecode.com/hg/core/textallion.t2t
+SYMBpercent!includeconf: textallion.t2t
 SYMBpercent!postproc(tex): 'TEXTALLIONPATH' '../'
 ```
 {/-- }
 
-Hélas l'inclusion de fichiers de style en ligne ne semble pas fonctionner avec LaTeX. Veuillez donc téléchargez auparavant http://textallion.googlecode.com/hg/includes/sample.sty et http://textallion.googlecode.com/hg/core/textallion.sty dans votre dossier courant, ou dans un dossier de votre choix. En revanche sous Windows la référence du nom doit être écrit avec des slashs à la place des anti-slash, par exemple c:/temp/textallion/core/textallion.t2t
+Veuillez téléchargez auparavant textallion.t2t, sample.css, sample.sty et textallion.sty depuis https://textallion.sourceforge.io/ dans votre dossier courant, ou dans un dossier de votre choix. En revanche sous Windows la référence du nom doit être écrit avec des slashs à la place des anti-slash, par exemple c:/temp/textallion/core/textallion.t2t
 
 Par la suite, vous aurez sans doute le désir de modifier votre style personnel, pour cela vous pouvez vous référer à la première méthode de préférence.
 

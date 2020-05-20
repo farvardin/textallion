@@ -98,8 +98,9 @@ To create a choice, use either :
 
 ```
 - Description of the choice (starting with a dash "-"): number
+- Description of the choice: [#keyword]
 - Description of the choice: [#number]. More words afterwards.
-- Description of the choice with a [#keyword], and some more things afterward.
+- Description of the choice with a [#keyword], and eventually some more things afterward.
 ```
 
 

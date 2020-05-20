@@ -37,14 +37,7 @@ Textallion, some examples
 %!--includeconf: c:/temp/textallion/core/textallion.t2t
 %!--postproc(tex): 'TEXTALLIONPATH' 'c:/temp/textallion/'
 
-%% Another alternative path (online)
 
-% get first http://textallion.googlecode.com/hg/includes/sample.sty and http://textallion.googlecode.com/hg/core/textallion.sty  
-%--!style(tex): sample.sty
-%--!style(xhtml): http://textallion.googlecode.com/hg/includes/sample.css
-
-%--!includeconf: http://textallion.googlecode.com/hg/core/textallion.t2t
-%--!postproc(tex): 'TEXTALLIONPATH' './'
 
 % /.../
 

@@ -849,8 +849,14 @@ It supports ([Text Figures http://en.wikipedia.org/wiki/Text_figures]): 12345678
  - {^}ePUB{^} creation : [sigil http://sigil-ebook.com/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
  - html : 
  - pdf : openoffice, LaTeX, [Lout http://fr.wikipedia.org/wiki/Lout], [writer2latex http://writer2latex.sourceforge.net/]]
+ 
+ - convertisseur latex 2 epub : https://github.com/rzoller/tex2ebook (voir partie webserveur pour adapter à textallion)
 
  - cyoa : renpy, Undum, ChoiceScript, Inform, http://www.freegameengines.org/gamebook-engine/, http://homepage.mac.com/siyanlis/Xhoromag/Advelh.htm, http://felix.plesoianu.ro/pub/ramus3.html
+ 
+- typo : http://typeplate.com/
+
+- scribe https://github.com/schacon/git-scribe (asciidoc)
 
 
 %!include: license.t2t

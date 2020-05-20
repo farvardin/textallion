@@ -29,6 +29,7 @@ else
 #  DOCUMENT = examples
   #DOCUMENT = the_blue_death
   DOCUMENT = la_mort_bleue
+  DOCUMENT = lonewolf01
   #DOCUMENT = template
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
@@ -57,6 +58,15 @@ EPUBREADER = ebook-viewer
 HTMLREADER = firefox
 DIFFTOOL = meld
 RENPY = /opt/renpy/renpy.sh
+
+# for dialog system
+DIALOGC = ../contrib/dialog/dialogc
+AAMBUNDLE = ../contrib/dialog/aambundle
+DIALOGLIB=../contrib/dialog/stdlib-fr
+#DIALOGLIB=../contrib/dialog/stdlib_de
+#DIALOGLIB=../contrib/dialog/stdlib
+
+
 
 UNAME := $(shell uname)
 
@@ -279,39 +289,51 @@ cyoa-xetex:
 
 cyoa-dialog:
 	# for use with dialog
-	# https://linusakesson.net/dialog
+	# https://linusakesson.net/dialog/docs/timeprogress.html#choicemode
 	# @DOLLAR@T expands as $T
 	echo "(intro)	(activate node #start)\n(library links enabled)\n(label @DOLLAR@Target)\n        (current node @DOLLAR@Origin)\n        (label @DOLLAR@Origin to @DOLLAR@Target)" |\
 	perl -pe "s/\@DOL-LAR\@/'$'/g" > $(DOCUMENT)_export.dg 
 	# remove 3 first lines of the t2t doc (from line 1 to end line 3) \
 	cat $(DOCUMENT).t2t  | sed '1,4d' | \
+	# remove postproc for tex (TODO CHECK)|\
+	#perl -pe "s/\%\!postproc\(tex\): //g" |\
+	# convert ( and ): \
+	perl -pe 's/\(/\\(/g' |\
+	perl -pe 's/\)/\\)/g' |\
 	# metadata (before removing them all|\
-	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT TITLE xx\'[ ]*\'(.*?)\'/\(story title\) \1/g" |\
-	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT AUTHOR xx\'[ ]*\'(.*?)\'/\(story author\) \1/g" |\
-	perl -pe "s/\%\!postproc\(tex\): \'xx DOCUMENT IFID xx\'[ ]*\'(.*?)\'/\(story ifid\) \1/g" |\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT TITLE xx\'/\(story title\) \1/g" |\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT AUTHOR xx\'/\(story author\) \1/g" |\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT IFID xx\'/\(story ifid\) \1/g" |\
 	perl -pe 's/^\%(.*)\n//' |\
+		# for lone wolf mode: \
+	 perl -pe 's/(.*) \[(.*) (\d+)\|\#sect(\d+)\]/(label * to #node\4)\1 \2 \3 \n(* offers #node\4)\n/g' |\
+	 perl -pe 's/\[(.*) (\d+)\|\#sect(\d+)\]/(label * to #node\3)\1 \2 \n(* offers #node\3)\n/g' |\
+	  perl -pe 's/\[Illustration ([^ ].*?)\]//g' |\
+	 perl -pe 's/\[Random Number Table \#random\]/Random Number Table/g' |\
+	 perl -pe 's/(.*)\: COMBAT SKILL (.*?)   ENDURANCE (.*?)/     (par)\1:  COMBAT SKILL \2   ENDURANCE \3/g' |\
+	 #\
 	 # abbreviations |\
-	 perl -pe 's/tt (\d+)/to somewhere else : \1/g' |\
+	 #perl -pe 's/tt (\d+)/ \1/g' |\
+	 #lone wolf style \
+	 #perl -pe 's/\[turn to (\d+) \#sect(\d+)\]/\2/g' |\
+	 #perl -pe 's/Turn to (\d+)/\1/g' |\
+	 #perl -pe 's/turn to (\d+)/\1/g' |\
 	 perl -pe 's/rdv au (\d+)/ : \1/g' |\
 	 perl -pe 's/, rendez-vous au (\d+)/ : \1/g' |\
 	 perl -pe 's/rendez-vous au (\d+)/ : \1/g' |\
 	 perl -pe 's/ au (\d+)/ ailleurs : \1/g' |\
-	 perl -pe 's/to the (\d+)/to somewhere else : \1/g' |\
-	 perl -pe 's/to (\d+)/to somewhere else : \1/g' |\
+	 #perl -pe 's/to the (\d+)/to somewhere else : \1/g' |\
+	 #perl -pe 's/to (\d+)/to somewhere else : \1/g' |\
 	 # replace any ="introduction" by 0 |\
 	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
 	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
-	 # italic and underline are the same. Only bold is different |\
-	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
-	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
+	 # code |\
+	 perl -pe "s/\`\`(.*?)\`\`/\1/g" |\
 	 perl -pe 's/¯/ /g' |\
 	 # remove extra textallion syntax |\
 	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
 	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
 	 perl -pe 's/rdv/rendez-vous/' |\
-	 	# remove t2t syntax \
-	perl -pe 's/\/\///g' |\
-	perl -pe 's/\*\*//g' |\
 	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
 	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
 	 perl -pe 's/\[\[(.*).png] 1\]//' |\
@@ -324,19 +346,23 @@ cyoa-dialog:
 	 #perl -pe 's/- (.*?) (\d+?)( *)\n/(label #node\2)\n      (line)\1 \n(* offers #node\2)\n/g' |\
 	 perl -pe 's/- (.*?) (\d+?)( *)\n/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
 	 perl -pe 's/- (.*?) (\d+?)( *)\r/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
+     perl -pe 's/(.*?) \[\#(.*?)\]/(label * to #\2) \1 \n(* offers #\2)\n/g' |\
 	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
-	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
-	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
-	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
 	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
 	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
 	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
-	 perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
-	 perl -pe 's/\[\#(.*?)\]/[[\1]]/g' |\
-	 # notes \
+	 #perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
+	 # notes and hr \
+	 perl -pe 's/--------------------//g' |\
 	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
 	 # chapters \
+	 # lone wolf : \
+	 perl -pe 's/== (\d+) ==/#node\1\n(disp *)(space 8)(bold)- \1 -(roman)/' |\
+	 # normal : \
 	 perl -pe 's/== (\d+) ==/#node\1\n(disp *)/' |\
 	 perl -pe 's/==(\d+)==\[(.*)\]/#node\1\n(disp *)/' |\
 	 #perl -pe 's/==(\d+)==/#node\1/\n(disp *)/' |\
@@ -349,8 +375,15 @@ cyoa-dialog:
 	perl -pe 's/^(.*)[ ]*\:[ ]*\n/      (par)\1 \n/' |\
 	perl -pe 's/^(.*)[ ]*\"[ ]*\n/      (par)\1 "\n/' |\
 	perl -pe 's/^(.*)[ ]*\»[ ]*\n/      (par)\1 »\n/' |\
+	perl -pe 's/^(.*)[ ]*\’[ ]*\n/      (par)\1’\n/' |\
+	perl -pe 's/^(.*)[ ]*\)[ ]*\n/      (par)\1)\n/' |\
+	perl -pe 's/^(.*)[ ]*\*\*[ ]*\n/      (par)\1**\n/' |\
+	perl -pe 's/^(.*)[ ]*\/\/[ ]*\n/      (par)\1\/\/\n/' |\
 	perl -pe 's/^\"(.*)\n/      (par)"\1 \n/' |\
 	perl -pe 's/^\«(.*)\n/      (par)«\1 \n/' |\
+	#  t2t syntax \
+	perl -pe 's/\/\/(.*)\/\//(italic)\1(roman)/' |\
+	perl -pe 's/\*\*(.*)\*\*/(bold)\1(roman)/' |\
 	# special \
 		perl -pe 's/TESTLUCK/      (par) Am I lucky today? \\(throwing a dice, 5 or 6 means luck\\) /'|\
 	 perl -pe 's/THE END/     (par) THE END/'|\
@@ -362,7 +395,11 @@ cyoa-dialog:
 	perl -pe s'/^\n|^[\ ]*\n//g' |\
 	# add extra space before nodes \
 	perl -pe 's/^#node/\n#node/' |\
-	perl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /s' |\
+	perl -pe 's/      \(par\)\(disp \*\)/(disp *) /s' |\
+	#perl -pe 's/^     \(par\)\(offers/(offers/s' |\
+	perl -pe 's/      \(par\)\(\* offers/(* offers/g' |\
+	#øperl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /g' |\
+	perl -pe 's/     \(par\)\./ /g' |\
 	 # make twee lists \
 	 #perl -pe 's/^- /* /' |\
 	 #perl -pe 's/^+ /# /' |\
@@ -370,7 +407,28 @@ cyoa-dialog:
 	 #sed -r '/^\s*$/d' |\
 	perl -pe 's/#node0/#start/' >> $(DOCUMENT)_export.dg
 	sed -i -e "s/@DOLLAR@/$$/g" $(DOCUMENT)_export.dg
-	 
+	make cyoa-dialog-z8
+	make cyoa-dialog-html
+	make cyoa-dialog-c64
+
+
+cyoa-dialog-z8:
+	$(DIALOGC) -t z8 $(DOCUMENT)_export.dg $(DIALOGLIB).dg
+
+cyoa-dialog-aa:
+	$(DIALOGC) -t aa $(DOCUMENT)_export.dg $(DIALOGLIB).dg
+
+cyoa-dialog-html:
+	make cyoa-dialog-aa
+	-rm -fr $(DOCUMENT)_export_html
+	$(AAMBUNDLE) -o $(DOCUMENT)_export_html $(DOCUMENT)_export.aastory
+
+cyoa-dialog-c64:
+	make cyoa-dialog-aa
+	-rm -fr $(DOCUMENT)_export_c64
+	$(AAMBUNDLE) -t c64 -o $(DOCUMENT)_export_c64 $(DOCUMENT)_export.aastory
+
+
 	 
 cyoa-gamebook: 
 # doesnt work yet!
