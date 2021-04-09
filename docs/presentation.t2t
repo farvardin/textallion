@@ -1,39 +1,50 @@
-Le TeXtallion
+Le Textallion
 
 
 
-%!target: xhtml
-%!options: --outfile presentation.html
+%!target: html
+%!options: --encoding=UTF-8 --css-sugar --outfile ../index.html
 %!encoding: utf-8
-%!style(xhtml): ../includes/sample.css
+%-!style(xhtml): ../includes/sample.css
+%!style(html): ./docs/css/style.css
 
-%!postproc: 'TEXTALLIONURL' 'http://anamnese.online.fr/site2/textallion/docs/presentation.html'
+%!postproc(html): '<HEAD>' '<HEAD>\n<meta name="viewport" content="width=device-width" />'
 
-%!postproc: 'BASEURL' 'http://anamnese.online.fr/site2/textallion'
+
+%--!postproc: 'TEXTALLIONURL' 'http://anamnese.online.fr/site2/textallion/docs/presentation.html'
+%!postproc: 'TEXTALLIONURL' 'https://textallion.sourceforge.io/'
+
+%--!postproc: 'BASEURL' 'http://anamnese.online.fr/site2/textallion'
+%!postproc: 'BASEURL' 'https://textallion.sourceforge.io/'
+%-!postproc: 'CODEURL' 'https://sourceforge.net/projects/textallion/'
+%!postproc: 'CODEURL' 'https://sourceforge.net/p/textallion/'
 
 %!postproc: 'QRCODEURL' <script type="text/javascript" charset="utf-8">s = 120; url = encodeURIComponent(window.location.href);qrcode = "http://chart.apis.google.com/chart?cht=qr&chs="+s+"x"+s+"&chl="+url;document.write('<img src="'+qrcode+'" alt="Qr Code of this page" title="Qr Code of this page" />');</script>
 
 %!postproc: '</head>'  '<link rel="icon" type="image/png" href="favicon.png">\n</head>'
       
 
-  [../images/logo_textallion.png]
+''<div class="wrap">''
+[./media/logo_textallion.png]
+''</div>''
 
 %  [../images/logo_textallion_txt.png]
 
 //''<span style="font-size: 200%; vertical-align: baseline">U</span>n'' outils pour publier de la littérature en prose, de la poésie, vers les formats html, pdf ou epub, et utilisant [txt2tags http://txt2tags.org] comme moteur principal.//
 
-''</p><p class="center">&#x2766;</p><p>''
+''<div style="text-align:center;">&#x2766;</div>''
 
 - Voir [le manuel BASEURL/docs/documentation_fr.html] en français ou sa version en mode [présentation BASEURL/docs/documentation_fr_slide.html].
 - Voir [quelques exemples BASEURL/samples/examples.html] de textes en html ainsi qu'en version "[slide de présentation BASEURL/samples/examples_slide.html]", mais vous pouvez également télécharger la version [pdf BASEURL/samples/examples.pdf] ou [epub BASEURL/samples/examples.epub]. //Ainsi que [la source txt2tags BASEURL/samples/examples.t2t], bien entendu.//
 - [Télécharger le guide de référence BASEURL/docs/quickref.pdf] en une page pdf (ou en [html BASEURL/docs/quickref.html]).
-- **__[Télécharger textallion http://code.google.com/p/textallion/downloads/list]__**. //([version alternative BASEURL/textallion.zip])//
-- Examiner la [version en développement http://code.google.com/p/textallion/].
+- **__[Télécharger textallion CODEURL/files]__**. 
+% //([version alternative BASEURL/textallion.zip])//
+- Examiner la [version en développement CODEURL/code].
 - [Exemples de textes et copies d'écran BASEURL/showcase].
 
 
 %bordure décorée
-''</p><br/><p class="center">&#x2767; &nbsp; &#x2767; &nbsp; &#x2767; &nbsp; &#x2767;</p><br/><p>''
+''<div style="text-align:center;">&#x2767; &nbsp; &#x2767; &nbsp; &#x2767; &nbsp; &#x2767;</div>''
 
 
 
@@ -43,15 +54,15 @@ Le TeXtallion
 % **//''<span style="font-size: 120%; vertical-align: baseline">''New URL: [TEXTALLIONURL TEXTALLIONURL]''</span>''//**
 
 
-''</p><p class="center">&#x2766;</p><p>''
+''<div style="text-align:center;">&#x2766;</div>''
 
 
 
 - See the [English manual BASEURL/docs/documentation_en.html] or the [presentation version BASEURL/docs/documentation_en_slide.html] of this manual.
 - See some [texts examples BASEURL/samples/examples.html] in html or the [presentation BASEURL/samples/examples_slide.html], but you can also download the [pdf BASEURL/samples/examples.pdf] or [epub BASEURL/samples/examples.epub] version. //And [the txt2tags source BASEURL/samples/examples.t2t], of course.//
 - [Download the quick reference guide BASEURL/docs/quickref.pdf] in one pdf page (or in [html BASEURL/docs/quickref.html]).
-- **__[Download textallion http://code.google.com/p/textallion/downloads/list]__** //([alternative download BASEURL/textallion.zip])//
-- Browse [development version http://code.google.com/p/textallion/].
+- **__[Download textallion CODEURL/files]__** //([alternative download BASEURL/textallion.zip])//
+- Browse [development version CODEURL/code].
 
 
 
@@ -60,7 +71,8 @@ Le TeXtallion
 
 URL: //[TEXTALLIONURL TEXTALLIONURL]//
 
-QRCODEURL
+% QRCODEURL
+
 ================================
 
 //MOTS-CLÉS : LaTeX, python, créer gratuitement des ebooks en epub, comment créer un fichier ePub... / KEYWORDS: Free epub creation tool, create and publish ebooks with free software (freeware)...//

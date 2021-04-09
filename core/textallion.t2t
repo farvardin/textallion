@@ -5,10 +5,10 @@
 %% Tiny almost-Kiss Word Processor
 %% based on the txt2tags tool and wiki syntax
 %
-% by Eric Forgeot (c) 2008-2016
+% by Eric Forgeot (c) 2008-2021
 %
 % http://anamnese.online.fr/site2/textallion/docs/presentation.html
-% Complete source code: http://textallion.googlecode.com
+% Complete source code: https://textallion.sourceforge.io/
 % License: http://en.wikipedia.org/wiki/BSD_licenses
 %
 % <!> NOTE: YOU SHOULDN'T NEED TO MODIFY THIS FILE
@@ -163,15 +163,15 @@
 % page break for header 1
 % and replacement from the default txt2tags article 
 
-%!postproc(tex): '\\section\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part*'
-%!postproc(tex): '\\section'   '\pagebreak[\PAGExBREAKxPOLICY]\n\\part'
-%!postproc(tex): '\\subsection\*'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter*'
-%!postproc(tex): '\\subsection'   '\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
+%!postproc(tex): '\\section\*'   '\\pagebreak[\\PAGExBREAKxPOLICY]\n\\part*'
+%!postproc(tex): '\\section'   '\\pagebreak[\\PAGExBREAKxPOLICY]\n\\part'
+%!postproc(tex): '\\subsection\*'   '\\pagebreak[\\PAGExBREAKxPOLICY]\n\\chapter*'
+%!postproc(tex): '\\subsection'   '\\pagebreak[\\PAGExBREAKxPOLICY]\n\\chapter'
 %% TODO: slow down the generation of the latex doc if this one is searched with \ 
-%!postproc(tex): '\\subsubsection\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section*'
-%!postproc(tex): '\\subsubsection'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\section'
-%!postproc(tex): '\\paragraph\*'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection*'
-%!postproc(tex): '\\paragraph'   '\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+%!postproc(tex): '\\subsubsection\*'   '\\pagebreak[\\PAGExSUBxBREAKxPOLICY]\n\\section*'
+%!postproc(tex): '\\subsubsection'   '\\pagebreak[\\PAGExSUBxBREAKxPOLICY]\n\\section'
+%!postproc(tex): '\\paragraph\*'   '\\pagebreak[\\PAGExSUBxBREAKxPOLICY]\n\\subsection*'
+%!postproc(tex): '\\paragraph'   '\\pagebreak[\\PAGExSUBxBREAKxPOLICY]\n\\subsection'
 
 
 
@@ -182,19 +182,19 @@
 
 % page break for header 1
 
-%-!postproc(tex): '\\chapter'	'\pagebreak[\PAGExBREAKxPOLICY]\n\chapter'
+%-!postproc(tex): '\\chapter'	'\\pagebreak[\\PAGExBREAKxPOLICY]\n\\chapter'
 
-%-!postproc(tex): '\\section'	'\pagebreak[\PAGExBREAKxPOLICY]\n\section'
+%-!postproc(tex): '\\section'	'\\pagebreak[\\PAGExBREAKxPOLICY]\n\\section'
 
-%-!postproc(tex): '\\subsection'	'\pagebreak[\PAGExSUBxBREAKxPOLICY]\n\subsection'
+%-!postproc(tex): '\\subsection'	'\\pagebreak[\\PAGExSUBxBREAKxPOLICY]\n\\subsection'
 
 
 
 % you can add extra margin left with for ex \setlength{\hoffset}{28pt}	
 
-%%!postproc(tex): {geometry} 	[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={top=\TOP_MARGIN_OF_DOCUMENT mm, bottom=\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\LEFT_MARGIN_OF_DOCUMENT mm, right=\RIGHT_MARGIN_OF_DOCUMENT mm},\GEOMETRYxADDITIONALxOPTION]{geometry} 
+%%!postproc(tex): {geometry} 	[\\SIZExOFxPAPER, \\ORIENTATIONxOFxPAPER, total={top=\\TOP_MARGIN_OF_DOCUMENT mm, bottom=\\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\\LEFT_MARGIN_OF_DOCUMENT mm, right=\\RIGHT_MARGIN_OF_DOCUMENT mm},\\GEOMETRYxADDITIONALxOPTION]{geometry} 
 
-%%!postproc(tex): {geometry} 	[\SIZExOFxPAPER, \ORIENTATIONxOFxPAPER, total={\WIDTHxOFxTEXT mm,\HEIGHTxOFxTEXT mm, top=\TOP_MARGIN_OF_DOCUMENT mm, bottom=\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\LEFT_MARGIN_OF_DOCUMENT mm, right=\RIGHT_MARGIN_OF_DOCUMENT mm},\GEOMETRYxADDITIONALxOPTION]{geometry} 
+%%!postproc(tex): {geometry} 	[\\SIZExOFxPAPER, \\ORIENTATIONxOFxPAPER, total={\\WIDTHxOFxTEXT mm,\\HEIGHTxOFxTEXT mm, top=\\TOP_MARGIN_OF_DOCUMENT mm, bottom=\\BOTTOM_MARGIN_OF_DOCUMENT mm, left=\\LEFT_MARGIN_OF_DOCUMENT mm, right=\\RIGHT_MARGIN_OF_DOCUMENT mm},\\GEOMETRYxADDITIONALxOPTION]{geometry} 
 
 %%!--DONTUSE--postproc(tex): '\\documentclass{article}' '\\documentclass[\\DEFAULTxFONTxSIZE]{extreport}'
 
@@ -444,8 +444,8 @@
 
 %% for normal textallion
 
-%!postproc(tex): '°°(.*?)\((\d+)\)°°' '\\footnote{\MYxFONT \1}'
-%!postproc(tex): '°°(.*?)°°' '\\footnote{\MYxFONT \1}'
+%!postproc(tex): '°°(.*?)\((\d+)\)°°' '\\footnote{\\MYxFONT \1}'
+%!postproc(tex): '°°(.*?)°°' '\\footnote{\\MYxFONT \1}'
 
 
  
@@ -535,14 +535,14 @@
 %--!postproc(html): "LINEBREAK  " '<BR> '
 %--!postproc(html): "LINEBREAK " '<BR> '
 
-%!postproc(tex): "LINEBREAK  " '\par '
-%!postproc(tex): "LINEBREAK " '\par\\noindent '
+%!postproc(tex): "LINEBREAK  " '\\par '
+%!postproc(tex): "LINEBREAK " '\\par\\noindent '
 %% (TODO? %!postproc(tex): "LINEBREAK " '\newline\\indent\\indent '
 
 
 %% Various replacements (TeX logo)
-%!postproc(tex): ' TeX '	' \TeX{} '
-%!postproc(tex): ' LaTeX '	' \LaTeX '
+%!postproc(tex): ' TeX '	' \\TeX{} '
+%!postproc(tex): ' LaTeX '	' \\LaTeX '
 %!postproc(tex): ' \\TeX{}tallion '	' TeXtallion '
 
 
@@ -607,24 +607,24 @@
 %!postproc(xhtml): 'CONVERTexergueBEGIN'     '<div class="exergue">'
 
 %!preproc: '\{\/ ~~\}\{([^ ].*?)\}$'   'CONVERTexergueEND¤¤\1¤¤'
-%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\end{exergue}'
+%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\\end{exergue}'
 %!postproc(xhtml): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'     '</div><div class="exergueauthor">\1</div>'
 
 %!preproc: '\{\/ ~~\}([^ ].*?)$'   'CONVERTexergueEND¤¤\1¤¤'
-%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\end{exergue}'
+%!postproc(tex): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'  '\\\\[\\EXERGUExAUTHORxSPACE pt] \\EXERGUExSIZE \\EXERGUExAUTHORxSHAPE {\1} \n\\end{exergue}'
 %!postproc(xhtml): 'CONVERTexergueEND¤¤([^ ].*?)¤¤'     '</div><div class="exergueauthor">\1</div>'
 
 %% TODO : problème placement et fin de div à cause de exergueauthor
 
 %!preproc: '\{\/ ~~\}'   'CONVERTexergueEND'
-%!postproc(tex): 'CONVERTexergueEND'  '\end{exergue}'
+%!postproc(tex): 'CONVERTexergueEND'  '\\end{exergue}'
 %!postproc(xhtml): 'CONVERTexergueEND'     '</div>'
 
 
 %!postproc(tex): 'CONVERTcodeBEGIN'  '\\begin{sourcecode}{'
 %!postproc(xhtml): 'CONVERTcodeBEGIN'     '<div class="code">'
 
-%!postproc(tex): 'CONVERTcodeEND'  '}\end{sourcecode}'
+%!postproc(tex): 'CONVERTcodeEND'  '}\\end{sourcecode}'
 %!postproc(xhtml): 'CONVERTcodeEND'     '</div>'
 
 
@@ -716,16 +716,16 @@
 %!preproc: '\{~~~~\}\[([^ ].*?).jpg\]'  'WRAPRIGHT[\1.jpg]WRAPRIGHT'
 
 % in case: [image.jpg][size in mm]{~~~~} 
-%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT\[(\d+)\]' \\setlength{\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{l}{\FPprint\\result mm} \1   \\end{wrapfigure}
+%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT\[(\d+)\]' \\setlength{\\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{l}{\\FPprint\\result mm} \1   \\end{wrapfigure}
 
 % in case: [image.jpg]{~~~~} 
-%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT' \\setlength{\intextsep}{3mm} \\begin{wrapfigure}{l}{0\\textwidth} \1   \\end{wrapfigure}
+%!postproc(tex): 'WRAPLEFT([^ ].*?)WRAPLEFT' \\setlength{\\intextsep}{3mm} \\begin{wrapfigure}{l}{0\\textwidth} \1   \\end{wrapfigure}
 
 % in case: [image.jpg][size in mm]{~~~~} 
-%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT\[(\d+)\]' \\setlength{\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{r}{\FPprint\\result mm} \1   \\end{wrapfigure}
+%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT\[(\d+)\]' \\setlength{\\intextsep}{3mm} \\FPsub\\result{\2}{15}  \\begin{wrapfigure}{r}{\\FPprint\\result mm} \1   \\end{wrapfigure}
 
 % in case: [image.jpg]{~~~~} 
-%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT' \\setlength{\intextsep}{3mm}  \\begin{wrapfigure}{r}{0\\textwidth} \1   \\end{wrapfigure}
+%!postproc(tex): 'WRAPRIGHT([^ ].*?)WRAPRIGHT' \\setlength{\\intextsep}{3mm}  \\begin{wrapfigure}{r}{0\\textwidth} \1   \\end{wrapfigure}
 
 
 %!postproc(xhtml): 'WRAPLEFT([^ ].*?)WRAPLEFT\[(\d+)\]' 'LEFT \1 '

@@ -15,7 +15,7 @@ Par Redo-fr
 
 %% DEF TEXTALLION 
 %!includeconf: ../core/textallion.t2t
-%!includeconf: ../core/txt2cyoa.t2t
+%-!includeconf: ../core/txt2cyoa.t2t
 %!postproc(tex): 'TEXTALLIONPATH' '../'
 
 

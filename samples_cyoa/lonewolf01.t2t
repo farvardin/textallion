@@ -1,4 +1,4 @@
-Flight from the Dark
+Flight from the Dark 
 Joe Dever
 %%date(%Y-%m-%d)
 
@@ -1509,6 +1509,9 @@ You fly in an arc through the air towards the opposite roof. Everything seems to
 Your mission and your life end here.
 
 
+@@GAME OVER@@
+
+
 
 == 109 ==
 
@@ -2503,6 +2506,7 @@ The last thing that you see is the canopy of fern trees above and a large green 
 
 Your life and your mission end here.
 
+@@GAME OVER@@
 
 
 == 186 ==
@@ -2927,6 +2931,7 @@ All that remains of you now is embedded five feet into the stairs on which you w
 
 Your mission and your life end here.
 
+@@GAME OVER@@
 
 
 == 220 ==
@@ -3127,6 +3132,8 @@ Unfortunately you never wake up, but it may be of interest to you that your head
 
 Your life and your mission end here.
 
+
+@@GAME OVER@@
 
 
 == 235 ==
@@ -3439,6 +3446,8 @@ As your life slowly drains away, the last thing you see is an old man dressed in
 
 Your life and your mission end here.
 
+
+@@GAME OVER@@
 
 
 == 260 ==
@@ -4013,6 +4022,7 @@ The last thing that you hear is the vicious snarls of Drakkarim as they raise th
 
 Your life and your mission end here.
 
+@@GAME OVER@@
 
 
 == 307 ==
@@ -4057,6 +4067,7 @@ The last thing you remember is the icy grasp of the Vordak’s skeletal fingers 
 
 Your life and your mission end here.
 
+@@GAME OVER@@
 
 
 == 310 ==
@@ -4287,6 +4298,7 @@ You jump for the entrance of the tunnel some twenty-five feet below, but your bo
 
 Your life and your mission end here.
 
+@@GAME OVER@@
 
 
 == 328 ==

@@ -41,7 +41,7 @@ check_install(){
 PWD="`pwd`"
 PWD2="${PWD##*/}"
 echo ${PWD2}
-	if [ ${PWD2} != "textallion" ]; then
+	if [ ! -e core ]; then
 		echo "It seems you're not running this installation script from the textallion folder. We'll try to download it from the sourceforge repo, is it OK (you'll need to have mercurial / hg installed on your system)? (Y/n)"
 		read updateit
 			case $updateit in
@@ -67,7 +67,7 @@ echo ${PWD2}
 						;;
 		esac
 	else 
-		echo "We'll install 'The TeXtallion' to:" ${INSTALLPATH}
+		echo "We'll install 'The Textallion' to:" ${INSTALLPATH}
 		echo "(If you run this script with the correct rights)"
 		echo " "
 		echo "If you really wish to change the path, please edit this script (not recommended)."

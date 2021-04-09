@@ -102,14 +102,14 @@ Bold, italic, underligned, striked letters, colored text, page numbering, top he
 
 It also includes a CYOA (choose-your-own-adventure) creation system.
 
-//Note: This project was originally named "txt2tex".//
+% //Note: This project was originally named "txt2tex".//
 
 
 == Getting Textallion ==
 
-The latest version can be found there: https://bitbucket.org/farvardin/textallion
+The latest version can be found there: https://textallion.sourceforge.io
 
-There is also a mirror located [there http://anamnese.online.fr/site2/textallion/textallion.zip].
+% There is also a mirror located [there http://anamnese.online.fr/site2/textallion/textallion.zip].
 
 % Older versions can be retrieved from http://anamnese.online.fr/site2/textallion/
 

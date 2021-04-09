@@ -1,10 +1,9 @@
-# Makefile for TeXtallion
+# Makefile for Textallion
 # Tiny almost-Kiss Word Processor
 # http://anamnese.online.fr/site2/textallion/docs/presentation.html
 # License: http://en.wikipedia.org/wiki/BSD_licenses
 #
-# get newest txt2tags   at http://txt2tags.org (might not be fully compatible with textallion)
-# get newest textallion at https://bitbucket.org/farvardin/textallion
+# get newest textallion at https://textallion.sourceforge.io
 #
 # This is a Makefile for *GNU make*, the default for Linux.
 # On *BSD systems, you'll need to use "gmake" instead of "make"
@@ -23,7 +22,7 @@ ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
 else
    DOCUMENT = documentation_en
-  #DOCUMENT = documentation_fr
+  DOCUMENT = documentation_fr
   #DOCUMENT = textallion_cyoa_en
   #DOCUMENT = textallion_cyoa_fr
   #DOCUMENT = testcase
@@ -181,7 +180,7 @@ epub:
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak  --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover  --preserve-cover-aspect-ratio --no-chapters-in-toc --disable-font-rescaling
 	# --filter-css font-family
 	#
-	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion - https://bitbucket.org/farvardin/textallion' --comments "$(DOCUMENT_INFO)" --cover $(DOCUMENT_COVER) 
+	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion - https://textallion.sourceforge.io' --comments "$(DOCUMENT_INFO)" --cover $(DOCUMENT_COVER) 
 
 # split (not working well...)
 
@@ -196,6 +195,7 @@ website:
 cover:
 	convert $(DOCUMENT).svg $(DOCUMENT).jpg
 	convert $(DOCUMENT).svg $(DOCUMENT).png
+	#convert $(DOCUMENT).svg $(DOCUMENT)_cover.pdf
 	
 	
 configuration-update:
@@ -271,7 +271,7 @@ cyoa-epub:
 	#
 	ebook-convert $(DOCUMENT).html $(DOCUMENT).epub --max-levels 0 --pretty-print --level1-toc //h:h1 --level2-toc //h:h2 --level3-toc //h:h3 --max-toc-links 0 --toc-threshold 3  --chapter-mark pagebreak --page-breaks-before //h:div[@id] --cover $(DOCUMENT_COVER) --extra-css $(TEXTALLIONFOLDER)/includes/epub.css --no-default-epub-cover --no-svg-cover --preserve-cover-aspect-ratio --no-chapters-in-toc
 	#
-	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion & txt2cyoa - https://bitbucket.org/farvardin/textallion' --comments 'textallion - https://bitbucket.org/farvardin/textallion' --cover $(DOCUMENT_COVER) 
+	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion & txt2cyoa - https://textallion.sourceforge.io' --comments 'textallion - https://textallion.sourceforge.io' --cover $(DOCUMENT_COVER) 
 
 
 cyoa-graph:	
@@ -316,9 +316,9 @@ cyoa-inkle:
 	 perl -pe 's/\[(.*).jpg\]//' |\
 	 perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
-	# replace any ="introduction" by 0 |\
-	perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	# replace any ="introduction" by 0 TODO dangerous outsite heading |\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	# italic and underline are the same. Only bold is different |\
 	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	# choices and links  \
@@ -360,6 +360,64 @@ cyoa-inkle:
 	cat $(DOCUMENT)_inkle.ink.json >> $(DOCUMENT)_inkle/textallion_story.js
 	echo ";" >> $(DOCUMENT)_inkle/textallion_story.js
 
+
+cyoa-tavern:
+	# for use with http://zzo38computer.org/fossil/tavern.ui/
+	cat $(DOCUMENT).t2t  |\
+ 	# replace === title === used in "who are you" |\
+	perl -pe "s/=== (.*) ===/\1/g" |\
+	# replace any ="introduction" by 0  TODO : dangerous outsite heading|\
+	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\perl -pe 's/^\%(.*)\n/\/\//' | sed -e "s/== 0 ==/INCLUDE bookadv.inc\n\n START-PAGE INTRO/g" |\
+	# remove extra textallion syntax |\
+	perl -pe 's/TESTLUCK/\/\/Am I lucky today? (throwing a dice, 5 or 6 means luck)\/\//'|\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	# images and sound not supported in tavern?|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	# remove italic, underline and bold |\
+	perl -pe "s/\*\*(.*?)\*\*/\1/g" |\
+	# choices and links  \
+	perl -pe 's/- (.*?) (\d+?)( *)\n/>|  \1 | \2 \n/g' |\
+	perl -pe 's/^- />|   /g' |\
+	perl -pe 's/\[\#(\d+?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[\#(.*?)\]/>|  \1 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \| \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?)\|\#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	perl -pe 's/\[([^\#].*?) \#(\d+)\]/ [\1] -> paragraph_\2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/ [\1] -> \2 \n/g' |\
+	 perl -pe 's/\[([^\#].*?) \#(.*?)\]/ [\1] -> \2 \n/g' |\
+	perl -pe 's/: ->/->/g' |\
+	perl -pe 's/THE END/->END/g' |\
+	perl -pe 's/FIN/->END/g' |\
+	# paragraphs |\
+	perl -pe 's/^[ ?]?([a-z].)/ PT| \1/g' |\
+	perl -pe 's/^[ ?]?([A-Z].)/ PT| \1/g' |\
+	perl -pe 's/(!|\?|\.)[ ?]?\r?\n/\1|/g' |\
+	# abbreviations |\
+	perl -pe 's/tt (\d+)/| \1/g' |\
+	perl -pe 's/turn to (\d+)/| \1/g' |\
+	perl -pe 's/, rdv au  (\d+)/| \1/g' |\
+	perl -pe 's/, rendez-vous au  (\d+)/| \1/g' |\
+	perl -pe 's/ au  (\d+)->/| \1/g' |\
+	perl -pe 's/ go to (\d+)/| \1/g' |\
+	# chapters \
+	perl -pe 's/==(\d+)==\[(.*)\]/PAGE>>>\n\n<<<PAGE \1 /' |\
+	#perl -pe 's/== (.*?) ==\[(.*?)\]/\2/' TODO?\
+	perl -pe 's/== (.*?) ==\[(.*?)\]/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/== (.*?) ==/PAGE>>>\n\n<<<PAGE \1/' |\
+	perl -pe 's/==(\d+)==/PAGE>>>\n\n<<<PAGE \1/'  |\
+	perl -pe 's/== (\d+) ==/PAGE>>>\n\n<<<PAGE \1/' > $(DOCUMENT)_tavern.txt
+	# export to tavern
+	~/bin/tavernc < $(DOCUMENT)_tavern.txt > $(DOCUMENT)_tavern.tav
+	
+	
 cyoa-togbl:
 	cat $(DOCUMENT).t2t | sed -e "s/=== \1 ===/ \(.*\) =/g" |\
 	 sed -e "s/^#\([0-9]*\)# \(.*\)/\n\n== \1 ==\n\n=== \2 ===\n\n/g" | sed -e "s/^>\(.*\)=\([0-9]*\)/- \1, rdv au \2/g"  >> $(DOCUMENT)_export.gbl
@@ -676,7 +734,7 @@ clean-temp:
 	-rm  *~ 
 	-rm  .*~
 	-rm  $(DOCUMENT).toc
-	-rm  -i $(DOCUMENT).tex
+	-rm  $(DOCUMENT).tex
 	-rm  $(DOCUMENT)_slide.tex
 	-rm  $(DOCUMENT)2.html
 	-rm  $(DOCUMENT).ps
@@ -708,7 +766,7 @@ clean-docs:
 	-rm -i *graph.txt
 	-rm -i *.pdf
 	-rm -i *.ps
-	-rm -i *.tex
+	-rm  *.tex
 	-rm -i *.html
 	-rm -i *.epub
 

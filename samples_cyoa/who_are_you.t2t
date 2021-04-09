@@ -4,9 +4,9 @@ by Twisted tails UK
 
 
 %% DEF DOCUMENT METADATA. Use your own. Remplace the second part only, don't modify the xx DOCUMENT ## xx
-%!postproc(tex): 'xx DOCUMENT TITLE xx'  'Who are you'
-%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Twisted tails'
-%!postproc(tex): 'xx DOCUMENT TAGS xx'   'cyoa'
+%!postproc: 'xx DOCUMENT TITLE xx'  'Who are you'
+%!postproc: 'xx DOCUMENT AUTHOR xx' 'Twisted tails'
+%!postproc: 'xx DOCUMENT TAGS xx'   'cyoa'
 
 
 %% DEF PERSONNAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 
@@ -15,13 +15,13 @@ by Twisted tails UK
 
 %% DEF TEXTALLION 
 %!includeconf: ../core/textallion.t2t
-%!includeconf: ../core/txt2cyoa.t2t
+%--!includeconf: ../core/txt2cyoa.t2t
 %!postproc(tex): 'TEXTALLIONPATH' '../'
 
 
 % adapted from http://www.gamebook-land.com/gbook/Who_are_you/2-3-17.html
 
-==== by Twisted tails UK ====
+
 
 
 == 0 ==
@@ -31,15 +31,13 @@ by Twisted tails UK
 
 == 1 ==
 
-=== Where did it all go wrong? ===
+**Where did it all go wrong?**
 
+You yawn and stretch as you stir at the end of your owners head. You suddenly fell cold and look up to see that your owner is not there. You quickly follow his scent into the lounge and see him with his head in his head with a few papers on the floor. You r raise and eyebrow and walk up to him nuzzling him softly with your head. He gave a faint smile and petted you. You bark approving as he lay out some beef for you. It didn't take long for you to eat it. Yet after your meal you still fell hungry. Your owner put on his hat and coat and left. You, hearing the door close quickly ran into the garden and come out of the garden thought a large hole in the fence.
 
- 
- You yawn and stretch as you stir at the end of your owners head. You suddenly fell cold and look up to see that your owner is not there. You quickly follow his scent into the lounge and see him with his head in his head with a few papers on the floor. You r raise and eyebrow and walk up to him nuzzling him softly with your head. He gave a faint smile and petted you. You bark approving as he lay out some beef for you. It didn't take long for you to eat it. Yet after your meal you still fell hungry. Your owner put on his hat and coat and left. You, hearing the door close quickly ran into the garden and come out of the garden thought a large hole in the fence. 
-   
-You walk down the pavement happily, smelling the fresh bacon and cakes from the shops. Bird flew out the way of your path as you approach. A young girl looks at you and laughs and skips towards you holding her hand up to stroke you. You smile and allow her to do so. A tall woman in a blue dress and a hat rushed forward and snatched her hand away. 
-   
-"Don't touch that wild animal Amy" She said in a harsh voice pulling the girl away and giving you a nasty stare. 
+You walk down the pavement happily, smelling the fresh bacon and cakes from the shops. Bird flew out the way of your path as you approach. A young girl looks at you and laughs and skips towards you holding her hand up to stroke you. You smile and allow her to do so. A tall woman in a blue dress and a hat rushed forward and snatched her hand away.
+
+"Don't touch that wild animal Amy" She said in a harsh voice pulling the girl away and giving you a nasty stare.
    
 You growl and turn around with you head high.
    
@@ -67,7 +65,7 @@ Your maw opens and you narrow you eyes. You begin to felt hot and you have the u
 
 == 2 ==
 
-=== You leave him ===
+**You leave him**
 
 
  
@@ -75,7 +73,9 @@ You close you maw and draw your paws away, Flicking snow into his face. He snarl
    
 You continue to live with him.
    
-Game over: Ok, not bad but you can do better ;D 
+Ok, not bad but you can do better!
+
+@@GAME OVER@@
    
   
 
@@ -83,7 +83,7 @@ Game over: Ok, not bad but you can do better ;D
 
 == 3 ==
 
-=== You attack him! ===
+**You attack him!**
 
 
  
@@ -100,7 +100,7 @@ Will you,
 
 == 4 ==
 
-=== You return home ===
+**You return home**
 
  
 A while later after you return home you owner comes in. You run out to greet him. 
@@ -126,7 +126,7 @@ Game Over.
 
 == 5 ==
 
-=== Wait, no? ===
+**Wait, no?**
 
 
  
@@ -162,18 +162,18 @@ Do you?
 
 == 6 ==
 
-=== You stay in the cave ===
+**You stay in the cave**
 
 
 You yawn deciding that you are still tired. You settle in among the earth inside the cave and save your energy. It is a while later you open your eyes as you scent another animal. You stand up half asleep and walk toward the mouth of the cave. As you home out you hear a growl and a large brown bear approaches you. It pinned you down to the ground faster than a speeding bullet and opened his maw, bending closer to you with eyes like fire...
 
-Game Over
+@@GAME OVER@@
 
 
 
 == 7 ==
 
-=== To the mountains ===
+**To the mountains**
 
 
  
@@ -192,12 +192,12 @@ Will you?
 
 == 8 ==
 
-=== Towards the forest ===
+**Towards the forest**
 
 
 You half slide jump and climb down the rocks. You land on the floor and run towards the forest. You slide to a halt as you smell a scent of wolves. You stop and look around. A large black wolf pounces on you and pins you to the ground. You growl but he puts he paw to your throat, "You have invaded out pack territory, now you will pay!" He snapped and bit at your neck. You squeal in pain but don't have enough energy to take him on. 
    
-Game Over 
+@@GAME OVER@@
    
   
 
@@ -205,14 +205,14 @@ Game Over
 
 == 9 ==
 
-=== To the terrain ===
+**To the terrain**
 
 
  
 You half slide run and climb down the mountain. You begin to venture out into the twisting winding paths in the rock terrain. You sigh as you realise you are going round in circles. You begin to panic and run looking for a way out of this rocky maze. You yelp as you fall o the edge of the rock and fall down towards the water below. You grip onto a ledge but it crumbles and disappeared among the waves. You fell your self plunge into the ice cold water, and that is the last thing you ever fell. 
    
    
-Game Over 
+@@GAME OVER@@
    
   
 
@@ -220,7 +220,7 @@ Game Over
 
 == 10 ==
 
-=== Towards the beach ===
+**Towards the beach**
 
 
 You half run slide and climb down the rocks. You rushed down towards the beach and padded along the sand. To sniff at the salt water and lap some up. You find it a strange taste, but nice. You lap more up and dip your paws into the shallow water. You see a fish leap out of the water, and you realise that you haven't eaten for ages. You catch the fish as it leapt and brought it to the shore to eat. You look around after the meal and decide that there is nothing more to be done here. You turn and walk away from the beach. 
@@ -237,7 +237,7 @@ Will you?
 
 == 11 ==
 
-=== You go towards the terrain ===
+**You go towards the terrain**
 
 
  
@@ -249,7 +249,7 @@ You begin to venture out into the twisting winding paths in the rock terrain. Yo
 
 == 12 ==
 
-=== Your destiny begins! ===
+**Your destiny begins!**
 
 
  
@@ -264,7 +264,8 @@ You walk peacefully in the dappled shade. You come to a halt as you sense wolves
 
 You Win! 
    
- Well done. You have completed this game book! Fell free to leave comments in my gallery ;D Be sure to check back for more games soon! 
+Well done. You have completed this game book!
+
    
-  
+@@GAME OVER@@
 

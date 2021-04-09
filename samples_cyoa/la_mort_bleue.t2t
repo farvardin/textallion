@@ -10,6 +10,9 @@ par Otto Grimwald
 %!postproc: 'xx DOCUMENT TAGS xx'   'cyoa, steampunk'
 %!postproc: 'xx DOCUMENT IFID xx'   1C88C7EA-8D37-4C8B-B662-2F35C4F69DAA
 
+%uncomment this to break at every paragraph:
+%%!postproc(tex): '\\hypertarget' '\\newpage \\hypertarget'
+
 
 %% DEF PERSONAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 
 %!style(tex): ../includes/sample_cyoa.sty
@@ -20,6 +23,9 @@ par Otto Grimwald
 %--!includeconf: ../core/txt2cyoa.t2t
 %!postproc(tex): 'TEXTALLIONPATH' '../'
 
+% already in txt2cyoa:
+%--!postproc: '@@FIN@@' 'FIN'
+
 
 %!postproc(xhtml): 'TESTLUCK' <p>Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec</p><p><a onclick="dice='Le dé à 6 faces annonce :: '+SimpleDice() ; alert(dice);">Lancer un dé</a> <i>(au cas où je n'en aurais pas en poche en ce moment)</i></p>
 
@@ -29,7 +35,9 @@ par Otto Grimwald
 
 %!postproc(tex): '\\begin\{document\}' 'MYBACKGROUND\n\\begin{document}\nMYBACKGROUN2'
 %!postproc(tex): 'MYBACKGROUND' '\\usepackage{watermark}'
-%!postproc(tex): 'MYBACKGROUN2' \\thiswatermark{\put(-69,-800.7){\\includegraphics[width=210mm]{la_mort_bleue.jpg}}}
+%!postproc(tex): 'MYBACKGROUN2' \\thiswatermark{\\put(-69,-800.7){\\includegraphics[width=210mm]{la_mort_bleue.jpg}}}
+
+
 
 
 
@@ -117,7 +125,7 @@ Entrant dans la taverne, je retrouve certains de mes anciens camarades du bateau
 J'en viens à apprécier cette vie simple, et je ne crains plus cette terreur bleue que j'avais l'habitude de ressentir dans le passé.
 
 
-{->--} FIN {-<--} 
+{->--} @@FIN@@ {-<--} 
 
 
 
@@ -190,7 +198,7 @@ Devrons-nous aller :
 
 Que la mort peut être douce, lorsqu'elle est si bleue !
 
-{->--} FIN {-<--} 
+{->--}@@FIN@@{-<--} 
 
 == 15 ==
 
@@ -363,7 +371,7 @@ Les yeux pleins de larmes, la femme m'embrasse, s'accrochant de façon embarrass
 Dès que j'entre dans la bâtisse cyclopéenne, je sais que cet endroit est parfait selon tous mes critères, une vie entière à passer au service de la littérature, même avec ma grammaire approximative et mon accent francimi.
 
 
-{->--} FIN {-<--} 
+{->--}@@FIN@@{-<--} 
 
 
 == 30 ==
@@ -452,7 +460,7 @@ Je me sens si fatigué, que je vais au lit immédiatement.
 
 == 39 ==
 
-Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d'une grande ville que je n'ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le Nouveau Continent en fin de compte ?
+Après avoir été assommé par un pirate aux dents pourries, je suis conduit dans leur repaire, qui est caché au milieu d'une grande ville que je n'ai jamais vue auparavant. Se pourrait-il que je sois arrivé sur le Nouveau Continent en@@FIN@@de compte ?
 
 Tous les marins ont été séparés pour éviter la rébellion, et je rencontre dans mon cachot des gens avec des langues et des cultures que je ne comprends pas du tout.
 
@@ -558,7 +566,7 @@ Sans doute que le mieux pour moi maintenant est de retourner chez moi, et recomm
 
 Serai-je bibliothécaire, ou aventurier ? Je ne peux encore me décider.
 
-{->--} FIN {-<--} 
+{->--}@@FIN@@{-<--} 
 
 
 == 49 ==
@@ -611,9 +619,9 @@ Pendant l'attaque, je vois le flash bleu acier de l'épée d'un pirate, approcha
 
 == 55 ==
 
-Bâillant et m'étirant, je me réveille de bonne humeur. Je n'ai pas découvert de Nouveau Continent, je n'ai pas vécu de grandes aventures, mais j'ai rencontré des gens qui n'étaient pas si mal en fin de compte.
+Bâillant et m'étirant, je me réveille de bonne humeur. Je n'ai pas découvert de Nouveau Continent, je n'ai pas vécu de grandes aventures, mais j'ai rencontré des gens qui n'étaient pas si mal en@@FIN@@de compte.
 
-Jour après jour, j'ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une fin heureuse finalement !
+Jour après jour, j'ai retrouvé mon amie Béatrix de plus en plus souvent, et elle fait de son mieux pour supporter mon humour grinçant. Elle me dit tout le temps que notre histoire est vraiment comme une@@FIN@@heureuse finalement !
 
 
-{->--} FIN {-<--} 
+{->--}@@FIN@@{-<--} 

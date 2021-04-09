@@ -175,6 +175,11 @@
 %!postproc: 'Rdv au' 'Rendez-vous au'
 
 
+% Ending the game with special code 
+
+%!postproc: '@@GAME OVER@@' 'GAME OVER'
+%!postproc: '@@THE END@@' 'THE END'
+%!postproc: '@@FIN@@' 'FIN'
 
 
 
@@ -228,7 +233,7 @@
 % <a href="14">into the sea</a>
 
 %% reverse order of named links for latex, and set the name as hyperlink, otherwise it will mess up the output and won't be clickable
-%!postproc(tex): '\\htmladdnormallink\{(\d+)\}\{\\#([^ ].*?)\}' '\htmladdnormallink{\2}{\#\2}'
+%!postproc(tex): '\\htmladdnormallink\{(\d+)\}\{\\#([^ ].*?)\}' '\\htmladdnormallink{\2}{\#\2}'
 
 %% use this for button links
 %% Change showAndFade to show to remove the fade in effect

@@ -96,7 +96,7 @@ __Citation__ :
 % ''\textsc{Des petites capitales}''
 
 
-{%%%%}Des petites capitales{/%%%}
+% {%%%%}Des petites capitales{/%%%}
 
  
 
@@ -197,14 +197,15 @@ Pour désinstaller ce qui a été précédemment installé par ce script, il suf
 
 ==== 1ème méthode ====
 
-Utiliser l'installateur ``textallion_setup.exe`` téléchargeable ici : https://bitbucket.org/farvardin/textallion/downloads
-Ce qui installera conjointement :
-- [MiKTeX http://miktex.org/] (de préférence la version 2.8)
-- et [Calibre http://calibre-ebook.com/download_windows]
-- ainsi que geany (éditeur de texte) et sumatra pdf (lecteur pdf libre) 
+
+% Utiliser l'installateur ``textallion_setup.exe`` téléchargeable ici : https://bitbucket.org/farvardin/textallion/downloads
+% Ce qui installera conjointement :
+% - [MiKTeX http://miktex.org/] (de préférence la version 2.8)
+% - et [Calibre http://calibre-ebook.com/download_windows]
+% - ainsi que geany (éditeur de texte) et sumatra pdf (lecteur pdf libre) 
 
 
-==== 2ème méthode ====
+% ==== 2ème méthode ====
 
 
 - Installer [cygwin http://cygwin.com/], un logiciel permettant d'accéder à des outils Unix. Installer notamment en plus des paquets de base python, make, tidy, psutils
@@ -222,7 +223,7 @@ Si vous utilisez MiKTeX 2.9, il faudra installer manuellement le paquet ``symbol
 Pour créer des {^}ePUB{^}s, vous aurez besoin d'installer [Calibre http://calibre-ebook.com/download_windows]
 
 
-==== 3ème méthode ====
+==== Autre méthode ====
 
 [Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 3 de python de préférence, la version 2 devrait être encore compatible, mais python3 est maintenant utilisé par défaut.
 
