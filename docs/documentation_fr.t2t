@@ -3,8 +3,7 @@ Eric Forgeot
 %%date(%Y-%m-%d)
 
 
-
-% Tiny almost-Kiss Word Processor
+% a tiny, almost-KISS word processor
 % https://textallion.sourceforge.io
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
@@ -198,12 +197,17 @@ Le Textallion a été testé avec succès sur ces plateformes :
 
 [LaTeX http://www.latex-project.org/] et [python 3 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
-//(sous Debian : apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)//
+//(sous Debian/Ubuntu/Mint : apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex  tidy calibre wkhtmltopdf)//
 
+
+
+
+%texlive-generic-recommended : supprimé
 
 Vous pouvez utiliser le petit script d'installation ``textallion_install.sh`` (à lancer en root), pour copier l'ensemble des fichiers nécessaires dans /usr/share/textallion/, ou le dossier de votre choix.
 
-sudo bash textallion_install.sh
+
+``` sudo bash textallion_install.sh
 
 
 Pour désinstaller ce qui a été précédemment installé par ce script, il suffit d'effacer le dossier /usr/share/textallion/ et le fichier /usr/bin/textallion

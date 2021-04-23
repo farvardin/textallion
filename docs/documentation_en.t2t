@@ -3,7 +3,7 @@ Eric Forgeot
 %%date(%Y-%m-%d)
 
 
-% Tiny, almost-KISS word processor
+% a tiny, almost-KISS word processor
 % https://textallion.sourceforge.io
 
 %% DEF DOCUMENT METADATA. Use your own. Replace the second part only, don't modify the "xx DOCUMENT ## xx" 
@@ -130,10 +130,11 @@ Textallion has been tested on these operating systems:
 
 For example Archlinux, Mandriva and Debian have [TeXlive http://www.tug.org/texlive/]
 
-//(under Debian run: apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)//
+//(under Debian run: apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex  tidy calibre wkhtmltopdf)//
 
 
 Running the ``textallion_install.sh`` script from a root shell will copy everything needed into /usr/share/textallion/, or your folder of choice.
+
 
 
 === Windows ===
