@@ -126,7 +126,7 @@ Textallion has been tested on these operating systems:
 
 === Linux ===
 
-[LaTeX http://www.latex-project.org/]  and [python 2 http://www.python.org] must be installed on your computer. Most distributions, if not all, have this by default.
+[LaTeX http://www.latex-project.org/]  and [python 3 http://www.python.org] must be installed on your computer. Most distributions, if not all, have this by default.
 
 For example Archlinux, Mandriva and Debian have [TeXlive http://www.tug.org/texlive/]
 
@@ -842,10 +842,13 @@ It supports ([Text Figures http://en.wikipedia.org/wiki/Text_figures]): 12345678
 
 - Ulysses : http://www.the-soulmen.com/ulysses/
 - Scrivener : http://www.literatureandlatte.com/scrivener.php
-- La poule ou l'oeuf (logiciel libre) : http://pouleouoeuf.org/
-- Celtx (logiciel libre) : http://www.celtx.com
+- Storyist : http://storyist.com/
+- http://www.texts.io/
+% - La poule ou l'oeuf (free software) : http://pouleouoeuf.org/
+- Patoline / Patobook (free software) : https://patoline.github.io
+% - Celtx (free software) : http://www.celtx.com
 - Mom (logiciel libre) : http://www.schaffter.ca/mom/mom-01.html 
-- http://nestededitor.sourceforge.net/(libre)
+- http://nestededitor.sourceforge.net/(free software)
 
  - {^}ePUB{^} creation : [sigil http://sigil-ebook.com/], [Writer2ePub http://extensions.services.openoffice.org/fr/project/Writer2ePub], [writer2xhtml http://writer2latex.sourceforge.net/]
  - html : 

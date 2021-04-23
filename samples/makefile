@@ -21,7 +21,7 @@ TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 ifdef TEXTALLIONDOC
   DOCUMENT = $(TEXTALLIONDOC)
 else
-  #DOCUMENT = examples
+  DOCUMENT = examples
   #DOCUMENT = the_blue_death
   #DOCUMENT = la_mort_bleue
   #DOCUMENT = lonewolf01
@@ -29,7 +29,7 @@ else
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
   #DOCUMENT = who_are_you
-  DOCUMENT = examples
+  #DOCUMENT = sample
   #DOCUMENT = exemple_lettre
 endif
 
