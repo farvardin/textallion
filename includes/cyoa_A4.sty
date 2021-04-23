@@ -1,0 +1,143 @@
+\pagenumbering{roman}
+
+\pagestyle{empty} % remove page number
+
+%\usepackage[english,frenchb]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}  % conflicts with utf8
+
+\usepackage{type1cm}
+
+\NoAutoSpaceBeforeFDP 
+%\FrenchItemizeSpacingtrue 
+%\FrenchListSpacingtrue 
+
+%\usepackage{lettrine} 
+
+%----- MISE EN PAGE --------------------
+\pretolerance=800
+\tolerance=400
+\emergencystretch=1em
+\sloppy
+\hbadness=5000
+
+%\renewcommand{\rmdefault}{acaslon} % Caslon acaslon (doesn't work)
+\renewcommand{\rmdefault}{ppl} % palatino
+%\renewcommand{\rmdefault}{pzc} % zapf chancery
+%\renewcommand{\rmdefault}{bch} % charter bt roman
+%\renewcommand{\rmdefault}{phv} % helvetica
+%\renewcommand{\rmdefault}{dayrom} 
+
+%\renewcommand{\rmdefault}{ehtj} % use Hoefler `expert' font
+
+%%\renewcommand{\rmdefault}{Hoefler Text}
+%\usepackage[applemac]{inputenc} 
+
+\usepackage{textcomp}
+
+\usepackage{wrapfig} % pour entourer les images de texte
+
+%\usepackage{landscape}
+
+%Marges
+\hoffset=0,46cm % marge gche = 2.54cm + X cm
+\oddsidemargin= 0pt % espace entre marge gche et corps
+\marginparsep= 0cm % espace entre marge  à dte et corps 
+\marginparwidth= 0,54cm % marge à droite
+\voffset= -0,54cm % marge haut = 2.54 + X cm
+
+\setlength{\parskip}{0,5\baselineskip} %paragraphes standards
+
+%\usepackage[top=3cm, bottom=1cm, left=2cm, right=2cm]{geometry} 
+
+%Corps
+\textheight=23,0cm % longueur du corps
+\textwidth=15,0cm % largeur du corps
+
+%entete et pied de pages
+\headheight= 0cm % taille entete
+\headsep= 1.7cm % espace entre entete et corps
+\topmargin= 0cm % espace entre marge haut et entete
+\footskip= 1,3cm % taille pied de page
+
+%------- macros
+
+\newcommand*{\PAR}{\par\vspace{\baselineskip}}  % par alinea / PAR paragraphe
+
+
+
+%-------------ENTETE-ET-PIED-DE-PAGE-------------------------------------------
+
+%\usepackage{fancyhdr} % entete et pied de pages
+\usepackage{fancyheadings}  % entete et pied de pages (old)
+\pagestyle{fancy}
+
+\headrulewidth 0.4pt
+\footrulewidth     0.0pt
+
+\lhead{}
+\chead{\LARGE{txt2cyoa}}
+%\rhead{}
+%\lfoot{}
+%\cfoot{test}
+%\rfoot{}
+
+
+%----- PAQUETS -------------------------
+
+%\usepackage{amsmath,amssymb,amsfonts,textcomp}
+
+
+%\usepackage{initial} %lettrine
+
+%\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.jpg,.mps,.pdf,.png}
+
+
+\usepackage[pdftex,                 % Paramétrage de la navigation
+    bookmarks         = true,     % Signets
+    bookmarksnumbered = true,     % Signets numérotés
+    pdfpagemode       = None,      % Full Screen ou None
+    pdfstartview      = Fit,      % La page prend toute la largeur
+    pdfpagelayout     = SinglePage,% Vue par page
+    colorlinks        = true,      % Liens en couleur
+    urlcolor          = blue,   % Couleur des liens externes
+    pdfborder         = {0 0 0}    % Style de bordure : ici, pas de bordure
+    ]{hyperref}%                    % Utilisation de HyperTeX
+
+
+\hypersetup{ %  Information sur le document
+    pdfauthor   = {YOUR NAME},% Auteurs
+    pdftitle    = {YOUR TITLE},% Titre du document
+    pdfsubject  = {},% Sujet
+    pdfkeywords = {},% Mots-clefs
+    pdfcreator  = {PdfLaTeX & txt2tags},% Logiciel qui a crée le document
+    pdfproducer = {}} % Société qui produit le logiciel
+
+
+
+\usepackage{color}
+\usepackage[normalem]{ulem}
+\usepackage{calc}
+\usepackage{hyperref}
+
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+
+\hypersetup{colorlinks=darkblue, linkcolor=darkblue, filecolor=darkblue, pagecolor=darkblue, urlcolor=darkblue}
+% Outline numbering
+\setcounter{secnumdepth}{0}
+% Pages styles (master pages)
+
+\makeatletter
+\newcommand\ps@Standard{%
+\renewcommand\@oddhead{}%
+\renewcommand\@evenhead{}%
+%\renewcommand\@oddfoot{\thepage{}}%
+\renewcommand\@oddfoot{\centerline{\thepage{}}}
+\renewcommand\@evenfoot{\@oddfoot}%
+}
+\makeatother
+
+%\pagestyle{Standard}
+

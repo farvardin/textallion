@@ -1,0 +1,481 @@
+/* =========== SAMPLE STYLE FOR TEXTALLION ===========================*/
+/* https://textallion.sourceforge.io/ */
+
+/* base and inspiration for this style : http://jeunes-science.org/kiwi/ */ 
+
+/*-----
+    ©2012 GGP & al.jes, certains droits réservés…
+    http://geekygoblin.org
+    http://aljes.me
+    Copyleft: cette oeuvre est libre, vous pouvez la copier, la diffuser et la modifier selon les termes de la Licence Art Libre http://www.artlibre.org
+    Pour plus d'information, visitez http://geekygoblin.org/mentions.htm
+-----*/
+
+/* using Fengardo font by Loic Sander  */
+
+/* 0 - Base */
+
+* {
+    border: 1;
+    font: inherit;
+    font-size: 100%;
+    line-height: 1.5!important;
+   /* margin: 0;*/
+    max-width: 100%;
+   /* outline: 0; */
+   /* padding: 0;*/
+   /* text-decoration: none;*/
+    vertical-align: baseline;
+}
+
+/*-----
+
+    bg color:  #FAFAFA
+    txt color: #292929
+    secondary color: #42C200
+
+-----*/
+
+/* 1 - Typography */
+
+
+
+@font-face {
+    font-family: Fengardo;
+    font-style: normal;
+    font-weight: normal;
+    src: url(./fonts/fengardoneue-regular.woff) format('woff');
+     /*   url(./fonts/fengardoneue-regular.otf) format('opentype'),
+        url(./fonts/fengardoneue-regular.svg) format('svg'); */
+}
+
+@font-face {
+    font-family: Fengardo;
+    font-style: italic;
+    src: url(./fonts/Fengardo-italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: Fengardo;
+    font-weight: bold;
+    src: url(./fonts/fengardoneue-black.woff) format('woff');
+    /*    url(./fonts/FengardoNeue_Black.otf) format('opentype'),
+        url(./fonts/FengardoNeue_Black.svg) format('svg'); */
+}
+
+/* 2 - General */
+
+html {
+    background-color: #FAFAFA;
+    color: #292929;
+    font-family: Fengardo, sans-serif;
+    font-size: 125%; /*=20px*/
+    -epub-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: justify;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 600px;
+    width: 80%;
+}
+
+img.affiche {outline: solid 1px #292929;}
+
+em, i {font-style: italic;}
+strong, b {font-weight: bold;}
+
+p, ul, ol {
+  /*  list-style: inside;**/
+    margin-top: 1.1em;
+    margin-bottom: 1em;
+}
+
+p {
+text-indent:1.625em;
+  -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; -o-hyphens: auto; hyphens: auto;
+}
+
+p.initial { 
+    text-indent:0.05em;
+}
+
+p.initial:first-letter {
+    position: relative;
+    padding-top:8px;
+    display: block;
+    float: left;
+    font-weight: normal;
+    font-size: 3.4em;
+}
+
+div.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+
+p.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+li p {margin-bottom: 10;}
+
+/*
+ * ul li {list-style: none;}
+ul li::before {content: "– ";}
+* */
+
+blockquote {margin-left: 1rem;}
+
+blockquote p::before {content: "— ";}
+
+a {
+    border-bottom: 1px solid #42C200;
+    color: inherit;
+    margin-bottom: -1px;
+    text-decoration: none;
+}
+
+abbr, acronym, a.definition {
+    border-bottom: 1px dashed #42C200;
+    margin-bottom: -1px;
+}
+
+a:hover, a:focus {
+    border-color: inherit;
+}
+
+hr {
+    border: 0;
+    height: 1rem;
+    margin: 1rem auto;
+    width: 0;
+}
+
+hr::after {content: "⁂";}
+
+.skip {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    text-align: right;
+}
+
+.skip p {margin: 0;}
+.skip a {margin-left: 1rem;}
+
+/* 3 - Heading */
+
+h1, h2 {text-align: center;}
+h3, h4, h5, h6 {text-align: left;}
+
+h1 {font-size: 1.8rem; margin: 7.1rem 0;}
+h2 {font-size: 1.5rem; margin: 1rem 0 0.5rem 0;}
+h3 {font-size: 1.3rem; margin: 0.7rem 0 0 0;}
+h4 {font-size: 1.2rem; margin: 0.8rem 0 0 0;}
+h5 {font-size: 1.1rem; margin: 0.9rem 0 0 0;}
+h6, .s-titre {font-size: 1rem;}
+
+h1 {font-weight: bold; text-transform: uppercase;}
+h2, h3 {font-variant: small-caps;}
+h4, h5, h6, .s-titre {
+    font-style: italic;
+    font-variant: normal;
+    font-weight: normal;
+    text-transform: none;
+}
+
+
+
+
+
+/* 4 - Menus */
+
+#menu {text-align: center;}
+#menu li {
+    display: inline-block;
+   /* list-style: none;*/
+    margin: 0 1rem;
+}
+#menu li::before {content: "";}
+
+#table ol, #table li {list-style-type: lower-roman;}
+#sommaire ol, #sommaire li {list-style-type: none;}
+
+/* 5 - Colophon */
+
+#colophon {
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#colophon img {width: 20%;}
+#logo a {border: 0;}
+
+
+/* 6 - Others */
+
+
+
+
+.big {
+    font-size:135%; 
+}
+
+.small {
+    font-size:70%; 
+}
+
+.exergue {
+    text-align:right;margin-left:40px;margin-right:10px;
+    font-style:italic;
+    font-size:90%; 
+}
+
+.exergueauthor {
+    text-align:right;
+    font-size:90%; 
+    font-variant: small-caps;
+}
+
+.italic {font-style:italic;}
+.bold {font-weight:bold;}
+
+div.code {
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    border:1px #9b9989 dotted;
+    border-left: 3px solid #999;
+}
+
+div.code p{
+    line-height: 1.2em;
+    font-family : monospace;
+    background-color: #D6D5CA;
+}
+   
+   
+code  {
+    font-family : monospace;
+    background-color: #E7E6DA;
+}
+
+code p{
+    font-family : monospace;
+    background-color: #D6D5CA;
+}
+
+blockquote, pre { 
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    /*border:1px #9b9989 dotted;*/
+    /*border-left: 3px solid #999;*/
+}  
+   
+div.column2 {
+    -moz-column-count: 2;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 2;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column3 {
+    -moz-column-count: 3;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 3;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column4 {
+    -moz-column-count: 4;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 4;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+
+/* txt2cyoa */
+
+a.hiddenlink {
+    background-color:#FFFEF0;
+    color: #FFFEF0; /* same color as the surrounding text */
+    text-decoration: none; /* to remove the underline */
+    cursor: text; /* to make the cursor stay as a text cursor, not the hand */
+  }
+
+
+#header .title1 { color: #fff; text-align: center;}
+
+#header h1 { color: #fff; text-align: center;}
+
+
+
+
+.wrap, .wrap_left { 
+    float: left;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.wrap_right { 
+    float: right;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.l {
+    font-size: 0.8em;
+    display:inline;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+
+    text-decoration: none;
+
+    width:160px;
+    font-weight: 500;
+	
+}
+.l:hover 
+{
+    border:none;
+    color: #FFF;
+    background: #6487ba;
+}
+
+
+input
+{
+    color: #000;
+    background: #eee;
+    border: 1px solid #6487ba;
+}
+
+button0 { 
+    color:#000; 
+    size: 3em;
+    /*font: bold 100%; */
+    background-color:#eee; 
+    /*border:2px solid; 
+    border-color: #000; */
+	} 
+	
+
+
+
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#footer2 {
+    margin:auto;
+    text-align: center;
+    font-size: 0.7em;
+    background-color:#ddd; 
+    width:50%;
+}
+
+
+#note {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+#note p {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+
+/* footnotes */
+
+span[id^="ftn"] {
+    display: none;
+    color: #bbb;
+	}
+span[id^="ftn"]:target {
+    display: block;
+    color: #222;
+    background-color: rgba(214,213,202, 0.9);
+    font-size: 0.8em;
+    position: fixed;
+    right: 0.6em;
+    bottom: 1.1em;
+    width: 40%;
+    border-left: 3px solid #777;
+    padding: 0.5em;
+	}
+
+a.ftn:link {
+    color: #222;
+}
+
+a.ftn:visited {
+    color: #222;
+}
+
+
+a.ftn:hover {
+    color: #444;
+    /*text-decoration: underline;*/
+}
+
+table   { 
+	border-collapse: collapse;
+}
+
+td {
+	padding:4px; 
+}
+
+div.toc {
+	line-height: 1.1em;
+	    margin-top: 0;
+    margin-bottom: 0px;
+    font-size:0.9em;
+}
+
+div.toc ul {
+    margin-top: 0.0em;
+    margin-bottom: 0.2em;
+}

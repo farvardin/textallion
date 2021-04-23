@@ -1,0 +1,204 @@
+/* =========== SAMPLE STYLE FOR TEXTALLION ===========================*/
+/* https://textallion.sourceforge.io */
+
+/*Inspired by http://code.google.com/p/better-web-readability-project/ */
+
+
+body { 
+    /*margin:2em;*/
+    padding:1.2em;
+    /*font-size:1.1em;*/
+    line-height:1.37em;
+   /* background-color:#FFFEF0;*/
+    color:#000;
+}
+
+
+
+p { 
+    /*margin-left:0.8em;
+    margin-right:0.8em;*/
+    text-indent:1.1em;
+    margin-top: 0.20em;
+    margin-bottom: 0.20em;
+    text-align: justify;
+}
+
+ul { 
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+    text-align: justify;
+}
+
+
+
+
+p.initial:first-letter {
+    font-weight: bold;
+    font-size: 3.4em;
+}
+
+
+
+
+img { margin: 0.5em  0.5em 0.5em 0.5em }
+
+blockquote p, li p {
+    text-indent: 0.0em;
+    text-align: left;
+}
+
+
+  
+ 
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; color: #000; text-align:center; }
+.title,.title1,.title2,.title3 { font-weight: bold; color: #000; text-align:center; }
+
+/* We capitalise also for the links in CYOA */
+h2:first-letter {
+    text-transform: uppercase;
+}
+
+h1 { font-size: 300%; margin-bottom: 0.765em; }
+h2 { font-size: 280%;  margin-bottom: 0.855em; }
+h3 { font-size: 260%;  margin-bottom: 0.956em; }
+h4 { font-size: 240%;  margin-bottom: 1.161em; }
+h5,h6 { font-size: 130%;  margin-bottom: 1.238em; }
+
+.title { font-size: 300%; margin-bottom: 0.765em; }
+.title1 { font-size: 200%; margin-bottom: 0.765em; }
+.title2 { font-size: 150%;  margin-bottom: 0.855em; font-style: italic; }
+.title3 { font-size: 120%;  margin-bottom: 0.956em; }
+
+
+a {
+    color:#09c;
+    text-decoration:none;
+	}
+	
+a:link {color:#057;}
+a:visited {color:#046;}
+a:hover {background-color:#eee; text-decoration: none; border-bottom: 1px solid #ccc }
+
+div.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    width: auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+
+p.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+
+.big {
+    font-size:135%; 
+}
+
+.small {
+    font-size:70%; 
+}
+
+.exergue {
+    text-align:right;margin-left:40px;margin-right:10px;
+    font-style:italic;
+    font-size:90%; 
+}
+
+.exergueauthor {
+    text-align:right;
+    font-size:90%; 
+    font-variant: small-caps;
+}
+
+.italic {font-style:italic;}
+.bold {font-weight:bold;}
+.boxed {border-style:solid;}
+
+div.code {
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    border:1px #9b9989 dotted;
+    border-left: 3px solid #999;
+}
+
+div.code p{
+    line-height: 1.2em;
+    font-family : monospace;
+    background-color: #D6D5CA;
+
+}
+
+
+/*
+ * 
+ * a[href^="#ftn"] {
+    display: none;
+    color:#444;
+    text-decoration: none;
+	} 
+	* */
+
+a.ftn1 {
+    color:#444;
+    text-decoration: none;
+	} 
+
+a.ftn2 {
+    color:#444;
+    text-decoration: none;
+	} 
+	
+a.ftn:link {
+    color: #222;
+}
+
+a.ftn:visited {
+    color: #222;
+}
+
+
+a.ftn:hover {
+    color: #444;
+	/*text-decoration: underline;*/
+}
+
+
+.wrap, .wrap_left { 
+    float: left;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.wrap_right { 
+    float: right;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+table   { border-collapse: collapse }

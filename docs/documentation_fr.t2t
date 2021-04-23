@@ -160,11 +160,26 @@ Ce présent manuel se focalise surtout sur la création de documents pdf, destin
 
 == Obtenir le Textallion ==
 
-La dernière version se trouve à cette adresse : https://textallion.sourceforge.io
+La dernière version en développement se trouve à cette adresse : 
 
-Il y a également une copie ici : http://anamnese.online.fr/site2/textallion/textallion.zip
+Elle s'obtient : 
+
+hg clone https://farvardin@hg.code.sf.net/p/textallion/code textallion-code
+
+
+Une copie du dépôt est sur github à cette adresse : https://github.com/farvardin/textallion
+On peut l'obtenir :
+
+git clone https://github.com/farvardin/textallion.git
+
+
+Il y a également une copie ici (pas forcément toujours à jour) : http://anamnese.online.fr/site2/textallion/textallion.zip
 
 Il est possible de retrouver les anciennes versions dans http://anamnese.online.fr/site2/textallion/archives/
+
+
+% Pour les mises à jour ou l'obtention de textallion depuis sourceforge ou github, il est conseillé d'avoir git ou mercurial.
+
 
 === Paquets optionnels ===
 
@@ -181,7 +196,7 @@ Le Textallion a été testé avec succès sur ces plateformes :
 
 === Linux ===
 
-[LaTeX http://www.latex-project.org/] et [python 2 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
+[LaTeX http://www.latex-project.org/] et [python 3 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
 //(sous Debian : apt-get install texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex texlive-generic-recommended tidy calibre)//
 

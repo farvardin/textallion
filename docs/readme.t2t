@@ -20,7 +20,7 @@ Please read the documentations in the ./docs folder; these are normal txt files 
 - textallion_cyoa_en.t2t is for the Gamebook (CYOA) module
 - textallion_cyoa_fr.t2t is for the Gamebook module (French version)
 
-You need python 2 to use this program and LaTeX to be able to generate
+You need python 3 to use this program and LaTeX to be able to generate
 pdf files.
 
 You can run textallion_install.sh to install everything into /usr/share/textallion
@@ -43,7 +43,8 @@ used the installation script) for a little front-end.
 
 = Source Code and bug report =
 
-https://textallion.sourceforge.io
+- Main repository: https://textallion.sourceforge.io
+- Mirror (not necessary always up to date): https://github.com/farvardin/textallion 
  
 
 %!include: license.t2t

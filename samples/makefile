@@ -29,7 +29,7 @@ else
   #DOCUMENT = un_nouveau_monde
   #DOCUMENT = un_nouveau_monde_gbl
   #DOCUMENT = who_are_you
-  DOCUMENT = sample
+  DOCUMENT = examples
   #DOCUMENT = exemple_lettre
 endif
 

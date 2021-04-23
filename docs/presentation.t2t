@@ -30,23 +30,8 @@ Le Textallion
 
 %  [../images/logo_textallion_txt.png]
 
-//''<span style="font-size: 200%; vertical-align: baseline">U</span>n'' outils pour publier de la littérature en prose, de la poésie, vers les formats html, pdf ou epub, et utilisant [txt2tags http://txt2tags.org] comme moteur principal.//
 
-''<div style="text-align:center;">&#x2766;</div>''
-
-- Voir [le manuel BASEURL/docs/documentation_fr.html] en français ou sa version en mode [présentation BASEURL/docs/documentation_fr_slide.html].
-- Voir [quelques exemples BASEURL/samples/examples.html] de textes en html ainsi qu'en version "[slide de présentation BASEURL/samples/examples_slide.html]", mais vous pouvez également télécharger la version [pdf BASEURL/samples/examples.pdf] ou [epub BASEURL/samples/examples.epub]. //Ainsi que [la source txt2tags BASEURL/samples/examples.t2t], bien entendu.//
-- [Télécharger le guide de référence BASEURL/docs/quickref.pdf] en une page pdf (ou en [html BASEURL/docs/quickref.html]).
-- **__[Télécharger textallion CODEURL/files]__**. 
-% //([version alternative BASEURL/textallion.zip])//
-- Examiner la [version en développement CODEURL/code].
-- [Exemples de textes et copies d'écran BASEURL/showcase].
-
-
-%bordure décorée
-''<div style="text-align:center;">&#x2767; &nbsp; &#x2767; &nbsp; &#x2767; &nbsp; &#x2767;</div>''
-
-
+%% ENGLISH
 
 
 //''<span style="font-size: 200%; vertical-align: baseline">A</span>n easy-to-use tool'' for publishing prose, literature, poetry in html, pdf or epub, and using [txt2tags http://txt2tags.org] as a back end.//
@@ -65,6 +50,28 @@ Le Textallion
 - Browse [development version CODEURL/code].
 
 
+%bordure décorée
+''<div style="text-align:center;">&#x2767; &nbsp; &#x2767; &nbsp; &#x2767; &nbsp; &#x2767;</div>''
+
+
+
+
+%% FRENCH
+
+//''<span style="font-size: 200%; vertical-align: baseline">U</span>n'' outils pour publier de la littérature en prose, de la poésie, vers les formats html, pdf ou epub, et utilisant [txt2tags http://txt2tags.org] comme moteur principal.//
+
+''<div style="text-align:center;">&#x2766;</div>''
+
+- Voir [le manuel BASEURL/docs/documentation_fr.html] en français ou sa version en mode [présentation BASEURL/docs/documentation_fr_slide.html].
+- Voir [quelques exemples BASEURL/samples/examples.html] de textes en html ainsi qu'en version "[slide de présentation BASEURL/samples/examples_slide.html]", mais vous pouvez également télécharger la version [pdf BASEURL/samples/examples.pdf] ou [epub BASEURL/samples/examples.epub]. //Ainsi que [la source txt2tags BASEURL/samples/examples.t2t], bien entendu.//
+- [Télécharger le guide de référence BASEURL/docs/quickref.pdf] en une page pdf (ou en [html BASEURL/docs/quickref.html]).
+- **__[Télécharger textallion CODEURL/files]__**. 
+% //([version alternative BASEURL/textallion.zip])//
+- Examiner la [version en développement CODEURL/code].
+- [Exemples de textes et copies d'écran BASEURL/showcase].
+
+
+
 
 --------------------------------
 
@@ -75,4 +82,4 @@ URL: //[TEXTALLIONURL TEXTALLIONURL]//
 
 ================================
 
-//MOTS-CLÉS : LaTeX, python, créer gratuitement des ebooks en epub, comment créer un fichier ePub... / KEYWORDS: Free epub creation tool, create and publish ebooks with free software (freeware)...//
+//KEYWORDS: Free epub creation tool, create and publish ebooks with free software (freeware).../ MOTS-CLÉS : LaTeX, python, créer gratuitement des ebooks en epub, comment créer un fichier ePub... //
