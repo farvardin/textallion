@@ -3,13 +3,13 @@
 
 % to display symbols in full text using shortcuts (only needed for documentation of textallion)
 % LaTeX version
-%!postproc(tex): 'SYMBlettrine'         '\{*$\sim$$\sim$$\sim$\}' 
+%!postproc(tex): 'SYMBlettrine'         '\{*$\\sim$$\\sim$$\\sim$\}' 
 %!postproc(tex): 'SYMBbigskip'          '*-*-' 
 %!postproc(tex): 'SYMB2bigskip'         '\{*-*-\}' 
 %!postproc(tex): 'SYMBaldinea'          '\{-@-~\}' 
 %!postproc(tex): 'SYMBaldineb'          '\{-/@-\}' 
 %!postproc(tex): 'SYMBtroisetoiles'     '\{**~*\}' 
-%!postproc(tex): 'SYMBsoleil'           '\{(\hspace{1em})\}'
+%!postproc(tex): 'SYMBsoleil'           '\{(\\hspace{1em})\}'
 %!postproc(tex): 'SYMBlunep'            '\{~))~\}' 
 %!postproc(tex): 'SYMBluned'            '\{~((~\}' 
 %!postproc(tex): 'SYMBlunef'            '\{~()~\}' 

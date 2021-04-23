@@ -53,7 +53,7 @@ Eric Forgeot
 
 %% Ellipsis (points de suspension) : ... (not activated by default)
 %!postproc(xhtml): '\.\.\.' &hellip;
-%!postproc(tex):  '\.\.\.' \dots
+%!postproc(tex):  '\.\.\.' \\dots
 
 %% 
 %!preproc: ';' '¯;'
