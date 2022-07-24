@@ -392,3 +392,7 @@ font-variant: small-caps;
 .smallcaps:first-letter {
 text-transform: uppercase;
 }
+
+
+.note {color: #444; }
+

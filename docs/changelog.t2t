@@ -12,6 +12,15 @@
 - Full changelog from the repository: https://sourceforge.net/p/textallion/code/ref/default/
 
 
+- 2022:
+ -   release:
+		- adding txt2tags to gemtext converter 
+        - adding docker compose 
+        - updating docs
+        - updating txt2tags to support python 3.8
+        - refactoring
+        
+
 -  18 mai 2020:
  - [Frédéric-François d'Andiran https://fr.wikipedia.org/wiki/Fr%C3%A9d%C3%A9ric-Fran%C3%A7ois_d%27Andiran] release:
 		- updated installation script

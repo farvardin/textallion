@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# %%%% Textallion %%%%
+# #### Textallion ####
 # Tiny almost-Kiss Word Processor
 # http://anamnese.online.fr/site2/textallion/docs/presentation.html
 # Complete source code: https://textallion.sourceforge.io
@@ -21,7 +21,9 @@ install(){
 	cp -fr ../textallion/* ${INSTALLPATH}
 	chmod -R 755 ${INSTALLPATH}/
 	chmod +x ${INSTALLPATH}/contrib/txt2tags/txt2tags
-	echo "/usr/bin/env sh ${INSTALLPATH}/core/textallion.sh" > /usr/bin/textallion
+	#echo "/usr/bin/env sh ${INSTALLPATH}/core/textallion.sh" > /usr/bin/textallion
+	rm -fr /usr/bin/textallion
+	ln -s ${INSTALLPATH}/core/textallion.sh /usr/bin/textallion
 	rm -fr ${INSTALLPATH}/.hg/
 	mkdir -p ${INSTALLPATH}/.hg/
 	cp -fr ../textallion/contrib/others/hgrc ${INSTALLPATH}/.hg/
@@ -56,7 +58,7 @@ echo ${PWD2}
 						;;
 		esac
 	elif [ -e ${INSTALLPATH} ]; then 
-		echo "The installation path" ${INSTALLPATH} "is already here. Do you want to replace/update TeXtallion? (Y/n)"
+		echo "The installation path" ${INSTALLPATH} "is already here. Do you want to replace/update Textallion? (Y/n)"
 		read updateit
 			case $updateit in
 					"n"|"N"|"no"|"NO"|"non")

@@ -68,8 +68,9 @@ UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)
 	EDITTOOL = open
 else
-#	EDITTOOL = gvim
-	EDITTOOL = geany
+#	EDITTOOL = vim
+    EDITTOOL = nano
+#	EDITTOOL = geany
 endif
 
 
@@ -79,6 +80,11 @@ info:
 	printf "make: +  \n all \n beamer \n booklet \n clean \n cleanall \n clean-everything \n configuration-update \n cover \n cyoa-epub \n cyoa-gbl \n cyoa-graph \n cyoa-html \n cyoa-hyena \n cyoa-inform7 \n cyoa-pdf \n cyoa-play \n cyoa-ramus \n cyoa-renpy \n cyoa-togbl \n cyoa-twee \n cyoa-txt \n edit \n epub \n html \n htmlhandhelds \n info \n makefile \n pdf \n pdfsmall \n read \n readepub \n readhtml \n readindex \n readpdf \n slidy \n split \n tidy \n txt \n vignettes \n website \n xetex \n \n" 
 	
 all:    epub html pdf website clean
+
+
+rightsweb:
+	chown -R www-data:www-data ./
+
 
 #distrib: html clean
 #	-rm $(DOCUMENT).zip
@@ -94,7 +100,7 @@ htmlhandhelds:
 	$(TXT2TAGS) -t xhtml --no-style  --style=$(TEXTALLIONFOLDER)/includes/sample_handheld.css --toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 
 edit:
-	$(EDITTOOL) $(DOCUMENT).t2t &
+	$(EDITTOOL) $(DOCUMENT).t2t 
 txt:
 	$(TXT2TAGS) --no-headers -t txt $(DOCUMENT).t2t
 
@@ -198,6 +204,13 @@ epub:
 	ebook-meta  $(DOCUMENT).epub --title "$(DOCUMENT_TITLE)" --authors "$(DOCUMENT_AUTHOR)" --tags "$(DOCUMENT_TAGS)" --language $(DOCUMENT_LANGUAGE) --book-producer 'textallion - https://textallion.sourceforge.io' --comments "$(DOCUMENT_INFO)" --cover $(DOCUMENT_COVER) 
 
 # split (not working well...)
+
+
+gempub:
+#https://git.sr.ht/~boringcactus/md2gemtext
+	-mkdir /tmp/$(DOCUMENT)
+	$(TXT2TAGS) -t gmi --outfile /tmp/$(DOCUMENT)/index.gmi $(DOCUMENT).t2t
+	zip -r $(DOCUMENT).gpub /tmp/$(DOCUMENT)
 
 split:
 	htmldoc --no-links --charset utf8 --strict --book -t htmlsep -d ebook $(DOCUMENT)2.html

@@ -29,8 +29,8 @@ ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)
 else
 #  export DOCUMENT = examples
-  #export DOCUMENT = the_blue_death
-  export DOCUMENT = la_mort_bleue
+  export DOCUMENT = the_blue_death
+  #export DOCUMENT = la_mort_bleue
   #export DOCUMENT = lonewolf01
   #export DOCUMENT = template
   #export DOCUMENT = un_nouveau_monde_gbl
@@ -854,6 +854,38 @@ cyoa-zx:
 	perl -pe 's/- (.*?) (\d+?)( *)\n/PRINT "\1 (\2)"\nChoice=INPUT(4)\n if Choice="\2" then GOTO label\2\nEND IF\n/g' > $(DOCUMENT)_zx.bas
 	
 
+
+cyoa-gemtext:
+	$(TXT2TAGS) -t md $(DOCUMENT).t2t
+	cat $(DOCUMENT).md |\
+	perl -pe 's/CONVERT(.*)END//' |\
+	perl -pe 's/CONVERT(.*)BEGIN//' |\
+	perl -pe 's/au 14/14/' |\
+	perl -pe 's/WRAPLEFT(.*)WRAPLEFT//' |\
+	perl -pe 's/\[(.*)\]//' |\
+#	perl -pe "s/TESTLUCK/Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec./" |\
+	perl -pe "s/TESTLUCK/Am I lucky today? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec./" |\
+	perl -pe 's/^ \* (.*) : (\d+)/=> section\2.gmi \1/' |\
+	perl -pe 's/^ \* (.*): (\d+)/=> section\2.gmi \1/' |\
+	perl -pe 's/^ \* (.*) (\d+)/=> section\2.gmi \1/' |\
+	perl -pe 's/section1.gmi/section01.gmi/' |\
+	perl -pe 's/section2.gmi/section02.gmi/' |\
+	perl -pe 's/section3.gmi/section03.gmi/' |\
+	perl -pe 's/section4.gmi/section04.gmi/' |\
+	perl -pe 's/section5.gmi/section05.gmi/' |\
+	perl -pe 's/section6.gmi/section06.gmi/' |\
+	perl -pe 's/section7.gmi/section07.gmi/' |\
+	perl -pe 's/section8.gmi/section08.gmi/' |\
+	perl -pe 's/section9.gmi/section09.gmi/' |\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/, rdv au//g' |\
+	perl -pe 's/, rendez-vous au//g'  > $(DOCUMENT).gmi
+	-mkdir gemtext_$(DOCUMENT)
+	cp $(DOCUMENT).gmi gemtext_$(DOCUMENT)
+	# csplit la_mort_bleue.gmi /##/ {*}
+	# rename 's/xx/section/gi' *
+	# rename -v -- 's/$/.gmi/' *
+	# rename 's/\.gmi$//' *.gmi
 # images (thumbnails)
 
 vignettes:

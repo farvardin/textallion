@@ -19,7 +19,12 @@ export TEXTDOMAINDIR="/usr/share/textallion/core/locale"
 #export TEXTDOMAINDIR="locale"
 
 # change to =en or =fr for default language
-export LANGUAGE=fr
+export LANGUAGE=en
+
+export TEXTALLIONDOCSPATH=$HOME/textalliondocs
+export DOCUMENTFOLDER=sample
+export DOCUMENTNAME=sample
+
 
 PRESS_KEY=$(GETTEXT "PRESS A KEY TO CONTINUE")
 CREATE_NEW=$(GETTEXT "Create a new")
@@ -64,10 +69,10 @@ DOCUMENT_DOC=$(GETTEXT "general purpose document (book, article...)")
 
 usage()
 {
-	echo "Usage: textallion.sh init"
+	echo "Usage: textallion init"
 	echo "         initiate a new document"
 	echo ""
-	echo "       textallion.sh command"
+	echo "       textallion command"
 	echo "         for using within a makefile"
 	echo ""
 	exit 0
@@ -155,13 +160,13 @@ if [[ `uname` =~ "CYGWIN" ]]; then
     OS=Win
     #export?
 	TEXTALLIONPATH=C:/cygwin/usr/share/textallion/
-	TEXTALLIONDOCSPATH=~/textalliondocs
+	#TEXTALLIONDOCSPATH=~/textalliondocs
 	SUDO=
 else
     OS=Unix
     #export?
 	TEXTALLIONPATH=/usr/share/textallion/
-	TEXTALLIONDOCSPATH=~/textalliondocs
+	#TEXTALLIONDOCSPATH=~/textalliondocs
 	SUDO=sudo
 fi
 }
@@ -477,7 +482,9 @@ read DOCLANG
 
 # replace space by underscore for the output files, remove accented letters, lower case
 
-DOCUMENTFOLDER=`echo ${DOCUMENTNAME} | sed 's/ /_/g' | sed 's/\x27/_/g' | sed 's/[êèéëÊÈÉË]/e/g' | sed 's/[îìíïÎÏ]/i/g' | sed 's/[áåàäâÀÂÄ]/a/g' | sed 's/[øôóòöÔÖ]/o/g' | sed 's/[üûùúÙÛÜ]/u/g' | sed y/ABCDEFGHIJKLMNOPQRSTUVWXYZçÿ/abcdefghijklmnopqrstuvwxyzcy/ `
+# DOCUMENTFOLDER=`echo ${DOCUMENTNAME} | sed 's/ /_/g' | sed 's/\x27/_/g' | sed 's/[êèéëÊÈÉË]/e/g' | sed 's/[îìíïÎÏ]/i/g' | sed 's/[áåàäâÀÂÄ]/a/g' | sed 's/[øôóòöÔÖ]/o/g' | sed 's/[üûùúÙÛÜ]/u/g' | sed y/ABCDEFGHIJKLMNOPQRSTUVWXYZçÿ/abcdefghijklmnopqrstuvwxyzcy/`
+
+DOCUMENTFOLDER=`echo ${DOCUMENTNAME} | sed 's/ /_/g' | sed 's/\x27/_/g' | sed 's/[êèéëÊÈÉË]/e/g' | sed 's/[îìíïÎÏ]/i/g' | sed 's/[áåàäâÀÂÄ]/a/g' | sed 's/[øôóòöÔÖ]/o/g' | sed 's/ç/c/g' | sed 's/[üûùúÙÛÜ]/u/g' | sed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
 
 # now test existing folder and finish the generation
 export CYOASTATUS=
@@ -1200,7 +1207,7 @@ echo "(intro)	(activate node #start)\n(library links enabled)\n(label @DOLLAR@Ta
 	perl -pe 's/      \(par\)\(disp \*\)/(disp *) /s' |\
 	#perl -pe 's/^     \(par\)\(offers/(offers/s' |
 	perl -pe 's/      \(par\)\(\* offers/(* offers/g' |\
-	#øperl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /g' |
+	#perl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /g' |
 	perl -pe 's/     \(par\)\./ /g' |\
 	 # make twee lists 
 	 #perl -pe 's/^- /* /' |\
@@ -1264,7 +1271,8 @@ fi
 if [ ! -z `echo $1 ` ]; then
 	choice=$1
 elif [ -z "$1" ]; then
-	usage
+ #manipulate_doc
+ 	usage
 fi	
 
 
@@ -1273,7 +1281,10 @@ case $choice in
 	      test_OS
 		  introduction
 		  ;;
-     $choice)
+	 list)
+	      ls ~/textalliondocs/
+		  ;;
+	$choice)
           echo "Thank you for using TEXTALLION"
 		  echo "You document is ${DOCUMENT}"
 		  echo " "

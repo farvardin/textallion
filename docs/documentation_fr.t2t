@@ -197,7 +197,7 @@ Le Textallion a été testé avec succès sur ces plateformes :
 
 [LaTeX http://www.latex-project.org/] et [python 3 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
-//(sous Debian/Ubuntu/Mint : apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex  tidy calibre wkhtmltopdf)//
+//(sous Debian/Ubuntu/Mint : apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex tidy calibre graphviz wkhtmltopdf)//
 
 
 
@@ -269,6 +269,13 @@ Comme texlive n'est pas officiellement supporté par FreeBSD, veuillez utiliser 
 === Mac OS X ===
 
 Non testé. Vous devriez pouvoir utiliser les instructions pour BSD plus haut, conjointement avec [macports http://www.macports.org/] pour rajouter les logiciels spécifiques.
+
+
+
+=== Docker ===
+
+Voir les instructions dans textallion/infra/textallion/README.md
+
 
 
 == Utilisation ==
@@ -531,6 +538,7 @@ Un saut de page se fait avec le symbole ``SYMBpagebreak``.
 
 On peut utiliser ``SYMBexponent`` ou ``SYMBexponent2`` pour entourer la partie à utiliser en tant qu'exposant. Par exemple 2^^ème^^ ou 24^^5^^.
 
+%%TODO : seulement seconde forme possible
 
 
 *-*-

@@ -309,6 +309,7 @@ TARGET_NAMES = {
   'ods'     : _('Open Document Spreadsheet'),
   'creole'  : _('Creole 1.0 document'),
   'md'      : _('Markdown document'),
+  'gmi'     : _('Gemtext document'),
   'bbcode'  : _('BBCode document'),
   'red'     : _('Redmine Wiki page'),
   'spip'    : _('SPIP article'),
@@ -322,7 +323,7 @@ TARGET_NAMES = {
 
 TARGET_TYPES = {
   'html'   : (_('HTML'), ['html', 'html5', 'xhtml', 'xhtmls', 'htmls', 'aatw', 'aapw', 'aasw', 'wp']),
-  'wiki'   : (_('WIKI'), ['txt2t', 'wiki', 'gwiki', 'doku', 'pmw', 'moin', 'adoc', 'rst', 'creole', 'md', 'bbcode', 'red', 'spip', 'tml', 'vimwiki']),
+  'wiki'   : (_('WIKI'), ['txt2t', 'wiki', 'gwiki', 'doku', 'pmw', 'moin', 'adoc', 'rst', 'creole', 'gmi', 'md', 'bbcode', 'red', 'spip', 'tml', 'vimwiki']),
   'office' : (_('OFFICE'), ['sgml', 'dbk', 'tex', 'texs', 'lout', 'mgp', 'pm6', 'csv', 'csvs', 'ods', 'rtf', 'db', 'mom', 'utmac']),
   'text'   : (_('TEXT'), ['man', 'txt', 'aat', 'aap', 'aas', 'aapp']),
 }
@@ -970,6 +971,13 @@ r"""\documentclass{article}
 %(HEADER2)s
 %(HEADER3)s
 """,
+
+    'gmi': """\
+# %(HEADER1)s
+# %(HEADER2)s
+# %(HEADER3)s
+""",
+
 
     'bbcode': """\
 %(HEADER1)s
@@ -2931,6 +2939,59 @@ def getTags(config):
         'tableRowClose'        : '|'             ,
         'tableCellSep'         : ' |'            ,
     },
+        # gemtext (gemini) https://gemini.circumlunar.space/docs/gemtext.gmi
+    'gmi': {
+        'title1'               : '# \a '         ,
+        'title2'               : '## \a '        ,
+        'title3'               : '### \a '       ,
+        'title4'               : '### \a '      ,
+        'title5'               : '### \a '     ,
+        'blockVerbLine'        : '    '          ,
+        'blockQuoteLine'       : '> '            ,
+        'fontMonoOpen'         : ""             ,
+        'fontMonoClose'        : ""             ,
+        'fontBoldOpen'         : ""            ,
+        'fontBoldClose'        : ""            ,
+        'fontItalicOpen'       : ""             ,
+        'fontItalicClose'      : ""             ,
+        'fontUnderlineOpen'    : ""              ,
+        'fontUnderlineClose'   : ""              ,
+        'fontStrikeOpen'       : ""            ,
+        'fontStrikeClose'      : ""            ,
+        # Lists
+        #'listOpenCompact'     : '*'             ,
+        'listItemLine'         : ''             ,
+        'listItemOpen'         : '*'             ,
+        #'numlistItemLine'     : '1.'            ,
+        'numlistItemOpen'      : '*'            ,
+        'deflistItem1Open'     : '*'            ,
+        #'deflistItem1Close'     : ':'           ,
+        #'deflistItem2LineOpen'  : '::'          ,
+        #'deflistItem2LineClose' : ':'           ,
+        # Verbatim block
+        #'blockVerbOpen'        : ''             ,
+        #'blockVerbClose'       : ''             ,
+        'bar1'                 : '```================```'           ,
+        'bar2'                 : '```----------------```'           ,
+        # URL, email and anchor
+        'url'                   : '=> \a'           ,
+        'urlMark'               : '=> \a \a'     ,
+        'email'                 : '\a'           ,
+        #'emailMark'             : '[[\a -> mailto:\a]]',
+        #'anchor'                : '[[#\a]]\n'   ,
+        # Image markup
+        'img'                   : '=> \a'      ,
+        #'imgAlignLeft'         : '{{\a }}'      ,
+        #'imgAlignRight'        : '{{ \a}}'      ,
+        #'imgAlignCenter'       : '{{ \a }}'     ,
+        # Table attributes
+        'tableTitleRowOpen'    : '| '            ,
+        'tableTitleRowClose'   : '|\n|---------------|'            ,
+        'tableTitleCellSep'    : ' |'            ,
+        'tableRowOpen'         : '|'             ,
+        'tableRowClose'        : '|'             ,
+        'tableCellSep'         : ' |'            ,
+    },    
         # http://www.phpbb.com/community/faq.php?mode=bbcode
         # http://www.bbcode.org/reference.php (but seldom implemented)
     'bbcode': {
@@ -3947,6 +4008,25 @@ def getRules(config):
             #'keeplistindent': 1,
             'linkable': 1,
             'labelbeforelink': 1,
+            'tableable': 1,
+            'imglinkable': 1,
+            'tablecellstrip': 1,
+            'autonumberlist': 1,
+            'spacedlistitemopen': 1,
+            'spacednumlistitemopen': 1,
+            'deflisttextstrip': 1,
+            'blanksaroundpara': 1,
+            'blanksaroundlist': 1,
+            'blanksaroundnumlist': 1,
+            #'blanksarounddeflist': 1,
+            'blanksaroundtable': 1,
+            'blanksaroundbar': 1,
+            'blanksaroundtitle': 1,
+        },
+        'gmi': {
+            #'keeplistindent': 1,
+            'linkable': 1,
+            'labelbeforelink': 0,
             'tableable': 1,
             'imglinkable': 1,
             'tablecellstrip': 1,

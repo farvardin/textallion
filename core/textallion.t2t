@@ -442,12 +442,14 @@
 %!postproc(tex): '°°(.*?)°°(.*?)°°' '\\footnote{\2}'
 %!postproc(xhtml): '°°(.*?)°°(.*?)°°' <a onclick="visibility('\1');">*</a> <span id="\1" style="visibility:hidden">\2</span>
 
+
+
 %% for normal textallion
 
 %!postproc(tex): '°°(.*?)\((\d+)\)°°' '\\footnote{\\MYxFONT \1}'
 %!postproc(tex): '°°(.*?)°°' '\\footnote{\\MYxFONT \1}'
 
-
+%--!postproc(xhtml): '°°(.*?)°°' <em>* (note : \2 )</em>
  
 
 
@@ -469,6 +471,7 @@
 
 %!postproc(xhtml): '°°(.*?)\((\d+)\)°°' '<a href="#ftn\2"><sup>\2</sup></a> <span id="ftn\2"><a class="ftn" href="#ftn">(\1)</a></span>'
 
+%% footnote
 %!--postproc(xhtml): '°°(.*?)°°' '<a href="#ftn_\1"><sup>*</sup></a> <span id="ftn_\1">(\1)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#ftn"> x </a></span>'
 
 %!postproc(xhtml): '°°(.*?)°°' '<a href="#ftn_\1"><sup>*</sup></a> <span id="ftn_\1"><a class="ftn" href="#ftn">(\1)</a></span>'

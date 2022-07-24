@@ -130,7 +130,7 @@ Textallion has been tested on these operating systems:
 
 For example Archlinux, Mandriva and Debian have [TeXlive http://www.tug.org/texlive/]
 
-//(under Debian run: apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex  tidy calibre wkhtmltopdf)//
+//(under Debian run: apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex  tidy calibre graphviz wkhtmltopdf)//
 
 
 Running the ``textallion_install.sh`` script from a root shell will copy everything needed into /usr/share/textallion/, or your folder of choice.
@@ -317,6 +317,8 @@ You can get a page break with ``SYMBpagebreak``.
 
 We use ``SYMBexponent`` or ``SYMBexponent2`` to surround the part to be used as exponent. For example 2^^nd^^ or 24^^5^^.
 
+
+%% TODO : only second form
 
 
 
