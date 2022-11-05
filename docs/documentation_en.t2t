@@ -164,6 +164,12 @@ Texlive is not officially supported by FreeBSD, please use teTeX instead.
 Mac compatibility is not yet tested; feel free to try the BSD instructions and the [macports http://www.macports.org/] system, and report the results back to us.
 
 
+=== Docker ===
+
+Look at instructions in textallion/infra/textallion/README.md
+
+
+
 == Files ==
 
 The files textallion.t2t and textallion.sty are the source template and the LaTeX style files; normally, you shouldn't have to modify thm. To get started with a new document, create a plain text file with the Text2tags file extension of .t2t, e.g. my_file.t2t, and copy the header from the sample_en.t2t into it up to the line:
@@ -183,7 +189,7 @@ On Windows, have a look at textallion.bat in the contrib directory. You may need
 
 Also update these paths to match your system's installation of the prerequisite packages:
 
- - C:\Python26\python.exe
+ - --C:\Python26\python.exe-- now textallion is using python3!
  - C:\Program Files\MiKTeX 2.9\
  - C:\Program Files\Calibre2
 

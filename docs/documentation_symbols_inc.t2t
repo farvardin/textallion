@@ -47,6 +47,7 @@
 %!postproc(tex): 'SYMBarobase'          '@'
 %!postproc(tex): 'SYMBColor'            '@@COLOR@@' 
 %!postproc(tex): 'SYMBSlashColor'       '@@/COLOR@@' 
+%!postproc(tex): 'SYMBSlash'       '\//' 
 %!postproc(tex): 'SYMBDoubleArobase'    '@@' 
 %!postproc(tex): 'SYMBnbsp' 	        '¯'
 
@@ -132,6 +133,7 @@
 %!postproc(xhtml): 'SYMBarobase'        '@'
 %!postproc(xhtml): 'SYMBColor'          '@@COLOR@@' 
 %!postproc(xhtml): 'SYMBSlashColor'     '@@/COLOR@@' 
+%!postproc(xhtml): 'SYMBSlash'     '/' 
 %!postproc(xhtml): 'SYMBDoubleArobase'  '@@' 
 %!postproc(xhtml): 'SYMBnbsp' 	        '&macr;'
 

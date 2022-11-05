@@ -854,6 +854,29 @@ cyoa-zx:
 	perl -pe 's/- (.*?) (\d+?)( *)\n/PRINT "\1 (\2)"\nChoice=INPUT(4)\n if Choice="\2" then GOTO label\2\nEND IF\n/g' > $(DOCUMENT)_zx.bas
 	
 
+cyoa-bbcbasic:
+	sed 's/^$$/ /' $(DOCUMENT).t2t > $(DOCUMENT).tmp  
+	printf  "CLS\nstart:\n" >> $(DOCUMENT).tmp  
+	cat $(DOCUMENT).tmp |\
+	perl -pe 's/==(\d+)==\[(.*)\]/\nlabel\1:\n/' |\
+	perl -pe 's/== (\d+) ==/\nlabel\1:\n/' |\
+	perl -pe 's/^(.*)\.[ ]*\n/  CLS\n PRINT  "\1."/' |\
+	perl -pe 's/^(.*)\![ ]*\n/  CLS\n PRINT  "\1 !"/' |\
+	perl -pe 's/^(.*)\?[ ]*\n/  CLS\n PRINT  "\1 ?"/' |\
+	perl -pe 's/^(.*)\:[ ]*\n/  CLS\n PRINT  "\1 :"/' |\
+	perl -pe 's/\{->--\} FIN \{-<--\}[ ]*"./PRINT "FIN"/' |\
+	perl -pe 's/\{->--\} THE END \{-<--\}[ ]*"./PRINT "THE END"/' |\
+	perl -pe 's/%(.*)/ REM \1 /' |\
+	 # remove extra textallion syntax |\
+	 perl -pe 's/{(.*)}\n//g' |\
+	 perl -pe 's/{(.*)}//g' |\
+	 # images and sound not supported yet|\
+	perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]//' |\
+	 perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	perl -pe 's/- (.*?) (\d+?)( *)\n/PRINT "\1 (\2)"\nINPUT Choice\n IF Choice="\2" THEN GOTO label\2\nEND IF\n/g' > $(DOCUMENT)_zx.bas
 
 cyoa-gemtext:
 	$(TXT2TAGS) -t md $(DOCUMENT).t2t

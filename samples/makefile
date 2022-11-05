@@ -918,6 +918,15 @@ vignettes:
 	#$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/xhtml.html -t xhtml --css-inside --toc --outfile #$(DOCUMENT).html $(DOCUMENT).t2t
 
 
+zim:
+	# https://github.com/openzim/zim-tools
+	# get binary:  http://download.openzim.org/release/zim-tools/
+	# get readers: https://wiki.openzim.org/wiki/Readers
+	rm -i /tmp/$(DOCUMENT).zim
+	zimwriterfs -w $(DOCUMENT).html -I $(TEXTALLIONFOLDER)/media/logo_textallion.png -l fre -t "$(DOCUMENT_TITLE)" -d "$(DOCUMENT_TITLE)"  -c "$(DOCUMENT_AUTHOR)" -p "$(DOCUMENT_AUTHOR)" ./ /tmp/$(DOCUMENT).zim
+	echo "Document has been created into /tmp/$(DOCUMENT).zim"
+	
+	
 # CLEAN part 
 
 

@@ -124,7 +124,7 @@ On peut imaginer 3 manières d'aborder textallion :
 
 - En se contentant du style fourni de base, et sans même se préoccuper d'une quelconque syntaxe wiki spécifique, en écrivant comme dans un bloc-note, on peut déjà produire un document {^}PDF{^} au format A4, réductible en A5, très présentable°°Pour comparer avec la version de base de txt2tags, dans l'export LaTeX les accentuations françaises ne sont pas supportées, et le rendu est très basique.°°. Rappelez-vous que la plupart des romans n'ont pas de mise en page très audacieuse et ne font pas appel non plus à tout l'arsenal que l'on peut trouver par exemple dans un texte scientifique ou une documentation (colonnes, index, changement de polices...)
 
-- En se laissant guider dans l'édition du fichier de style utilisateur (sample.sty), on modifiera les options permettant de personnaliser son document PDF°°Malheureusement, toutes ces options sont indiquées en anglais pour le moment°°. Par exemple ``\def\WIDTHxOFxTEXT{150}`` est pour modifier la largeur du texte affiché. En réécrivant 140 à la place de 150, on réduira les marges.
+- En se laissant guider dans l'édition du fichier de style utilisateur (sample.sty), on modifiera les options permettant de personnaliser son document PDF°°Malheureusement, toutes ces options sont indiquées en anglais pour le moment°°. Par exemple  ``SYMBSlashdefSYMBSlashWIDTHxOFxTEXT{150}`` est pour modifier la largeur du texte affiché. En réécrivant 140 à la place de 150, on réduira les marges.
 
 - De la même manière, on pourra éditer le fichier CSS pour la version HTML (sample.css)
 
@@ -163,18 +163,19 @@ La dernière version en développement se trouve à cette adresse :
 
 Elle s'obtient : 
 
-hg clone https://farvardin@hg.code.sf.net/p/textallion/code textallion-code
+``hg clone https://farvardin@hg.code.sf.net/p/textallion/code textallion-code``
 
 
 Une copie du dépôt est sur github à cette adresse : https://github.com/farvardin/textallion
-On peut l'obtenir :
 
-git clone https://github.com/farvardin/textallion.git
+On peut l'obtenir ainsi :
+
+``git clone https://github.com/farvardin/textallion.git``
 
 
 Il y a également une copie ici (pas forcément toujours à jour) : http://anamnese.online.fr/site2/textallion/textallion.zip
 
-Il est possible de retrouver les anciennes versions dans http://anamnese.online.fr/site2/textallion/archives/
+% Il est possible de retrouver les anciennes versions dans http://anamnese.online.fr/site2/textallion/archives/
 
 
 % Pour les mises à jour ou l'obtention de textallion depuis sourceforge ou github, il est conseillé d'avoir git ou mercurial.
