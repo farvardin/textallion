@@ -30,7 +30,7 @@ ifdef TEXTALLIONDOC
 else
 #  export DOCUMENT = examples
   export DOCUMENT = the_blue_death
-  #export DOCUMENT = la_mort_bleue
+#  export DOCUMENT = la_mort_bleue
   #export DOCUMENT = lonewolf01
   #export DOCUMENT = template
   #export DOCUMENT = un_nouveau_monde_gbl
@@ -878,6 +878,9 @@ cyoa-bbcbasic:
 	 perl -pe 's/\[(.*).ogg\]//' |\
 	perl -pe 's/- (.*?) (\d+?)( *)\n/PRINT "\1 (\2)"\nINPUT Choice\n IF Choice="\2" THEN GOTO label\2\nEND IF\n/g' > $(DOCUMENT)_zx.bas
 
+
+# for using with Gemini / gemtext format:
+
 cyoa-gemtext:
 	$(TXT2TAGS) -t md $(DOCUMENT).t2t
 	cat $(DOCUMENT).md |\
@@ -887,7 +890,7 @@ cyoa-gemtext:
 	perl -pe 's/WRAPLEFT(.*)WRAPLEFT//' |\
 	perl -pe 's/\[(.*)\]//' |\
 #	perl -pe "s/TESTLUCK/Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec./" |\
-	perl -pe "s/TESTLUCK/Am I lucky today? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec./" |\
+	perl -pe "s/TESTLUCK/Am I lucky today? When I draw a die, I can be considered lucky if I roll a 5 or a 6 with it./" |\
 	perl -pe 's/^ \* (.*) : (\d+)/=> section\2.gmi \1/' |\
 	perl -pe 's/^ \* (.*): (\d+)/=> section\2.gmi \1/' |\
 	perl -pe 's/^ \* (.*) (\d+)/=> section\2.gmi \1/' |\
@@ -905,10 +908,14 @@ cyoa-gemtext:
 	perl -pe 's/, rendez-vous au//g'  > $(DOCUMENT).gmi
 	-mkdir gemtext_$(DOCUMENT)
 	cp $(DOCUMENT).gmi gemtext_$(DOCUMENT)
+	# then edit the generated gemtext_doc.... and remove the # 0 section and the titles above it. And then run:
+	# cd gemtext_$(DOCUMENT)
 	# csplit la_mort_bleue.gmi /##/ {*}
+	# csplit the_blue_death.gmi /##/ {*}
 	# rename 's/xx/section/gi' *
 	# rename -v -- 's/$/.gmi/' *
-	# rename 's/\.gmi$//' *.gmi
+	# ( rename 's/\.gmi$//' *.gmi )
+	# some parts might need some tweakings...
 # images (thumbnails)
 
 vignettes:
