@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # %%%% Textallion %%%%
 # Tiny almost-Kiss Word Processor

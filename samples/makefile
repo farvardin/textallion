@@ -69,8 +69,9 @@ ifeq ($(UNAME), Darwin)
 	EDITTOOL = open
 else
 #	EDITTOOL = vim
-    EDITTOOL = nano
+#   EDITTOOL = nano
 #	EDITTOOL = geany
+    EDITTOOL = SciTE
 endif
 
 
@@ -100,7 +101,7 @@ htmlhandhelds:
 	$(TXT2TAGS) -t xhtml --no-style  --style=$(TEXTALLIONFOLDER)/includes/sample_handheld.css --toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t
 
 edit:
-	$(EDITTOOL) $(DOCUMENT).t2t 
+	$(EDITTOOL) $(DOCUMENT).t2t &
 txt:
 	$(TXT2TAGS) --no-headers -t txt $(DOCUMENT).t2t
 
