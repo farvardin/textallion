@@ -29,8 +29,8 @@ ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)
 else
 #  export DOCUMENT = examples
-#  export DOCUMENT = the_blue_death
-  export DOCUMENT = la_mort_bleue
+  export DOCUMENT = the_blue_death
+#  export DOCUMENT = la_mort_bleue
   #export DOCUMENT = lonewolf01
   #export DOCUMENT = template
   #export DOCUMENT = un_nouveau_monde_gbl
@@ -207,6 +207,13 @@ epub:
 
 # split (not working well...)
 
+
+gempub:
+#https://git.sr.ht/~boringcactus/md2gemtext
+	-mkdir /tmp/$(DOCUMENT)
+	$(TXT2TAGS) -t gmi --outfile /tmp/$(DOCUMENT)/index.gmi $(DOCUMENT).t2t
+	zip -r $(DOCUMENT).gpub /tmp/$(DOCUMENT)
+
 split:
 	htmldoc --no-links --charset utf8 --strict --book -t htmlsep -d ebook $(DOCUMENT)2.html
 	#$(TXT2TAGS) -t html --split 2 --no-toc --outfile $(DOCUMENT).html $(DOCUMENT).t2t 
@@ -251,7 +258,23 @@ cyoa-ramus:
 	
 
 cyoa-ramus2:
-	${TEXTALLION} cyoa_ramus2
+	$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/ramus2.html  --config-file $(TEXTALLIONFOLDER)/core/txt2cyoa.t2t  -t xhtml --no-css-inside --outfile $(DOCUMENT)_ramus2.html $(DOCUMENT).t2t
+	sed -i -e "s/href=\"#/rel=\"/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/style=\"display:none\"//g" $(DOCUMENT)_ramus2.html
+	#sed -i -e "s/onclick\(.*\)rel/rel/" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/<p><br\/><br\/><br\/><\/p><\/div>/xxCLEARLINKSxx\n<\/div>/g" $(DOCUMENT)_ramus2.html
+	# remove the 1st occurence only 
+	sed -i -e "0,/\xxCLEARLINKSxx/s/\xxCLEARLINKSxx//" $(DOCUMENT)_ramus2.html
+	# Create the do clear links
+	# If you don't like it this way, uncomment the next line first, to remove everything
+	#sed -i -e "s/rel=\"/rel=\"clear\" href=\"#/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/rel=\"/href=\"#/g" $(DOCUMENT)_ramus2.html
+	#sed -i -e "s/\xxCLEARLINKSxx/<\?do clear_all_links\(\)\; \?\>/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/\xxCLEARLINKSxx//g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/xxRAMUS_INITxx/<div style=\"Display: none;\">\n<div id=\"start\">\n<li>Start: <b><a href=\"#page1\">1<\/a><\/b>/g" $(DOCUMENT)_ramus2.html
+	sed -i -e "s/THE END/THE END<br\/><a rel=\"clear\" href=\"#start\"><i>Start over?<\/i><\/a>/g" $(DOCUMENT)_ramus2.html
+	cp $(DOCUMENT)_ramus2.html $(DOCUMENT)_ramus2b.html
+	sed -i -e "s/href=/rel=\"clear\" href=/g" $(DOCUMENT)_ramus2b.html
 	
 
 
@@ -275,7 +298,125 @@ cyoa-xetex:
 
 
 cyoa-dialog:
-	${TEXTALLION} cyoa_dialog
+	# for use with dialog
+	# https://linusakesson.net/dialog/docs/timeprogress.html#choicemode
+	# @DOLLAR@T expands as $T
+	echo "(intro)	(activate node #start)\n(library links enabled)\n(label @DOLLAR@Target)\n        (current node @DOLLAR@Origin)\n        (label @DOLLAR@Origin to @DOLLAR@Target)" |\
+	perl -pe "s/\@DOL-LAR\@/'$'/g" > $(DOCUMENT)_export.dg 
+	# remove 3 first lines of the t2t doc (from line 1 to end line 3) \
+	cat $(DOCUMENT).t2t  | sed '1,4d' | \
+	# remove postproc for tex (TODO CHECK)|\
+	#perl -pe "s/\%\!postproc\(tex\): //g" |\
+	# convert ( and ): \
+	perl -pe 's/\(/\\(/g' |\
+	perl -pe 's/\)/\\)/g' |\
+	# metadata (before removing them all|\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT TITLE xx\'/\(story title\) \1/g" |\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT AUTHOR xx\'/\(story author\) \1/g" |\
+	perl -pe "s/\%\!postproc: \'xx DOCUMENT IFID xx\'/\(story ifid\) \1/g" |\
+	perl -pe 's/^\%(.*)\n//' |\
+		# for lone wolf mode: \
+	 perl -pe 's/(.*) \[(.*) (\d+)\|\#sect(\d+)\]/(label * to #node\4)\1 \2 \3 \n(* offers #node\4)\n/g' |\
+	 perl -pe 's/\[(.*) (\d+)\|\#sect(\d+)\]/(label * to #node\3)\1 \2 \n(* offers #node\3)\n/g' |\
+	  perl -pe 's/\[Illustration ([^ ].*?)\]//g' |\
+	 perl -pe 's/\[Random Number Table \#random\]/Random Number Table/g' |\
+	 perl -pe 's/(.*)\: COMBAT SKILL (.*?)   ENDURANCE (.*?)/     (par)\1:  COMBAT SKILL \2   ENDURANCE \3/g' |\
+	 #\
+	 # abbreviations |\
+	 #perl -pe 's/tt (\d+)/ \1/g' |\
+	 #lone wolf style \
+	 #perl -pe 's/\[turn to (\d+) \#sect(\d+)\]/\2/g' |\
+	 #perl -pe 's/Turn to (\d+)/\1/g' |\
+	 #perl -pe 's/turn to (\d+)/\1/g' |\
+	 perl -pe 's/rdv au (\d+)/ : \1/g' |\
+	 perl -pe 's/, rendez-vous au (\d+)/ : \1/g' |\
+	 perl -pe 's/rendez-vous au (\d+)/ : \1/g' |\
+	 perl -pe 's/ au (\d+)/ ailleurs : \1/g' |\
+	 #perl -pe 's/to the (\d+)/to somewhere else : \1/g' |\
+	 #perl -pe 's/to (\d+)/to somewhere else : \1/g' |\
+	 # replace any ="introduction" by 0 |\
+	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 # code |\
+	 perl -pe "s/\`\`(.*?)\`\`/\1/g" |\
+	 perl -pe 's/¯/ /g' |\
+	 # remove extra textallion syntax |\
+	 perl -pe 's/[ ]*\{.{4}\}[ ]*//g' |\
+	 perl -pe 's/[ ]*\{.{3}\}[ ]*//g' |\
+	 perl -pe 's/rdv/rendez-vous/' |\
+	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
+	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
+	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[(.*).jpg\]/%% (define resource ## \1) /' |\
+	 perl -pe 's/\[(.*).png\]/%% /' |\
+	 # why did we remove media? |\
+	 #perl -pe 's/..\/media\///' |\
+	 perl -pe 's/\[(.*).ogg\]//' |\
+	 # choices and links (\r is for windows newline) \
+	 #perl -pe 's/- (.*?) (\d+?)( *)\n/(label #node\2)\n      (line)\1 \n(* offers #node\2)\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\n/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
+	 perl -pe 's/- (.*?) (\d+?)( *)\r/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
+     perl -pe 's/(.*?) \[\#(.*?)\]/(label * to #\2) \1 \n(* offers #\2)\n/g' |\
+	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
+	 #perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[([^\#].*?) \#(.*?)\]/[[\1|\2]]/g' |\
+	 #perl -pe 's/\[(\d+) \#(\d+)\]/[[\1]]/g' |\
+	 #perl -pe 's/ \#(\d+?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#(.*?) / [[\1]] /g' |\
+	 #perl -pe 's/ \#([^ ].*) / [[\1]]/g' |\
+	 #perl -pe 's/\[\#(\d+?)\]/[[\1]]/g' |\
+	 # notes and hr \
+	 perl -pe 's/--------------------//g' |\
+	 perl -pe 's/°°(.*?)°°(.*?)°°/ \/\/\2\/\/ /' |\
+	 # chapters \
+	 # lone wolf : \
+	 perl -pe 's/== (\d+) ==/#node\1\n(disp *)(space 8)(bold)- \1 -(roman)/' |\
+	 # normal : \
+	 perl -pe 's/== (\d+) ==/#node\1\n(disp *)/' |\
+	 perl -pe 's/==(\d+)==\[(.*)\]/#node\1\n(disp *)/' |\
+	 #perl -pe 's/==(\d+)==/#node\1/\n(disp *)/' |\
+	 perl -pe 's/== (.*?) ==\[(.*?)\]/#node\2\n(disp *)/' |\
+	 perl -pe 's/== (.*?) ==/#node\1\n(disp *)/' |\
+	 # main text |\
+	perl -pe 's/^(.*)\.[ ]*\n/     (par)\1.\n/' |\
+	perl -pe 's/^(.*)[ ]*\![ ]*\n/      (par)\1 !\n/' |\
+	perl -pe 's/^(.*)[ ]*\?[ ]*\n/      (par)\1 ?\n/' |\
+	perl -pe 's/^(.*)[ ]*\:[ ]*\n/      (par)\1 \n/' |\
+	perl -pe 's/^(.*)[ ]*\"[ ]*\n/      (par)\1 "\n/' |\
+	perl -pe 's/^(.*)[ ]*\»[ ]*\n/      (par)\1 »\n/' |\
+	perl -pe 's/^(.*)[ ]*\’[ ]*\n/      (par)\1’\n/' |\
+	perl -pe 's/^(.*)[ ]*\)[ ]*\n/      (par)\1)\n/' |\
+	perl -pe 's/^(.*)[ ]*\*\*[ ]*\n/      (par)\1**\n/' |\
+	perl -pe 's/^(.*)[ ]*\/\/[ ]*\n/      (par)\1\/\/\n/' |\
+	perl -pe 's/^\"(.*)\n/      (par)"\1 \n/' |\
+	perl -pe 's/^\«(.*)\n/      (par)«\1 \n/' |\
+	#  t2t syntax \
+	perl -pe 's/\/\/(.*)\/\//(italic)\1(roman)/' |\
+	perl -pe 's/\*\*(.*)\*\*/(bold)\1(roman)/' |\
+	# special \
+		perl -pe 's/TESTLUCK/      (par) Am I lucky today? \\(throwing a dice, 5 or 6 means luck\\) /'|\
+	 perl -pe 's/THE END/     (par) THE END/'|\
+	 perl -pe 's/FIN/     (par) (game over { FIN })/'|\
+	# |\
+	# remove extra label |\
+	perl -pe 's/      \(par\)\(label/(label/' |\
+	# remove blank lines \
+	perl -pe s'/^\n|^[\ ]*\n//g' |\
+	# add extra space before nodes \
+	perl -pe 's/^#node/\n#node/' |\
+	perl -pe 's/      \(par\)\(disp \*\)/(disp *) /s' |\
+	#perl -pe 's/^     \(par\)\(offers/(offers/s' |\
+	perl -pe 's/      \(par\)\(\* offers/(* offers/g' |\
+	#øperl -pe 's/^\(disp \*\)\n     \(par\)/(disp *) /g' |\
+	perl -pe 's/     \(par\)\./ /g' |\
+	 # make twee lists \
+	 #perl -pe 's/^- /* /' |\
+	 #perl -pe 's/^+ /# /' |\
+	 # remove empty white spaces and lines\
+	 #sed -r '/^\s*$/d' |\
+	perl -pe 's/#node0/#start/' >> $(DOCUMENT)_export.dg
+	sed -i -e "s/@DOLLAR@/$$/g" $(DOCUMENT)_export.dg
 	make cyoa-dialog-z8
 	make cyoa-dialog-html
 	make cyoa-dialog-c64
@@ -916,7 +1057,6 @@ cyoa-gemtext:
 	# rename -v -- 's/$/.gmi/' *
 	# ( rename 's/\.gmi$//' *.gmi )
 	# some parts might need some tweakings...
-# images (thumbnails)
 
 
 # https://librogamesland.github.io/magebook
@@ -939,6 +1079,7 @@ cyoa-magebook:
 	perl -pe 's/, rdv au//g' |\
 	perl -pe 's/, rendez-vous au//g'  > $(DOCUMENT).magebook
 	# some parts might need some tweakings...
+
 # images (thumbnails)
 
 vignettes:
@@ -952,6 +1093,15 @@ vignettes:
 	#$(TXT2TAGS) -T $(TEXTALLIONFOLDER)/templates/xhtml.html -t xhtml --css-inside --toc --outfile #$(DOCUMENT).html $(DOCUMENT).t2t
 
 
+zim:
+	# https://github.com/openzim/zim-tools
+	# get binary:  http://download.openzim.org/release/zim-tools/
+	# get readers: https://wiki.openzim.org/wiki/Readers
+	rm -i /tmp/$(DOCUMENT).zim
+	zimwriterfs -w $(DOCUMENT).html -I $(TEXTALLIONFOLDER)/media/logo_textallion.png -l fre -t "$(DOCUMENT_TITLE)" -d "$(DOCUMENT_TITLE)"  -c "$(DOCUMENT_AUTHOR)" -p "$(DOCUMENT_AUTHOR)" ./ /tmp/$(DOCUMENT).zim
+	echo "Document has been created into /tmp/$(DOCUMENT).zim"
+	
+	
 # CLEAN part 
 
 
