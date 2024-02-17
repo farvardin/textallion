@@ -77,6 +77,7 @@
 
 
 - image size: ""[path_to/my_image.png][24]"" //(in millimeters)//
+- image size: ""[path_to/my_image.png][=400x200]"" //(html only, width x height in pixels)//
 
 - Wrapping image : ""[image.png]""``SYMBwrapping`` (image to the left) or ``SYMBwrapping``""[image.png]"" (image to the right)
 

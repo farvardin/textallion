@@ -698,6 +698,14 @@
 
 %%% images size
 
+
+%% define image size without wrapping:
+%%-- [image.jpg]@w400xh200@
+%--!postproc(xhtml): '>@w(\d+)xh(\d+)@' 'width="\1" height="\2">'
+%% [image.jpg][=400x200]
+%!postproc(xhtml): '>\[=(\d+)xh(\d+)\]' 'width="\1" height="\2">'
+
+
 %!postproc(tex): 'includegraphics\{([^ ].*?)\}\[([^ ].*?)\]' 'includegraphics[width=\2mm]{\1}'
 % ex : \includegraphics{../media/logo_textallion.png}[5]
 

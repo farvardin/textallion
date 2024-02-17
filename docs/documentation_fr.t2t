@@ -555,6 +555,10 @@ par exemple : ""[chemin_vers/mon_image.png][24]""
 
 Dans la version html, cela affichera cette valeur en pourcentage de la page. 
 
+Alternativement, on peut utiliser cette syntaxe pour forcer une taille d'image :
+
+""[image.jpg][=400x200]""
+
 
 Il est possible de centrer l'image en utilisant une tabulation avant celle-ci
 

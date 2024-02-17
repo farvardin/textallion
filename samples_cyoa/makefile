@@ -29,8 +29,8 @@ ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)
 else
 #  export DOCUMENT = examples
-  export DOCUMENT = the_blue_death
-#  export DOCUMENT = la_mort_bleue
+#  export DOCUMENT = the_blue_death
+  export DOCUMENT = la_mort_bleue
   #export DOCUMENT = lonewolf01
   #export DOCUMENT = template
   #export DOCUMENT = un_nouveau_monde_gbl
@@ -915,6 +915,29 @@ cyoa-gemtext:
 	# rename 's/xx/section/gi' *
 	# rename -v -- 's/$/.gmi/' *
 	# ( rename 's/\.gmi$//' *.gmi )
+	# some parts might need some tweakings...
+# images (thumbnails)
+
+
+# https://librogamesland.github.io/magebook
+
+cyoa-magebook:
+	$(TXT2TAGS) -t md $(DOCUMENT).t2t
+	cat $(DOCUMENT).md |\
+	perl -pe 's/CONVERT(.*)END//' |\
+	perl -pe 's/CONVERT(.*)BEGIN//' |\
+	perl -pe 's/## /### /' |\
+	#perl -pe 's/au 14/14/' |\
+	perl -pe 's/WRAPLEFT(.*)WRAPLEFT//' |\
+	# perl -pe 's/\[(.*)\]//' |\
+	perl -pe 's/^ \* (.*) : (\d+)/* \1 [\2]/' |\
+	perl -pe 's/^ \* (.*): (\d+)/* \1 [\2]/' |\
+	perl -pe 's/^ \* (.*) (\d+)/* \1 [\2]/' |\
+	perl -pe "s/TESTLUCK/Ai-je de la chance aujourd'hui ? Quand je tire un dé de ma poche, je peux être considéré comme chanceux si je fais un 5 ou un 6 avec./" |\
+#	perl -pe "s/TESTLUCK/Am I lucky today? When I draw a die, I can be considered lucky if I roll a 5 or a 6 with it./" |\
+	perl -pe 's/¯/ /g' |\
+	perl -pe 's/, rdv au//g' |\
+	perl -pe 's/, rendez-vous au//g'  > $(DOCUMENT).magebook
 	# some parts might need some tweakings...
 # images (thumbnails)
 

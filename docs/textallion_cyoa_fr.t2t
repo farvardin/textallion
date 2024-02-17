@@ -142,6 +142,8 @@ Nous ne sommes pas en mesure de fournir une telle interface, mais une solution a
 
 En effet, pour la présentation des paragraphes, nous avons tendance à encourager à utiliser des nombres pour référencer les paragraphes. Certains autres systèmes s'affranchissent de cela (Ren'py, ChoiceScript, Twine, Undum, Dialog), ce qui est effectivement moins archaïque, mais l'avantage du système avec les nombres c'est qu'il est possible d'exporter ensuite vers un vrai livre, comme au temps des LDVELH imprimés. Et techniquement c'est plus facile avec les chiffres qu'avec les mots-clé. Peut-être que dans le futur nous serons à même de proposer un support plus complet pour les mots-clés. Pour le moment celui-ci fonctionne le mieux en conjonction avec Twine.
 
+Pour la réoganisation des paragraphes, voir du côté du logiciel Magebook. Textallion permet d'exporter vers son format (voir plus bas).
+
 
 
 
@@ -211,6 +213,8 @@ Si vous choisissez de créer vos jeux avec textallion, en plus des exports PDF, 
 
  - ``make cyoa-inkle`` : convertir votre jeu vers un code source [Inkle http://www.inklestudios.com/ink/], dans un dossier votre_jeu_inkle.
  
+ - ``make cyoa-magebook`` : convertir votre jeu vers un code source [MageBook https://librogamesland.github.io/magebook]. Permet de réoganiser les paragraphes.
+
  - ``make cyoa-ramus``: Utilise [Ramus https://notimetoplay.org/engines/ramus/legacy.html] comme format d'affichage alternatif en HTML (le fichier final sera renommé _ramus.html à la fin)
 
  - ``make cyoa-ramus2``: Utilise [Ramus 2 https://notimetoplay.org/engines/ramus/] comme format d'affichage alternatif en HTML (le fichier final sera renommé _ramus2.html et _ramus2b.html à la fin)
