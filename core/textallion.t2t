@@ -795,7 +795,13 @@
 
 
 %%!postproc(xhtml): 'CONVERTlettrine(.)' '<span style="font-size: 200%; vertical-align: baseline">\1</span>'
-%!postproc(xhtml): 'CONVERTlettrine(.)' '</p><p class="initial">\1'
+
+%!postproc(xhtml): 'CONVERTlettrine(.)' '<span style="  font-size: 300%; font-weight: bold; float: left; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">\1</span>'
+
+% not working with calibre:
+%%!postproc(xhtml): 'CONVERTlettrine(.)' '<span class="dropcap">\1</span>'
+
+%%!postproc(xhtml): 'CONVERTlettrine(.)' '</p><p class="initial">\1'
 
 %!preproc(xhtml): '\*-\*-'   '\n\n'
 
