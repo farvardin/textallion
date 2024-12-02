@@ -5,7 +5,7 @@
 
 
 body { 
-    /*margin:2em;*/
+    margin:2em;
     padding:1.2em;
     /*font-size:1.1em;*/
     line-height:1.37em;
@@ -84,16 +84,16 @@ a:hover {background-color:#eee; text-decoration: none; border-bottom: 1px solid 
 div.center  {
     text-indent:0em;
     text-align:center;margin-right:auto;margin-left:auto;
-    margin-top:0em;
-    margin-bottom:-0.5em;
+    margin-top:1.5em;
+    margin-bottom:1.5em;
 }
 
 .center  {
     text-indent:0em;
     text-align:center;margin-right:auto;margin-left:auto;
     width: auto;
-    margin-top:0em;
-    margin-bottom:-0.5em;
+    margin-top:1.5em;
+    margin-bottom:1.5em;
 }
 
 
@@ -209,12 +209,12 @@ table   { border-collapse: collapse }
 /*  feedbook style  */
 
 @page {
-  margin-top: 0.8em;
-  margin-bottom: 0.8em;}
+  margin-top: 2em;
+  margin-bottom: 2em;}
 
 body {
-  margin-left: 1em;
-  margin-right: 1em;}
+  margin-left: 2em;
+  margin-right: 2em;}
   
 body {padding: 0;}
 
@@ -294,3 +294,10 @@ span.dropcap {
   height: 1em;}
 p.dropcap, p.noindent {text-indent: 0em;}
 
+.calibre {
+  color: #000;
+  display: block;
+  line-height: 1.37em;
+  margin: 2em;
+  padding: 0;
+}

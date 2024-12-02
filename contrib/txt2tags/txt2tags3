@@ -2971,8 +2971,8 @@ def getTags(config):
         #'deflistItem2LineOpen'  : '::'          ,
         #'deflistItem2LineClose' : ':'           ,
         # Verbatim block
-        #'blockVerbOpen'        : ''             ,
-        #'blockVerbClose'       : ''             ,
+        'blockVerbOpen' : '```' ,
+        'blockVerbClose' : '```' ,
         'bar1'                 : '```================```'           ,
         'bar2'                 : '```----------------```'           ,
         # URL, email and anchor
