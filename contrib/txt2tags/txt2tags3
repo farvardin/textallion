@@ -1,12 +1,17 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.8
 # txt2tags - generic text conversion tool
 #
-# Copyright 2001-2019 Aurelio Jargas
+# Copyright 2001-2025 Aurelio Jargas
 # and contributors: Eric Forgeot, Florent Gallaire, Emmanuel Godard, 
 #				    Jason Seeley, Jendrik Seipp...
 #
 # Ported to python3 by Jan Max Meyer (https://github.com/phorward)
 #
+# python > 3.11 will raise some regex warnings / errors
+#
+# This is a fork of the "official" txt2tags which removed useful features 
+#  such as templates, gui, macros and targets...
+# 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
@@ -559,7 +564,6 @@ HEADER_TEMPLATE = {
 <HTML>
 <HEAD>
 <META NAME="generator" CONTENT="http://txt2tags.org">
-<META NAME="viewport" content="width=device-width, initial-scale=1">
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=%(ENCODING)s">
 <LINK REL="stylesheet" TYPE="text/css" HREF="%(STYLE)s">
 <TITLE>%(HEADER1)s</TITLE>
@@ -685,7 +689,6 @@ table th,table td{padding:4px;}
 <head>
 <title>%(HEADER1)s</title>
 <meta name="generator" content="http://txt2tags.org" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" type="text/css" href="%(STYLE)s" />
 </head>
 <body bgcolor="white" text="black">
@@ -2142,13 +2145,13 @@ def getTags(config):
     },
 
     'tex': {
-        'title1'               : '~A~\section*{\a}'     ,
+        'title1'               : '~A~\\section*{\a}'     ,
         'title2'               : '~A~\\subsection*{\a}'   ,
         'title3'               : '~A~\\subsubsection*{\a}',
         # title 4/5: DIRTY: para+BF+\\+\n
         'title4'               : '~A~\\paragraph{}\\textbf{\a}\\\\\n',
         'title5'               : '~A~\\paragraph{}\\textbf{\a}\\\\\n',
-        'numtitle1'            : '\n~A~\section{\a}'      ,
+        'numtitle1'            : '\n~A~\\section{\a}'      ,
         'numtitle2'            : '~A~\\subsection{\a}'    ,
         'numtitle3'            : '~A~\\subsubsection{\a}' ,
         'anchor'               : '\\hypertarget{\a}{}\n'  ,
@@ -2178,12 +2181,12 @@ def getTags(config):
         'numlistItemOpen'      : '\\item '             ,
         'deflistOpen'          : '\\begin{description}',
         'deflistClose'         : '\\end{description}'  ,
-        'deflistOpenCompact'   : '\\begin{compactdesc}',
+        'deflistOpenCompact'   : '\\blistItemOpenegin{compactdesc}',
         'deflistCloseCompact'  : '\\end{compactdesc}'  ,
         'deflistItem1Open'     : '\\item['             ,
         'deflistItem1Close'    : ']'                   ,
         'bar1'                 : '\\hrulefill{}'       ,
-        'bar2'                 : '\\rule{\linewidth}{1mm}',
+        'bar2'                 : '\\rule{\\linewidth}{1mm}',
         'url'                  : '\\htmladdnormallink{\a}{\a}',
         'urlMark'              : '\\htmladdnormallink{\a}{\a}',
         'email'                : '\\htmladdnormallink{\a}{mailto:\a}',
@@ -2971,8 +2974,8 @@ def getTags(config):
         #'deflistItem2LineOpen'  : '::'          ,
         #'deflistItem2LineClose' : ':'           ,
         # Verbatim block
-        'blockVerbOpen' : '```' ,
-        'blockVerbClose' : '```' ,
+        #'blockVerbOpen'        : ''             ,
+        #'blockVerbClose'       : ''             ,
         'bar1'                 : '```================```'           ,
         'bar2'                 : '```----------------```'           ,
         # URL, email and anchor
@@ -5732,7 +5735,7 @@ class ConfigMaster:
         # Automatic outfile name: infile.target
         if not outfile and (infile and config.get('target')):
             # .t2t and .txt are the only "official" source extensions
-            basename = re.sub('\.t[2x]t$', '', infile)
+            basename = re.sub(r"\.(txt|t2t)$", "", infile)
             outfile = "%s.%s" % (basename, config['target'])
             if config['target'] == 'aat' and config['slides']:
                 outfile = "%s.%s" % (basename, 'aap')
