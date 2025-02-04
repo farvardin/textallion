@@ -1,7 +1,8 @@
 % =========== SAMPLE STYLE FOR TEXTALLION ==============================
 
 \usepackage[small,sf,bf]{titlesec}
-\pagenumbering{roman}
+\pagenumbering{arabic}
+% \pagenumbering{roman}
 
 \usepackage[all]{nowidow}
 
@@ -9,6 +10,12 @@
 \clubpenalty10000
 
 \usepackage{spverbatim}
+
+
+% hyperlinks
+
+\usepackage[colorlinks, linkcolor=refcolor, filecolor=refcolor, citecolor=refcolor, urlcolor=refcolor]{hyperref}
+    
 
 % For using extended colors
 \usepackage[usenames,svgnames]{xcolor}
@@ -40,6 +47,7 @@
 \def\DEFAULTxFONT{ppl}  % default font for LaTeX (pdflatex)
                        %% Valid use can be:
                        % {cmr} for computer modern (default in LaTeX)
+                       % {cmss} for Computer Modern Sans Serif 
 					   % {bch} for charter bt roman, 
 					   % {lmr} for latin modern roman
 					   % {lmss} for latin modern sans
@@ -52,8 +60,10 @@
 					   % {pzc} for zapf chancery, 	   
 					   % {ptm} for times
 					   % Dunhill (cmdh) / ptm
+					   % {qag} TeX Gyre Adventor
 					   % dayrom (needs to be installed)
-
+					
+%% see https://www.overleaf.com/learn/latex/Font_typefaces for more
 
 
 \def\DEFAULTxFONTxSIZE{14}          % 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, and 20pt (don't add pt). 12pt is default for LaTeX. Other sizes might not work.
@@ -182,6 +192,13 @@
 \def\LEFTxHEADxODD{}
 \def\CENTERxHEADxODD{\MYxFONT\rightmark}
 \def\RIGHTxHEADxODD{}
+
+
+%% line above the footer
+% \renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+% \renewcommand\footrule{\begin{minipage}{1\textwidth}
+% \hrule width \hsize height 1pt \kern 1mm \hrule width \hsize   
+% \end{minipage}\par}%
 
 %% Footer text even (left) (and both odd and even if article class is used)
 

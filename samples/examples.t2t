@@ -602,7 +602,7 @@ Raw area test
 
 % a comment will be in gray and italic
 
-[test mailto:username@example.com]
+[test email mailto:username@example.com]
 
 
 == My Subtitle 2 ==

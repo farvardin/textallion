@@ -2187,10 +2187,10 @@ def getTags(config):
         'deflistItem1Close'    : ']'                   ,
         'bar1'                 : '\\hrulefill{}'       ,
         'bar2'                 : '\\rule{\\linewidth}{1mm}',
-        'url'                  : '\\htmladdnormallink{\a}{\a}',
-        'urlMark'              : '\\htmladdnormallink{\a}{\a}',
-        'email'                : '\\htmladdnormallink{\a}{mailto:\a}',
-        'emailMark'            : '\\htmladdnormallink{\a}{mailto:\a}',
+        'url'                  : '\\href{\a}{\a}',
+        'urlMark'              : '\\href{\a}{\a}',
+        'email'                : '\\href{mailto:\a}{\a}',
+        'emailMark'            : '\\href{mailto:\a}{\a}',
         'img'                  : '\\includegraphics{\a}',
         'tableOpen'            : '\\begin{center}\\begin{tabular}{|~C~|}',
         'tableClose'           : '\\end{tabular}\\end{center}',
@@ -3691,6 +3691,8 @@ def getRules(config):
         'tex': {
             'stylable': 1,
             'escapeurl': 1,
+            'linkable': 1,
+            # 'labelbeforelink': 0,
             'autonumberlist': 1,
             'autonumbertitle': 1,
             'spacedlistitem': 1,
@@ -4710,7 +4712,7 @@ def spreadsheet(data, markup, grid):
                         tooltip = 'formula: '
                     else:
                         tooltip = 'value: '
-                    row[0][i] = '\htmladdnormallink{' + str(s[ind]) + '}{' + tooltip + el.strip() + '}'
+                    row[0][i] = '\href{' + tooltip + el.strip() + '}{' + str(s[ind]) + '}'
                 elif markup == 'txt':
                     row[0][i] = str(s[ind])
     if grid:
