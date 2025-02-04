@@ -227,7 +227,7 @@ ACTIONS = {
     }
 MACROS = {
     # date
-    'date': '%Y%m%d',
+    'date': '%Y-%m-%d',
     'mtime': '%Y%m%d',
     # files
     'infile': '%f',
