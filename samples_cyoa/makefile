@@ -23,7 +23,7 @@ else
 endif
 
 #TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
-export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
+export TXT2TAGS3.8 = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 
 ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)
@@ -334,9 +334,9 @@ cyoa-dialog:
 	 perl -pe 's/ au (\d+)/ ailleurs : \1/g' |\
 	 #perl -pe 's/to the (\d+)/to somewhere else : \1/g' |\
 	 #perl -pe 's/to (\d+)/to somewhere else : \1/g' |\
-	 # replace any ="introduction" by 0 |\
-	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 # replace any ="introduction" by 0 (DANGER) |\
+	 #   perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 #   perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	 # code |\
 	 perl -pe "s/\`\`(.*?)\`\`/\1/g" |\
 	 perl -pe 's/¯/ /g' |\
@@ -347,8 +347,10 @@ cyoa-dialog:
 	 # images / [[bla.jpg] 1] est pour image sur premiere page |\
 	 perl -pe 's/\[\[(.*).jpg] 1\]//' |\
 	 perl -pe 's/\[\[(.*).png] 1\]//' |\
+	 perl -pe 's/\[\[(.*).mp3] 1\]//' |\
 	 perl -pe 's/\[(.*).jpg\]/%% (define resource ## \1) /' |\
 	 perl -pe 's/\[(.*).png\]/%% /' |\
+	 perl -pe 's/\[(.*).mp3\]/%% /' |\
 	 # why did we remove media? |\
 	 #perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
@@ -357,6 +359,12 @@ cyoa-dialog:
 	 perl -pe 's/- (.*?) (\d+?)( *)\n/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
 	 perl -pe 's/- (.*?) (\d+?)( *)\r/(label * to #node\2) \1 \n(* offers #node\2)\n/g' |\
      perl -pe 's/(.*?) \[\#(.*?)\]/(label * to #\2) \1 \n(* offers #\2)\n/g' |\
+     # remove text label (can't be used in dialog this way?) \
+	 ##perl -pe 's/\[(.*?) \#(.*?)\]/(label * to #\2) \1 (* offers #\2)/g' |\
+	 perl -pe 's/\[(.*?) \#(.*?)\]/\1/g' |\
+	 # remove extra external links \
+	 perl -pe 's/\[//g' |\
+	 perl -pe 's/\]//g' |\
 	 # deprecated: perl -pe 's/\[(\d+) \#(.*?)\]/[[\2|\1]]/g' |\
 	 #perl -pe 's/\[([^\#].*?) \| \#(.*?)\]/[[\1|\2]]/g' |\
 	 #perl -pe 's/\[([^\#].*?)\|\#(.*?)\]/[[\1|\2]]/g' |\
@@ -391,9 +399,20 @@ cyoa-dialog:
 	perl -pe 's/^(.*)[ ]*\/\/[ ]*\n/      (par)\1\/\/\n/' |\
 	perl -pe 's/^\"(.*)\n/      (par)"\1 \n/' |\
 	perl -pe 's/^\«(.*)\n/      (par)«\1 \n/' |\
-	#  t2t syntax \
+	#  t2t syntax TODO fix url \
 	perl -pe 's/\/\/(.*)\/\//(italic)\1(roman)/' |\
 	perl -pe 's/\*\*(.*)\*\*/(bold)\1(roman)/' |\
+	perl -pe 's@:\(italic\)www@://www@' |\
+	perl -pe 's@:\(roman\)www@://www@' |\
+	perl -pe 's@https:\(italic\)@https://@' |\
+	perl -pe 's@https:\(roman\)@https://@' |\
+	perl -pe 's@http:\(italic\)@http://@' |\
+	perl -pe 's@http:\(roman\)@http://@' |\
+	perl -pe 's@- Voir le plan des chapitres@ @' |\
+	perl -pe 's@- Adresse permanente : https:\/\/farvardin.itch.io\/la-reclusion-de-callisto@\t (par) Adresse permanente : @' |\
+	perl -pe 's@- Info@ @' |\
+# remove extra code \
+	perl -pe 's@\(par\)\(italic\)info\(roman\)@ @' |\
 	# special \
 		perl -pe 's/TESTLUCK/      (par) Am I lucky today? \\(throwing a dice, 5 or 6 means luck\\) /'|\
 	 perl -pe 's/THE END/     (par) THE END/'|\
@@ -415,6 +434,7 @@ cyoa-dialog:
 	 #perl -pe 's/^+ /# /' |\
 	 # remove empty white spaces and lines\
 	 #sed -r '/^\s*$/d' |\
+	 # start at node1 instead of node0 \
 	perl -pe 's/#node0/#start/' >> $(DOCUMENT)_export.dg
 	sed -i -e "s/@DOLLAR@/$$/g" $(DOCUMENT)_export.dg
 	make cyoa-dialog-z8
@@ -457,6 +477,7 @@ cyoa-epub:
 	mv $(DOCUMENT)2.html $(DOCUMENT).html
 	-make tidy
 	cat $(DOCUMENT).html | sed -e "s/&#10086;/*/g" | sed -e "s/&#10087;/*/g" | sed -e "s/&#10037;/*/g" | sed -e "s/&#9788;/*/g" | sed -e "s/&#9789;/*/g" | sed -e "s/&#9790;/*/g" | sed -e "s/&#9675;/*/g" |\
+	sed -e "s/ : <b><a onclick/, rendez-vous au <b><a onclick/g" |\
 	sed -e "s/el[1-9].style.visibility = 'hidden';//g" |\
 	sed -e "s/span.c[1-9] {display:none}//g" |\
 	sed -e "s/span.c[1-9] {display: none}//g" |\
@@ -512,8 +533,8 @@ cyoa-inkle:
 	 perl -pe 's/..\/media\///' |\
 	 perl -pe 's/\[(.*).ogg\]//' |\
 	# replace any ="introduction" by 0 TODO dangerous outsite heading |\
-	#perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	#perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	# perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	# perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	# italic and underline are the same. Only bold is different |\
 	perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	# choices and links  \
@@ -633,8 +654,8 @@ cyoa-twee:
 	 perl -pe 's/rdv au (\d+)/rendez-vous au [[\1]]/g' |\
 	 perl -pe 's/rendez-vous au (\d+)/rendez-vous au [[\1]]/g' |\
 	 # replace any ="introduction" by 0 |\
-	 perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
-	 perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
+	 #  perl -pe "s/[I-i]ntro["duction"]*/0/g" |\
+	 #  perl -pe "s/\=\"[I-i]ntro["duction"]*/0/g" |\
 	 # italic and underline are the same. Only bold is different |\
 	 perl -pe "s/\*\*(.*?)\*\*/''\1''/g" |\
 	 perl -pe "s/\`\`(.*?)\`\`/{{{\1}}}/g" |\
