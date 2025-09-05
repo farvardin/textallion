@@ -1,0 +1,236 @@
+The strange fisherman, a sample for textallion CYOA
+by Farvardin
+%%date(%Y-%m-%d)
+
+
+
+%% DEF DOCUMENT METADATA. Use your own. Remplace the second part only, don't modify the xx DOCUMENT ## xx
+%!postproc(tex): 'xx DOCUMENT TITLE xx'  'Template'
+%!postproc(tex): 'xx DOCUMENT AUTHOR xx' 'Farvardin'
+%!postproc(tex): 'xx DOCUMENT TAGS xx'   'cyoa, template, wip, not finished'
+
+
+%% DEF PERSONNAL STYLE (it should have a name such as sample.sty and sample.css in your folder) 
+%!style(tex): ../includes/sample_cyoa.sty
+%!style(xhtml): ../includes/sample.css 
+
+%% DEF TEXTALLION 
+%!includeconf: ../core/textallion.t2t
+%--!includeconf: ../core/txt2cyoa.t2t  % don't include this one here.
+%!postproc(tex): 'TEXTALLIONPATH' '../'
+
+
+
+
+
+
+
+== Introduction ==
+
+
+% This is a comment. It begins with a "% ".
+% We'll use comments to give further informations about how to use textallion.
+
+% Chapter == Introduction == is the only chapter you must keep this way to ensure textallion will start correctly. Don't rename it to something else, except for "intro" or "0". Therefore, all the keywords starting by "Intro" will be reserved for this first chapter.
+
+% Insert your own logo / picture instead of this one :
+{->--}  [../media/sample_game_cover.jpg] {-<--} 
+
+- Read the [#instructions] or start the game 1 
+
+
+== 1 ==
+
+% after this part, you can delete everything from this sample and write your own game!
+% Write your story like you would do with a normal text editor.
+
+This is the first chapter of your story.°°note1°°It will present various ways to use txt2tags and textallion to create CYOA (choose your own adventure). Check the source code of this sample, and read the comments about various tips for using textallion°°
+
+% We just wrote a note here. Just start your note with °° write note1, note2, note3 etc (you'll have to increment this yourself, hopefully you shouldn't need to write that many notes in your game...), write °°, then the content of your note, and °° again. 
+
+You are walking on the bank of a river, in a sunny autumn day. You can see a [#man] holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
+
+- Enter the [#forest] nearby.
+- Explore the [green hills|#hills] close to the river: 5
+- Ask the [#man] about the [twigs #8] he's getting from the river: [#8]
+
+% We just wrote 5 different ways to express a link to a new chapter:
+% - 5 at the end of a line (starting with "-") will link to the chapter == 5 ==
+% - [#6] could have been written just "6" in this context, but by writing it this way, you can place it anywhere in your text. It will link to chapter == 6 == of course.
+% - [#forest] will be linked to a chapter called == forest == 
+% - [green hills|#hills] (or [green hills | #hills]) will link to chapter == hills == and will display "green hills" to the read.
+% - similarly, [twigs #6] will link to chapter == 6 ==, and display "twigs" to the reader
+
+% The first 2 ways (5 and [#6]) have the advantage to be more like traditional CYOA gamebooks, and allow your work to be printed. The other ways will only be available for electronic ebooks or through a web-browser.
+
+
+== 2 ==
+
+There is nothing interesting in this chapter. In fact this is only a test chapter.
+
+This template story is almost empty yet, but you can improve it yourself!
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+- Go to the left, tt 7
+- Go to the right, tt 5 
+- Use the boat : [7 #7]. It could be a good solution.
+
+
+== 3 ==
+
+You are at the edge of the old forest. 
+
+[../media/sample_forest.png]{~~~~}
+
+This forest is huge and you may get lost, so you'd better go back to the road.
+
+- Go to the cliff: 6
+- Go back to the hills close to the beach: 5
+- Enter the [#forest] anyway.
+- Go to the market place in your village: 4
+- Enter your home [#7] or restart [#1] the game.
+
+
+== 4 ==
+
+There is no one here.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+- Go up to the cliff: 6
+- Go to the hills: 5
+- Go back to the entrance of the [#village], where you have a friend.
+
+
+== 5 ==
+
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs|#8].
+
+- Go close to the cliff to examine the sea from above: 6
+- Go to the forest nearby: 3
+- Look inside the boat: 2
+- Talk to the man: 8
+- You decide you feel bored and go back to your home [#7] or restart [#1] the game.
+
+
+
+== 6 ==
+
+You stand on the edge of a cliff.°°note3°°(it's very huge!)°°
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+- Go to the beach : 5
+- Go to the [#village] nearby
+
+
+
+
+== 7 ==
+
+Your home is a simple hut in the village of Uldirir.
+
+- Here you can choose to continue the game by going again by the seaside, to the hills: 5
+- Or [#test] various things in this game.
+
+
+
+
+
+== 8 ==
+
+The man tells you that an extraordinary tree is growing several miles above, along the river. He's so old he cannot travel there alone. 
+
+- You propose to go there for him: 10
+
+
+== 9 ==
+
+Nothing here yet!
+
+- Restart the [#game]: 1
+- [#1] 
+
+== 10 ==
+
+Nothing here yet!
+
+
+== game ==
+
+This chapter is linked from a pure keyword 
+
+- Now restart the game: 1
+
+
+== village ==
+
+[../media/sample_village.png]{~~~~}
+
+You have a friend in the village.
+
+- go to the forest: 3
+
+
+== forest ==
+
+As soon as you enter the forest, you hear some strange noises.
+
+- Go deeper in your exploration of the [dark forest|#forest_ref_01], or return to the [#village].
+
+
+== hills ==
+
+blabla 
+
+- go to 5
+
+
+== forest_ref_01 ==
+
+This part is deeper in the [#forest].
+
+- Restart the game 1
+
+
+== man ==
+
+The man has a long beard and some strange nostrils. He's quite aged and looks quite crazy.
+
+- Talk to the man: 8
+- Go back home: 7
+
+
+
+== test ==
+
+This part is for testing purpose only.
+
+- Secret chapter: tt 2
+
+- [tiny village #village] 
+- [tiny village|#village].
+- [tiny village | #village]
+- this [#village], nearby, [tiny village|#village].
+
+- Enter your home [7 #7] or restart [1 #1] the game.
+- Enter your home [#7] or restart [#1] the game.
+- go deeper in the [dark forest|#forest_ref_01], check [this game info|#game] or return to [#village]
+
+
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man #man] which is collecting [twigs|#8].
+
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the [old man|#man] which is collecting [twigs #8].
+
+
+
+== instructions ==
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

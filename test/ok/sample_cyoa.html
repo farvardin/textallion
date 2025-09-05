@@ -1,0 +1,929 @@
+<?xml version="1.0"
+      encoding="utf-8"
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>The strange fisherman, a sample for textallion CYOA</title>
+<meta name="generator" content="https://textallion.sourceforge.io" />
+<meta content="minimum-scale=1.0, width=device-width, maximum-scale=2.0, user-scalable=yes" name="viewport" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<!--
+show is for normal link
+visibility is for notes
+toggle is for footer
+-->
+
+<script language='javascript'> 
+ el = 0; function show(obj) { 
+	old_el=el; 
+	el = document.getElementById(obj);
+	if ( el.style.display != 'none' ) { 
+	 
+	} 
+	else { 
+		el.style.display = '';
+		old_el.style.display = 'none'; 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el = 0; function showAndFade(obj) { 
+	old_el=el; 
+	el = document.getElementById(obj);
+	if ( el.style.display != 'none' ) { 
+	 
+	} 
+	else { 
+		// Make the text transparent so when we unhide it it won't show up.
+		// We'll fade it in later with the animateFade function
+		var element = document.getElementById(obj);
+		element.style.opacity = element.FadeState == 0 ? '0' : '0';
+		element.style.filter = 'alpha(opacity = '
+        + (element.FadeState == 1 ? '0' : '0') + ')';
+        // Unhide the block
+        el.style.display = '';
+		old_el.style.display = 'none'; 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el2 = 0; function toggle(obj) { 
+	
+	el2 = document.getElementById(obj);
+	if ( el2.style.display != 'none' ) { 
+	el2.style.display = 'none'; 
+	} 
+	else { 
+		el2.style.display = 'block';
+ 
+	} } 
+</script>
+
+<script language='javascript'> 
+ el3 = 0; function visibility(obj) { 
+	
+	el3 = document.getElementById(obj);
+	if ( el3.style.visibility != 'hidden' ) { 
+	el3.style.visibility = 'hidden'; 
+	} 
+	else { 
+		el3.style.visibility = 'visible';
+ 
+	} } 
+</script>
+
+<script language='javascript'> 
+// from http://mathiasbynens.be/demo/javascript-unicode-dice 
+function unicodeDice() {     return String.fromCharCode(0x2680 + Math.floor(Math.random() * 6));    }
+</script>
+
+<script language='javascript'> 
+// 
+function SimpleDice() {     return Math.round(Math.random() * 6) % 6 + 1;    }
+</script>
+
+<script language='javascript'> 
+// 
+function Dice(die, dice) { var die = 6; var dice = 1;    for (loop=0; loop < dice; loop++) {// random number fix by George Johnston (cali_scripter@yahoo.com), script from http://javascript.internet.com/games/dice-roller.html 
+ roll = roll + Math.round(Math.random() * die) % die + 1; }
+ document.form.text.value = roll;  }
+</script>
+
+
+
+<script language='javascript'>
+/* from http://www.switchonthecode.com/tutorials/javascript-tutorial-simple-fade-animation
+We just disable the fade out switch. 
+*/
+var TimeToFade = 450.0;
+
+function fade(eid)
+{
+  var element = document.getElementById(eid);
+  element.FadeState = 0 ;
+  if(element == null)
+    return;
+   
+  else
+  {
+    element.FadeState = element.FadeState == 2 ? -1 : 1;
+    element.FadeTimeLeft = TimeToFade;
+    setTimeout("animateFade(" + new Date().getTime() + ",'" + eid + "')", 33);
+  }  
+}
+
+function animateFade(lastTick, eid)
+{  
+  var curTick = new Date().getTime();
+  var elapsedTicks = curTick - lastTick;
+ 
+  var element = document.getElementById(eid);
+ 
+ 
+  if(element.FadeTimeLeft <= elapsedTicks)
+  {
+    element.style.opacity = element.FadeState == 1 ? '1' : '0';
+    element.style.filter = 'alpha(opacity = '
+        + (element.FadeState == 1 ? '100' : '0') + ')';
+    //element.FadeState = element.FadeState == 1 ? 2 : -2;
+    return;
+  }
+ 
+  element.FadeTimeLeft -= elapsedTicks;
+  var newOpVal = element.FadeTimeLeft/TimeToFade;
+  //if(element.FadeState == 1)
+    newOpVal = 1 - newOpVal;
+
+  element.style.opacity = newOpVal;
+  element.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+ 
+  setTimeout("animateFade(" + curTick + ",'" + eid + "')", 33);
+}
+
+</script>
+
+
+<!-- Included ../includes/sample.css -->
+<style type="text/css">
+/* =========== SAMPLE STYLE FOR TEXTALLION ===========================*/
+/* https://textallion.sourceforge.io/ */
+
+/*Inspired by http://code.google.com/p/better-web-readability-project/ */
+
+
+@font-face {
+    /* optionnal */
+    /* see http://code.google.com/webfonts */
+    /* example with http://www.google.com/webfonts/family?family=Goudy+Bookletter+1911&subset=latin#code 
+     * Just add "CustomFont" (and rename it if you prefer), before serif in the body {}, or remove it if you don't want this */
+    font-family: "CustomFont";
+    font-style: normal;
+    font-weight: normal;
+    src: url("http://themes.googleusercontent.com/font?kit=l5lwlGTN3pEY5Bf-rQEuILmKcuvUA98TddnVPjOJl_w");	
+}
+
+
+body { 
+    margin:2em;
+    padding:1.2em;
+    /*font-size:1.2em;*/
+    font:1.5em CustomFont, serif;
+    line-height:1.625em;
+    background-color:#FFFEF0;
+    font-size-adjust:0.4;
+    /*font-style:normal;
+    font-variant:normal;
+    font-weight:normal;*/
+    color:#333;
+}
+
+/* alternatives: "Palatino Linotype", "Book Antiqua", Palatino , Bookman */
+
+
+
+/*
+p:first-line { 
+  margin-left: 5.7em;padding-left: 5.7em;
+}
+* */
+
+p { 
+    /* background-color:#FFFEF0; */
+    text-indent:1.625em;
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    text-align: justify;
+    -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; -o-hyphens: auto; hyphens: auto;
+    
+}
+
+ul { 
+    margin-top: 0.7em;
+    margin-bottom: 0.7em;
+    text-align: justify;
+}
+
+
+
+p.initial { 
+    text-indent:0.05em;
+}
+
+p.initial:first-letter {
+    position: relative;
+    padding-top:8px;
+    display: block;
+    float: left;
+    font-weight: normal;
+    font-size: 3.4em;
+}
+
+
+
+	
+/*p img       { float: left; margin: 0.5em 0.8125em 0.8125em 0; padding: 0; }*/
+/*p img.right { float: right; margin: 0.5em  0 0.8125em 0.8125em }*/
+
+
+img { 
+	margin: 0.3em  0.3em 0.3em 0.3em ;
+	max-width: 90%;
+}
+
+blockquote p, li p { 
+  }
+
+blockquote, pre { 
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    /*background-color: #E7E6DA;*/
+    /*border:1px #9b9989 dotted;*/
+    /*border-left: 3px solid #999;*/
+}
+
+/*Andale Mono*/
+
+/*ul {
+    text-indent: 0.4em;
+    margin-left: 4.2em;
+    text-align: left;}  */
+  
+ 
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; color: #333; }
+.title1,.title2,.title3 { font-weight: bold; color: #333;  }
+
+
+h1 { font-size: 2.125em; margin-bottom: 0.765em; }
+h2 { font-size: 1.9em;  margin-bottom: 0.855em; color:Sienna;}
+h3 { font-size: 1.7em;  margin-bottom: 0.956em; color:SaddleBrown;}
+h4 { font-size: 1.55em;  margin-bottom: 1.161em; }
+h5,h6 { font-size: 1.313em;  margin-bottom: 1.238em; }
+
+.title1 { font-size: 2.125em; margin-bottom: 0.765em; }
+.title2 { font-size: 1.9em;  margin-bottom: 0.855em; }
+.title3 { font-size: 1.7em;  margin-bottom: 0.956em; }
+
+
+a {
+    color:#09c;
+    text-decoration:none;
+	}
+	
+a:link {color:#057;}
+a:visited {color:#046;}
+a:hover {background-color:#eee; text-decoration: none; border-bottom: 1px solid #ccc }
+
+div.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+
+p.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+
+.big {
+    font-size:135%; 
+}
+
+.small {
+    font-size:70%; 
+}
+
+.exergue {
+    text-align:right;margin-left:40px;margin-right:10px;
+    font-style:italic;
+    font-size:90%; 
+}
+
+.exergueauthor {
+    text-align:right;
+    font-size:90%; 
+    font-variant: small-caps;
+}
+
+.italic {font-style:italic;}
+.bold {font-weight:bold;}
+.boxed {border-style:solid;}
+
+div.code {
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    border:1px #9b9989 dotted;
+    border-left: 3px solid #999;
+}
+
+div.code p{
+    line-height: 1.2em;
+    font-family : monospace;
+    background-color: #D6D5CA;
+
+}
+
+
+
+div.column2 {
+    -moz-column-count: 2;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 2;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column3 {
+    -moz-column-count: 3;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 3;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column4 {
+    -moz-column-count: 4;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 4;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+
+
+
+
+/* txt2cyoa */
+
+a.hiddenlink {
+    background-color:#FFFEF0;
+    color: #FFFEF0; /* same color as the surrounding text */
+    text-decoration: none; /* to remove the underline */
+    cursor: text; /* to make the cursor stay as a text cursor, not the hand */
+  }
+
+
+#header .title1 { color: #fff; text-align: center;}
+
+#header h1 { color: #fff; text-align: center;}
+
+
+
+
+.wrap, .wrap_left { 
+    float: left;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.wrap_right { 
+    float: right;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.l {
+    font-size: 0.8em;
+    display:inline;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+
+    text-decoration: none;
+
+    width:160px;
+    font-weight: 500;
+	
+}
+.l:hover 
+{
+    border:none;
+    color: #FFF;
+    background: #6487ba;
+}
+
+
+input
+{
+    color: #000;
+    background: #eee;
+    border: 1px solid #6487ba;
+}
+
+button0 { 
+    color:#000; 
+    size: 3em;
+    /*font: bold 100%; */
+    background-color:#eee; 
+    /*border:2px solid; 
+    border-color: #000; */
+	} 
+	
+
+
+
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#footer2 {
+    margin:auto;
+    text-align: center;
+    font-size: 0.7em;
+    background-color:#ddd; 
+    width:50%;
+}
+
+
+#note {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+#note p {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+
+/* footnotes */
+
+span[id^="ftn"] {
+    display: none;
+    color: #bbb;
+	}
+span[id^="ftn"]:target {
+    display: block;
+    color: #222;
+    background-color: rgba(214,213,202, 0.9);
+    font-size: 0.8em;
+    position: fixed;
+    right: 0.6em;
+    bottom: 1.1em;
+    width: 40%;
+    border-left: 3px solid #777;
+    padding: 0.5em;
+	}
+
+a.ftn:link {
+    color: #222;
+}
+
+a.ftn:visited {
+    color: #222;
+}
+
+
+a.ftn:hover {
+    color: #444;
+    /*text-decoration: underline;*/
+}
+
+table   { 
+	border-collapse: collapse;
+}
+
+td {
+	padding:4px; 
+}
+
+div.toc {
+	line-height: 1.1em;
+	    margin-top: 0;
+    margin-bottom: 0px;
+    font-size:0.9em;
+}
+
+div.toc ul {
+    margin-top: 0.0em;
+    margin-bottom: 0.2em;
+}
+
+
+.smallcaps {
+text-transform: lowercase;
+font-variant: small-caps;
+}
+.smallcaps:first-letter {
+text-transform: uppercase;
+}
+
+
+.note {color: #444; }
+
+</style>
+
+</head>
+
+<body>
+<div align="center">
+<h1>The strange fisherman, a sample for textallion CYOA</h1> <br/> 
+<span class="title2">by Farvardin</span> <br/> <br/>
+<span class="title3">2025-09-05</span> <br/> <br/>
+</div>
+
+
+<p><br/><br/><br/></p></div>
+
+<div id="pageIntroduction" style="display:block"> 
+<br/>
+<br/><h2><span style="display: none">Introduction</span></h2>
+
+<p>
+</p><div class="center">  <img align="middle" src="../media/sample_game_cover.jpg" border="0" alt=""/> </div><p> 
+</p>
+
+<ul>
+<li>Read the <b><a onclick="fade('pageinstructions');showAndFade('pageinstructions');location.assign( '#pageinstructions' );" href="#pageinstructions">instructions</a></b> or start the game <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page1" style="display:none"> 
+<br/>
+<br/><h2>1</h2>
+
+<p>
+This is the first chapter of your story.<a onclick="visibility('note1');">*</a> <span id="note1" style="visibility:hidden">It will present various ways to use txt2tags and textallion to create CYOA (choose your own adventure). Check the source code of this sample, and read the comments about various tips for using textallion</span>
+</p>
+<p>
+You are walking on the bank of a river, in a sunny autumn day. You can see a <b><a onclick="fade('pageman');showAndFade('pageman');location.assign( '#pageman' );" href="#pageman">man</a></b> holding a landing net. Yet he's not really fishing, he's only collecting small twigs.
+</p>
+
+<ul>
+<li>Enter the <b><a onclick="fade('pageforest');showAndFade('pageforest');location.assign( '#pageforest' );" href="#pageforest">forest</a></b> nearby.
+</li>
+<li>Explore the <b><a onclick="fade('pagehills');showAndFade('pagehills');location.assign( '#pagehills' );" href="#pagehills">green hills</a></b> close to the river: <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Ask the <b><a onclick="fade('pageman');showAndFade('pageman');location.assign( '#pageman' );" href="#pageman">man</a></b> about the <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">twigs</a></b> he's getting from the river: <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">8</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page2" style="display:none"> 
+<br/>
+<br/><h2>2</h2>
+
+<p>
+There is nothing interesting in this chapter. In fact this is only a test chapter.
+</p>
+<p>
+This template story is almost empty yet, but you can improve it yourself!
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<ul>
+<li>Go to the left, turn to <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b>
+</li>
+<li>Go to the right, turn to <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Use the boat : <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b>. It could be a good solution.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page3" style="display:none"> 
+<br/>
+<br/><h2>3</h2>
+
+<p>
+You are at the edge of the old forest. 
+</p>
+<p>
+<img class="wrap_left" src="../media/sample_forest.png" border="0" alt=""/> 
+</p>
+<p>
+This forest is huge and you may get lost, so you'd better go back to the road.
+</p>
+
+<ul>
+<li>Go to the cliff: <b><a onclick="fade('page6');showAndFade('page6');location.assign( '#page6' );" href="#page6">6</a></b>
+</li>
+<li>Go back to the hills close to the beach: <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Enter the <b><a onclick="fade('pageforest');showAndFade('pageforest');location.assign( '#pageforest' );" href="#pageforest">forest</a></b> anyway.
+</li>
+<li>Go to the market place in your village: <b><a onclick="fade('page4');showAndFade('page4');location.assign( '#page4' );" href="#page4">4</a></b>
+</li>
+<li>Enter your home <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b> or restart <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b> the game.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page4" style="display:none"> 
+<br/>
+<br/><h2>4</h2>
+
+<p>
+There is no one here.
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<ul>
+<li>Go up to the cliff: <b><a onclick="fade('page6');showAndFade('page6');location.assign( '#page6' );" href="#page6">6</a></b>
+</li>
+<li>Go to the hills: <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Go back to the entrance of the <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">village</a></b>, where you have a friend.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page5" style="display:none"> 
+<br/>
+<br/><h2>5</h2>
+
+<p>
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the <b><a onclick="fade('pageman');showAndFade('pageman');location.assign( '#pageman' );" href="#pageman">old man</a></b> which is collecting <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">twigs</a></b>.
+</p>
+
+<ul>
+<li>Go close to the cliff to examine the sea from above: <b><a onclick="fade('page6');showAndFade('page6');location.assign( '#page6' );" href="#page6">6</a></b>
+</li>
+<li>Go to the forest nearby: <b><a onclick="fade('page3');showAndFade('page3');location.assign( '#page3' );" href="#page3">3</a></b>
+</li>
+<li>Look inside the boat: <b><a onclick="fade('page2');showAndFade('page2');location.assign( '#page2' );" href="#page2">2</a></b>
+</li>
+<li>Talk to the man: <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">8</a></b>
+</li>
+<li>You decide you feel bored and go back to your home <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b> or restart <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b> the game.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page6" style="display:none"> 
+<br/>
+<br/><h2>6</h2>
+
+<p>
+You stand on the edge of a cliff.<a onclick="visibility('note3');">*</a> <span id="note3" style="visibility:hidden">(it's very huge!)</span>
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<ul>
+<li>Go to the beach : <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Go to the <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">village</a></b> nearby
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page7" style="display:none"> 
+<br/>
+<br/><h2>7</h2>
+
+<p>
+Your home is a simple hut in the village of Uldirir.
+</p>
+
+<ul>
+<li>Here you can choose to continue the game by going again by the seaside, to the hills: <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+<li>Or <b><a onclick="fade('pagetest');showAndFade('pagetest');location.assign( '#pagetest' );" href="#pagetest">test</a></b> various things in this game.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page8" style="display:none"> 
+<br/>
+<br/><h2>8</h2>
+
+<p>
+The man tells you that an extraordinary tree is growing several miles above, along the river. He's so old he cannot travel there alone. 
+</p>
+
+<ul>
+<li>You propose to go there for him: <b><a onclick="fade('page10');showAndFade('page10');location.assign( '#page10' );" href="#page10">10</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="page9" style="display:none"> 
+<br/>
+<br/><h2>9</h2>
+
+<p>
+Nothing here yet!
+</p>
+
+<ul>
+<li>Restart the <b><a onclick="fade('pagegame');showAndFade('pagegame');location.assign( '#pagegame' );" href="#pagegame">game</a></b>: <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b>
+</li>
+<li><b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b> 
+<p></p>
+==10==[10]
+<p></p>
+Nothing here yet!
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pagegame" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">game</span></h2>
+
+<p>
+This chapter is linked from a pure keyword 
+</p>
+
+<ul>
+<li>Now restart the game: <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pagevillage" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">village</span></h2>
+
+<p>
+<img class="wrap_left" src="../media/sample_village.png" border="0" alt=""/> 
+</p>
+<p>
+You have a friend in the village.
+</p>
+
+<ul>
+<li>go to the forest: <b><a onclick="fade('page3');showAndFade('page3');location.assign( '#page3' );" href="#page3">3</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pageforest" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">forest</span></h2>
+
+<p>
+As soon as you enter the forest, you hear some strange noises.
+</p>
+
+<ul>
+<li>Go deeper in your exploration of the <b><a onclick="fade('pageforest_ref_01');showAndFade('pageforest_ref_01');location.assign( '#pageforest_ref_01' );" href="#pageforest_ref_01">dark forest</a></b>, or return to the <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">village</a></b>.
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pagehills" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">hills</span></h2>
+
+<p>
+blabla 
+</p>
+
+<ul>
+<li>go to <b><a onclick="fade('page5');showAndFade('page5');location.assign( '#page5' );" href="#page5">5</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pageforest_ref_01" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">forest_ref_01</span></h2>
+
+<p>
+This part is deeper in the <b><a onclick="fade('pageforest');showAndFade('pageforest');location.assign( '#pageforest' );" href="#pageforest">forest</a></b>.
+</p>
+
+<ul>
+<li>Restart the game <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pageman" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">man</span></h2>
+
+<p>
+The man has a long beard and some strange nostrils. He's quite aged and looks quite crazy.
+</p>
+
+<ul>
+<li>Talk to the man: <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">8</a></b>
+</li>
+<li>Go back home: <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b>
+</li>
+</ul>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pagetest" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">test</span></h2>
+
+<p>
+This part is for testing purpose only.
+</p>
+
+<ul>
+<li>Secret chapter: turn to <b><a onclick="fade('page2');showAndFade('page2');location.assign( '#page2' );" href="#page2">2</a></b>
+<p></p>
+</li>
+<li><b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">tiny village</a></b> 
+</li>
+<li><b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">tiny village</a></b>.
+</li>
+<li><b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">tiny village</a></b>
+</li>
+<li>this <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">village</a></b>, nearby, <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">tiny village</a></b>.
+<p></p>
+</li>
+<li>Enter your home <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b> or restart <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b> the game.
+</li>
+<li>Enter your home <b><a onclick="fade('page7');showAndFade('page7');location.assign( '#page7' );" href="#page7">7</a></b> or restart <b><a onclick="fade('page1');showAndFade('page1');location.assign( '#page1' );" href="#page1">1</a></b> the game.
+</li>
+<li>go deeper in the <b><a onclick="fade('pageforest_ref_01');showAndFade('pageforest_ref_01');location.assign( '#pageforest_ref_01' );" href="#pageforest_ref_01">dark forest</a></b>, check <b><a onclick="fade('pagegame');showAndFade('pagegame');location.assign( '#pagegame' );" href="#pagegame">this game info</a></b> or return to <b><a onclick="fade('pagevillage');showAndFade('pagevillage');location.assign( '#pagevillage' );" href="#pagevillage">village</a></b>
+</li>
+</ul>
+
+<p>
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the <b><a onclick="fade('pageman');showAndFade('pageman');location.assign( '#pageman' );" href="#pageman">old man</a></b> which is collecting <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">twigs</a></b>.
+</p>
+<p>
+You see nothing really interesting in the hills. There is the sea on the west and a boat on the east, not far from the <b><a onclick="fade('pageman');showAndFade('pageman');location.assign( '#pageman' );" href="#pageman">old man</a></b> which is collecting <b><a onclick="fade('page8');showAndFade('page8');location.assign( '#page8' );" href="#page8">twigs</a></b>.
+</p>
+
+<p><br/><br/><br/></p></div>
+
+<div id="pageinstructions" style="display:none"> 
+<br/>
+<br/><h2><span style="display: none">instructions</span></h2>
+
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<!-- xhtml code generated by txt2tags 2.6. (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -T ..//templates/cyoa.html -\-config-file ..//core/txt2cyoa.t2t -t xhtml -\-css-inside -\-outfile sample_cyoa.html sample_cyoa.t2t -->
+
+
+
+<p><br/><br/><br/></p></div>
+
+<div id="footer" style="display:block"><hr size=1 width=50%/><i><a href="#cyoaexplications" onclick="toggle('footer2');">:: made using textallion and txt2cyoa ::</a></i></div>
+
+<div id="footer2" style="display:none"><a name="cyoaexplications"></a><i>txt2cyoa is a system for creating and displaying "Choose your own adventure" gamebooks<br/><a href="https://textallion.sourceforge.io" target="_blank">: Homepage</a></i></div>
+<p></p>
+</body></html>

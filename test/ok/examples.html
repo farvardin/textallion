@@ -1,0 +1,1397 @@
+<?xml version="1.0"
+      encoding="utf-8"
+?>
+<!DOCTYPE html lang="" PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Textallion, some examples</title>
+<meta name="generator" content="https://textallion.sourceforge.io" />
+<meta content="minimum-scale=0.5, width=device-width, maximum-scale=2.0, user-scalable=yes" name="viewport" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<!-- Included ../includes/sample_sans.css -->
+<style type="text/css">
+/* =========== SAMPLE STYLE FOR TEXTALLION ===========================*/
+/* https://textallion.sourceforge.io/ */
+
+/* base and inspiration for this style : http://jeunes-science.org/kiwi/ */ 
+
+/*-----
+    ©2012 GGP & al.jes, certains droits réservés…
+    http://geekygoblin.org
+    http://aljes.me
+    Copyleft: cette oeuvre est libre, vous pouvez la copier, la diffuser et la modifier selon les termes de la Licence Art Libre http://www.artlibre.org
+    Pour plus d'information, visitez http://geekygoblin.org/mentions.htm
+-----*/
+
+/* using Fengardo font by Loic Sander  */
+
+/* 0 - Base */
+
+* {
+    border: 1;
+    font: inherit;
+    font-size: 100%;
+    line-height: 1.5!important;
+   /* margin: 0;*/
+    max-width: 100%;
+   /* outline: 0; */
+   /* padding: 0;*/
+   /* text-decoration: none;*/
+    vertical-align: baseline;
+}
+
+/*-----
+
+    bg color:  #FAFAFA
+    txt color: #292929
+    secondary color: #42C200
+
+-----*/
+
+/* 1 - Typography */
+
+
+
+@font-face {
+    font-family: Fengardo;
+    font-style: normal;
+    font-weight: normal;
+    src: url(./fonts/fengardoneue-regular.woff) format('woff');
+     /*   url(./fonts/fengardoneue-regular.otf) format('opentype'),
+        url(./fonts/fengardoneue-regular.svg) format('svg'); */
+}
+
+@font-face {
+    font-family: Fengardo;
+    font-style: italic;
+    src: url(./fonts/Fengardo-italic.otf) format('opentype');
+}
+
+@font-face {
+    font-family: Fengardo;
+    font-weight: bold;
+    src: url(./fonts/fengardoneue-black.woff) format('woff');
+    /*    url(./fonts/FengardoNeue_Black.otf) format('opentype'),
+        url(./fonts/FengardoNeue_Black.svg) format('svg'); */
+}
+
+/* 2 - General */
+
+html {
+    background-color: #FAFAFA;
+    color: #292929;
+    font-family: Fengardo, sans-serif;
+    font-size: 125%; /*=20px*/
+    -epub-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-align: justify;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 600px;
+    width: 80%;
+}
+
+img.affiche {outline: solid 1px #292929;}
+
+em, i {font-style: italic;}
+strong, b {font-weight: bold;}
+
+p, ul, ol {
+  /*  list-style: inside;**/
+    margin-top: 1.1em;
+    margin-bottom: 1em;
+}
+
+p {
+text-indent:1.625em;
+  -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; -o-hyphens: auto; hyphens: auto;
+}
+
+p.initial { 
+    text-indent:0.05em;
+}
+
+p.initial:first-letter {
+    position: relative;
+    padding-top:8px;
+    display: block;
+    float: left;
+    font-weight: normal;
+    font-size: 3.4em;
+}
+
+div.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:-0.5em;
+}
+
+
+p.center  {
+    text-indent:0em;
+    text-align:center;margin-right:auto;margin-left:auto;
+    margin-top:0em;
+    margin-bottom:0em;
+}
+
+li p {margin-bottom: 10;}
+
+/*
+ * ul li {list-style: none;}
+ul li::before {content: "– ";}
+* */
+
+blockquote {margin-left: 1rem;}
+
+blockquote p::before {content: "— ";}
+
+a {
+    border-bottom: 1px solid #42C200;
+    color: inherit;
+    margin-bottom: -1px;
+    text-decoration: none;
+}
+
+abbr, acronym, a.definition {
+    border-bottom: 1px dashed #42C200;
+    margin-bottom: -1px;
+}
+
+a:hover, a:focus {
+    border-color: inherit;
+}
+
+hr {
+    border: 0;
+    height: 1rem;
+    margin: 1rem auto;
+    width: 0;
+}
+
+hr::after {content: "⁂";}
+
+.skip {
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    text-align: right;
+}
+
+.skip p {margin: 0;}
+.skip a {margin-left: 1rem;}
+
+/* 3 - Heading */
+
+h1, h2 {text-align: center;}
+h3, h4, h5, h6 {text-align: left;}
+
+h1 {font-size: 1.8rem; margin: 7.1rem 0;}
+h2 {font-size: 1.5rem; margin: 1rem 0 0.5rem 0;}
+h3 {font-size: 1.3rem; margin: 0.7rem 0 0 0;}
+h4 {font-size: 1.2rem; margin: 0.8rem 0 0 0;}
+h5 {font-size: 1.1rem; margin: 0.9rem 0 0 0;}
+h6, .s-titre {font-size: 1rem;}
+
+h1 {font-weight: bold; text-transform: uppercase;}
+h2, h3 {font-variant: small-caps;}
+h4, h5, h6, .s-titre {
+    font-style: italic;
+    font-variant: normal;
+    font-weight: normal;
+    text-transform: none;
+}
+
+
+
+
+
+/* 4 - Menus */
+
+#menu {text-align: center;}
+#menu li {
+    display: inline-block;
+   /* list-style: none;*/
+    margin: 0 1rem;
+}
+#menu li::before {content: "";}
+
+#table ol, #table li {list-style-type: lower-roman;}
+#sommaire ol, #sommaire li {list-style-type: none;}
+
+/* 5 - Colophon */
+
+#colophon {
+    font-size: 0.6rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#colophon img {width: 20%;}
+#logo a {border: 0;}
+
+
+/* 6 - Others */
+
+
+
+
+.big {
+    font-size:135%; 
+}
+
+.small {
+    font-size:70%; 
+}
+
+.exergue {
+    text-align:right;margin-left:40px;margin-right:10px;
+    font-style:italic;
+    font-size:90%; 
+}
+
+.exergueauthor {
+    text-align:right;
+    font-size:90%; 
+    font-variant: small-caps;
+}
+
+.italic {font-style:italic;}
+.bold {font-weight:bold;}
+
+div.code {
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    border:1px #9b9989 dotted;
+    border-left: 3px solid #999;
+}
+
+div.code p{
+    line-height: 1.2em;
+    font-family : monospace;
+    background-color: #D6D5CA;
+}
+   
+   
+code  {
+    font-family : monospace;
+    background-color: #E7E6DA;
+}
+
+code p{
+    font-family : monospace;
+    background-color: #D6D5CA;
+}
+
+blockquote, pre { 
+    line-height: 1.2em;
+    margin-right:10px; margin-left:10px;
+    padding: 1em;
+    font-family : monospace;
+    background-color: #E7E6DA;
+    /*border:1px #9b9989 dotted;*/
+    /*border-left: 3px solid #999;*/
+}  
+   
+div.column2 {
+    -moz-column-count: 2;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 2;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column3 {
+    -moz-column-count: 3;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 3;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+div.column4 {
+    -moz-column-count: 4;
+    -moz-column-gap: 3em;
+    -moz-column-rule: 1px solid black;
+    
+    -webkit-column-count: 4;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px solid black;
+}
+
+
+/* txt2cyoa */
+
+a.hiddenlink {
+    background-color:#FFFEF0;
+    color: #FFFEF0; /* same color as the surrounding text */
+    text-decoration: none; /* to remove the underline */
+    cursor: text; /* to make the cursor stay as a text cursor, not the hand */
+  }
+
+
+#header .title1 { color: #fff; text-align: center;}
+
+#header h1 { color: #fff; text-align: center;}
+
+
+
+
+.wrap, .wrap_left { 
+    float: left;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.wrap_right { 
+    float: right;
+    margin-top: 0;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 1px solid #000;
+    padding: 2px;
+}
+
+.l {
+    font-size: 0.8em;
+    display:inline;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+
+    text-decoration: none;
+
+    width:160px;
+    font-weight: 500;
+	
+}
+.l:hover 
+{
+    border:none;
+    color: #FFF;
+    background: #6487ba;
+}
+
+
+input
+{
+    color: #000;
+    background: #eee;
+    border: 1px solid #6487ba;
+}
+
+button0 { 
+    color:#000; 
+    size: 3em;
+    /*font: bold 100%; */
+    background-color:#eee; 
+    /*border:2px solid; 
+    border-color: #000; */
+	} 
+	
+
+
+
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#footer2 {
+    margin:auto;
+    text-align: center;
+    font-size: 0.7em;
+    background-color:#ddd; 
+    width:50%;
+}
+
+
+#note {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+#note p {
+    text-align: left;
+    font-style: italic;
+    color: #444;
+}
+
+
+/* footnotes */
+
+span[id^="ftn"] {
+    display: none;
+    color: #bbb;
+	}
+span[id^="ftn"]:target {
+    display: block;
+    color: #222;
+    background-color: rgba(214,213,202, 0.9);
+    font-size: 0.8em;
+    position: fixed;
+    right: 0.6em;
+    bottom: 1.1em;
+    width: 40%;
+    border-left: 3px solid #777;
+    padding: 0.5em;
+	}
+
+a.ftn:link {
+    color: #222;
+}
+
+a.ftn:visited {
+    color: #222;
+}
+
+
+a.ftn:hover {
+    color: #444;
+    /*text-decoration: underline;*/
+}
+
+table   { 
+	border-collapse: collapse;
+}
+
+td {
+	padding:4px; 
+}
+
+div.toc {
+	line-height: 1.1em;
+	    margin-top: 0;
+    margin-bottom: 0px;
+    font-size:0.9em;
+}
+
+div.toc ul {
+    margin-top: 0.0em;
+    margin-bottom: 0.2em;
+}
+</style>
+
+</head>
+<body>
+<div align="center">
+<h1>Textallion, some examples</h1> <br/> 
+</div>
+
+<div class="toc">
+
+  <ul>
+  <li><a href="#toc1">Sample texts in English</a>
+    <ul>
+    <li><a href="#toc2">Poetry</a>
+      <ul>
+      <li><a href="#toc3">Gil-galad</a>
+      </li>
+      <li><a href="#toc4">De Profundis</a>
+      </li>
+      </ul>
+    </li>
+    <li><a href="#toc5">Prose</a>
+      <ul>
+      <li><a href="#toc6">The Great God Pan</a>
+      </li>
+      <li><a href="#toc7">The Raven</a>
+      </li>
+      </ul>
+    </li>
+    </ul>
+  </li>
+  <li><a href="#toc8">Examples de textes en français</a>
+    <ul>
+    <li><a href="#toc9">Exemple de poésie</a>
+      <ul>
+      <li><a href="#toc10">Tristesses de la lune</a>
+      </li>
+      <li><a href="#toc11">Aux modernes</a>
+      </li>
+      </ul>
+    </li>
+    <li><a href="#toc12">Prose</a>
+      <ul>
+      <li><a href="#toc13">Le Chat</a>
+      </li>
+      <li><a href="#toc14">Une ville flottante</a>
+      </li>
+      <li><a href="#toc15">Le Corbeau</a>
+      </li>
+      </ul>
+    </li>
+    </ul>
+  </li>
+  <li><a href="#toc16">Diverses</a>
+  </li>
+  <li><a href="#toc17">More tests</a>
+    <ul>
+    <li><a href="#toc18">My Subtitle 1</a>
+    </li>
+    <li><a href="#toc19">My Subtitle 2</a>
+    </li>
+    <li><a href="#toc20">My Subtitle_3</a>
+      <ul>
+      <li><a href="#toc21">My Subsubtitle 1</a>
+      </li>
+      <li><a href="#toc22">My Subsubtitle 2</a>
+      </li>
+      </ul>
+    </li>
+    <li><a href="#toc23">My Subtitle 4</a>
+    </li>
+    </ul>
+  </li>
+  </ul>
+
+</div>
+<div class="body" id="body">
+
+<h1 id="toc1">Sample texts in English</h1>
+
+<p>
+<img align="middle" src="../media/logo_textallion.png" border="0" alt=""/>
+</p>
+<p>
+Here are some document examples for Textallion...
+</p>
+
+<ol>
+<li>There are some poetry
+</li>
+<li>Some prose as well
+</li>
+<li>And some random stuffs
+</li>
+</ol>
+
+<p>
+<i>See <a href="../docs/documentation_en.html">documentation_en.html</a> for the English manual.</i>
+</p>
+
+<h2 id="toc2">Poetry</h2>
+
+<p>
+<br/> 
+
+</p>
+
+<h3 id="toc3">Gil-galad</h3>
+
+<p>
+<i>by JRR Tolkien</i>
+<br/> 
+
+</p><div class="center">
+            <div class="center"> &#x263d; </div>
+<br/> Gil-galad was an Elven-king.
+<br/> Of him the harpers sadly sing:
+<br/> The last whose realm was fair and free
+<br/> Between the mountains and the sea.
+            <div class="center"> &#x25cb; </div>
+<br/> His sword was long, his lance was keen.
+<br/> His shining helm afar was seen.
+<br/> The countless stars of heaven's field
+<br/> Were mirrored in his silver shield.
+            <div class="center"> &#x263c; </div>
+<br/> But long ago he rode away,
+<br/> And where he dwelleth none can say.
+<br/> For into darkness fell his star;
+<br/> In Mordor, where the shadows are.
+            <div class="center"> &#x263e; </div>
+</div><p>
+<br/> 
+
+</p>
+
+<h3 id="toc4">De Profundis</h3>
+
+<p>
+<i>by Christina Rossetti (1830-1894)</i>
+<br/> 
+
+</p><div class="center">
+<br/> 
+
+<br/> Oh why is heaven built so far,
+<br/> Oh why is earth set so remote?
+<br/> I cannot reach the nearest star
+<br/> That hangs afloat.
+</p>
+	<blockquote>
+		<blockquote>
+			<blockquote>
+			 <br/>
+			</blockquote>
+		</blockquote>
+	</blockquote>
+<p>
+<br/> I would not care to reach the moon,
+<br/> One round monotonous of change;
+<br/> Yet even she repeats her tune
+<br/> Beyond my range.
+             <br/>
+<br/> I never watch the scatter'd fire
+<br/> Of stars, or sun's far-trailing train,
+<br/> But all my heart is one desire,
+<br/> And all in vain:
+             <br/>
+<br/> For I am bound with fleshly bands,
+<br/> Joy, beauty, lie beyond my scope;
+<br/> I strain my heart, I stretch my hands,
+<br/> And catch at hope.
+<br/> 
+
+<div class="center"><br/>&#x2735;&#x2735;<br/>&#x2735;</div>
+<br/> 
+
+</div><p>
+</p>
+
+<h2 id="toc5">Prose</h2>
+
+<h3 id="toc6">The Great God Pan</h3>
+
+<p>
+<br/> 
+
+<i>Arthur Machen</i>
+<br/> 
+
+<div class="center"> &#x2766; </div>
+</p>
+<p>
+"Herbert! Good God! Is it possible?"
+<br/> 
+
+</p>
+<p>
+"Yes, my name's Herbert. I think I know your face, too, but I don't remember your name. My memory is very queer."
+<br/> 
+
+</p>
+<p>
+"Don't you recollect Villiers of Wadham?"
+<br/> 
+
+</p>
+<p>
+"So it is, so it is. I beg your pardon, Villiers, I didn't think I was begging of an old college friend. Good-night."
+<br/> 
+
+</p>
+<p>
+"My dear fellow, this haste is unnecessary. My rooms are close by, but we won't go there just yet. Suppose we walk up Shaftesbury Avenue a little way? But how in heaven's name have you come to this pass, Herbert?"
+<br/> 
+
+</p>
+<p>
+"It's a long story, Villiers, and a strange one too, but you can hear it if you like."
+<br/> 
+
+</p>
+<p>
+"Come on, then. Take my arm, you don't seem very strong."
+<br/> 
+
+</p>
+<p>
+The ill-assorted pair moved slowly up Rupert Street; the one in dirty, evil-looking rags, and the other attired in the regulation uniform of a man about town, trim, glossy, and eminently well-to-do. Villiers had emerged from his restaurant after an excellent dinner of many courses, assisted by an ingratiating little flask of Chianti, and, in that frame of mind which was with him almost chronic, had delayed a moment by the door, peering round in the dimly-lighted street in search of those mysterious incidents and persons with which the streets of London teem in every quarter and every hour. Villiers prided himself as a practised explorer of such obscure mazes and byways of London life, and in this unprofitable pursuit he displayed an assiduity which was worthy of more serious employment. Thus he stood by the lamp-post surveying the passers-by with undisguised curiosity, and with that gravity known only to the systematic diner, had just enunciated in his mind the formula: "London has been called the city of encounters; it is more than that, it is the city of Resurrections," when these reflections were suddenly interrupted by a piteous whine at his elbow, and a deplorable appeal for alms. He looked around in some irritation, and with a sudden shock found himself confronted with the embodied proof of his somewhat stilted fancies. There, close beside him, his face altered and disfigured by poverty and disgrace, his body barely covered by greasy ill-fitting rags, stood his old friend Charles Herbert, who had matriculated on the same day as himself, with whom he had been merry and wise for twelve revolving terms. Different occupations and varying interests had interrupted the friendship, and it was six years since Villiers had seen Herbert; and now he looked upon this wreck of a man with grief and dismay, mingled with a certain inquisitiveness as to what dreary chain of circumstances had dragged him down to such a doleful pass. Villiers felt together with compassion all the relish of the amateur in mysteries, and congratulated himself on his leisurely speculations outside the restaurant.
+<br/> 
+
+</p>
+<p>
+They walked on in silence for some time, and more than one passer-by stared in astonishment at the unaccustomed spectacle of a well-dressed man with an unmistakable beggar hanging on to his arm, and, observing this, Villiers led the way to an obscure street in Soho. Here he repeated his question. 
+<br/> 
+
+<div class="center"> &#x2766; </div> 
+</p>
+
+<h3 id="toc7">The Raven</h3>
+
+<p>
+<i>Poe</i>
+<i>1845</i>
+</p>
+<p>
+<br/> <span style="  font-size: 300%; font-weight: bold; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">O</span>nce upon a midnight dreary, while I pondered, weak and weary,
+<br/> Over many a quaint and curious volume of forgotten lore,
+<br/> While I nodded, nearly napping, suddenly there came a tapping,
+<br/> As of some one gently rapping, rapping at my chamber door.
+<br/> “ T’ is some visitor”, I muttered, “tapping at my chamber door&nbsp;—
+    Only this, and nothing more.”
+</p>
+<p>
+<br/> And the silken sad uncertain rustling of each purple curtain
+<br/> Thrilled me — filled me with fantastic terrors never felt before;
+<br/> So that now, to still the beating of my heart, I stood repeating,
+<br/> “ T’ is some visitor entreating entrance at my chamber door&nbsp;—
+<br/> Some late visitor entreating entrance at my chamber door;&nbsp;—
+     This it is, and nothing more.”
+</p>
+<p>
+<br/> Presently my soul grew stronger; hesitating then no longer,
+<br/> “Sir,” said I, “or Madam, truly your forgiveness I implore;
+<br/> But the fact is I was napping, and so gently you came rapping,
+<br/> And so faintly you came tapping, tapping at my chamber door,
+<br/> That I scarce was sure I heard you” —&nbsp;here I opened wide the door;&nbsp;—
+     Darkness there, and nothing more.
+</p>
+<p>
+<br/> Deep into that darkness peering, long I stood there wondering, fearing,
+<br/> Doubting, dreaming dreams no mortal ever dared to dream before;
+<br/> But the silence was unbroken, and the stillness gave no token,
+<br/> And the only word there spoken was the whispered word, “Lenore?”
+<br/> This I whispered, and an echo murmured back the word, “Lenore!”&nbsp;—
+     Merely this, and nothing more.
+</p>
+<p>
+<br/> Back into the chamber turning, all my soul within me burning,
+<br/> Soon again I heard a tapping somewhat louder than before.
+<br/> “Surely,” said I, “surely that is something at my window lattice:
+<br/> Let me see, then, what thereat is, and this mystery explore&nbsp;—
+<br/> Let my heart be still a moment and this mystery explore;&nbsp;—
+     ’Tis the wind and nothing more.”
+<br/> 
+
+</p>
+<p>
+<br/> Open here I flung the shutter, when, with many a flirt and flutter,
+<br/> In there stepped a stately raven of the saintly days of yore;
+<br/> Not the least obeisance made he; not a minute stopped or stayed he;
+<br/> But, with mien of lord or lady, perched above my chamber door&nbsp;—
+<br/> Perched upon a bust of Pallas just above my chamber door&nbsp;—
+     Perched, and sat, and nothing more.
+<br/> 
+
+</p>
+<p>
+<br/> Then this ebony bird beguiling my sad fancy into smiling,
+<br/> By the grave and stern decorum of the countenance it wore.
+<br/> “Though thy crest be shorn and shaven, thou,” I said, “art sure no craven,
+<br/> Ghastly grim and ancient raven wandering from the Nightly shore&nbsp;—
+<br/> Tell me what thy lordly name is on the Night’s Plutonian shore!”
+     Quoth the Raven, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> Much I marveled this ungainly fowl to hear discourse so plainly,
+<br/> Though its answer little meaning — little relevancy bore;
+<br/> For we cannot help agreeing that no living human being
+<br/> Ever yet was blest with seeing bird above his chamber door&nbsp;—
+<br/> Bird or beast upon the sculptured bust above his chamber door,
+     With such name as “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> But the raven, sitting lonely on the placid bust, spoke only
+<br/> That one word, as if his soul in that one word he did outpour.
+<br/> Nothing further then he uttered — not a feather then he fluttered&nbsp;—
+<br/> Till I scarcely more than muttered, “other friends have flown before&nbsp;—
+<br/> On the morrow he will leave me, as my hopes have flown before.”
+     Then the bird said, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> Startled at the stillness broken by reply so aptly spoken,
+<br/> “Doubtless,” said I, “what it utters is its only stock and store,
+<br/> Caught from some unhappy master whom unmerciful Disaster
+<br/> Followed fast and followed faster till his songs one burden bore&nbsp;—
+<br/> Till the dirges of his Hope that melancholy burden bore
+     Of ’Never — nevermore’.”
+<br/> 
+
+</p>
+<p>
+<br/> But the Raven still beguiling all my sad soul into smiling,
+<br/> Straight I wheeled a cushioned seat in front of bird, and bust and door;
+<br/> Then upon the velvet sinking, I betook myself to linking
+<br/> Fancy unto fancy, thinking what this ominous bird of yore&nbsp;—
+<br/> What this grim, ungainly, ghastly, gaunt and ominous bird of yore
+     Meant in croaking “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> This I sat engaged in guessing, but no syllable expressing
+<br/> To the fowl whose fiery eyes now burned into my bosom’s core;
+<br/> This and more I sat divining, with my head at ease reclining
+<br/> On the cushion’s velvet lining that the lamplight gloated o’er,
+<br/> But whose velvet violet lining with the lamplight gloating o’er,
+     She shall press, ah, nevermore!
+<br/> 
+
+</p>
+<p>
+<br/> Then methought the air grew denser, perfumed from an unseen censer
+<br/> Swung by Seraphim whose footfalls tinkled on the tufted floor.
+<br/> “Wretch,” I cried, “thy God hath lent thee — by these angels he hath sent thee
+<br/> Respite — respite and nepenthe, from thy memories of Lenore
+<br/> Quaff, oh quaff this kind nepenthe and forget this lost Lenore!”
+     Quoth the Raven, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> “Prophet!” said I, “thing of evil! — prophet still, if bird or devil!&nbsp;—
+<br/> Whether Tempter sent, or whether tempest tossed thee here ashore,
+<br/> Desolate yet all undaunted, on this desert land enchanted —
+<br/> On this home by horror haunted — tell me truly, I implore —
+<br/> Is there — is there balm in Gilead? — tell me — tell me, I implore!”
+     Quoth the Raven, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> “Prophet!” said I, “thing of evil — prophet still, if bird or devil!
+<br/> By that Heaven that bends above us — by that God we both adore&nbsp;—
+<br/> Tell this soul with sorrow laden if, within the distant Aidenn,
+<br/> It shall clasp a sainted maiden whom the angels name Lenore —
+<br/> Clasp a rare and radiant maiden whom the angels name Lenore.”
+     Quoth the Raven, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> “Be that word our sign in parting, bird or fiend,” I shrieked, upstarting&nbsp;—
+<br/> “Get thee back into the tempest and the Night’s Plutonian shore!
+<br/> Leave no black plume as a token of that lie thy soul hath spoken!
+<br/> Leave my loneliness unbroken! — quit the bust above my door!
+<br/> Take thy beak from out my heart, and take thy form from off my door!”
+     Quoth the Raven, “Nevermore.”
+<br/> 
+
+</p>
+<p>
+<br/> And the Raven, never flitting, still is sitting, still is sitting
+<br/> On the pallid bust of Pallas just above my chamber door;
+<br/> And his eyes have all the seeming of a demon’s that is dreaming,
+<br/> And the lamplight o’er him streaming throws his shadow on the floor;
+<br/> And my soul from out that shadow that lies floating on the floor
+     Shall be lifted — nevermore!
+<br/> 
+
+<div class="center"> &#x2766; </div> 
+</p>
+
+<h1 id="toc8">Examples de textes en français</h1>
+
+<p>
+<img align="middle" src="../media/logo_textallion.png" border="0" alt=""/>
+</p>
+<p>
+Voici quelques exemples de documents utilisant le TeXtallion...
+</p>
+
+<ol>
+<li>Il y a de la poésie
+</li>
+<li>un peu de prose
+</li>
+<li>et divers styles de textes
+</li>
+</ol>
+
+<p>
+<i>Voir <a href="docs/documentation_fr.html">documentation_fr.html</a> pour le manuel en français.</i>
+</p>
+
+<h2 id="toc9">Exemple de poésie</h2>
+
+<h3 id="toc10">Tristesses de la lune</h3>
+
+<p>
+<br/> 
+
+<i>Baudelaire</i>
+<br/> 
+
+</p><div class="center">
+              <div class="center"> &#x263d; </div>
+<br/> Ce soir, la lune rêve avec plus de paresse;
+<br/> Ainsi qu'une beauté, sur de nombreux coussins,
+<br/> Qui d'une main distraite et légère caresse
+<br/> Avant de s'endormir le contour de ses seins,
+              <div class="center"> &#x25cb; </div>        
+<br/> Sur le dos satiné des molles avalanches,
+<br/> Mourante, elle se livre aux longues pâmoisons,
+<br/> Et promène ses yeux sur les visions blanches
+<br/> Qui montent dans l'azur comme des floraisons.
+              <div class="center"> &#x263e; </div>
+<br/> Quand parfois sur ce globe, en sa langueur oisive,
+<br/> Elle laisse filer une larme furtive,
+<br/> Un poëte pieux, ennemi du sommeil,
+              <div class="center"> &#x263c; </div>
+<br/> Dans le creux de sa main prend cette larme pâle,
+<br/> Aux reflets irisés comme un fragment d'opale,
+<br/> Et la met dans son cœur loin des yeux du soleil.
+              <div class="center"> &#x263e; </div>
+</div><p>
+</p>
+
+<h3 id="toc11">Aux modernes</h3>
+
+<p>
+<i>Leconte de Lisle</i>
+<br/> 
+
+</p><div class="center">
+<br/> Vous vivez lâchement, sans rêve, sans dessein,
+<br/> Plus vieux, plus décrépits que la terre inféconde,
+<br/> Châtrés dès le berceau par le siècle assassin
+<br/> De toute passion vigoureuse et profonde.
+<br/> 
+
+<br/> Votre cervelle est vide autant que votre sein,
+<br/> Et vous avez souillé ce misérable monde
+<br/> D’un sang si corrompu, d’un souffle si malsain,
+<br/> Que la mort germe seule en cette boue immonde.
+<br/> 
+
+<br/> Hommes, tueurs de Dieux, les temps ne sont pas loin
+<br/> Où, sur un grand tas d’or vautrés dans quelque coin,
+<br/> Ayant rongé le sol nourricier jusqu’aux roches
+<br/> 
+
+<br/> Ne sachant faire rien ni des jours ni des nuits,
+<br/> Noyés dans le néant des suprêmes ennuis,
+<br/> Vous mourrez bêtement en emplissant vos poches.
+</div><p>
+<br/> 
+
+<div class="center"><br/>&#x2735;&#x2735;<br/>&#x2735;</div>
+</p>
+
+<h2 id="toc12">Prose</h2>
+
+<h3 id="toc13">Le Chat</h3>
+
+<p>
+<i>Théodore de Banville</i>
+<i>(1882)</i>
+<br/> 
+
+</p>
+<p>
+<span style="  font-size: 300%; font-weight: bold; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">T</span>out animal est supérieur à l'homme par ce qu'il y a en lui de divin, c'est-à-dire par l'instinct. Or, de tous les animaux, le Chat est celui chez lequel l'instinct est le plus persistant, le plus impossible à tuer. Sauvage ou domestique, il reste lui-même, obstinément, avec une sérénité absolue, et aussi rien ne peut lui faire perdre sa beauté et sa grâce suprême. Il n'y a pas de condition si humble et si vile qui arrive à le dégrader, parce qu'il n'y consent pas, et qu'il garde toujours la seule liberté qui puisse être accordée aux créatures, c'est-à-dire la volonté et la résolution arrêtée d'être libre. Il l'est en effet, parce qu'il ne se donne que dans la mesure où il le veut, accordant ou refusant à son gré son affection et ses caresses, et c'est pourquoi il reste beau, c'est-à-dire semblable à son type éternel. Prenez deux Chats, l'un vivant dans quelque logis de grande dame ou de poète, sur les moelleux tapis, sur les divans de soie et les coussins armoriés, l'autre étendu sur le carreau rougi, dans un logis de vieille fille pauvre, ou pelotonné dans une loge de portière, eh bien&nbsp;! tous deux auront au même degré la noblesse, le respect de soi-même, l'élégance à laquelle le Chat ne peut renoncer sans mourir.
+</p>
+<p>
+En lisant le morceau si épouvantablement injuste que Buffon a consacré au Chat, on reconstruirait, si la mémoire en était perdue, tout ce règne de Louis XIV où l'homme se crut devenu soleil et centre du monde, et ne put se figurer que des milliers d'astres et d'étoiles avaient été jetés dans l'éther pour autre chose que pour son usage personnel. Ainsi le savant à manchettes, reprochant au gracieux animal de voler ce qu'il lui faut pour sa nourriture, semble supposer chez les Chats une notion exacte de la propriété et une connaissance approfondie des codes, qui par bonheur n'ont pas été accordées aux animaux. «&nbsp;Ils n'ont, ajoute-t-il que l'apparence de l'attachement&nbsp;; on le voit à leurs mouvements obliques, à leurs yeux équivoques&nbsp;; ils ne regardent jamais en face la personne aimée&nbsp;; soit défiance ou fausseté, ils prennent des détours pour en approcher, pour chercher des caresses auxquelles ils ne sont sensibles que pour le plaisir qu'elles leur font.&nbsp;» O injuste grand savant que vous êtes&nbsp;! Est-ce que nous cherchons, nous, les caresses pour le plaisir qu'elles ne nous font pas&nbsp;? Vous dites que les yeux des Chats sont équivoques&nbsp;! Relativement à quoi&nbsp;? Si tout d'abord nous n'en pénétrons pas la subtile et profonde pensée, cela ne tient-il pas à notre manque d'intelligence et d'intuition&nbsp;? Quant aux détours, eh&nbsp;! mais le spirituel Alphonse Karr a adopté cette devise charmante : «&nbsp;Je ne crains que ceux que j'aime,&nbsp;» et, comme on le voit, le Chat, plein de prudence, l'avait adoptée avant lui.
+</p>
+<p>
+Sans doute, il se laisse toucher, caresser, tirer les poils, porter la tête en bas par les enfants, instinctifs comme lui&nbsp;; mais il se défie toujours de l'homme, et c'est en quoi il prouve son profond bon sens. N'a-t-il pas sous les yeux l'exemple de ce Chien que le même Buffon met si haut, et ne voit-il pas par là ce que l'homme fait des animaux qui consentent à être ses serviteurs et se donnent à lui sans restriction, une fois pour toutes&nbsp;? L'homme fait du Chien un esclave attaché, mis à la chaîne&nbsp;; il lui fait traîner des carrioles et des voitures, il l'envoie chez le boucher chercher de la viande à laquelle il ne devra pas toucher. Il le réduit même à la condition dérisoire de porter les journaux dans le quartier&nbsp;; il avait fait du Chien Munito un joueur de dominos, et pour peu il l'aurait réduit à exercer le métier littéraire, à faire de la copie, ce qui, pour un animal né libre sous les cieux, ma paraîtrait le dernier degré de l'abaissement. L'homme oblige le Chien à chasser pour lui, à ses gages et même sans gages&nbsp;; le Chat préfère chasser pour son propre compte, et à ce sujet on l'appelle voleur, sous prétexte que les lapins et les oiseaux appartiennent à l'homme&nbsp;; mais c'est ce qu'il faudrait démontrer. On veut lui imputer à crime ce qui fit la gloire de Nemrod et d'Hippolyte, et c'est ainsi que nous avons toujours deux poids inégaux, et deux mesures.
+<br/> 
+
+<div class="center"> &#x2766; </div> 
+</p>
+
+<h3 id="toc14">Une ville flottante</h3>
+
+<p>
+<i>Jules Verne (1871)</i>
+</p>
+<p>
+«&nbsp;Quel est cet homme&nbsp;?
+</p>
+<p>
+— Je ne sais, répondis-je.
+</p>
+<p>
+&mdash; Il me déplaît&nbsp;!&nbsp;» ajouta Fabian. Mettez deux navires en pleine mer, sans vent, sans courant, et ils finiront par s’accoster : Jetez deux planètes immobiles dans l’espace, et elles tomberont l’une sur l’autre. Placez deux ennemis au milieu d’une foule, et ils se rencontreront inévitablement. C’est fatal. Une question de temps, voilà tout. 
+</p>
+<p>
+Le soir arrivé, le concert eut lieu selon le programme. Le grand salon rempli d’auditeurs, était brillamment éclairé. /.../
+</p>
+<p>
+<i>(extrait du chapitre 16)</i>
+</p>
+
+<h3 id="toc15">Le Corbeau</h3>
+
+<p>
+<i>(Poe / Baudelaire)</i> <a href="#ftn1"><sup>1</sup></a> <span id="ftn1"><a class="ftn" href="#ftn">(Ce texte a été publié en 1845, et a été traduit ensuite en français par Baudelaire, ainsi que par Mallarmé. C'est la version de Baudelaire que nous vous livrons ici.)</a></span>
+</p>
+<p>
+<span style="  font-size: 300%; font-weight: bold; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">U</span>ne fois, sur le minuit lugubre, pendant que je méditais, faible et fatigué, sur maint précieux et curieux volume d’une doctrine oubliée, pendant que je donnais de la tête, presque assoupi, soudain il se fit un tapotement, comme de quelqu’un frappant doucement, frappant à la porte de ma chambre. «&nbsp;C’est quelque visiteur, – murmurai-je, – qui frappe à la porte de ma chambre&nbsp;; ce n’est que cela et rien de plus.&nbsp;»
+</p>
+<p>
+Ah&nbsp;! distinctement je me souviens que c’était dans le glacial décembre, et chaque tison brodait à son tour le plancher du reflet de son agonie. Ardemment je désirais le matin&nbsp;; en vain m’étais-je efforcé de tirer de mes livres un sursis à ma tristesse, ma tristesse pour ma Lénore perdue, pour la précieuse et rayonnante fille que les anges nomment Lénore, – et qu’ici on ne nommera jamais plus.
+</p>
+<p>
+Et le soyeux, triste et vague bruissement des rideaux pourprés me pénétrait, me remplissait de terreurs fantastiques, inconnues pour moi jusqu’à ce jour&nbsp;; si bien qu’enfin pour apaiser le battement de mon cœur, je me dressai, répétant : «&nbsp;C’est quelque visiteur attardé sollicitant l’entrée à la porte de ma chambre&nbsp;; – c’est cela même, et rien de plus.&nbsp;»
+</p>
+<p>
+Mon âme en ce moment se sentit plus forte. N’hésitant donc pas plus longtemps : «&nbsp;Monsieur, dis-je, ou madame, en vérité, j’implore votre pardon&nbsp;; mais le fait est que je sommeillais et vous êtes venu frapper si doucement, si faiblement vous êtes venu frapper à la porte de ma chambre, qu’à peine étais-je certain de vous avoir entendu.&nbsp;» Et alors j’ouvris la porte toute grande&nbsp;; – les ténèbres, et rien de plus.
+</p>
+<p>
+Scrutant profondément ces ténèbres, je me tins longtemps plein d’étonnement, de crainte, de doute, rêvant des rêves qu’aucun mortel n’a jamais osé rêver&nbsp;; mais le silence ne fut pas troublé, et l’immobilité ne donna aucun signe, et le seul mot proféré fut un nom chuchoté : «&nbsp;Lénore&nbsp;!&nbsp;» – C’était moi qui le chuchotais, et un écho à son tour murmura ce mot : «&nbsp;Lénore&nbsp;!&nbsp;» Purement cela, et rien de plus.
+<br/> 
+
+</p>
+<p>
+Rentrant dans ma chambre, et sentant en moi toute mon âme incendiée, j’entendis bientôt un coup un peu plus fort que le premier. «&nbsp;Sûrement, – dis-je, – sûrement, il y a quelque chose aux jalousies de ma fenêtre&nbsp;; voyons donc ce que c’est, et explorons ce mystère. Laissons mon cœur se calmer un instant, et explorons ce mystère&nbsp;; – c’est le vent, et rien de plus.&nbsp;»
+<br/> 
+
+</p>
+<p>
+Je poussai alors le volet, et, avec un tumultueux battement d’ailes, entra un majestueux corbeau digne des anciens jours. Il ne fit pas la moindre révérence, il ne s’arrêta pas, il n’hésita pas une minute&nbsp;; mais avec la mine d’un lord ou d’une lady, il se percha au-dessus de la porte de ma chambre&nbsp;; il se percha sur un buste de Pallas juste au-dessus de la porte de ma chambre&nbsp;; – il se percha, s’installa, et rien de plus.
+<br/> 
+
+</p>
+<p>
+Alors, cet oiseau d’ébène, par la gravité de son maintien et la sévérité de sa physionomie, induisant ma triste imagination à sourire : «&nbsp;Bien que ta tête, – lui dis-je, – soit sans huppe et sans cimier, tu n’es certes pas un poltron, lugubre et ancien corbeau, voyageur parti des rivages de la nuit. Dis-moi quel est ton nom seigneurial aux rivages de la nuit plutonienne&nbsp;!&nbsp;» Le corbeau dit : «&nbsp;Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+Je fus émerveillé que ce disgracieux volatile entendît si facilement la parole, bien que sa réponse n’eût pas un bien grand sens et ne me fût pas d’un grand secours&nbsp;; car nous devons convenir que jamais il ne fut donné à un homme vivant de voir un oiseau au-dessus de la porte de sa chambre, un oiseau ou une bête sur un buste sculpté au-dessus de la porte de sa chambre, se nommant d’un nom tel que – Jamais plus&nbsp;!
+</p>
+<p>
+Mais le corbeau, perché solitairement sur le buste placide, ne proféra que ce mot unique, comme si dans ce mot unique il répandait toute son âme. Il ne prononça rien de plus&nbsp;; il ne remua pas une plume, – jusqu’à ce que je me prisse à murmurer faiblement : «&nbsp;D’autres amis se sont déjà envolés loin de moi&nbsp;; vers le matin, lui aussi, il me quittera comme mes anciennes espérances déjà envolées.&nbsp;» L’oiseau dit alors : «&nbsp;Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+Tressaillant au bruit de cette réponse jetée avec tant d’à-propos : Sans doute, – dis-je, – ce qu’il prononce est tout son bagage de savoir, qu’il a pris chez quelque maître infortuné que le Malheur impitoyable a poursuivi ardemment, sans répit, jusqu’à ce que ses chansons n’eussent plus qu’un seul refrain, jusqu’à ce que le De profundis de son Espérance eût pris ce mélancolique refrain : «&nbsp;Jamais – jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+Mais le corbeau induisant encore toute ma triste âme à sourire, je roulai tout de suite un siège à coussins en face de l’oiseau et du buste et de la porte&nbsp;; alors, m’enfonçant dans le velours, je m’appliquai à enchaîner les idées aux idées, cherchant ce que cet augural oiseau des anciens jours, ce que ce triste, disgracieux, sinistre, maigre et augural oiseau des anciens jours voulait faire entendre en croassant son – Jamais plus&nbsp;!
+<br/> 
+
+</p>
+<p>
+Je me tenais ainsi, rêvant, conjecturant, mais n’adressant plus une syllabe à l’oiseau, dont les yeux ardents me brûlaient maintenant jusqu’au fond du cœur : je cherchai à deviner cela, et plus encore, ma tête reposant à l’aise sur le velours du coussin que caressait la lumière de la lampe, ce velours violet caressé par la lumière de la lampe que sa tête, à Elle, ne pressera plus, – ah&nbsp;! jamais plus&nbsp;!
+<br/> 
+
+</p>
+<p>
+Alors, il me sembla que l’air s’épaississait, parfumé par un encensoir invisible que balançaient les séraphins dont les pas frôlaient le tapis de ma chambre. «&nbsp;Infortuné&nbsp;! – m’écriai-je, – ton Dieu t’a donné par ses anges, il t’a envoyé du répit, du répit et du népenthès dans tes ressouvenirs de Lénore&nbsp;! Bois, oh&nbsp;! bois ce bon népenthès, et oublie cette Lénore perdue&nbsp;!&nbsp;» Le corbeau dit : «Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+«&nbsp;Prophète&nbsp;! – dis-je, – être de malheur&nbsp;! oiseau ou démon&nbsp;! mais toujours prophète&nbsp;! que tu sois un envoyé du Tentateur, ou que la tempête t’ait simplement échoué, naufragé, mais encore intrépide, sur cette terre déserte, ensorcelée, dans ce logis par l’Horreur hanté, – dis-moi sincèrement, je t’en supplie, existe-t-il, existe-t-il ici un baume de Judée&nbsp;? Dis, dis, je t’en supplie&nbsp;!&nbsp;» Le corbeau dit : «&nbsp;Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+«&nbsp;Prophète&nbsp;! – dis-je, – être de malheur&nbsp;! oiseau ou démon&nbsp;! toujours prophète&nbsp;! par ce ciel tendu sur nos têtes, par ce Dieu que tous deux nous adorons, dis à cette âme chargée de douleur si, dans le Paradis lointain, elle pourra embrasser une fille sainte que les anges nomment Lénore, embrasser une précieuse et rayonnante fille que les anges nomment Lénore.&nbsp;» Le corbeau dit : «&nbsp;Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+«&nbsp;Que cette parole soit le signal de notre séparation, oiseau ou démon&nbsp;! – hurlai-je en me redressant. – Rentre dans la tempête, retourne au rivage de la nuit plutonienne&nbsp;; ne laisse pas ici une seule plume noire comme souvenir du mensonge que ton âme a proféré&nbsp;; laisse ma solitude inviolée&nbsp;; quitte ce buste au-dessus de ma porte&nbsp;; arrache ton bec de mon cœur et précipite ton spectre loin de ma porte&nbsp;!&nbsp;» Le corbeau dit : «&nbsp;Jamais plus&nbsp;!&nbsp;»
+<br/> 
+
+</p>
+<p>
+Et le corbeau, immuable, est toujours installé sur le buste pâle de Pallas, juste au-dessus de la porte de ma chambre&nbsp;; et ses yeux ont toute la semblance des yeux d’un démon qui rêve&nbsp;; et la lumière de la lampe, en ruisselant sur lui, projette son ombre sur le plancher&nbsp;; et mon âme, hors du cercle de cette ombre qui gît flottante sur le plancher, ne pourra plus s’élever, – jamais plus&nbsp;!
+<div class="center"> &#x2766; </div> 
+</p>
+
+<h1 id="toc16">Diverses</h1>
+
+<p>
+<i>Some texts in other languages<a href="#ftn2"><sup>2</sup></a> <span id="ftn2"><a class="ftn" href="#ftn">(Not all unicode scripts are supported by xetex, but they should work in the html output.)</a></span>.</i>
+</p>
+<p>
+<span style="  font-size: 300%; font-weight: bold; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">F</span>jölnir sonur Yngvifreys réð þá fyrir Svíum og Uppsalaauð. Hann var ríkur og ársæll og friðsæll. Þá var Frið-Fróði að Hleiðru. Þeirra í millum var heimboð og vingan. Þá er Fjölnir fór til Fróða á Selund þá var þar fyrir búin mikil veisla og boðið til víða um lönd. 
+<br/> 
+
+</p>
+<p>
+<div class="column2">
+</p>
+<p>
+Fróði átti mikinn húsabæ. Þar var gert ker mikið margra alna hátt og okað með stórum timburstokkum. Það stóð í undirskemmu en loft var yfir uppi og opið gólfþilið svo að þar var niður hellt leginum en kerið blandið fullt mjaðar. Þar var drykkur furðu sterkur. 
+Um kveldið var Fjölni fylgt til herbergis í hið næsta loft og hans sveit með honum. 
+</p>
+<p>
+</div>
+</p>
+<p>
+<br/> 
+
+</p>
+<p>
+<br/> 
+
+Um nóttina gekk hann út í svalar að leita sér staðar. Var hann svefnær og dauðadrukkinn. En er hann snerist aftur til herbergis þá gekk hann fram eftir svölunum og til annarra loftdura og þar inn, missti þá fótum og féll í mjaðarkerið og týndist þar.  
+<br/> <div class="center"> &#x2767; </div> 
+<br/> 
+
+<span style="  font-size: 300%; font-weight: bold; margin: -0.1em 0.125em -0.2em 0em; text-indent: 0em; line-height: 1em; height: 1em;">L</span>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<br/> 
+
+</p>
+<p>
+<div class="column3">
+</p>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+</p>
+<p>
+<br/> 
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+<br/> 
+
+</div>
+</p>
+<p>
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p>
+«&nbsp;Être moderne ne consiste pas à chercher quelque chose en dehors de tout ce qui a été fait. Il ne s'agit au contraire que de coordonner tout ce que les âges précédents nous ont apporté pour faire voir comment notre siècle a accepté cet héritage et comment il en use&nbsp;». -- Gustave Moreau<a href="#ftn_Peintre symboliste du 19ème siècle"><sup>*</sup></a> <span id="ftn_Peintre symboliste du 19ème siècle"><a class="ftn" href="#ftn">(Peintre symboliste du 19ème siècle)</a></span>
+</p>
+<p>
+<br/> <div class="center"> &#x2766; </div> 
+<br/> 
+
+<br/> 
+
+<div class="center"><br/>&#x2735;&#x2735;<br/>&#x2735;</div>
+</p>
+
+<h1 id="toc17">More tests</h1>
+
+<h2 id="toc18">My Subtitle 1</h2>
+
+<p>
+<div class="exergueauthor">Platon : </div> <div class="exergue">
+Si tu veux contrôler le peuple commence par contrôler sa musique.
+</div>
+</p>
+<p>
+<div class="exergue">
+Quand l'achat et la vente sont contrôlés par la législation, les premières choses qui s'achètent et se vendent sont les législateurs.
+</div><div class="exergueauthor">Patrick Jake O'Rourke</div>
+</p>
+<p>
+Some examples:
+</p>
+<p>
+A paragraph with <b>bold</b>, <i>italic</i> and <s>strike</s>.
+You can even <u>underline your docs</u>!
+</p>
+<p>
+And use <b><i>bold and italic</i></b> 
+or <i><b>italic and bold</b></i> 
+</p>
+<p>
+Here is a nice pic: <img align="middle" src="http://txt2tags.sourceforge.net/img/t2tgems.png" border="0" alt=""/>
+</p>
+<p>
+And a <a href="http://txt2tags.sf.net">link to a cool website</a>!
+</p>
+<p>
+A table : 
+</p>
+
+<table border="1">
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+</tr>
+<tr>
+<td>John</td>
+<td align="center">33</td>
+<td align="right">Male</td>
+</tr>
+<tr>
+<td>Mary</td>
+<td align="center">19</td>
+<td align="right">Female</td>
+</tr>
+</table>
+
+<pre>
+A verbatim line
+</pre>
+
+A raw line 
+<p>
+And it's working for <code>special code</code> like this.
+</p>
+
+<pre>
+Unfortunately I can't color this verbatim content yet.
+</pre>
+
+<p>
+<div class="code">
+Test code source.
+</p>
+<p>
+And a new line to test again.
+And again...
+</p>
+<p>
+And a new line to test again.
+And a new line to test again.
+</div>
+<br/> 
+
+Raw area test
+</p>
+<p>
+<a href="mailto:username@example.com">test email</a>
+</p>
+
+<h2 id="toc19">My Subtitle 2</h2>
+
+<p>
+Lorem ipsum etc
+Lorem ipsum etc Lorem ipsum etc
+</p>
+
+<ul>
+<li>Test d'écriture avec des accents à la française. Ça marche ou pas&nbsp;?
+ <ul>
+ <li>Éventuellement tester encore d'autres accents, comme le à, ü etc..., pour les formats à 2 € genre rtf...
+ </li>
+ <li>A língua portuguesa é uma língua românica.
+ </li>
+ <li>¿Viene mañana?
+ </li>
+ <li>Bodø: også på norsk.
+<br/> 
+
+ <p></p>
+ </li>
+ </ul>
+</li>
+<li>Test with lists :
+ <ul>
+ <li>A paragraph with <b>bold</b>, <i>italic</i> and <s>strike</s>.
+ </li>
+ <li>You can even <u>underline your docs</u>!
+ </li>
+ </ul>
+</li>
+</ul>
+
+<h2 id="toc20">My Subtitle_3</h2>
+
+<p>
+Lorem <span class="big"> ipsum etc
+Lorem ipsum etc </span>
+</p>
+<p>
+Here is a <b>direct link: <a href="http://kde.org">http://kde.org</a></b>
+(it's not colored yet, but maybe in a next release...&nbsp;?)
+</p>
+
+<ul>
+<li>Another <span class="small"> boring part... (it will be smaller) </span>
+</li>
+</ul>
+
+<h3 id="toc21">My Subsubtitle 1</h3>
+
+<p>
+<i>It's a level 3 header</i> 
+</p>
+
+<ul>
+<li>list 1
+</li>
+<li>list 2
+ <ul>
+ <li>sublist 2b
+  <ul>
+  <li>subsublist 2.1
+  </li>
+  <li>subsublist 2.2
+   <ul>
+   <li>subsubsublist 3
+   </li>
+   </ul>
+  </li>
+  </ul>
+ </li>
+ </ul>
+</li>
+<li>list 3
+</li>
+</ul>
+
+<h3 id="toc22">My Subsubtitle 2</h3>
+
+<p>
+<i>It's another level 3 header</i> 
+</p>
+
+<ol>
+<li>ordered list 1
+</li>
+<li>list 2
+ <ol>
+ <li>sublist 2B
+ </li>
+ <li>sublist 2C
+ </li>
+ </ol>
+</li>
+<li>list 3
+</li>
+</ol>
+
+<h2 id="toc23">My Subtitle 4</h2>
+
+<p>
+nothing to say here...
+</p>
+
+<dl>
+<dt>deflist test</dt><dd>
+<p></p>
+</dd>
+</dl>
+
+	<blockquote>
+	quote test
+	</blockquote>
+<p>
+<hr/>
+</p>
+
+<hr class="heavy" />
+
+</div>
+<!-- xhtml code generated by txt2tags 2.6. (http://txt2tags.org) -->
+<!-- cmdline: txt2tags -T ..//templates/xhtml.html -t xhtml -\-css-inside -\-css-sugar -\-toc -\-outfile examples.html examples.t2t -->
+
+</body></html>
+
+
+
