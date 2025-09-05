@@ -14,7 +14,7 @@
 export TEXTALLIONFOLDER = ../
 # <!> keep /usr/share/textallion if it is written so!
 
-export TEXTALLION = ${TEXTALLIONFOLDER}/core/textallion.sh
+# export TEXTALLION = ${TEXTALLIONFOLDER}/core/textallion.sh
 
 ifeq ($(wildcard /usr/bin/python2),)
  PYTHONVER = python 
@@ -23,7 +23,7 @@ else
 endif
 
 #TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
-export TXT2TAGS3.8 = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
+export TXT2TAGS = python3.8 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 
 ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)

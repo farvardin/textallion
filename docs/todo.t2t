@@ -21,10 +21,10 @@
 - script textallion.sh: update config (makefile)
 - create an updater for the windows version
 - --create desktop icon (start a term if it's launched from the menu)--
-- rename the "images" folder to "media" (now there is music in it)
+- --rename the "images" folder to "media" (now there is music in it)--
 - add syntax:  turn to, go to, (turn to ###) etc
 - special syntax for warning {<!>} and information {<i>}
-
+- add https://typst.app/ ?
 
 
 
