@@ -23,7 +23,7 @@ else
 endif
 
 #TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
-export TXT2TAGS = python3.8 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
+export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 
 ifdef TEXTALLIONDOC
   export DOCUMENT = $(TEXTALLIONDOC)

@@ -24,16 +24,17 @@ endif
 
 #TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
 #export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3-2025-02
-export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
+export TXT2TAGS = $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
 #export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3-2025
 
 
 ifdef TEXTALLIONDOC
   export DOCUMENT = ${TEXTALLIONDOC}
 else
-  #export DOCUMENT = examples
+  export DOCUMENT = examples
   #export DOCUMENT = sample_cyoa
   #export DOCUMENT = exemple_lettre
+  #export DOCUMENT = test
 endif
 
 
