@@ -104,17 +104,17 @@ __Citation__ :
 
 == Présentation ==
 
-Le projet **textallion** permet à ses utilisateurs d'éditer et de publier simplement leurs textes, tout en leur donnant un aspect agréable.
+Le projet **textallion** permet à ses utilisateurs d'éditer et de publier simplement leurs textes, tout en leur donnant un aspect visuel agréable.
 
 Il est né de l'admiration pour l'apparence et la qualité du placement des lettres dans le système [LaTeX http://www.latex-project.org/], ainsi que pour la facilité d'utilisation de [txt2tags http://txt2tags.org/].
 
-Mais il est né également de la frustration de ne pas pouvoir utiliser simplement LaTeX pour écrire de la prose, sans avoir à subir sa syntaxe particulièrement intrusive et sa complexité d'apprentissage°°Remarque qui peut également concerner dans une moindre mesure la syntaxe html°°.
+Mais il provient également de la frustration de ne pas pouvoir écrire simplement de la prose avec LaTeX, sans avoir à subir sa syntaxe particulièrement intrusive et sa complexité d'apprentissage°°Remarque qui peut également concerner dans une moindre mesure la syntaxe html°°.
 
-Le but est donc de pouvoir sortir un roman ou un texte littéraire, en utilisant {^}txt2tags{^} comme pré-processeur, et ainsi garder des marques de formatage non distrayantes, tout en pouvant exporter en {^}LaTeX{^} et {^}html{^} selon le type du document final envisagé : publication papier ([pdf documentation_fr.pdf]), page internet ([html documentation_fr.html], ainsi qu'en [version de présentation avec slidy documentation_fr_slide.html]), ou encore livre électronique ([epub documentation_fr.epub]), et cela à partir d'une __[source unique pour tous ces documents documentation_fr.t2t]__.
+Le but est donc de pouvoir produire un roman ou un texte littéraire avec {^}txt2tags{^} comme pré-processeur, et ainsi garder des marques de formatage non distrayantes, puis exporter en {^}LaTeX{^} et {^}html{^} selon le type du document final envisagé : publication papier ([pdf documentation_fr.pdf]), page web ([html documentation_fr.html], éventuellement en [version de présentation avec slidy documentation_fr_slide.html]), ainsi que livre électronique au format ([epub documentation_fr.epub]), et cela à partir d'une __[source unique pour tous ces documents documentation_fr.t2t]__.
 
-Ainsi, cet outil s'adresse surtout à ceux qui souhaitent écrire facilement et rapidement des textes de type poésie ou prose, sans entrer dans les méandres des commandes {^}LaTeX{^}. (LaTeX est parfois le contraire du wysiwyg (what you see is what you get), par certains aspect cela devient du wysiwyhtst : "What you see is what you have tested several times".)
+Ainsi, cet outil s'adresse surtout à ceux qui souhaitent écrire facilement et rapidement des textes de type poésie ou prose, sans entrer dans les méandres des commandes {^}LaTeX{^}. 
 
-Il présente par défaut : mise en gras, italique, soulignage, barré, texte coloré, organisation hiérarchique (titres et sous-titres), listes à puce ou numérotées, inclusion d'images et de liens hypertextes, numérotation des pages, haut de page avec titre et ligne de séparation, support des notes de bas de page, exergues (épigraphes), table des matières, colonnes, modification de taille de polices (très basique), ornementations type lettrine ou petites feuilles aldines.
+**Textallion** propose par défaut : mise en gras, italique, soulignage, barré, texte coloré, organisation hiérarchique (titres et sous-titres), listes à puce ou numérotées, inclusion d'images et de liens hypertextes, numérotation des pages, haut de page avec titre et ligne de séparation, support des notes de bas de page, exergues (épigraphes), table des matières, colonnes, modification de taille de polices (très basique), ornementations type lettrine ou petites feuilles aldines.
 
 Il inclut également un système pour la création de « livres-jeux » (livres dont vous êtes le héros).
 
@@ -122,20 +122,20 @@ Cet outil est relativement simple à utiliser, mais pas simpliste : il est néce
 
 On peut imaginer 3 manières d'aborder textallion :
 
-- En se contentant du style fourni de base, et sans même se préoccuper d'une quelconque syntaxe wiki spécifique, en écrivant comme dans un bloc-note, on peut déjà produire un document {^}PDF{^} au format A4, réductible en A5, très présentable°°Pour comparer avec la version de base de txt2tags, dans l'export LaTeX les accentuations françaises ne sont pas supportées, et le rendu est très basique.°°. Rappelez-vous que la plupart des romans n'ont pas de mise en page très audacieuse et ne font pas appel non plus à tout l'arsenal que l'on peut trouver par exemple dans un texte scientifique ou une documentation (colonnes, index, changement de polices...)
+- En se contentant du style fourni de base, et sans même se préoccuper d'une quelconque syntaxe wiki spécifique, en écrivant comme dans un bloc-note, on peut déjà produire un document {^}PDF{^} au format A4, réductible en A5, très présentable°°Dans la version de base de txt2tags le rendu est très basique.°°. Rappelez-vous que la plupart des romans n'ont pas de mise en page très audacieuse et ne font pas appel non plus à tout l'arsenal que l'on peut trouver par exemple dans un texte scientifique ou une documentation (colonnes, index, changement de polices...)
 
-- En se laissant guider dans l'édition du fichier de style utilisateur (sample.sty), on modifiera les options permettant de personnaliser son document PDF°°Malheureusement, toutes ces options sont indiquées en anglais pour le moment°°. Par exemple  ``SYMBSlashdefSYMBSlashWIDTHxOFxTEXT{150}`` est pour modifier la largeur du texte affiché. En réécrivant 140 à la place de 150, on réduira les marges.
+- En se laissant guider dans l'édition du fichier de style utilisateur //(sample.sty)//, on modifiera les options permettant de personnaliser son document PDF°°Toutes ces options sont indiquées en anglais mais la personnalisation n'est pas insurmontable°°. Par exemple  ``SYMBSlashdefSYMBSlashWIDTHxOFxTEXT{150}`` est l'option pour modifier la largeur du texte affiché. En réécrivant 140 à la place de 150, on réduira les marges.
 
-- De la même manière, on pourra éditer le fichier CSS pour la version HTML (sample.css)
+- De la même manière, on pourra éditer le fichier CSS pour la version HTML //(sample.css)//
 
-- Si on souhaite accéder à des fonctionnalités avancées, comme l'utilisation de colonnes, de sauts de page, de mise en gras, de notes, centrage de texte, symboles d'ornementation, on pourra utiliser la syntaxe de {^}txt2tags{^} à laquelle s'ajoute celle de textallion.
+- Si on souhaite accéder à des fonctionnalités avancées, comme l'utilisation de colonnes, de sauts de page, de mise en gras, de notes, centrage de texte, symboles d'ornementation, on gardera la syntaxe de {^}txt2tags{^} à laquelle s'ajoutera celle de textallion.
 
 
-Ce n'est donc pas un logiciel clé en main qui permettra de réaliser tout et n'importe quoi, mais c'est la réorganisation d'outils existants qui, mis ensemble avec quelques règles de styles, permettent de réaliser une tâche précise.
+Il ne s'agit pas un logiciel clé en main permettant de réaliser tout et n'importe quoi, c'est la réorganisation d'outils existants qui, mis ensemble avec quelques règles de styles, permettent de réaliser une tâche précise.
 
-Ce présent manuel se focalise surtout sur la création de documents pdf, destinés en particulier à l'impression, mais tout est normalement adaptable pour la publication en {^}html{^} pour internet, et le format {^}ePUB{^} pour les liseuses numériques (lecteurs d'ebooks, livres électroniques, téléphones portables, smartphones).
+Ce présent manuel se focalise surtout sur la création de documents pdf, destinés en particulier à l'impression, mais tout est adaptable pour la publication en {^}html{^} pour le web, et le format {^}ePUB{^} pour les liseuses numériques (lecteurs d'ebooks, livres électroniques, téléphones portables, smartphones).
 
-//Note : Ce projet avait pour nom « txt2tex » à l'origine.//
+% //Note : Ce projet avait pour nom « txt2tex » à l'origine.//
 
 
 %De tout ceci il ressort quelques barrières pour l'utilisation de textallion, mais également quelques points positifs : 
@@ -161,16 +161,20 @@ Ce présent manuel se focalise surtout sur la création de documents pdf, destin
 
 La dernière version en développement se trouve à cette adresse : 
 
-Elle s'obtient : 
+https://github.com/farvardin/textallion
 
-``hg clone https://farvardin@hg.code.sf.net/p/textallion/code textallion-code``
+On peut télécharger une archive zip sur https://github.com/farvardin/textallion/archive/refs/heads/master.zip
+
+ou avec git:
+
+``git clone https://github.com/farvardin/textallion.git``
 
 
-Une copie du dépôt est sur github à cette adresse : https://github.com/farvardin/textallion
+Une copie du dépôt est sur sourceforge à cette adresse : https://sourceforge.net/projects/textallion/
 
 On peut l'obtenir ainsi :
 
-``git clone https://github.com/farvardin/textallion.git``
+``hg clone https://farvardin@hg.code.sf.net/p/textallion/code textallion-code``
 
 
 Il y a également une copie ici (pas forcément toujours à jour) : http://anamnese.online.fr/site2/textallion/textallion.zip
@@ -198,20 +202,22 @@ Le Textallion a été testé avec succès sur ces plateformes :
 
 [LaTeX http://www.latex-project.org/] et [python 3 http://www.python.org] doivent être présent sur votre ordinateur. La plupart des distributions, sinon toutes, fournissent cela. Par exemple Archlinux, Mandriva et Debian, via [TeXlive http://www.tug.org/texlive/]. (Vous devez avoir au moins les paquets texlive-core et texlive-humanities).
 
-//(sous Debian/Ubuntu/Mint : apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex tidy calibre graphviz wkhtmltopdf)//
+//(sous Debian/Ubuntu/Mint ://
 
-
+```
+apt-get install python3 texlive-base  texlive-latex-base texlive-extra-utils texlive-latex-recommended texlive-latex-extra texlive-fonts-extra texlive-lang-french latexml tipa texlive-fonts-recommended texlive-xetex tidy calibre graphviz wkhtmltopdf)
+```
 
 
 %texlive-generic-recommended : supprimé
 
-Vous pouvez utiliser le petit script d'installation ``textallion_install.sh`` (à lancer en root), pour copier l'ensemble des fichiers nécessaires dans /usr/share/textallion/, ou le dossier de votre choix.
+Vous pouvez lancer le petit script d'installation ``textallion_install.sh`` (en root), pour copier l'ensemble des fichiers nécessaires dans ``/usr/share/textallion/``, ou le dossier de votre choix.
 
 
 ``` sudo bash textallion_install.sh
 
 
-Pour désinstaller ce qui a été précédemment installé par ce script, il suffit d'effacer le dossier /usr/share/textallion/ et le fichier /usr/bin/textallion
+Pour désinstaller ce qui a été précédemment installé par ce script, il suffit d'effacer le dossier ``/usr/share/textallion/`` et le fichier ``/usr/bin/textallion``
 
 
 
@@ -248,7 +254,7 @@ Pour créer des {^}ePUB{^}s, vous aurez besoin d'installer [Calibre http://calib
 
 ==== Autre méthode ====
 
-[Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 3 de python de préférence, la version 2 devrait être encore compatible, mais python3 est maintenant utilisé par défaut.
+[Python http://www.python.org] doit être installé sur votre ordinateur. Choisissez la version 3 de python de préférence, la version 2 devrait être encore compatible, mais python3 est maintenant par défaut.
 
 - décompressez l'archive contenant textallion dans par exemple C:\temp\textallion (pour le reste des exemples, on a considéré que cela se trouvait dans ce dossier)
 
@@ -281,19 +287,19 @@ Voir les instructions dans textallion/infra/textallion/README.md
 
 == Utilisation ==
 
-Vous pouvez vous inspirer du document examples.t2t comme base pour votre propre document.
+Vous pouvez vous inspirer du fichier ``examples.t2t`` comme base pour votre propre document.
 
 Le fichier textallion.t2t est le moteur du système. Pour l'export PDF, il y a également le style ``textallion.sty``, qui est indispensable pour son fonctionnement. Il n'y a normalement pas à modifier ces 2 fichiers. Vous pouvez les placer à l'endroit que vous voulez sur votre système, et juste faire référence à textallion.t2t depuis votre document de travail. De plus, selon l'export utilisé, il est nécessaire de rajouter des modèles, que l'on trouve dans le dossier ``"templates"`` : pour le moment ``xhtml.html`` pour les exports HTML et {^}ePUB{^}, et ``latex.tex`` pour l'export PDF. 
 
 
-Note: si vous avez utilisé auparavant une ligne dans ce genre : ``SYMBpercent!style(tex): /usr/share/textallion/core/textallion``, elle devient maintenant ``SYMBpercent!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'``
+% Note: si vous avez utilisé auparavant une ligne dans ce genre : ``SYMBpercent!style(tex): /usr/share/textallion/core/textallion``, elle devient maintenant ``SYMBpercent!postproc(tex): 'TEXTALLIONPATH' '/usr/share/textallion/'``
 
 
 - Première méthode :
 
 Pour commencer à créer un document, recopiez l'entête de examples.t2t dans un nouveau fichier.
 
-Sous Linux°°ou sous Windows avec les outils cygwin°°, le script « textallion.sh », se charge de faire cela pour vous, à partir des informations entrées en ligne de commande, en créant en plus un fichier .sty pour modifier le style du PDF final, et un fichier .css pour modifier le style du fichier HTML final (ces 2 modifications étant optionnelles, vous pouvez vous laisser guider par les commentaires dans le fichier de style. Vous pourrez changer simplement la taille de page, la taille du texte affiché (définissant ainsi implicitement les marges, la polices, les espacements...).
+Sous Linux°°ou sous Windows avec les outils cygwin°°, le script ``textallion.sh``, se charge de cela pour vous, à partir des informations entrées interactivement en ligne de commande, en créant en plus un fichier .sty pour modifier le style du PDF final, et un fichier .css pour modifier le style du fichier HTML final (ces 2 modifications étant optionnelles, vous pouvez vous laisser guider par les commentaires dans le fichier de style. Vous pourrez changer simplement la taille de page, la taille du texte affiché (définissant ainsi implicitement les marges, la polices, les espacements...).
 
 
 - Seconde méthode :
@@ -359,27 +365,28 @@ Voici ensuite un rappel des avantages des divers formats de publications propos�
 
 === HTML ===
 
-Format du {" }web{ "} par excellence, le {^}HTML{^} permet de s'afficher partout, quasi-universellement, dans les navigateurs internets°°Textallion ne supporte que les navigateurs utilisant les standards actuels, comme Firefox, Opera, Chrome etc), aussi l'affichage pourra être dégradés sur certaines versions d'Internet Explorer, a priori surtout les plus anciennes°°.
+Format du {" }web{ "} par excellence, le {^}HTML{^} permet de s'afficher partout, quasi-universellement, dans les navigateurs internets°°Textallion est précu pour les navigateurs utilisant les standards actuels, comme Firefox, Opera, Chrome etc)°°.
 
-Le style par défaut, à modifier à votre convenance si nécessaire est sample.css (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+Le style par défaut, à modifier à votre convenance si nécessaire est ``sample.css`` (dans le dossier ``includes``), à moins qu'un script d'initialisation l'ait renommé du nom de votre projet.
 
-Nous avons également inclu par défaut l'affichage d'une police spécifique, [récupérée sur les serveurs de google http://code.google.com/webfonts]. Dans le cas où l'ordinateur visualisant le document HTML ne serait pas connecté à internet, la police sera automatiquement remplacée par une police serif de base disponible sur tous les navigateur. Et si vous souhaitez modifier ce comportement, soit pour éviter de se connecter sur un service externe, soit pour utiliser votre propre police, soit pour préférer des polices plus classiques (serif, arial etc), il suffit de retirer la partie "CustomFont" dans la ligne ``font:1.2em/1.625em CustomFont, serif;`` et le bloc ``@font-face``.
+Nous avons également inclu par défaut l'affichage d'une police spécifique, [récupérée sur les serveurs de google https://fonts.google.com/]. Dans le cas où l'ordinateur visualisant le document HTML ne serait pas connecté à internet, la police sera automatiquement remplacée par une police serif de base disponible sur tous les navigateur. Et si vous souhaitez modifier ce comportement, soit pour éviter de se connecter sur un service externe, soit pour utiliser votre propre police, soit pour préférer des polices plus classiques (serif, arial etc), il suffit de retirer la partie "CustomFont" dans la ligne ``font:1.2em/1.625em CustomFont, serif;`` et le bloc ``@font-face``.
 
+%% TODO
 
 
 
 === PDF ===
 
-Format pour l'impression et l'affichage à l'écran, le {^}PDF{^} est nécessaire lorsqu'il s'agit d'avoir partout la même mise en page, quelque soit l'ordinateur qui l'affiche, ainsi que pour la création d'un livre destiné à l'imprimeur.
+Format pour l'impression et l'affichage à l'écran, le {^}PDF{^} est nécessaire lorsqu'il s'agit d'avoir partout la même mise en page, quel que soit l'ordinateur qui l'affiche, ainsi que pour la création d'un livre destiné à l'imprimeur.
 
-Le style par défaut, à modifier à votre convenance si nécessaire est sample.sty (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+Le style par défaut, à modifier à votre convenance si nécessaire est ``sample.sty`` (dans le dossier ``includes``), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
 
 
 === {^}ePUB{^} ===
 
 Format pour la lecture numérique, l'{^}ePUB{^} est adapté pour l'utilisation dans une liseuse ou sur un téléphone portable : il n'a pas de mise en page fixe, tout comme le HTML et contrairement au PDF, par contre il a l'avantage d'être optimisé pour l'affichage sur de tels écrans, tout en ne présentant qu'un unique fichier contenant les images et les différents chapitres, ce qui est plus commode pour l'utilisateur final.
 
-Le style par défaut, à modifier à votre convenance si nécessaire est epub.css (dans le dossier includes), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
+Le style par défaut, à modifier à votre convenance si nécessaire est ``epub.css`` (dans le dossier ``includes``), à moins qu'un script d'initialisation l'ai renommé du nom de votre projet.
 
 Notre exportation {^}ePUB{^} est très loin d'être parfaite, on utilise simplement un export xhtml et quelques simplifications, pour la conversion avec le logiciel Calibre. Vous pouvez si nécessaire utiliser un outil comme [Sigil http://sigil-ebook.com/] pour reformater ensuite manuellement votre document ou optimiser son apparence.
 

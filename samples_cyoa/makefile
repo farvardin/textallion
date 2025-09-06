@@ -14,13 +14,6 @@
 export TEXTALLIONFOLDER = ../
 # <!> keep /usr/share/textallion if it is written so!
 
-# export TEXTALLION = ${TEXTALLIONFOLDER}/core/textallion.sh
-
-ifeq ($(wildcard /usr/bin/python2),)
- PYTHONVER = python 
-else 
- PYTHONVER = python2
-endif
 
 #TXT2TAGS = python2 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags
 export TXT2TAGS = python3 $(TEXTALLIONFOLDER)/contrib/txt2tags/txt2tags3
@@ -62,7 +55,7 @@ HTMLREADER = firefox
 DIFFTOOL = meld
 RENPY = /opt/renpy/renpy.sh
 
-# for dialog system
+# for dialog system (cyoa)
 DIALOGC = ../contrib/dialog/dialogc
 AAMBUNDLE = ../contrib/dialog/aambundle
 #DIALOGLIB=../contrib/dialog/stdlib-fr
@@ -78,6 +71,9 @@ ifeq ($(UNAME), Darwin)
 else
 #	EDITTOOL = gvim
 	EDITTOOL = geany
+#	EDITTOOL = vim
+#   	EDITTOOL = nano
+#	EDITTOOL = SciTE
 endif
 
 
@@ -503,7 +499,7 @@ cyoa-graph:
 	-cp graph.txt graph2.txt
 	#gawk '/->/ { z=$0} /[0-9]+[^->]/ {print z$0}' fichier.txt
 	# we convert to graphviz using the python script, and remove the extra "0->" before the conf
-	-cat graph2.txt | $(PYTHONVER) $(TEXTALLIONFOLDER)/includes/lines.py  | sed -e "s/0->bgcolor/bgcolor/g" | sed -e "s/0->node/node/g" | sed -e "s/0->edge/edge/g" > graph.txt
+	-cat graph2.txt | python3 $(TEXTALLIONFOLDER)/includes/lines.py  | sed -e "s/0->bgcolor/bgcolor/g" | sed -e "s/0->node/node/g" | sed -e "s/0->edge/edge/g" > graph.txt
 	-rm graph2.txt
 	-dot graph.txt  -Tpng > $(DOCUMENT)_graph.png
 	-dot graph.txt  -Tsvg > $(DOCUMENT)_graph.svg

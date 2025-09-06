@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.6
+#!/usr/bin/env python
 # txt2tags - generic text conversion tool
 #
 # Copyright 2001-2025 Aurelio Jargas
@@ -31,7 +31,7 @@
 #  - this version is maintained at https://github.com/farvardin/textallion/blob/master/contrib/txt2tags/txt2tags3
 #    (and also on https://textallion.sourceforge.io/)
 #
-# This version should run on python3.6 => python3.12
+# This version should run from python3.6 to python3.12
 # python > 3.11 used to raise some regex warnings / errors but they should be fixed now
 #
 ########################################################################
