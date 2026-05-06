@@ -469,8 +469,7 @@ TAGS = {}
 rules = {}
 MAILING = ""
 
-# Gui globals
-Tkinter = tkFileDialog = tkMessageBox = None
+tkinter = None  # imported on demand by load_GUI_resources()
 
 lang = "english"
 TARGET = ""
@@ -10992,7 +10991,10 @@ def convert(bodylines, config, firstlinenr=1):
 
 def load_GUI_resources():
     "Load all extra modules and methods used by GUI"
-    global Tkinter, tkFileDialog, tkMessageBox
+    global tkinter
+    import tkinter
+    import tkinter.filedialog
+    import tkinter.messagebox
 
 
 class Gui:
